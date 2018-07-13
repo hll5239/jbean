@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+     
+  <configuration>      
+	 <typeAliases>
+		<typeAlias alias="bavo" type="com.jb.jbean.domain.BasketVo"/>
+  		<typeAlias alias="bvo" type="com.jb.jbean.domain.BoardVo"/>
+  		<typeAlias alias="buvo" type="com.jb.jbean.domain.BuyVo"/>
+  		<typeAlias alias="dvo" type="com.jb.jbean.domain.DeliveryVo"/>
+  		<typeAlias alias="mvo" type="com.jb.jbean.domain.MemberVo"/>
+  		<typeAlias alias="ovo" type="com.jb.jbean.domain.OrderVo"/>
+  		<typeAlias alias="pvo" type="com.jb.jbean.domain.PayVo"/>
+  		<typeAlias alias="provo" type="com.jb.jbean.domain.ProductVo"/>
+  		<typeAlias alias="rvo" type="com.jb.jbean.domain.ReviewVo"/>
+  		<typeAlias alias="scri" type="com.jb.jbean.domain.SearchCriteria"/>
+  		<typeAlias alias="cri" type="com.jb.jbean.domain.Criteria"/>  	
+	
+	</typeAliases> 
+
+ </configuration>

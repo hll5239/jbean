@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+		<bean id = "db" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> <!-- 오류시 로그를 보여줌 -->
+	        <property name="url" value="jdbc:log4jdbc:oracle:thin://@127.0.0.1:1521:XE" />
+	        <property name="username" value="sys as sysdba" />
+	        <property name="password" value="1111" />			
+		</bean>
+	
+	 
+		<bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="db" /> 
+    	</bean>
+ 		
+	   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	        <property name="dataSource" ref="db" /> 
+	        <property name="mapperLocations" value="classpath:mappers/*.xml" />
+	        <property name="configLocation" value="classpath:config/mybatis_config.xml"/>
+	    </bean>
+	 
+	 	
+	    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	    </bean> 
+  		
+		<context:component-scan base-package="com.jb.jbean"/>
+		
+</beans>
