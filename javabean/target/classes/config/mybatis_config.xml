@@ -4,14 +4,18 @@
   <configuration>      
 	 <typeAliases>
 		<typeAlias alias="bavo" type="com.jb.jbean.domain.BasketVo"/>
+		<typeAlias alias="probavo" type="com.jb.jbean.domain.ProBasketVo"/>
   		<typeAlias alias="bvo" type="com.jb.jbean.domain.BoardVo"/>
-  		<typeAlias alias="buvo" type="com.jb.jbean.domain.BuyVo"/>
+  		<typeAlias alias="buyvo" type="com.jb.jbean.domain.BuyVo"/>
   		<typeAlias alias="dvo" type="com.jb.jbean.domain.DeliveryVo"/>
   		<typeAlias alias="mvo" type="com.jb.jbean.domain.MemberVo"/>
   		<typeAlias alias="ovo" type="com.jb.jbean.domain.OrderVo"/>
   		<typeAlias alias="pvo" type="com.jb.jbean.domain.PayVo"/>
   		<typeAlias alias="provo" type="com.jb.jbean.domain.ProductVo"/>
   		<typeAlias alias="rvo" type="com.jb.jbean.domain.ReviewVo"/>
+  		<typeAlias alias="qvo" type="com.jb.jbean.domain.QnaVo"/>
+  		<typeAlias alias="prorvo" type="com.jb.jbean.domain.ProReviewVo"/>
+  		<typeAlias alias="proqvo" type="com.jb.jbean.domain.ProQnaVo"/>
   		<typeAlias alias="scri" type="com.jb.jbean.domain.SearchCriteria"/>
   		<typeAlias alias="cri" type="com.jb.jbean.domain.Criteria"/>  	
 	
