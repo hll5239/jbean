@@ -38,7 +38,11 @@
 	    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	    </bean> 
-  		
+	    
+  		<bean id="uploadPath" class="java.lang.String">
+	<constructor-arg value="D:/dev/uploadFiles" />
+	</bean>
+	
 		<context:component-scan base-package="com.jb.jbean"/>
 		
 </beans>

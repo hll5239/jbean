@@ -13,7 +13,7 @@
 	 
 	 if(res==true){
 		 document.frm.method="post";
-		 document.frm.action="<%=request.getContextPath() %>/ProductInsertC";
+		 document.frm.action="<%=request.getContextPath()%>/ProductInsertC";
 		 document.frm.submit();
 		
 	       	}
@@ -24,7 +24,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form name="frm">
 <input type="button"  value="등록하기" onclick="writer()"  />
+</form>
 </body>
 </html>
