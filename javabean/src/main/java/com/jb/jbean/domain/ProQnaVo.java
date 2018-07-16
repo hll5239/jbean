@@ -1,6 +1,6 @@
 package com.jb.jbean.domain;
 
-public class BuyVo {
+public class ProQnaVo {
 
 	private int midx;
 	private String mid;
@@ -27,29 +27,18 @@ public class BuyVo {
 	private String promday;
 	private String prodel_yn;
 	private int cidx;
-	private int oidx;
-	private long oid;
-	private String oday;
-	private int ocnt;
-	private int oprice;
-	private String o_yx;
-	private String pname;
-	private int pidx;
-	private int pprice;
-	private String ptype;
-	private String pday;
-	private String pwday;
-	private String p_nxy;
-	private int didx;
-	private String dname;
-	private int dpost;
-	private String daddr1;
-	private String daddr2;
-	private String dmsg;
-	private long dcode;
-	private String d_nxczy;
-	private String dsendday;
-	
+	private int qidx;
+	private String qsubject;
+	private String qcontent;
+	private String qday;
+	private String qmday;
+	private String qreply;
+	private String qreply_yn;
+	private String qreplyday;
+	private String qpwd;
+	private String qmdel_yn;
+	private String qdel_yn;
+	private String qip;
 	
 	public int getMidx() {
 		return midx;
@@ -201,139 +190,77 @@ public class BuyVo {
 	public void setCidx(int cidx) {
 		this.cidx = cidx;
 	}
-	public int getOidx() {
-		return oidx;
+	public int getQidx() {
+		return qidx;
 	}
-	public void setOidx(int oidx) {
-		this.oidx = oidx;
+	public void setQidx(int qidx) {
+		this.qidx = qidx;
 	}
-	public long getOid() {
-		return oid;
+	public String getQsubject() {
+		return qsubject;
 	}
-	public void setOid(long oid) {
-		this.oid = oid;
+	public void setQsubject(String qsubject) {
+		this.qsubject = qsubject;
 	}
-	public String getOday() {
-		return oday;
+	public String getQcontent() {
+		return qcontent;
 	}
-	public void setOday(String oday) {
-		this.oday = oday;
+	public void setQcontent(String qcontent) {
+		this.qcontent = qcontent;
 	}
-	public int getOcnt() {
-		return ocnt;
+	public String getQday() {
+		return qday;
 	}
-	public void setOcnt(int ocnt) {
-		this.ocnt = ocnt;
+	public void setQday(String qday) {
+		this.qday = qday;
 	}
-	public int getOprice() {
-		return oprice;
+	public String getQmday() {
+		return qmday;
 	}
-	public void setOprice(int oprice) {
-		this.oprice = oprice;
+	public void setQmday(String qmday) {
+		this.qmday = qmday;
 	}
-	public String getO_yx() {
-		return o_yx;
+	public String getQreply() {
+		return qreply;
 	}
-	public void setO_yx(String o_yx) {
-		this.o_yx = o_yx;
+	public void setQreply(String qreply) {
+		this.qreply = qreply;
 	}
-	public String getPname() {
-		return pname;
+	public String getQreply_yn() {
+		return qreply_yn;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setQreply_yn(String qreply_yn) {
+		this.qreply_yn = qreply_yn;
 	}
-	public int getPidx() {
-		return pidx;
+	public String getQreplyday() {
+		return qreplyday;
 	}
-	public void setPidx(int pidx) {
-		this.pidx = pidx;
+	public void setQreplyday(String qreplyday) {
+		this.qreplyday = qreplyday;
 	}
-	public int getPprice() {
-		return pprice;
+	public String getQpwd() {
+		return qpwd;
 	}
-	public void setPprice(int pprice) {
-		this.pprice = pprice;
+	public void setQpwd(String qpwd) {
+		this.qpwd = qpwd;
 	}
-	public String getPtype() {
-		return ptype;
+	public String getQmdel_yn() {
+		return qmdel_yn;
 	}
-	public void setPtype(String ptype) {
-		this.ptype = ptype;
+	public void setQmdel_yn(String qmdel_yn) {
+		this.qmdel_yn = qmdel_yn;
 	}
-	public String getPday() {
-		return pday;
+	public String getQdel_yn() {
+		return qdel_yn;
 	}
-	public void setPday(String pday) {
-		this.pday = pday;
+	public void setQdel_yn(String qdel_yn) {
+		this.qdel_yn = qdel_yn;
 	}
-	public String getPwday() {
-		return pwday;
+	public String getQip() {
+		return qip;
 	}
-	public void setPwday(String pwday) {
-		this.pwday = pwday;
+	public void setQip(String qip) {
+		this.qip = qip;
 	}
-	public String getP_nxy() {
-		return p_nxy;
-	}
-	public void setP_nxy(String p_nxy) {
-		this.p_nxy = p_nxy;
-	}
-	public int getDidx() {
-		return didx;
-	}
-	public void setDidx(int didx) {
-		this.didx = didx;
-	}
-	public String getDname() {
-		return dname;
-	}
-	public void setDname(String dname) {
-		this.dname = dname;
-	}
-	public int getDpost() {
-		return dpost;
-	}
-	public void setDpost(int dpost) {
-		this.dpost = dpost;
-	}
-	public String getDaddr1() {
-		return daddr1;
-	}
-	public void setDaddr1(String daddr1) {
-		this.daddr1 = daddr1;
-	}
-	public String getDaddr2() {
-		return daddr2;
-	}
-	public void setDaddr2(String daddr2) {
-		this.daddr2 = daddr2;
-	}
-	public String getDmsg() {
-		return dmsg;
-	}
-	public void setDmsg(String dmsg) {
-		this.dmsg = dmsg;
-	}
-	public long getDcode() {
-		return dcode;
-	}
-	public void setDcode(long dcode) {
-		this.dcode = dcode;
-	}
-	public String getD_nxczy() {
-		return d_nxczy;
-	}
-	public void setD_nxczy(String d_nxczy) {
-		this.d_nxczy = d_nxczy;
-	}
-	public String getDsendday() {
-		return dsendday;
-	}
-	public void setDsendday(String dsendday) {
-		this.dsendday = dsendday;
-	}
-	
-	
-	
+
 }

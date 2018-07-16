@@ -1,7 +1,7 @@
 package com.jb.jbean.domain;
 
-public class BuyVo {
-
+public class ProReviewVo {
+	
 	private int midx;
 	private String mid;
 	private String mpwd;
@@ -27,29 +27,15 @@ public class BuyVo {
 	private String promday;
 	private String prodel_yn;
 	private int cidx;
-	private int oidx;
-	private long oid;
-	private String oday;
-	private int ocnt;
-	private int oprice;
-	private String o_yx;
-	private String pname;
+	private int ridx;
+	private String rcontent;
+	private String rday;
+	private String rmday;
+	private String rdel_yn;
+	private String rip;
+	private String rstar;
+	private String rfilename;
 	private int pidx;
-	private int pprice;
-	private String ptype;
-	private String pday;
-	private String pwday;
-	private String p_nxy;
-	private int didx;
-	private String dname;
-	private int dpost;
-	private String daddr1;
-	private String daddr2;
-	private String dmsg;
-	private long dcode;
-	private String d_nxczy;
-	private String dsendday;
-	
 	
 	public int getMidx() {
 		return midx;
@@ -201,47 +187,53 @@ public class BuyVo {
 	public void setCidx(int cidx) {
 		this.cidx = cidx;
 	}
-	public int getOidx() {
-		return oidx;
+	public int getRidx() {
+		return ridx;
 	}
-	public void setOidx(int oidx) {
-		this.oidx = oidx;
+	public void setRidx(int ridx) {
+		this.ridx = ridx;
 	}
-	public long getOid() {
-		return oid;
+	public String getRcontent() {
+		return rcontent;
 	}
-	public void setOid(long oid) {
-		this.oid = oid;
+	public void setRcontent(String rcontent) {
+		this.rcontent = rcontent;
 	}
-	public String getOday() {
-		return oday;
+	public String getRday() {
+		return rday;
 	}
-	public void setOday(String oday) {
-		this.oday = oday;
+	public void setRday(String rday) {
+		this.rday = rday;
 	}
-	public int getOcnt() {
-		return ocnt;
+	public String getRmday() {
+		return rmday;
 	}
-	public void setOcnt(int ocnt) {
-		this.ocnt = ocnt;
+	public void setRmday(String rmday) {
+		this.rmday = rmday;
 	}
-	public int getOprice() {
-		return oprice;
+	public String getRdel_yn() {
+		return rdel_yn;
 	}
-	public void setOprice(int oprice) {
-		this.oprice = oprice;
+	public void setRdel_yn(String rdel_yn) {
+		this.rdel_yn = rdel_yn;
 	}
-	public String getO_yx() {
-		return o_yx;
+	public String getRip() {
+		return rip;
 	}
-	public void setO_yx(String o_yx) {
-		this.o_yx = o_yx;
+	public void setRip(String rip) {
+		this.rip = rip;
 	}
-	public String getPname() {
-		return pname;
+	public String getRstar() {
+		return rstar;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setRstar(String rstar) {
+		this.rstar = rstar;
+	}
+	public String getRfilename() {
+		return rfilename;
+	}
+	public void setRfilename(String rfilename) {
+		this.rfilename = rfilename;
 	}
 	public int getPidx() {
 		return pidx;
@@ -249,91 +241,6 @@ public class BuyVo {
 	public void setPidx(int pidx) {
 		this.pidx = pidx;
 	}
-	public int getPprice() {
-		return pprice;
-	}
-	public void setPprice(int pprice) {
-		this.pprice = pprice;
-	}
-	public String getPtype() {
-		return ptype;
-	}
-	public void setPtype(String ptype) {
-		this.ptype = ptype;
-	}
-	public String getPday() {
-		return pday;
-	}
-	public void setPday(String pday) {
-		this.pday = pday;
-	}
-	public String getPwday() {
-		return pwday;
-	}
-	public void setPwday(String pwday) {
-		this.pwday = pwday;
-	}
-	public String getP_nxy() {
-		return p_nxy;
-	}
-	public void setP_nxy(String p_nxy) {
-		this.p_nxy = p_nxy;
-	}
-	public int getDidx() {
-		return didx;
-	}
-	public void setDidx(int didx) {
-		this.didx = didx;
-	}
-	public String getDname() {
-		return dname;
-	}
-	public void setDname(String dname) {
-		this.dname = dname;
-	}
-	public int getDpost() {
-		return dpost;
-	}
-	public void setDpost(int dpost) {
-		this.dpost = dpost;
-	}
-	public String getDaddr1() {
-		return daddr1;
-	}
-	public void setDaddr1(String daddr1) {
-		this.daddr1 = daddr1;
-	}
-	public String getDaddr2() {
-		return daddr2;
-	}
-	public void setDaddr2(String daddr2) {
-		this.daddr2 = daddr2;
-	}
-	public String getDmsg() {
-		return dmsg;
-	}
-	public void setDmsg(String dmsg) {
-		this.dmsg = dmsg;
-	}
-	public long getDcode() {
-		return dcode;
-	}
-	public void setDcode(long dcode) {
-		this.dcode = dcode;
-	}
-	public String getD_nxczy() {
-		return d_nxczy;
-	}
-	public void setD_nxczy(String d_nxczy) {
-		this.d_nxczy = d_nxczy;
-	}
-	public String getDsendday() {
-		return dsendday;
-	}
-	public void setDsendday(String dsendday) {
-		this.dsendday = dsendday;
-	}
-	
-	
+
 	
 }
