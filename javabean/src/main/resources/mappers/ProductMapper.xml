@@ -3,4 +3,41 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jb.jbean.persistence.ProductMapper">
 
+
+	<select id="category" parameterType="ArrayList" resultType="provo">
+		select * from Category3
+	</select>
+	
+	<select id="productAll" parameterType="ArrayList" resultType="provo">
+		select distinct Proname, Promain, Proprice from Product3
+	</select>
+	
+	<select id="highPrice" parameterType="ArrayList" resultType="provo">
+		select distinct Proname, Promain, Proprice from Product3 order by Proprice desc
+	</select>
+	
+	<select id="lowPrice" parameterType="ArrayList" resultType="provo">
+		select distinct Proname, Promain, Proprice from Product3 order by Proprice
+	</select>
+	
+	<select id="productBest" parameterType="ArrayList" resultType="buyvo">
+		select Proname, sum(o.Ocnt) as best from Product3 pro, Order3 o where pro.Proidx=o.Proidx and O_yx='Y' group by Proname order by best desc 
+	</select>
+	
+	<select id="productNew" parameterType="ArrayList" resultType="provo">
+		select distinct Proname, Promain, Proprice, Proday from Product3 order by Proday desc
+	</select>
+	
+	<select id="productList" parameterType="ArrayList" resultType="provo">
+		select distinct Proname, Promain, Proprice from Product3 where 
+		Cidx=#{cidx}
+	</select>
+	
+	<select id="productInfo" parameterType="provo">
+		select * from Product3 where Proname=#{proname}
+	</select>
+		
+	
+
+
 </mapper>

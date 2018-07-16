@@ -15,6 +15,7 @@ public class ProductVo {
 	private String promday;
 	private String prodel_yn;
 	private int cidx;
+	private String cname;
 	
 	public int getProidx() {
 		return proidx;
@@ -93,6 +94,12 @@ public class ProductVo {
 	}
 	public void setCidx(int cidx) {
 		this.cidx = cidx;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
 
 }
