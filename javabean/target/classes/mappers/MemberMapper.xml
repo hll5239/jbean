@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jb.jbean.persistence.MemberMapper">
+<mapper namespace="com.jb.jbean.persistence.AdminMapper">
 
+<insert id="memberJoin" parameterType="mvo">
+insert into Member3 (Midx, Mid, Mpwd, Mname, Mmail, Mphone, Mpost, Maddr1, Maddr2) 
+values(seq_Midx.NEXTVAL,#{mid}, #{mpwd}, #{mname}, #{mmail}, #{mphone},#{mpost},#{maddr1},#{maddr2})
+</insert>
 
 </mapper>

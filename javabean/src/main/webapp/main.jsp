@@ -8,7 +8,7 @@
 </head>
 <body>
 Piece & Style
-
+<a href="/MemberJoinController">회원가입</a>
 <table border="1">
 	<tr>
 		<td>상품이미지</td>
