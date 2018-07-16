@@ -5,4 +5,9 @@
 <mapper namespace="com.jb.jbean.persistence.AdminMapper">
 
 
+<insert id="productInsert" parameterType="pvo">
+insert into Product3 values
+(seq_Proidx.NEXTVAL,#{Proname},#{Proprice},#{Procnt},#{Prosize},#{Promain},#{Prosub1},#{Prosub2},#{Proinfo},default,null,default,#{Cidx})
+</insert>
+
 </mapper>
