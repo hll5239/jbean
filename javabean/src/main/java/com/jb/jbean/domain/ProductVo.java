@@ -6,6 +6,7 @@ public class ProductVo {
 	private String proname;
 	private int proprice;
 	private int procnt;
+	private int pronum;
 	private String prosize;
 	private String promain;
 	private String prosub1;
@@ -17,6 +18,12 @@ public class ProductVo {
 	private int cidx;
 	private String cname;
 	
+	public int getPronum() {
+		return pronum;
+	}
+	public void setPronum(int pronum) {
+		this.pronum = pronum;
+	}
 	public int getProidx() {
 		return proidx;
 	}

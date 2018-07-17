@@ -18,6 +18,7 @@ public class ProQnaVo {
 	private String proname;
 	private int proprice;
 	private int procnt;
+	private int pronum;
 	private String prosize;
 	private String promain;
 	private String prosub1;
@@ -40,6 +41,12 @@ public class ProQnaVo {
 	private String qdel_yn;
 	private String qip;
 	
+	public int getPronum() {
+		return pronum;
+	}
+	public void setPronum(int pronum) {
+		this.pronum = pronum;
+	}
 	public int getMidx() {
 		return midx;
 	}

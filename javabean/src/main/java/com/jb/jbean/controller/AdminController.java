@@ -67,6 +67,8 @@ public class AdminController {
 		
 		System.out.println(pv.getCidx());
 		System.out.println(pv.getProname());
+		System.out.println("µé¾î¿È?"+pv.getPromain());
+		
 		bv=as.productInsert(pv);
 		
 		if(bv==1) {
