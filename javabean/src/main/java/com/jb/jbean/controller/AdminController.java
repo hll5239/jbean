@@ -6,13 +6,15 @@ package com.jb.jbean.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jb.jbean.domain.MemberVo;
 import com.jb.jbean.domain.ProductVo;
 import com.jb.jbean.service.AdminService;
 
@@ -32,6 +34,7 @@ import org.springframework.http.ResponseEntity;
 
 
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -41,14 +44,29 @@ import javax.annotation.Resource;
 public class AdminController {
 
 	@Autowired
-	AdminService as;
+	private AdminService as;
 	
 	@Resource(name ="uploadPath")
 	private String uploadPath;
 	
-	@RequestMapping(value="/ProductC")
-	public String Product(){
+	@RequestMapping(value="/MemberC")
+	public String Member(Model model){
 	
+		ArrayList<MemberVo> mlist = as.memberAll();
+		model.addAttribute("mlist", mlist);
+		
+		
+		
+		return "/view/admin/adminMember";
+	}
+	
+	@RequestMapping(value="/ProductC")
+	public String Product(Model model){
+	
+		ArrayList<ProductVo> alist = as.productAll();
+		model.addAttribute("alist", alist);
+		
+		
 		
 		return "/view/admin/adminPro";
 	}
@@ -79,6 +97,63 @@ public class AdminController {
 		}
 		
 		return url;
+	}
+	
+	@RequestMapping(value="/ProductModifyC")
+	public String ProductModify(@RequestParam("proidx") int proidx, Model model){
+	
+		ProductVo Modify = as.productModify(proidx);
+		model.addAttribute("Modify", Modify);
+		
+		
+		return "/view/admin/adminProModify";
+	}
+	
+	@RequestMapping(value="/ProductModifyActionC")
+	public String ProductModifyAction(@ModelAttribute("pv") ProductVo pv){
+		
+		int bv=0;
+		String url="";
+		
+		
+		bv=as.productUpdate(pv);
+		
+		if(bv==1) {
+			url="redirect:/ProductC";
+		}else {
+			
+			url="redirect:/ProductModifyC";
+		}
+		
+		return url;
+	}
+	
+	@RequestMapping(value="/ProductDeleteC")
+	public String ProductDelete(@RequestParam("proidx") int proidx, Model model){
+	
+		int res = as.productDelete(proidx);
+		
+		String url="";
+		
+
+		url="redirect:/ProductC";
+		
+		
+		return url;
+	}
+	
+	/*°Ë»ö*/
+	@RequestMapping(value="/ProductSelectC")
+	public String ProductSelect(@ModelAttribute("pv") ProductVo pv, Model model){
+	
+		
+		System.out.println(pv.getCidx());
+		
+		ArrayList<ProductVo> alist=as.productSelect(pv);
+		
+		model.addAttribute("alist", alist);
+		
+		return "/view/admin/adminPro";
 	}
 	
 	
@@ -149,4 +224,8 @@ public class AdminController {
 		
 		return new ResponseEntity<String>("deleted",HttpStatus.OK);
 	}
+	
+	
+	
+	
 }

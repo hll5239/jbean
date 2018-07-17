@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,7 +48,7 @@ function check() {
   
   	if (res == true) {
 	   	formname.method ="post";
-	   	formname.action ="<%=request.getContextPath() %>/ProductInsertActionC";
+	   	formname.action ="${pageContext.request.contextPath}/ProductInsertActionC";
 	   	formname.submit();  
   	}
   	return ;
@@ -329,6 +329,11 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 	
 });
 
+	
+	
+	
+
+}
 </script>
 
 <title>Insert title here</title>
@@ -338,7 +343,7 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 <form name="frm" id="frm" enctype="multipart/form-data">
 <table border="1">
 	<tr>
-		<td>상품명</td>
+		<td>상품명</td><input type="button" id="aa" value="aa">
 		<td><input type="text" name="proname" id="proname" /></td>
 	</tr>
 	<tr>
@@ -375,7 +380,7 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 
 </table>
 <input type="button"  value="상품등록" onclick="check()"  />
-
+<input type="button"  value="취소하기" onclick="history.back();"  />
 
 
 <input type="hidden" id="promain" name="promain">

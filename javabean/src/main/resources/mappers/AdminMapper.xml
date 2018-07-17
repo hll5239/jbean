@@ -6,13 +6,35 @@
 
 
 <insert id="productInsert" parameterType="provo">
-insert into Product3 values
-(seq_Proidx.NEXTVAL,#{proname},#{proprice},#{procnt},#{prosize},#{promain},#{prosub1},#{prosub2},#{proinfo},default,null,default,#{cidx},#{pronum})
+	insert into Product3 values
+	(seq_Proidx.NEXTVAL,#{proname},#{proprice},#{procnt},#{prosize},#{promain},#{prosub1},#{prosub2},#{proinfo},default,null,default,#{cidx},#{pronum})
 </insert>
 
-<select id="productSelect" parameterType="provo">
-select * from Product3 where Cidx like '%#{cidx}%' and Proname like '%#{proname}%' 
-and Proprice like '%#{proprice}%'
+<select id="productSelect" parameterType="provo" resultType="provo">
+	select * from Product3 where Cidx like '%'||#{cidx}||'%' and Proname like '%'||#{proname}||'%' 
+	and Proprice like '%'||#{proprice}||'%'
+</select>
+
+<select id="productAll" resultType="provo">
+	select * from Product3 where Prodel_yn='N' order by cidx, proname
+</select>
+
+<select id="productModify" parameterType="Integer" resultType="provo">
+	select * from Product3 where Proidx=#{proidx}
+</select>
+
+<update id="productUpdate" parameterType="provo">
+	update Product3 set Proname=#{proname}, Proprice=#{proprice}, Procnt=#{procnt} , 
+	Prosize=#{prosize},Promain=#{promain},Prosub1=#{prosub1},Prosub2=#{prosub2},Proinfo=#{proinfo},Promday=sysdate 
+	where Proidx=#{proidx} 
+</update>
+
+<update id="productDelete" parameterType="Integer">
+update Product3 set Prodel_yn='Y' where Proidx=#{proidx}
+</update>
+
+<select id="memberAll" resultType="mvo">
+select * from Member3 order by Mdel_yn
 </select>
 
 </mapper>

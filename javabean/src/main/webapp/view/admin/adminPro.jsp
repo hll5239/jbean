@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +13,20 @@
 	 
 	 if(res==true){
 		 document.frm.method="post";
-		 document.frm.action="<%=request.getContextPath()%>/ProductInsertC";
+		 document.frm.action="${pageContext.request.contextPath}/ProductInsertC";
+		 document.frm.submit();
+		
+	       	}
+ }
+ 
+ function sel() {
+	 
+	 var res;
+     res= confirm("검색?");
+	 
+	 if(res==true){
+		 document.frm.method="post";
+		 document.frm.action="${pageContext.request.contextPath}/ProductSelectC";
 		 document.frm.submit();
 		
 	       	}
@@ -30,7 +43,7 @@
 		<td>분류선택</td>
 		<td><select name="cidx">
 						<option value="1">티셔츠</option>
-						<option value="2" selected>니트</option>
+						<option value="2">니트</option>
 						<option value="3">블라우스</option>
 						<option value="4">치마</option>
 						<option value="5">청바지</option>
@@ -43,19 +56,64 @@
 	<tr>
 		<td>분류선택</td>
 		<td><select name="proprice">
-						<option>전체</option>
+						<option value="0">전체</option>
 						<option value="1">1만원</option>
-						<option value="2" selected>2만원</option>
+						<option value="2">2만원</option>
 						<option value="3">3만원</option>
 						<option value="4">4만원</option>
 						
 				</select></td>
 	</tr>
 </table>
-<input type="button"  value="검색하기" onclick="select()"  />
-
-
+<input type="button"  value="검색하기" onclick="sel()"/>
+<br>
+<br>
 <input type="button"  value="등록하기" onclick="writer()"  />
+
+<table border=1>
+<tr>
+<td>분류</td>
+<td>상품명</td>
+<td>사이즈</td>
+<td>가격(재고)</td>
+
+</tr>
+
+<c:forEach var="prov" items="${alist}">
+<tr>
+<td>
+
+	<c:choose>
+	<c:when test="${prov.cidx eq '1'}">
+	티셔츠
+	</c:when>
+	<c:when test="${prov.cidx eq '2'}">
+	니트
+	</c:when>
+	<c:when test="${prov.cidx eq '3'}">
+	블라우스
+	</c:when>
+	<c:when test="${prov.cidx eq '4'}">
+	치마
+	</c:when>
+	<c:otherwise>
+	청바지
+	</c:otherwise>
+	</c:choose>
+
+</td>
+<td>${prov.proname}</td>
+<td>${prov.prosize}</td>
+<td>${prov.proprice}(${prov.procnt})</td>
+<td><a href="${pageContext.request.contextPath}/ProductModifyC?proidx=${prov.proidx}">수정</a></td>
+<td><a href="${pageContext.request.contextPath}/ProductDeleteC?proidx=${prov.proidx}">삭제</a></td>
+</tr>
+
+</c:forEach>
+</table>
+
+
 </form>
+
 </body>
 </html>
