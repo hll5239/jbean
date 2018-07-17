@@ -80,12 +80,12 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public ProductVo productInfo(String proname) {
+	public ArrayList<ProductVo> productInfo(int pronum) {
 		
 		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
-		ProductVo prov = prom.productInfo(proname);
+		ArrayList<ProductVo> alist = prom.productInfo(pronum);
 
-		return prov;
+		return alist;
 	}
 
 }

@@ -14,6 +14,7 @@ public class ProductVo {
 	private String proday;
 	private String promday;
 	private String prodel_yn;
+	private int pronum;
 	private int cidx;
 	private String cname;
 	
@@ -101,6 +102,13 @@ public class ProductVo {
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
+	public int getPronum() {
+		return pronum;
+	}
+	public void setPronum(int pronum) {
+		this.pronum = pronum;
+	}
+
 
 }
 

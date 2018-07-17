@@ -14,7 +14,7 @@ public interface ProductMapper {
 	public ArrayList<BuyVo> productBest();
 	public ArrayList<ProductVo> productNew();
 	public ArrayList<ProductVo> productList(int cidx);
-	public ProductVo productInfo(String proname);
+	public ArrayList<ProductVo> productInfo(int pronum);
 	
 
 }

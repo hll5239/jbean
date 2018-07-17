@@ -9,15 +9,15 @@
 	</select>
 	
 	<select id="productAll" parameterType="ArrayList" resultType="provo">
-		select distinct Proname, Promain, Proprice from Product3
+		select distinct Proname, Promain, Proprice, Pronum from Product3
 	</select>
 	
 	<select id="highPrice" parameterType="ArrayList" resultType="provo">
-		select distinct Proname, Promain, Proprice from Product3 order by Proprice desc
+		select distinct Proname, Promain, Proprice, Pronum from Product3 order by Proprice desc
 	</select>
 	
 	<select id="lowPrice" parameterType="ArrayList" resultType="provo">
-		select distinct Proname, Promain, Proprice from Product3 order by Proprice
+		select distinct Proname, Promain, Proprice, Pronum from Product3 order by Proprice
 	</select>
 	
 	<select id="productBest" parameterType="ArrayList" resultType="buyvo">
@@ -25,16 +25,15 @@
 	</select>
 	
 	<select id="productNew" parameterType="ArrayList" resultType="provo">
-		select distinct Proname, Promain, Proprice, Proday from Product3 order by Proday desc
+		select distinct Proname, Promain, Proprice, Pronum, Proday from Product3 order by Proday desc
 	</select>
 	
 	<select id="productList" parameterType="ArrayList" resultType="provo">
-		select distinct Proname, Promain, Proprice from Product3 where 
-		Cidx=#{cidx}
+		select distinct Proname, Promain, Proprice, Pronum from Product3 where Cidx=#{cidx}
 	</select>
 	
-	<select id="productInfo" parameterType="provo">
-		select * from Product3 where Proname=#{proname}
+	<select id="productInfo" parameterType="ArrayList" resultType="provo">
+		select * from Product3 where Pronum=#{pronum}
 	</select>
 		
 	
