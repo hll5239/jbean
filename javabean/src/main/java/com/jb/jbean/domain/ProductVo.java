@@ -18,6 +18,7 @@ public class ProductVo {
 	private int cidx;
 	private String cname;
 	
+
 	public int getProidx() {
 		return proidx;
 	}

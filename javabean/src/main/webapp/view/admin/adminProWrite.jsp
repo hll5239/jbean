@@ -14,11 +14,29 @@ height:200px;
 border:1px dotted blue;
 }
 
+.fileDrop1 {
+width: 100%;
+height:200px;
+border:1px dotted blue;
+}
+.fileDrop2 {
+width: 100%;
+height:200px;
+border:1px dotted blue;
+}
+.fileDrop3 {
+width: 100%;
+height:200px;
+border:1px dotted blue;
+}
+
 small {
 margin-left:3px;
 font-weight:bold;
 color:gray;
 }
+
+
 </style>
 <script type="text/javascript">
 function check() {	
@@ -109,7 +127,7 @@ $(function(){
 				alert(data);
 			
 				// input--> sdsdsd-ssd22q.jpg
-				$("#uploadfile").val(data.replace("s-",""));		
+				$("#promain").val(data.replace("s-",""));		
 				
 				var str ="";
 				
@@ -135,6 +153,180 @@ $(function(){
 		
 	});	
 	
+	$(".fileDrop1").on("dragenter dragover",function(event){
+		
+		event.preventDefault();		
+	});
+	
+	$(".fileDrop1").on("drop",function(event){
+		
+		event.preventDefault();
+		
+		var files = event.originalEvent.dataTransfer.files;
+		var file = files[0];
+		
+		var formData = new FormData();
+		
+		formData.append("file",file);
+		
+		$.ajax({
+			url:'/uploadAjax',
+			data: formData,
+			dataType:'text',
+			error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       },
+			processData:false,
+			contentType:false,
+			type:'POST',
+			success : function(data){
+				
+				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
+				alert(data);
+			
+				// input--> sdsdsd-ssd22q.jpg
+				$("#prosub1").val(data.replace("s-",""));		
+				
+				var str ="";
+				
+				if(checkImageType(data)){
+					str ="<div>"
+					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
+					+ "<img src='displayFile?fileName="+data+"' />"
+					+ getImageLink(data) 
+					+ "</a>"
+					+ "</div>";
+				}else{
+					str = "<div>"
+						+ "<a href='displayFile?fileName="+data+"'>"
+						+ getOriginalName(data) 
+						+ "</a>"
+						+ "</div>";
+				}
+				
+				$(".uploadedList1").append(str);
+			}		
+			
+		});	
+		
+	});
+	
+	$(".fileDrop2").on("dragenter dragover",function(event){
+		
+		event.preventDefault();		
+	});
+	
+	$(".fileDrop2").on("drop",function(event){
+		
+		event.preventDefault();
+		
+		var files = event.originalEvent.dataTransfer.files;
+		var file = files[0];
+		
+		var formData = new FormData();
+		
+		formData.append("file",file);
+		
+		$.ajax({
+			url:'/uploadAjax',
+			data: formData,
+			dataType:'text',
+			error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       },
+			processData:false,
+			contentType:false,
+			type:'POST',
+			success : function(data){
+				
+				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
+				alert(data);
+			
+				// input--> sdsdsd-ssd22q.jpg
+				$("#prosub2").val(data.replace("s-",""));		
+				
+				var str ="";
+				
+				if(checkImageType(data)){
+					str ="<div>"
+					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
+					+ "<img src='displayFile?fileName="+data+"' />"
+					+ getImageLink(data) 
+					+ "</a>"
+					+ "</div>";
+				}else{
+					str = "<div>"
+						+ "<a href='displayFile?fileName="+data+"'>"
+						+ getOriginalName(data) 
+						+ "</a>"
+						+ "</div>";
+				}
+				
+				$(".uploadedList2").append(str);
+			}		
+			
+		});	
+		
+	});
+	
+$(".fileDrop3").on("dragenter dragover",function(event){
+		
+		event.preventDefault();		
+	});
+	
+	$(".fileDrop3").on("drop",function(event){
+		
+		event.preventDefault();
+		
+		var files = event.originalEvent.dataTransfer.files;
+		var file = files[0];
+		
+		var formData = new FormData();
+		
+		formData.append("file",file);
+		
+		$.ajax({
+			url:'/uploadAjax',
+			data: formData,
+			dataType:'text',
+			error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       },
+			processData:false,
+			contentType:false,
+			type:'POST',
+			success : function(data){
+				
+				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
+				alert(data);
+			
+				// input--> sdsdsd-ssd22q.jpg
+				$("#proinfo").val(data.replace("s-",""));		
+				
+				var str ="";
+				
+				if(checkImageType(data)){
+					str ="<div>"
+					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
+					+ "<img src='displayFile?fileName="+data+"' />"
+					+ getImageLink(data) 
+					+ "</a>"
+					+ "</div>";
+				}else{
+					str = "<div>"
+						+ "<a href='displayFile?fileName="+data+"'>"
+						+ getOriginalName(data) 
+						+ "</a>"
+						+ "</div>";
+				}
+				
+				$(".uploadedList3").append(str);
+			}		
+			
+		});	
+		
+	});
+	
 });
 
 </script>
@@ -158,6 +350,10 @@ $(function(){
 		<td><input type="text" name="procnt" id="procnt" /></td>
 	</tr>
 	<tr>
+		<td>상품 코드</td>
+		<td><input type="text" name="pronum" id="pronum" /></td>
+	</tr>
+	<tr>
 		<td>분류선택</td>
 		<td><select name="cidx">
 						<option value="1">티셔츠</option>
@@ -175,27 +371,28 @@ $(function(){
 						<option value="L">라지</option>
 				</select></td>
 	</tr>
+	
 
 </table>
 <input type="button"  value="상품등록" onclick="check()"  />
 
 
 
-<input type="hidden" id="promain" name="promain">  
+<input type="hidden" id="promain" name="promain">
 <div class='fileDrop'></div>
 <div class='uploadedList'></div>
 
 <input type="hidden" id="prosub1" name="prosub1" >  
-<div class='fileDrop'></div>
-<div class='uploadedList'></div>
+<div class='fileDrop1'></div>
+<div class='uploadedList1'></div>
 
 <input type="hidden" id="prosub2" name="prosub2">  
-<div class='fileDrop'></div>
-<div class='uploadedList'></div>
+<div class='fileDrop2'></div>
+<div class='uploadedList2'></div>
 
 <input type="hidden" id="proinfo" name="proinfo">  
-<div class='fileDrop'></div>
-<div class='uploadedList'></div>
+<div class='fileDrop3'></div>
+<div class='uploadedList3'></div>
 
 </form>
 </body>
