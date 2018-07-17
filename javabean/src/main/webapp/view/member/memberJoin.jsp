@@ -37,6 +37,10 @@ function check() {
 	  	}
 	  	return ;
 	}
+function check1() {
+	location.href = "MemberLoginController"
+}
+
 </script>
 </head>
 
@@ -106,6 +110,7 @@ function check() {
 <tr>
 <td colspan=4 align="center">
 <input type="button" name="button" value="회원가입" onclick="javascript:check();"/>
+<input type="button" name="button" value="로그인" onclick="javascript:check1();"/>
 </td>
 </tr>
 </table>

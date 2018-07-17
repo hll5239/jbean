@@ -8,5 +8,9 @@
 </head>
 <body>
 
+
+
+
+<input type="text" name="mname" id="mname" value="${alist.mname}">
 </body>
 </html>

@@ -21,4 +21,29 @@ public class MemberServiceImpl implements MemberService {
 
 		return res;
 	}
+
+	@Override
+	public MemberVo memberLogin(MemberVo mv) {
+
+		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
+		MemberVo res = mm.memberLogin(mv);
+
+		return res;
+	}
+
+	@Override
+	public int memberModify(MemberVo mv) {
+		
+		return 0;
+
+	}
+
+	@Override
+	public MemberVo memberone(String mid) {
+		
+		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
+		MemberVo mo = mm.memberone(mid);
+		
+		return mo;
+	}
 }
