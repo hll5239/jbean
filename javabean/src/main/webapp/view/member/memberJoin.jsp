@@ -78,7 +78,7 @@ function check1() {
 @
 <select name="mmail2">
 <option value="naver.com" selected>naver.com</option>
-<option value="daum.net">??daum.net</option>
+<option value="daum.net">daum.net</option>
 <option value="nate.com" >nate.com</option>
 <option value="google.com" >gmail.com</option>
 </select>

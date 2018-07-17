@@ -33,9 +33,14 @@
 	</select>
 	
 	<select id="productInfo" parameterType="ArrayList" resultType="provo">
+		select distinct Proname, Promain, Proprice, Pronum from Product3 where Pronum=#{pronum}
+	</select>
+	
+	<select id="productInfoSize" parameterType="ArrayList" resultType="provo">
 		select * from Product3 where Pronum=#{pronum}
 	</select>
-		
+	
+	
 	
 
 

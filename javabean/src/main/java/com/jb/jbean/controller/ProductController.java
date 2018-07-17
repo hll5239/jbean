@@ -52,9 +52,13 @@ public class ProductController {
 		
 		ArrayList<ProductVo> alistCate = pros.category();
 		ArrayList<ProductVo> alistProI = pros.productInfo(pronum);
+		ArrayList<ProductVo> alistProIS = pros.productInfoSize(pronum);
+
 		model.addAttribute("alistCate", alistCate);
 		model.addAttribute("alistProI", alistProI);
+		model.addAttribute("alistProIS", alistProIS);
 		
+		//model.addAttribute("prov", prov);
 				
 		return "/view/product/proInfo";
 	}
