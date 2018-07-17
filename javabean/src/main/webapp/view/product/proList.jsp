@@ -21,7 +21,8 @@
 
 <c:forEach var="prov" items="${alistProL}">
 	<div  style="float:left; width:30%; text-align:center;">
-		<div>${prov.promain}</div>
+		<div><a href="${request.contextPath}/proInfo?pronum=${prov.pronum}">
+		${prov.promain}</a></div>
 		<div>${prov.proname}, ${prov.proprice}</div>
 	</div>
 </c:forEach>
