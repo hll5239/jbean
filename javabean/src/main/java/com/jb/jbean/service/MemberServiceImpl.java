@@ -16,7 +16,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberJoin(MemberVo mv) {
 
-		MemberMapper mm = sqlSession.getMapper(MemberMapper.class);
+		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
 		int res = mm.memberJoin(mv);
 
 		return res;

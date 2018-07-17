@@ -1,6 +1,5 @@
 package com.jb.jbean.persistence;
 
-import java.util.HashMap;
 
 import com.jb.jbean.domain.MemberVo;
 
