@@ -81,6 +81,8 @@ public class AdminController {
 		return url;
 	}
 	
+	
+	
 	@ResponseBody
 	@RequestMapping(value="/uploadAjax" ,method = RequestMethod.POST, produces ="text/plain;charset=UTF-8")
 	public ResponseEntity<String> uploadAjax( MultipartFile file)  throws Exception{
