@@ -44,6 +44,7 @@ public class BuyVo {
 	private String p_nxy;
 	private int didx;
 	private String dname;
+	private String dphone;
 	private int dpost;
 	private String daddr1;
 	private String daddr2;
@@ -349,6 +350,12 @@ public class BuyVo {
 	}
 	public void setDsendday(String dsendday) {
 		this.dsendday = dsendday;
+	}
+	public String getDphone() {
+		return dphone;
+	}
+	public void setDphone(String dphone) {
+		this.dphone = dphone;
 	}
 	
 	

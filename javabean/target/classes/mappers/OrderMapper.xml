@@ -4,12 +4,12 @@
 <mapper namespace="com.jb.jbean.persistence.OrderMapper">
 
 	<select id="defaultAddr" parameterType="mvo">
-		select Mname,Mphone,Mpost,Maddr1,Maddr2 from Member3 where Midx=#{Midx}
+		select Mname,Mphone,Mpost,Maddr1,Maddr2 from Member3 where Midx=#{midx}
 	</select>
 	
-	<insert id="orderInsert" parameterType="buyvo">
-		insert into Order3
-		values(seq_Oidx.NEXTVAL,#{Oid},default,#{Ocnt},#{Oprice},default,#{Pname},#{Midx},#{Proidx})
+	<insert id="orderInsert" parameterType="ovo">
+		insert into Order3 (Oidx, Oid, Ocnt, Oprice, Midx, Proidx)
+		values(seq_Oidx.NEXTVAL,#{oid},#{ocnt},#{oprice},#{midx},#{proidx})
 	</insert>
 	
 	<insert id="deliveryInsert" parameterType="buyvo">

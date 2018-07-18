@@ -56,7 +56,7 @@
 	$('#buy').click(function(){
 		alert("사기");
 		document.form.method ="POST"; //메소드 타입을 결정
-		document.form.action ="${request.contextPath}/OrderInfoC";
+		document.form.action ="${request.contextPath}/OrderC";
 							//이것은 보이지 않는 주소값을 반환해주는 것으로
 							// 서버-톰켓-모듈-패스를 지워줘야 정상작동
 		document.form.submit();
@@ -90,17 +90,21 @@
 	<c:forEach var="prov" begin="0" varStatus="status" items="${alistProI}">
 		<div>
 		 <c:if test="${status.index eq 0}">
-			<div style="float: left; width: 50%; text-align: center;">${prov.promain}</div>
+			<div style="float: left; width: 50%; text-align: center;">
+				<input type="text" name="promain" style="border:none;" readonly value="${prov.promain}"></div>
 			<div style="float: left; width: 50%; text-align: center;">
 				<ul style="list-style:none;">
 					<li><input type="text" name="proname" style="border:none;" readonly value="${prov.proname}"></li>
 					<li><input type="text" name="proprice" style="border:none;" readonly value="${prov.proprice}"></li>
 					<li>배송비</li>
-					<li><select>
+					<li>
+							<select name="prosize">
 							<c:forEach var="provs" items="${alistProI}">
-								<option>${provs.prosize}</option>
+								<option  value="${provs.prosize}">${provs.prosize} ${provs.proidx}</option>
 							</c:forEach>
-					</select></li>
+							</select>
+
+							</li>
 					<li>수량<input type="hidden" name="proprice" id="price" value="${prov.proprice}">
 							<input type="text" name="cnt" value="1" size="3" onchange="change();">
 							<input type="button" value=" + " onclick="add();">

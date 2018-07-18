@@ -23,7 +23,7 @@
 	<c:forEach var="probavo" items="${alist}">
 		<table>
 			<tr>
-				<td><input type="checkbox" id="baidx" value="${probavo.baidx}"></td>
+				<td><input type="checkbox" name="baidx" value="${probavo.baidx}"></td>
 				<td>${probavo.promain}</td>
 				<td>${probavo.prosize}</td>
 				<td>${probavo.proprice}</td>

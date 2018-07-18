@@ -4,6 +4,7 @@ public class DeliveryVo {
 	private int didx;
 	private long oid;
 	private String dname;
+	private String dphone;
 	private int dpost;
 	private String daddr1;
 	private String daddr2;
@@ -72,6 +73,12 @@ public class DeliveryVo {
 	}
 	public void setDsendday(String dsendday) {
 		this.dsendday = dsendday;
+	}
+	public String getDphone() {
+		return dphone;
+	}
+	public void setDphone(String dphone) {
+		this.dphone = dphone;
 	}
 	
 }
