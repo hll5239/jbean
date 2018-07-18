@@ -37,8 +37,10 @@ function check() {
    }
 function check1() {
    location.href = "/"
+   }
+function check2(){
+	location.href = "<%=request.getContextPath() %>/MemberDeletecontroller?midx=${Mone.midx}"
 }
-
 </script>
 
 </head>
@@ -115,6 +117,7 @@ function check1() {
 <td colspan=4 align="center">
 <input type="button" name="button" value="수정완료" onclick="javascript:check();"/>
 <input type="button" name="button" value="취소" onclick="javascript:check1();"/>
+<input type="button" name="button" value="회원탈퇴" onclick="javascript:check2();"/>
 </td>
 </tr>
 </table>

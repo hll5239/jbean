@@ -12,4 +12,10 @@ public interface MemberService {
 	
 	public MemberVo memberOne(String mid);
 	
+	public int memberDelete(int midx);
+	
+	public MemberVo memberIdFind(MemberVo mv);
+	
+	public MemberVo memberPwdFind(MemberVo mv);
+	
 }

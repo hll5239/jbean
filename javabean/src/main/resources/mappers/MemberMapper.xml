@@ -21,4 +21,16 @@ update Member3 set Mpwd=#{mpwd}, Mmail=#{mmail}, Mphone=#{mphone}, Mpost=#{mpost
 select * from Member3 where Mid=#{mid}
 </select>
 
+<update id="memberDelete" parameterType="Integer">
+update member3 set Mdel_yn='Y' where Midx=#{midx}
+</update>
+
+<select id="memberIdFind" parameterType="mvo" resultType="mvo">
+select * from Member3 where Mname=#{mname} and Mmail=#{mmail}
+</select>
+
+<select id="memberPwdFind" parameterType="mvo" resultType="mvo">
+select * from Member3 where Mname=#{mname} and Mmail=#{mmail}
+</select>
+
 </mapper>

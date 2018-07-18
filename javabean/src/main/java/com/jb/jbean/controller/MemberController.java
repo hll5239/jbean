@@ -105,10 +105,10 @@ public class MemberController {
 
 	@RequestMapping(value = "/MemberModifyActionController")
 	public String memberModifyAction(@ModelAttribute("mv") MemberVo mv, HttpSession session,
-			@RequestParam("mmail1") String mmail1, @RequestParam("mmail2") String mmail2,@RequestParam("midx") int midx) {
+			@RequestParam("mmail1") String mmail1, @RequestParam("mmail2") String mmail2,
+			@RequestParam("midx") int midx) {
 
-		
-		System.out.println("1="+midx);
+		System.out.println("1=" + midx);
 		String mmail = mmail1 + "@" + mmail2;
 		String ip = null;
 		try {
@@ -136,4 +136,48 @@ public class MemberController {
 
 		return page;
 	}
+
+	@RequestMapping(value = "/MemberDeleteController")
+	public String memberDelete(@RequestParam("midx") int midx) {
+		System.out.println("midx="+midx);
+		
+		int res = ms.memberDelete(midx);
+				
+		String page="";
+
+		page="redirect:/MemberLoginController";
+		
+		return page;
+	}
+	
+	@RequestMapping(value = "/MemberFindController")
+	public String memberFind(){
+	
+		return "/view/member/memberFind.jsp";
+	}
+	
+	@RequestMapping(value = "/MemberFindC")
+	public String memberIdFind(@ModelAttribute("mv") MemberVo mv, Model model) {
+
+		System.out.println("이름:"+mv.getMname());
+		MemberVo mf = null;
+		
+		mf = ms.memberIdFind(mv);
+
+		System.out.println(mf.getMid());
+		model.addAttribute("mf", mf);
+		
+		return "memberFind";
+	}
+	
+	@RequestMapping(value = "/MemberFindC")
+	public String memberPwdFind(@ModelAttribute("mv") MemberVo mv, Model model) {
+		MemberVo pf = null;
+		
+		pf = ms.memberPwdFind(mv);
+		model.addAttribute("pf", pf);
+		
+		return "memberFind";
+	}
+	//	session.invalidate(); 세션 비우기
 }

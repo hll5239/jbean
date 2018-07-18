@@ -35,7 +35,7 @@ function check() {
 	}
 	
 	function check2() {
-		location.href = ""
+		location.href = "/view/member/memberFind.jsp"
 	}
 </script>
 </head>

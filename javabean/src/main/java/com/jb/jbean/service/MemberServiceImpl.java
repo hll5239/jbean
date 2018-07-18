@@ -33,10 +33,10 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int memberModify(MemberVo mv) {
-		System.out.println("2");
+//		System.out.println("2");
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
 		int res = mm.memberModify(mv);
-		System.out.println("3"+res);
+//		System.out.println("3"+res);
 		return res;
 
 	}
@@ -48,5 +48,34 @@ public class MemberServiceImpl implements MemberService {
 		MemberVo mo = mm.memberOne(mid);
 		
 		return mo;
+	}
+	
+	@Override
+	public int memberDelete(int midx) {
+		
+		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
+		int md = mm.memberDelete(midx);
+		
+		return md;		
+		
+	}
+	
+	@Override
+	public MemberVo memberIdFind(MemberVo mv){
+		
+		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
+		MemberVo mf = mm.memberIdFind(mv);
+
+		return mf;
+		
+	}
+	@Override
+	public MemberVo memberPwdFind(MemberVo mv){
+		
+		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
+		MemberVo pf = mm.memberPwdFind(mv);
+
+		return pf;
+
 	}
 }
