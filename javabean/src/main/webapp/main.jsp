@@ -11,7 +11,17 @@
 </head>
 <body>
 Piece & Style
-
+<c:choose>
+<c:when test="${sMid eq null}">
+<a href="MemberLoginController">로그인</a>
+<a href="MemberJoinController">회원가입</a>
+</c:when>
+<c:otherwise>
+<c:out value="${sMid}님 안녕하세요"></c:out>
+<a href="MemberLoginController">로그인</a>
+<a href="MemberJoinController">회원가입</a>
+</c:otherwise>
+</c:choose>
 
 <div>
 	<c:forEach var="prov" items="${alistCate}">

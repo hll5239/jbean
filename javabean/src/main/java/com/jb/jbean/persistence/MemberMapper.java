@@ -11,7 +11,7 @@ public interface MemberMapper {
 	
 	public int memberModify(MemberVo mv);
 	
-	public MemberVo memberone(String mid);
+	public MemberVo memberOne(String mid);
 	
 	
 	

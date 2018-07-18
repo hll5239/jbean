@@ -8,25 +8,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form name="searchform" action="${pageContext.request.contextPath}/MemberCareC">
 <table border=1>
 <tr>
 <td>검색조건</td>
 <td>
-<input type="radio" name="memberSearch" id="searchType1" value="1" checked>아이디 
-<input type="radio" name="memberSearch" id="searchType2" value="2">회원명
-<input type="radio" name="memberSearch" id="searchType3" value="3">이메일
-<input type="radio" name="memberSearch" id="searchType4" value="4">연락처
+<input type="radio" name="searchType"  value="Mid" checked>아이디 
+<input type="radio" name="searchType"  value="Mname">회원명
+<input type="radio" name="searchType"  value="Mmail">이메일
+<input type="radio" name="searchType"  value="Mphone">연락처
 </td>
 </tr>
 <tr>
 <td>입력</td>
 <td>
-<input type="text" name="membertext" id="membertext" />
-<input type="button"  value="검색" onclick="history.back();"/>
+<input type="text" name="keyword" id="keyword" />
+<input type="submit"  value="검색" />
 
 </td>
 </tr>
 </table>
+</form>
 <br><br>
 <table border=1>
 <tr>
@@ -37,6 +39,7 @@
 <td>연락처</td>
 <td>주소</td>
 <td>등록일</td>
+<td>회원ip</td>
 <td>삭제유무</td>
 <td colspan=2></td>
 </tr>
@@ -49,9 +52,10 @@
 <td>${ml.mphone}</td>
 <td>${ml.mpost} ${ml.maddr1} ${ml.maddr2}</td>
 <td>${ml.mday}</td>
+<td>${ml.mip}</td>
 <td>${ml.mdel_yn}</td>
-<td><a href="#">수정</a></td>
-<td><a href="#">삭제</a></td>
+<td><a href="${pageContext.request.contextPath}/MemberModifyC?midx=${ml.midx}">수정</a></td>
+<td><a href="${pageContext.request.contextPath}/MemberDeleteC?midx=${ml.midx}"">삭제</a></td>
 
 </tr>
 </c:forEach>

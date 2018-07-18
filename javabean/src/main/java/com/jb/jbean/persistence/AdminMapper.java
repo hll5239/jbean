@@ -25,4 +25,10 @@ public interface AdminMapper {
 	
 	public ArrayList<MemberVo> memberCare(SearchCriteria scri);
 	
+	public MemberVo memberModfiyOne(int midx);
+	
+	public int adminMemberModify(MemberVo mv);
+	
+	public int adminMemberDelete(int midx);
+	
 }

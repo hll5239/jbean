@@ -6,6 +6,8 @@ package com.jb.jbean.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import com.jb.jbean.service.AdminService;
 
 import com.jb.jbean.util.MediaUtils;
 import com.jb.jbean.util.UploadFileUtiles;
+import com.jb.jbean.domain.SearchCriteria;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -58,6 +61,77 @@ public class AdminController {
 		
 		
 		return "/view/admin/adminMember";
+	}
+	@RequestMapping(value="/MemberCareC")
+	public String MemberCare(SearchCriteria scri,  Model model){
+	
+		System.out.println("1");
+		ArrayList<MemberVo> mlist = as.memberCare(scri);
+		model.addAttribute("mlist", mlist);
+		
+		
+		return "/view/admin/adminMember";
+		
+	}
+	
+	@RequestMapping(value="/MemberModifyC")
+	public String MemberModify(@RequestParam("midx") int midx, Model model){
+	
+		System.out.println(midx);
+		MemberVo mModify = as.memberModfiyOne(midx);
+		model.addAttribute("mModify", mModify);
+		
+		
+		return "/view/admin/adminMemberModify";
+	}
+	
+	@RequestMapping(value="/MemberModifyActionC")
+	public String MemberModifyAction(@ModelAttribute("mv") MemberVo mv, @RequestParam("mmail1") String mmail1
+			, @RequestParam("mmail2") String mmail2, @RequestParam("midx") int midx){
+	
+		String mmail= null;
+		
+		mmail=mmail1+"@"+mmail2;
+		
+		int bv=0;
+		String url="";
+		String ip =null;
+		InetAddress local;
+		try {
+			local = InetAddress.getLocalHost();
+			ip= local.getHostAddress();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		mv.setMmail(mmail);
+		mv.setMip(ip);
+		mv.setMidx(midx);
+		bv = as.adminMemberModify(mv);
+		
+		if(bv==1) {
+			url="redirect:/MemberC";
+		}else {
+			
+			url="redirect:/MemberModifyC";
+		}
+		
+		return url;
+	}
+	
+	@RequestMapping(value="/MemberDeleteC")
+	public String MemberDelete(@RequestParam("midx") int midx, Model model){
+	
+		
+		int res = as.adminMemberDelete(midx);
+		
+		String url="";
+
+		url="redirect:/MemberC";
+		
+		return url;
 	}
 	
 	@RequestMapping(value="/ProductC")
@@ -129,7 +203,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/ProductDeleteC")
-	public String ProductDelete(@RequestParam("proidx") int proidx, Model model){
+	public String ProductDelete(@RequestParam("proidx") int proidx){
 	
 		int res = as.productDelete(proidx);
 		
@@ -142,7 +216,7 @@ public class AdminController {
 		return url;
 	}
 	
-	/*검색*/
+	/*상품검색*/
 	@RequestMapping(value="/ProductSelectC")
 	public String ProductSelect(@ModelAttribute("pv") ProductVo pv, Model model){
 	
