@@ -6,7 +6,7 @@
 
 <sql id="search">
 	<if test="searchType != null">
-	and  ${searchType} like '%'||#{keyword}||'%'
+	 ${searchType} like '%'||#{keyword}||'%'
 	</if>	
 </sql>
 
@@ -43,13 +43,26 @@ update Product3 set Prodel_yn='Y' where Proidx=#{proidx}
 select * from Member3 order by Mdel_yn
 </select>
 
-<select id="memberCare">
+<select id="memberCare" parameterType="scri" resultType="mvo">
 <![CDATA[
-select * from Member3 where 
+select * from Member3 where
 ]]> 
 <include refid="search"></include>
 <![CDATA[
 order by Mdel_yn]]> 
 </select>
+
+<select id="memberModfiyOne" resultType="mvo">
+select * from Member3 where Mdel_yn='N' and Midx=#{midx}
+</select>
+
+<update id="adminMemberModify" parameterType="mvo">
+update Member3 set Mname=#{mname}, Mpwd=#{mpwd}, Mmail=#{mmail},
+ Mphone=#{mphone}, Mpost=#{mpost}, Maddr1=#{maddr1}, Maddr2=#{maddr2}, Mmday=sysdate where Midx=#{midx}
+</update>
+
+<update id="adminMemberDelete" parameterType="Integer">
+update Member3 set mdel_yn='Y' where Midx=#{midx}
+</update>
 
 </mapper>

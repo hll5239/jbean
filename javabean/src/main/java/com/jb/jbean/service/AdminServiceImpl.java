@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.jb.jbean.domain.MemberVo;
 import com.jb.jbean.domain.ProductVo;
+import com.jb.jbean.domain.SearchCriteria;
 import com.jb.jbean.persistence.AdminMapper;
 
 
@@ -88,12 +89,47 @@ public class AdminServiceImpl implements AdminService  {
 		
 		return mlist;
 	}
-	
-	
 
-	
+	@Override
+	public ArrayList<MemberVo> memberCare(SearchCriteria scri) {
+		
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		ArrayList<MemberVo> mCare = msm.memberCare(scri);
+		
+		return mCare;
+	}
 
-	
+	@Override
+	public MemberVo memberModfiyOne(int midx) {
 
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		MemberVo mmlist = msm.memberModfiyOne(midx);
+		
+		return mmlist;
+	}
+
+	@Override
+	public int adminMemberModify(MemberVo mv) {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.adminMemberModify(mv);
+		
+		return res;
+	}
+
+	@Override
+	public int adminMemberDelete(int midx) {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.adminMemberDelete(midx);
+		
+		return res;
+	}
+	
+	
 	
 }

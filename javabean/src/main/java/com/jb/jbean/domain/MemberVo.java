@@ -7,7 +7,7 @@ public class MemberVo {
 	private String mname;
 	private String mphone;
 	private String mmail;
-	private int mpost;
+	private String mpost;
 	private String maddr1;
 	private String maddr2;
 	private String mdel_yn;
@@ -15,6 +15,12 @@ public class MemberVo {
 	private String mmday;
 	private String mip;
 	
+	public String getMpost() {
+		return mpost;
+	}
+	public void setMpost(String mpost) {
+		this.mpost = mpost;
+	}
 	public String getMip() {
 		return mip;
 	}
@@ -57,12 +63,7 @@ public class MemberVo {
 	public void setMmail(String mmail) {
 		this.mmail = mmail;
 	}
-	public int getMpost() {
-		return mpost;
-	}
-	public void setMpost(int mpost) {
-		this.mpost = mpost;
-	}
+	
 	public String getMaddr1() {
 		return maddr1;
 	}
