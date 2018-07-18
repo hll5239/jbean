@@ -53,7 +53,7 @@
 	</table>
 	<table border="1">
 		<tr>
-			<td>${param.promain}</td>
+			<td>${hm.promain}</td>
 			<td>${param.proname}<br>${param.prosize}</td>
 			<td>${param.proprice}</td>
 			<td>${param.cnt}</td>

@@ -3,6 +3,27 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jb.jbean.persistence.MypageMapper">
+	
+	<select id="orderAllCnt" parameterType="Integer">
+		select count(*) from (select distinct o.Oid from Member3 m, Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and m.Midx=#{midx} and d.D_nxczy='Y')
+	</select>
+		
+	<select id="paymentBeforeCnt" parameterType="Integer">
+		select count(*) from (select distinct o.Oid from Member3 m, Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and m.Midx=#{midx} and p.P_nxy='N')
+	</select>
+		
+	<select id="productReadyCnt" parameterType="Integer">
+		select count(*) from (select distinct o.Oid from Member3 m, Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and m.Midx=#{midx} and p.P_nxy='Y' and d.D_nxczy='C' )
+	</select>
+		
+	<select id="deliveringCnt" parameterType="Integer">
+		select count(*) from (select distinct o.Oid from Member3 m, Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and m.Midx=#{midx} and d.D_nxczy='Z' and Dsendday >= add_months(sysdate, -3))
+	</select>
+		
+	<select id="deliveredCnt" parameterType="Integer">
+		select count(*) from (select distinct o.Oid from Member3 m, Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and m.Midx=#{midx} and  d.D_nxczy='Y' and Dsendday >= add_months(sysdate, -3))
+	</select>
+
 
 
 </mapper>

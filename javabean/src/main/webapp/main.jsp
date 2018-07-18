@@ -20,6 +20,7 @@ Piece & Style
 <c:out value="${sMid}님 안녕하세요"></c:out>
 <a href="#">로그아웃</a>
 <a href="MemberModifyController">회원정보수정</a>
+<a href="/MypageC">마이페이지</a>
 </c:otherwise>
 </c:choose>
 
