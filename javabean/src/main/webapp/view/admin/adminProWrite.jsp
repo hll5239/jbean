@@ -330,11 +330,11 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 });
 
 	
-	
+
+
+</script>
 	
 
-}
-</script>
 
 <title>Insert title here</title>
 

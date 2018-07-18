@@ -14,6 +14,7 @@ public class ProQnaVo {
 	private String mdel_yn;
 	private String mday;
 	private String mmday;
+	private String mip;
 	private int proidx;
 	private String proname;
 	private int proprice;
@@ -41,6 +42,12 @@ public class ProQnaVo {
 	private String qdel_yn;
 	private String qip;
 	
+	public String getMip() {
+		return mip;
+	}
+	public void setMip(String mip) {
+		this.mip = mip;
+	}
 	public int getPronum() {
 		return pronum;
 	}

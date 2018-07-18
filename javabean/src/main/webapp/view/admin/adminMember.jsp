@@ -37,19 +37,19 @@
 <td>연락처</td>
 <td>주소</td>
 <td>등록일</td>
-<td>IP</td>
+<td>삭제유무</td>
 <td colspan=2></td>
 </tr>
-<c:forEach var="prov" items="${mlist}">
+<c:forEach var="ml" items="${mlist}">
 <tr>
-<td>${mlist.mid}</td>
-<td>${mlist.mpwd}</td>
-<td>${mlist}</td>
-<td>${mlist}</td>
-<td>${mlist}</td>
-<td>${mlist}</td>
-<td>${mlist}</td>
-<td>${mlist}</td>
+<td>${ml.mid}</td>
+<td>${ml.mpwd}</td>
+<td>${ml.mname}</td>
+<td>${ml.mmail}</td>
+<td>${ml.mphone}</td>
+<td>${ml.mpost} ${ml.maddr1} ${ml.maddr2}</td>
+<td>${ml.mday}</td>
+<td>${ml.mdel_yn}</td>
 <td><a href="#">수정</a></td>
 <td><a href="#">삭제</a></td>
 

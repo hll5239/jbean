@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.jb.jbean.domain.MemberVo;
 import com.jb.jbean.domain.ProductVo;
+import com.jb.jbean.domain.SearchCriteria;
 
 public interface AdminMapper {
 
@@ -21,5 +22,7 @@ public interface AdminMapper {
 	public ArrayList<ProductVo> productSelect(ProductVo pv);
 	
 	public ArrayList<MemberVo> memberAll();
+	
+	public ArrayList<MemberVo> memberCare(SearchCriteria scri);
 	
 }

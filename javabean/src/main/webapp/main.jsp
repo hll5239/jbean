@@ -11,7 +11,7 @@
 </head>
 <body>
 Piece & Style
-<a href="/MemberJoinController">회원가입</a>
+
 
 <div>
 	<c:forEach var="prov" items="${alistCate}">

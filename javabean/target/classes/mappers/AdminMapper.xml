@@ -4,6 +4,12 @@
 
 <mapper namespace="com.jb.jbean.persistence.AdminMapper">
 
+<sql id="search">
+	<if test="searchType != null">
+	and  ${searchType} like '%'||#{keyword}||'%'
+	</if>	
+</sql>
+
 
 <insert id="productInsert" parameterType="provo">
 	insert into Product3 values
@@ -35,6 +41,15 @@ update Product3 set Prodel_yn='Y' where Proidx=#{proidx}
 
 <select id="memberAll" resultType="mvo">
 select * from Member3 order by Mdel_yn
+</select>
+
+<select id="memberCare">
+<![CDATA[
+select * from Member3 where 
+]]> 
+<include refid="search"></include>
+<![CDATA[
+order by Mdel_yn]]> 
 </select>
 
 </mapper>

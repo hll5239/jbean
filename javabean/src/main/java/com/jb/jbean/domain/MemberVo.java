@@ -13,8 +13,14 @@ public class MemberVo {
 	private String mdel_yn;
 	private String mday;
 	private String mmday;
+	private String mip;
 	
-	
+	public String getMip() {
+		return mip;
+	}
+	public void setMip(String mip) {
+		this.mip = mip;
+	}
 	public int getMidx() {
 		return midx;
 	}

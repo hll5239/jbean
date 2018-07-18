@@ -5,8 +5,8 @@
 <mapper namespace="com.jb.jbean.persistence.MemberMapper">
 
 <insert id="memberJoin" parameterType="mvo">
-insert into Member3 (Midx, Mid, Mpwd, Mname, Mmail, Mphone, Mpost, Maddr1, Maddr2) 
-values(seq_Midx.NEXTVAL,#{mid}, #{mpwd}, #{mname}, #{mmail}, #{mphone},#{mpost},#{maddr1},#{maddr2})
+insert into Member3 
+values(seq_Midx.NEXTVAL,#{mid}, #{mpwd}, #{mname},#{mphone},#{mmail},#{mpost},#{maddr1},#{maddr2},default,default,null,#{mip})
 </insert>
 
 <select id="memberLogin" parameterType="mvo" resultType="mvo">

@@ -1,5 +1,6 @@
 package com.jb.jbean.controller;
 
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import javax.servlet.http.HttpSession;
@@ -30,11 +31,21 @@ public class MemberController {
 	public String memberJoinAction(@ModelAttribute("mv") MemberVo mv, @RequestParam("mmail1") String mmail1,
 			@RequestParam("mmail2") String mmail2) {
 
-		// System.out.println("aaaa");
-		// String mmail = mmail1 + "@" + mmail2;
-
-		mv.setMmail(mmail1);
-		System.out.println("mmail=" + mmail2);
+		
+		 String mmail = mmail1 + "@" + mmail2;
+		 String ip =null;
+		 try {
+				InetAddress local = InetAddress.getLocalHost();
+				ip= local.getHostAddress();
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 System.out.println("ip="+ip);
+		 
+		mv.setMmail(mmail);
+		mv.setMip(ip);
+		
 		int res = ms.memberJoin(mv);
 
 		// int res=0;
