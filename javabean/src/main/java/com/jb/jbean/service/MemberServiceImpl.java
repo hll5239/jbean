@@ -39,10 +39,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVo memberone(String mid) {
+	public MemberVo memberOne(String mid) {
 		
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
-		MemberVo mo = mm.memberone(mid);
+		MemberVo mo = mm.memberOne(mid);
 		
 		return mo;
 	}

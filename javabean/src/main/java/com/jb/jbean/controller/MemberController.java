@@ -95,11 +95,28 @@ public class MemberController {
 	@RequestMapping(value = "/MemberModifyController")
 	public String memberOne(@RequestParam("mid") String mid, Model model) {
 		
-		MemberVo Mone = ms.memberone(mid);
+		MemberVo Mone = ms.memberOne(mid);
 		model.addAttribute("Mone", Mone);
 		
 		return "/view/member/memberModify";
 		
 	}
+	
+	@RequestMapping(value = "/MemberModifyActionController")
+	   public String memberModifyAction(@ModelAttribute("mv") MemberVo mv){
+	            
+	      
+	      int res = ms.memberModify(mv);
+	      
+	      String page = null;
+	      
+	      if (res == 1) {
+	      page = "redirect:/";
+	      }else{
+	         page = "redirect:/MemberModifyController";
+	      } 
+	      
+	      return page;
+	   }
 	
 }
