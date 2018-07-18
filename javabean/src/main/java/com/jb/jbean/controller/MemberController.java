@@ -31,21 +31,20 @@ public class MemberController {
 	public String memberJoinAction(@ModelAttribute("mv") MemberVo mv, @RequestParam("mmail1") String mmail1,
 			@RequestParam("mmail2") String mmail2) {
 
-		
-		 String mmail = mmail1 + "@" + mmail2;
-		 String ip =null;
-		 try {
-				InetAddress local = InetAddress.getLocalHost();
-				ip= local.getHostAddress();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		 System.out.println("ip="+ip);
-		 
+		String mmail = mmail1 + "@" + mmail2;
+		String ip = null;
+		try {
+			InetAddress local = InetAddress.getLocalHost();
+			ip = local.getHostAddress();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("ip=" + ip);
+
 		mv.setMmail(mmail);
 		mv.setMip(ip);
-		
+
 		int res = ms.memberJoin(mv);
 
 		// int res=0;
@@ -77,10 +76,10 @@ public class MemberController {
 			session.setAttribute("sMid", mv.getMid());
 			session.setAttribute("sMidx", mv.getMidx());
 			session.setAttribute("sMname", mv.getMname());
-			
+
 			res = 1;
 		}
-		
+
 		model.addAttribute("mv", mmv);
 
 		String page = null;
@@ -91,34 +90,50 @@ public class MemberController {
 		}
 		return page;
 	}
-	
+
 	@RequestMapping(value = "/MemberModifyController")
 	public String memberOne(HttpSession session, Model model) {
-		
-		String mid= (String) session.getAttribute("sMid");
-		
+
+		String mid = (String) session.getAttribute("sMid");
+
 		MemberVo Mone = ms.memberOne(mid);
 		model.addAttribute("Mone", Mone);
-		
+
 		return "/view/member/memberModify";
-		
+
 	}
-	
+
 	@RequestMapping(value = "/MemberModifyActionController")
-	   public String memberModifyAction(@ModelAttribute("mv") MemberVo mv){
-	            
-	      
-	      int res = ms.memberModify(mv);
-	      
-	      String page = null;
-	      
-	      if (res == 1) {
-	      page = "redirect:/";
-	      }else{
-	         page = "redirect:/MemberModifyController";
-	      } 
-	      
-	      return page;
-	   }
-	
+	public String memberModifyAction(@ModelAttribute("mv") MemberVo mv, HttpSession session,
+			@RequestParam("mmail1") String mmail1, @RequestParam("mmail2") String mmail2,@RequestParam("midx") int midx) {
+
+		
+		System.out.println("1="+midx);
+		String mmail = mmail1 + "@" + mmail2;
+		String ip = null;
+		try {
+			InetAddress local = InetAddress.getLocalHost();
+			ip = local.getHostAddress();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("ip=" + ip);
+
+		mv.setMmail(mmail);
+		mv.setMip(ip);
+		mv.setMidx(midx);
+
+		int res = ms.memberModify(mv);
+
+		String page = null;
+
+		if (res == 1) {
+			page = "redirect:/";
+		} else {
+			page = "redirect:/MemberModifyController";
+		}
+
+		return page;
+	}
 }
