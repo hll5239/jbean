@@ -60,5 +60,6 @@ public interface AdminMapper {
 	
 	public ArrayList<BuyVo> orderCanlcelList(SearchCriteria scri);
 	
-
+	public ArrayList<BuyVo> orderModifyButton(BuyVo buyvo);
+	
 }

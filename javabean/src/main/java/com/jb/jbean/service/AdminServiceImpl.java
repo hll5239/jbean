@@ -236,6 +236,14 @@ public class AdminServiceImpl implements AdminService  {
 		
 	}
 
+	@Override
+	public ArrayList<BuyVo> orderModifyButton(BuyVo buyvo) {
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		 ArrayList<BuyVo> omList = msm.orderModifyButton(buyvo);
+		
+		return omList;
+	}
+
 
 	
 	

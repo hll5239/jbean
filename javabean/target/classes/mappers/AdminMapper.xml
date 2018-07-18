@@ -127,6 +127,8 @@ select distinct o.Oday, o.Oid, m.Mid, p.Pprice, p.P_nxy,d.D_nxczy,d.Dcode from M
 <![CDATA[select distinct o.Oday, o.Oid, m.mid, p.Pprice, p.P_nxy,d.D_nxczy ,d.Dcode from Member3 m,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='X' and p.P_nxy='X' and d.D_nxczy='X' ]]><include refid="search2"></include>
 </select>
 
-
+<select id="orderModifyButton" parameterType="buyvo" resultType="buyvo">
+select * from Member3 m,Product3 pro ,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and pro.Proidx=o.Proidx and o.Oid=p.Oid and o.Oid=d.Oid and m.Mid=#{mid} and o.Oid=#{oid}
+</select>
 
 </mapper>

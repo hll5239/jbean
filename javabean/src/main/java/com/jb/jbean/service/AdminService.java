@@ -51,5 +51,7 @@ public interface AdminService {
 	
 	public ArrayList<BuyVo> orderAllList(SearchCriteria scri, int ooidx);
 	
+	public ArrayList<BuyVo> orderModifyButton(BuyVo buyvo);
+	
 
 }

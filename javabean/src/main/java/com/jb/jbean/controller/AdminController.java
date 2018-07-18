@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -353,6 +354,29 @@ public class AdminController {
 		return "/view/admin/adminOrder";
 	}
 	
+	@RequestMapping(value="/OrdermC")
+	public String Orderm(Model model, @ModelAttribute("buyvo") BuyVo buyvo ){
+	
+
+		ArrayList<BuyVo> omList  = as.orderModifyButton(buyvo);
+		
+		model.addAttribute("omList", omList);
+		
+		
+		return "/view/admin/adminOrderModify";
+	}
+	
+	@RequestMapping(value="/OrdermActionC")
+	public String OrdermAction(Model model ){
+	
+		
+		
+		
+		
+		
+		
+		return "/view/admin/adminOrderModify";
+	}
 	
 	
 }
