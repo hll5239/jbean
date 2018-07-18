@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jb.jbean.domain.BuyVo;
 import com.jb.jbean.domain.MemberVo;
 import com.jb.jbean.domain.ProductVo;
 import com.jb.jbean.service.AdminService;
@@ -52,6 +53,33 @@ public class AdminController {
 	@Resource(name ="uploadPath")
 	private String uploadPath;
 	
+	/*admin.jsp*/
+	@RequestMapping(value="/AcntC")
+	public String Acnt(Model model){
+		int mcnt=as.memberAllCnt();
+		int mdcnt=as.memberOutCnt();
+		int nrcnt=as.noReplyCnt();
+		int pbcnt=as.paymentBeforeCnt();
+		int prcnt=as.productReadyCnt();
+		int pccnt=as.productCancelCnt();
+		int noamount=as.nowOrderAmount();
+		int npamount=as.nowPayAmount();
+		
+		model.addAttribute("mcnt",mcnt);
+		model.addAttribute("mdcnt",mdcnt);
+		model.addAttribute("nrcnt",nrcnt);
+		model.addAttribute("pbcnt",pbcnt);
+		model.addAttribute("prcnt",prcnt);
+		model.addAttribute("pccnt",pccnt);
+		model.addAttribute("noamount",noamount);
+		model.addAttribute("npamount",npamount);
+		
+		return "/view/admin/admin";
+	}
+	
+	
+	
+	
 	@RequestMapping(value="/MemberC")
 	public String Member(Model model){
 	
@@ -62,10 +90,10 @@ public class AdminController {
 		
 		return "/view/admin/adminMember";
 	}
+	/*회원검색*/
 	@RequestMapping(value="/MemberCareC")
 	public String MemberCare(SearchCriteria scri,  Model model){
 	
-		System.out.println("1");
 		ArrayList<MemberVo> mlist = as.memberCare(scri);
 		model.addAttribute("mlist", mlist);
 		
@@ -299,6 +327,31 @@ public class AdminController {
 		return new ResponseEntity<String>("deleted",HttpStatus.OK);
 	}
 	
+	
+	@RequestMapping(value="/OrderaC")
+	public String Order(Model model){
+	
+		ArrayList<BuyVo> oaList = as.orderAdmin();
+	
+		model.addAttribute("oaList", oaList);
+		
+		
+		
+		return "/view/admin/adminOrder";
+	}
+	
+	@RequestMapping(value="/OrderSelectC")
+	public String OrderModify(Model model,@RequestParam("ooidx") int ooidx,SearchCriteria scri ){
+	
+
+		
+		ArrayList<BuyVo> oaList = as.orderAllList(scri, ooidx);
+		
+		model.addAttribute("oaList", oaList);
+		
+		
+		return "/view/admin/adminOrder";
+	}
 	
 	
 	

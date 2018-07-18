@@ -10,6 +10,11 @@
 	</if>	
 </sql>
 
+<sql id="search2">
+	<if test="searchType != null">
+	and ${searchType} like '%'||#{keyword}||'%'
+	</if>	
+</sql>
 
 <insert id="productInsert" parameterType="provo">
 	insert into Product3 values
@@ -64,5 +69,64 @@ update Member3 set Mname=#{mname}, Mpwd=#{mpwd}, Mmail=#{mmail},
 <update id="adminMemberDelete" parameterType="Integer">
 update Member3 set mdel_yn='Y' where Midx=#{midx}
 </update>
+
+<!-- 관리자메인 내용 쿼리 -->
+<select id="memberOutCnt" resultType="Integer">
+select count(*) from Member3 where Mdel_yn='Y'
+</select>
+
+<select id="memberAllCnt" resultType="Integer">
+select count(*) from Member3 where Mdel_yn='N' and Midx>1
+</select>
+
+<select id="noReplyCnt" resultType="Integer">
+select count(*) from Qna3 where  Qreply_yn='N' and Qmdel_yn='N' and Qdel_yn='N'
+</select>
+
+<select id="paymentBeforeCnt" resultType="Integer">
+select count(*) from(select distinct o.Oid from Order3 o, Pay3 p where o.Oid=p.Oid and o.O_yx='Y' and  p.P_nxy='N')
+</select>
+
+<select id="productReadyCnt" resultType="Integer">
+select count(*) from(select distinct o.Oid from Order3 o, Pay3 p, Delivery3 d where o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='Y' and  p.P_nxy='Y' and d.D_nxczy='C')
+</select>
+
+<select id="productCancelCnt" resultType="Integer">
+select count(*) from(select distinct o.Oid from Order3 o, Pay3 p, Delivery3 d where o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='X' and  p.P_nxy='X' and d.D_nxczy='X')
+</select>
+
+<select id="nowOrderAmount" resultType="Integer">
+select sum(Oprice) from Order3 o where O_yx='Y' and  Oday between to_date(sysdate) and to_date(sysdate)+0.999999 
+</select>
+
+<select id="nowPayAmount" resultType="Integer">
+select sum(Pprice) from Pay3 where P_nxy='Y' and  Pwday between to_date(sysdate) and to_date(sysdate)+0.999999
+</select>
+
+<select id="orderAdmin" resultType="buyvo">
+select distinct o.Oday, o.Oid, m.Mid, p.Pprice, p.P_nxy,d.D_nxczy,d.Dcode from Member3 m,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.midx and o.Oid=p.oid and o.Oid=d.oid
+</select>
+
+<select id="orderDeliveredList" parameterType="scri" resultType="buyvo">
+<![CDATA[ select distinct o.Oday, o.Oid, m.Mid, p.Pprice, p.P_nxy,d.D_nxczy,d.Dcode  from Member3 m,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='Y' and p.P_nxy='Y' and d.D_nxczy='Y' ]]> <include refid="search2"></include>
+</select>
+
+<select id="orderPaymentBeforeList" parameterType="scri" resultType="buyvo">
+<![CDATA[select distinct o.Oday, o.Oid, m.Mid, p.Pprice, p.P_nxy,d.D_nxczy,d.Dcode  from Member3 m,Product3 pro ,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and pro.Proidx=o.Proidx and o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='Y' and p.P_nxy='N' and d.D_nxczy='N' ]]> <include refid="search2"></include>
+</select>
+
+<select id="orderProductReadyList" parameterType="scri" resultType="buyvo">
+<![CDATA[select distinct o.Oday, o.Oid, m.mid, p.Pprice, p.P_nxy,d.D_nxczy ,d.Dcode from Member3 m,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='Y' and p.P_nxy='Y' and d.D_nxczy='C' ]]> <include refid="search2"></include>
+</select>
+
+<select id="orderDeliveringList" parameterType="scri" resultType="buyvo">
+<![CDATA[select distinct o.Oday, o.Oid, m.mid, p.Pprice, p.P_nxy,d.D_nxczy ,d.Dcode from Member3 m,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='Y' and p.P_nxy='Y' and d.D_nxczy='Z' ]]> <include refid="search2"></include>
+</select>
+
+<select id="orderCanlcelList" parameterType="scri" resultType="buyvo">
+<![CDATA[select distinct o.Oday, o.Oid, m.mid, p.Pprice, p.P_nxy,d.D_nxczy ,d.Dcode from Member3 m,Order3 o, Pay3 p, Delivery3 d where m.Midx=o.Midx and o.Oid=p.Oid and o.Oid=d.Oid and o.O_yx='X' and p.P_nxy='X' and d.D_nxczy='X' ]]><include refid="search2"></include>
+</select>
+
+
 
 </mapper>

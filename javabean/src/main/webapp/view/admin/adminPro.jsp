@@ -19,25 +19,25 @@
 	       	}
  }
  
- function sel() {
-	 
-	 var res;
-     res= confirm("검색?");
-	 
-	 if(res==true){
-		 document.frm.method="post";
-		 document.frm.action="${pageContext.request.contextPath}/ProductSelectC";
-		 document.frm.submit();
-		
-	       	}
- }
 
  </script>
 
 <title>Insert title here</title>
 </head>
 <body>
-<form name="frm">
+<table border=1 style="margin:auto; text-align:center;">
+<tr>
+<td><a href="${pageContext.request.contextPath}/AcntC">메인</a></td>
+<td><a href="${pageContext.request.contextPath}/MemberC">회원관리</a></td>
+<td><a href="${pageContext.request.contextPath}/ProductC">상품관리</a></td>
+<td><a href="#">주문관리</a></td>
+<td><a href="#">통계</a></td>
+<td><a href="#">게시판관리</a></td>
+</tr>
+</table>
+<br><br>
+
+<form name="frm" action="${pageContext.request.contextPath}/ProductSelectC">
 <table border="1">
 	<tr>
 		<td>분류선택</td>
@@ -65,10 +65,13 @@
 				</select></td>
 	</tr>
 </table>
-<input type="button"  value="검색하기" onclick="sel()"/>
+<input type="submit"  value="검색하기" />
+</form>
+
 <br>
 <br>
 <input type="button"  value="등록하기" onclick="writer()"  />
+
 
 <table border=1>
 <tr>
@@ -104,7 +107,7 @@
 </td>
 <td>${prov.proname}</td>
 <td>${prov.prosize}</td>
-<td>${prov.proprice}(${prov.procnt})</td>
+<td>${prov.proprice} (${prov.procnt})</td>
 <td><a href="${pageContext.request.contextPath}/ProductModifyC?proidx=${prov.proidx}">수정</a></td>
 <td><a href="${pageContext.request.contextPath}/ProductDeleteC?proidx=${prov.proidx}">삭제</a></td>
 </tr>
@@ -113,7 +116,7 @@
 </table>
 
 
-</form>
+
 
 </body>
 </html>

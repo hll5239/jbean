@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jb.jbean.domain.BuyVo;
 import com.jb.jbean.domain.MemberVo;
 import com.jb.jbean.domain.ProductVo;
 import com.jb.jbean.domain.SearchCriteria;
@@ -129,6 +130,115 @@ public class AdminServiceImpl implements AdminService  {
 		
 		return res;
 	}
+
+	@Override
+	public int memberOutCnt() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.memberOutCnt();
+		return res;
+	}
+
+	@Override
+	public int memberAllCnt() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.memberAllCnt();
+		return res;
+	}
+
+	@Override
+	public int noReplyCnt() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.noReplyCnt();
+		return res;
+	}
+
+	@Override
+	public int paymentBeforeCnt() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.paymentBeforeCnt();
+		return res;
+	}
+
+	@Override
+	public int productReadyCnt() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.productReadyCnt();
+		return res;
+	}
+
+	@Override
+	public int productCancelCnt() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.productCancelCnt();
+		return res;
+	}
+
+	@Override
+	public int nowOrderAmount() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.nowOrderAmount();
+		return res;
+	}
+
+	@Override
+	public int nowPayAmount() {
+
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		
+		int res= msm.nowPayAmount();
+		return res;
+	}
+
+	@Override
+	public ArrayList<BuyVo> orderAdmin() {
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		 ArrayList<BuyVo> oaList= msm.orderAdmin();
+		
+		return oaList;
+	}
+
+	@Override
+	public ArrayList<BuyVo> orderAllList(SearchCriteria scri, int ooidx) {
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		ArrayList<BuyVo> oaList=null;
+		
+		if(ooidx==1) {
+			oaList= msm.orderAdmin();
+		}else if(ooidx==2) {
+			oaList= msm.orderPaymentBeforeList(scri);
+		}else if(ooidx==3) {
+			oaList= msm.orderProductReadyList(scri);
+		}else if(ooidx==4) {
+			oaList= msm.orderDeliveringList(scri);
+		}else if(ooidx==5) {
+		oaList = msm.orderDeliveredList(scri);
+		
+		}else if(ooidx==6){
+			oaList = msm.orderCanlcelList(scri);
+		}
+		
+		return oaList;
+		
+		
+	}
+
+
+	
+	
 	
 	
 	

@@ -343,7 +343,7 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 <form name="frm" id="frm" enctype="multipart/form-data">
 <table border="1">
 	<tr>
-		<td>상품명</td><input type="button" id="aa" value="aa">
+		<td>상품명</td>
 		<td><input type="text" name="proname" id="proname" /></td>
 	</tr>
 	<tr>
