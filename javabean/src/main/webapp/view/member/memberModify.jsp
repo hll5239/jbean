@@ -29,9 +29,10 @@ function check() {
      
         if (res == true) {
             formname.method ="post";
-            formname.action ="<%=request.getContextPath() %>/MemberLoginController";
+            formname.action ="<%=request.getContextPath() %>/MemberModifyActionController?midx=${Mone.midx}";
             formname.submit();  
         }
+        
         return ;
    }
 function check1() {
@@ -48,7 +49,7 @@ function check1() {
 <tr>
 <td>ID</td>
 <td colspan=3>
-<input type="text" name="mid" id="mid" disabled="disabled" size="20" maxlength="20" value = "${Mone.mid }"/>
+<input type="text" name="mid" id="mid" disabled="disabled" size="20" maxlength="20" value = "${Mone.mid } "/>
 <!-- readonly="readonly" -->
 </td>
 </tr>

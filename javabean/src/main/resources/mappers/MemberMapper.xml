@@ -14,7 +14,7 @@ select Midx, Mid, Mpwd from Member3 where Mid=#{mid} and Mpwd=#{mpwd}
 </select>
 
 <update id="memberModify" parameterType="mvo">
-update Member3 set Mpwd=#{mpwd}, Mmail=#{mmail}, Mphone=#{mphone}, Mpost=#{mpost}, Maddr1=#{maddr1}, Maddr2=#{maddr2}, Mmday=sysdate where Midx=#{midx}
+update Member3 set Mpwd=#{mpwd}, Mmail=#{mmail}, Mphone=#{mphone}, Mpost=#{mpost}, Maddr1=#{maddr1}, Maddr2=#{maddr2}, Mip=#{mip}, Mmday=sysdate where Midx=#{midx}
 </update>
 
 <select id="memberOne" parameterType="String" resultType="mvo">
