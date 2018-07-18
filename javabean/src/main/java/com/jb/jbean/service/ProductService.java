@@ -15,6 +15,5 @@ public interface ProductService {
 	public ArrayList<ProductVo> productNew();
 	public ArrayList<ProductVo> productList(int cidx);
 	public ArrayList<ProductVo> productInfo(int pronum);
-	public ArrayList<ProductVo> productInfoSize(int pronum);
 	
 }

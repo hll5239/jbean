@@ -88,13 +88,6 @@ public class ProductServiceImpl implements ProductService{
 		return alist;
 	}
 
-	@Override
-	public ArrayList<ProductVo> productInfoSize(int pronum) {
-		
-		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
-		ArrayList<ProductVo> alist = prom.productInfoSize(pronum);
 
-		return alist;
-	}
 
 }

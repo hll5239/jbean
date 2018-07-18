@@ -34,7 +34,7 @@ public class ProductController {
 		return "main";
 	}
 	
-	@RequestMapping(value="/proList")
+	@RequestMapping(value="/ProListC")
 	protected String prolist(@RequestParam("cidx") int cidx, Model model) {
 		
 		ArrayList<ProductVo> alistCate = pros.category();
@@ -45,18 +45,16 @@ public class ProductController {
 		return "/view/product/proList";
 	}
 	
-	@RequestMapping(value="/proInfo")
+	@RequestMapping(value="/ProInfoC")
 	protected String proInfo(@RequestParam("pronum") int pronum, Model model) {
 		
 		System.out.println("----proInfo--------------------------");
 		
 		ArrayList<ProductVo> alistCate = pros.category();
 		ArrayList<ProductVo> alistProI = pros.productInfo(pronum);
-		ArrayList<ProductVo> alistProIS = pros.productInfoSize(pronum);
 
 		model.addAttribute("alistCate", alistCate);
 		model.addAttribute("alistProI", alistProI);
-		model.addAttribute("alistProIS", alistProIS);
 		
 		//model.addAttribute("prov", prov);
 				

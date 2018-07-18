@@ -15,7 +15,7 @@ Piece & Style
 
 <div>
 	<c:forEach var="prov" items="${alistCate}">
-		<a href="${request.contextPath}/proList?cidx=${prov.cidx}">
+		<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}">
 			<span>${prov.cname}</span>
 		</a>
 	</c:forEach>
@@ -23,7 +23,7 @@ Piece & Style
 
 <c:forEach var="prov" items="${alistProA}">
 	<div  style="float:left; width:30%; text-align:center;">
-		<div><a href="${request.contextPath}/proInfo?pronum=${prov.pronum}">
+		<div><a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}">
 		${prov.promain}</a></div>
 		<div>${prov.proname}, ${prov.proprice}</div>
 	</div>

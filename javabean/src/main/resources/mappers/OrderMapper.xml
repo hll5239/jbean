@@ -3,4 +3,28 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jb.jbean.persistence.OrderMapper">
 
+	<select id="defaultAddr" parameterType="mvo">
+		select Mname,Mphone,Mpost,Maddr1,Maddr2 from Member3 where Midx=#{Midx}
+	</select>
+	
+	<insert id="orderInsert" parameterType="buyvo">
+		insert into Order3
+		values(seq_Oidx.NEXTVAL,#{Oid},default,#{Ocnt},#{Oprice},default,#{Pname},#{Midx},#{Proidx})
+	</insert>
+	
+	<insert id="deliveryInsert" parameterType="buyvo">
+		insert into Delivery3 
+		values(seq_Didx.NEXTVAL,#{Oid},#{Dname},#{Dpost},#{Daddr1},#{Daddr2},#{Dmsg},#{Dcode},default,default)
+	</insert>
+		
+	<insert id="payInsert" parameterType="buyvo">
+		insert into Pay3 
+		values(seq_Pidx.NEXTVAL,#{Oid},#{Pprice},#{Ptype},null,default,default)
+	</insert>
+	
+	<select id="orderFinish" parameterType="ArrayList" resultType="buyvo">
+		select * from  Product3 pro, Order3 o, Pay3 p, Delivery3 d where pro.Proidx=o.Proidx and o.Oid=p.Oid and o.Oid=d.Oid and o.Midx=#{Midx} and o.Oid=#{Oid}
+	</select>
+
+	
 </mapper>
