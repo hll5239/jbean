@@ -170,7 +170,7 @@ public class MemberController {
 		return "memberFind";
 	}
 	
-	@RequestMapping(value = "/MemberFindC")
+	@RequestMapping(value = "/MemberFind1C")
 	public String memberPwdFind(@ModelAttribute("mv") MemberVo mv, Model model) {
 		MemberVo pf = null;
 		
