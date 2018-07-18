@@ -93,7 +93,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/MemberModifyController")
-	public String memberOne(@RequestParam("mid") String mid, Model model) {
+	public String memberOne(HttpSession session, Model model) {
+		
+		String mid= (String) session.getAttribute("sMid");
 		
 		MemberVo Mone = ms.memberOne(mid);
 		model.addAttribute("Mone", Mone);
