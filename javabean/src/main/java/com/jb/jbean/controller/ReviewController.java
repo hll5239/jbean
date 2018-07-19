@@ -82,7 +82,7 @@ public class ReviewController {
 	}
 	
 
-	@RequestMapping(value="/reviews",method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	@RequestMapping(value="/reviews",method=RequestMethod.POST, produces="application/json;charset=UTF-8")
 	public ArrayList<ProReviewVo> ProReviewWrite(@RequestBody ProReviewVo prorvo,HttpSession session){
 		System.out.println("µé¾î¿È");
 		int midx=(Integer)session.getAttribute("sMidx");

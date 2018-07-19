@@ -206,7 +206,13 @@ color:gray;
 				
 				} 
 					
-					str += "<ul><li><img src='/displayc?fileName="+this.rfilename+"'></li>" 
+					if(this.rfilename != null){
+						filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"'></li>"
+					}else{
+						filename="<ul><li></li>";
+					}
+					
+					str += filename
 					+ "<ul><li class='sub1'>"+this.rstar  + "</li>"
 					+  "<li class='sub2'>"+this.mname + "</li>"
 					+  "<li class='sub3'>"+this.rcontent  + "</li>"
