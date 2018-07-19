@@ -10,7 +10,7 @@ values(seq_Midx.NEXTVAL,#{mid}, #{mpwd}, #{mname},#{mphone},#{mmail},#{mpost},#{
 </insert>
 
 <select id="memberLogin" parameterType="mvo" resultType="mvo">
-select Midx, Mid, Mpwd from Member3 where Mid=#{mid} and Mpwd=#{mpwd}
+select * from Member3 where Mid=#{mid} and Mpwd=#{mpwd}
 </select>
 
 <update id="memberModify" parameterType="mvo">
@@ -25,12 +25,12 @@ select * from Member3 where Mid=#{mid}
 update member3 set Mdel_yn='Y' where Midx=#{midx}
 </update>
 
-<select id="memberIdFind" parameterType="mvo" resultType="mvo">
-select * from Member3 where Mname=#{mname} and Mmail=#{mmail}
+<select id="memberIdFind" parameterType="String" resultType="mvo">
+select * from Member3 where Mname=#{0} and Mmail=#{1}
 </select>
 
 <select id="memberPwdFind" parameterType="mvo" resultType="mvo">
-select * from Member3 where Mname=#{mname} and Mmail=#{mmail}
+select * from Member3 where Mid=#{mid} and Mname=#{mname} and Mmail=#{mmail}
 </select>
 
 </mapper>

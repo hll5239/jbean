@@ -73,9 +73,9 @@ public class MemberController {
 
 		if (mmv != null) {
 
-			session.setAttribute("sMid", mv.getMid());
-			session.setAttribute("sMidx", mv.getMidx());
-			session.setAttribute("sMname", mv.getMname());
+			session.setAttribute("sMid", mmv.getMid());
+			session.setAttribute("sMidx", mmv.getMidx());
+			session.setAttribute("sMname", mmv.getMname());
 
 			res = 1;
 		}
@@ -95,7 +95,7 @@ public class MemberController {
 	public String memberOne(HttpSession session, Model model) {
 
 		String mid = (String) session.getAttribute("sMid");
-
+		System.out.println("mid="+mid);
 		MemberVo Mone = ms.memberOne(mid);
 		model.addAttribute("Mone", Mone);
 
@@ -138,8 +138,10 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/MemberDeleteController")
-	public String memberDelete(@RequestParam("midx") int midx) {
+	public String memberDelete(@RequestParam("midx") int midx,HttpSession session) {
 		System.out.println("midx="+midx);
+		String mid = (String) session.getAttribute("sMid");
+		System.out.println("midx="+mid);
 		
 		int res = ms.memberDelete(midx);
 				
@@ -153,31 +155,35 @@ public class MemberController {
 	@RequestMapping(value = "/MemberFindController")
 	public String memberFind(){
 	
-		return "/view/member/memberFind.jsp";
+		return "/view/member/memberFind";
 	}
 	
 	@RequestMapping(value = "/MemberFindC")
-	public String memberIdFind(@ModelAttribute("mv") MemberVo mv, Model model) {
+	public String memberIdFind(@RequestParam("mname1") String mname1,@RequestParam("mmail1") String mmail1, Model model) {
 
-		System.out.println("이름:"+mv.getMname());
+		
 		MemberVo mf = null;
 		
-		mf = ms.memberIdFind(mv);
+		mf = ms.memberIdFind(mname1,mmail1);
 
-		System.out.println(mf.getMid());
+		//System.out.println(mf.getMid());
 		model.addAttribute("mf", mf);
 		
-		return "memberFind";
+		return "/view/member/memberFind";
 	}
 	
-	@RequestMapping(value = "/MemberFind1C")
+	@RequestMapping(value = "/MemberFindPWdC")
 	public String memberPwdFind(@ModelAttribute("mv") MemberVo mv, Model model) {
+		
+		System.out.println("이름:"+mv.getMid());
+		System.out.println("이름:"+mv.getMname());		
+		System.out.println("이름:"+mv.getMmail());
 		MemberVo pf = null;
 		
 		pf = ms.memberPwdFind(mv);
 		model.addAttribute("pf", pf);
 		
-		return "memberFind";
+		return "/view/member/memberFind";
 	}
-	//	session.invalidate(); 세션 비우기
+
 }

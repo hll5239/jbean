@@ -15,8 +15,10 @@ public interface MemberMapper {
 	
 	public int memberDelete(int midx);
 	
-	public MemberVo memberIdFind(MemberVo mv);
+	public MemberVo memberIdFind(String mname1, String mmail1);
 	
-	public MemberVo memberPwdFind(MemberVo mv);	
+	public MemberVo memberPwdFind(MemberVo mv);
+
+	
 	
 }

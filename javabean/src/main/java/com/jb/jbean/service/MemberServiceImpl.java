@@ -61,10 +61,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public MemberVo memberIdFind(MemberVo mv){
+	public MemberVo  memberIdFind(String mname1, String mmail1){
 		
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
-		MemberVo mf = mm.memberIdFind(mv);
+		MemberVo  mf = mm.memberIdFind(mname1, mmail1);
 
 		return mf;
 		
