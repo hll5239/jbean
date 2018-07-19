@@ -3,6 +3,9 @@ package com.jb.jbean.controller;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.WebUtils;
 
 import com.jb.jbean.domain.MemberVo;
 import com.jb.jbean.service.MemberService;
@@ -139,9 +143,10 @@ public class MemberController {
 
 	@RequestMapping(value = "/MemberDeleteController")
 	public String memberDelete(@RequestParam("midx") int midx,HttpSession session) {
-		System.out.println("midx="+midx);
-		String mid = (String) session.getAttribute("sMid");
-		System.out.println("midx="+mid);
+
+//		System.out.println("midx="+midx);
+		//int midx = (Integer) session.getAttribute("sMidx");
+//		System.out.println("midx="+mid);
 		
 		int res = ms.memberDelete(midx);
 				
@@ -186,4 +191,13 @@ public class MemberController {
 		return "/view/member/memberFind";
 	}
 
+	@RequestMapping(value="/MemberLogoutC")
+	public String memberLogout(HttpSession session) {	
+		
+		session.removeAttribute("sMid");
+		session.removeAttribute("sMidx");
+		session.removeAttribute("sMname");
+		
+		return "redirect:/";
+	}	
 }

@@ -7,21 +7,6 @@
 <title>Insert title here</title>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-
-
-$(function() {
-  $('#button1').click( function() {
-    if( $(this).html() == '접기' ) {
-      $(this).html('펼치기');
-    }
-    else {
-      $(this).html('접기');
-    }
-  });
-});
-
- 
- 
  function check() {	
 	 	  
 	  var formname = document.frm;
@@ -50,11 +35,11 @@ $(function() {
 	}
 
 	function check1() {
-		location.href = "MemberLoginController"
+		location.href = "<%=request.getContextPath()%>MemberLoginController"
 	}
 	
 	function check2() {
-		location.href = "MemberJoinController"
+		location.href = "<%=request.getContextPath()%>MemberJoinController"
 	}
 	
 	 function check3() {	
@@ -87,13 +72,7 @@ $(function() {
 			return;
 		}
 
-		function check4() {
-			location.href = "MemberLoginController"
-		}
 		
-		function check5() {
-			location.href = "MemberJoinController"
-		}
 	
 		
 	
@@ -101,12 +80,11 @@ $(function() {
 
 </head>
 
-<body>
-		
-		
+<body>		
 	<form name="frm">
 		<c:set var="i" value="0" />
-
+		
+<h2 align="center">아이디 찾기</h2>
 		<table border=1 align="center" width="30%" height="200px">
 			<tr>
 				<td>이름</td>
@@ -125,11 +103,12 @@ $(function() {
 				<input type="button" name="button" value="로그인" onclick="javascript:check1();" />
 				<input type="button" name="button" value="회원가입" onclick="javascript:check2();" />				
 				</td>										
-			</tr>
-			
-		
+			</tr>		
 		</table>
-				
+		
+				<div style="margin-top:50px;"></div>
+				 
+		<h2 align="center">비밀번호 찾기</h2>
 		 <table border=1 align="center" width="30%" height="300px">
 			<tr>
 				<td>아이디</td>
@@ -145,16 +124,15 @@ $(function() {
 			</tr>
 			<tr>
 				<td colspan=4 align="center">
+				<p>
+				<input type="text" value="${pf.mpwd}">
+				</p>
 				<input type="button" name="button" value="비밀번호 찾기" onclick="javascript:check3();" />
-				<input type="button" name="button" value="로그인" onclick="javascript:check4();" />
-				<input type="button" name="button" value="회원가입" onclick="javascript:check5();" />
+				<input type="button" name="button" value="로그인" onclick="javascript:check1();" />
+				<input type="button" name="button" value="회원가입" onclick="javascript:check2();" />
 				</td>				
 				</tr>			
-		</table>
-		
-		<input type="text" value="${pf.mpwd}">
-		
-	
+		</table>	
 	</form>	
 </body>
 </html>

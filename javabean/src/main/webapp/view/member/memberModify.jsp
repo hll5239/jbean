@@ -39,7 +39,7 @@ function check1() {
    location.href = "/"
    }
 function check2(){
-	location.href = "<%=request.getContextPath() %>/MemberDeletecontroller?midx=${Mone.midx}"
+	location.href = "<%=request.getContextPath() %>/MemberDeleteController?midx=${Mone.midx}";
 }
 </script>
 

@@ -17,5 +17,6 @@ public interface MemberService {
 	public MemberVo memberIdFind(String mname1, String mmail1);
 	
 	public MemberVo memberPwdFind(MemberVo mv);
-	
-}
+
+		
+	}

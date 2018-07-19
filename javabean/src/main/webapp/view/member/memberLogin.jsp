@@ -35,12 +35,13 @@ function check() {
 	}
 	
 	function check2() {
-		location.href = "/view/member/memberFind.jsp"
+		location.href = "MemberFindController"
 	}
 </script>
 </head>
 <body>
 	<form name="frm">
+	<h2 align="center">회원 로그인</h2>
 		<table border=1 align="center" width="30%" height="300px">
 			<tr>
 				<td>ID</td>

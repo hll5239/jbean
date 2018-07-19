@@ -33,45 +33,46 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int memberModify(MemberVo mv) {
-//		System.out.println("2");
+		// System.out.println("2");
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
 		int res = mm.memberModify(mv);
-//		System.out.println("3"+res);
+		// System.out.println("3"+res);
 		return res;
 
 	}
 
 	@Override
 	public MemberVo memberOne(String mid) {
-		
+
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
 		MemberVo mo = mm.memberOne(mid);
-		
+
 		return mo;
 	}
-	
+
 	@Override
-	public int memberDelete(int midx) {
-		
+	public int memberDelete(int midx){	
+
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
 		int md = mm.memberDelete(midx);
-		
-		return md;		
-		
+
+		return md;
+
 	}
-	
+
 	@Override
-	public MemberVo  memberIdFind(String mname1, String mmail1){
-		
+	public MemberVo memberIdFind(String mname1, String mmail1) {
+
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
-		MemberVo  mf = mm.memberIdFind(mname1, mmail1);
+		MemberVo mf = mm.memberIdFind(mname1, mmail1);
 
 		return mf;
-		
+
 	}
+
 	@Override
-	public MemberVo memberPwdFind(MemberVo mv){
-		
+	public MemberVo memberPwdFind(MemberVo mv) {
+
 		MemberMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MemberMapper.class);
 		MemberVo pf = mm.memberPwdFind(mv);
 
