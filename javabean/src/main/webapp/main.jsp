@@ -15,12 +15,16 @@ Piece & Style
 <c:when test="${sMid eq null}">
 <a href="MemberLoginController">로그인</a>
 <a href="MemberJoinController">회원가입</a>
+<a href="/BoardListN">공지사항</a>
+<a href="/BoardListF">FAQ</a>
 </c:when>
 <c:otherwise>
 <c:out value="${sMid}님 안녕하세요"></c:out>
 <a href="MemberLogoutC">로그아웃</a>
 <a href="MemberModifyController">회원정보수정</a>
 <a href="/MypageC">마이페이지</a>
+<a href="/BoardListN">공지사항</a>
+<a href="/BoardListF">FAQ</a>
 </c:otherwise>
 </c:choose>
 

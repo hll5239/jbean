@@ -4,5 +4,17 @@
 
 <mapper namespace="com.jb.jbean.persistence.BoardMapper">
 
+<select id="boardListN" parameterType="String" resultType="bvo">
+select * from Board3 where Bgroup=#{bgroup} and Bdel_yn='N'
+</select>
+
+<select id="boardListF" parameterType="String" resultType="bvo">
+select * from Board3 where Bgroup=#{bgroup} and Bdel_yn='N'
+</select>
+
+<insert id="boardWrite" parameterType="bvo">
+insert into Board3 
+values(seq_Bidx.NEXTVAL, #{bgroup}, #{bsubject}, #{bcontent}, default, null, default, #{bip}, default, #{midx})
+</insert>
 
 </mapper>
