@@ -11,7 +11,7 @@
 </head>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script language="JavaScript">
 
 	var sell_price;
@@ -72,8 +72,130 @@
 		document.form.submit();
 	});
 	
-	});
+	var pronum= $("#pronum").val();
+	var midx=$("#midx").val();
+	$.ajax({
+		type : "GET",
+		url  : "<%=request.getContextPath()%>/reviews/all/"+pronum,
+		datatype : "text",
+		cache : false,
+		error : function(){				
+			alert("error");
+		},
+		success : function(data){
+			 console.dir(data);
+				var str = '';
+				var index = 0
+				var modinput="";
+				var delinput="";
+				
+				/* if (midx == data.midx) {
+					modinput ="<li class='sub4'><button  onclick='$.mod("+this.ridx+")'>수정</button></li>";         
+					delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
+				
+				} */
+				$(data).each(function(index){
+					str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
+					+  "<li class='sub2'>"+this.mname + "</li>"
+					+  "<li class='sub3'>"+this.rcontent  + "</li>"
+					+  "<li class='sub3'>"+this.rday  + "</li>"
+					+  modinput
+					+  "<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>"
+					+  "</ul>";					
+				});
+				
+				$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
 
+		}			
+	});
+	
+	//댓글 입력
+	 $('#save').click(function(){
+		 //속성이기 때문에, 제이쿼리 밖으로 빼면 안됌. 아래 List나 del은 새로운 스크립트
+		 var bbidx = $("#bbidx").val();
+		 var cwriter = $("#cwriter").val();
+		 var ccontent = $("#ccontent").val();			 
+		 
+		 $.ajax({
+				type : "POST",
+				url  : "/comments", //컨트롤러와 같은경로
+				headers : {
+					"Content-Type" : "application/json", //json으로
+					"X-HTTP-Method-Override" : "POST"	//포스트 타입으로 넘기겠다. 안되는 브라워져를 위해, 브라우져특성상 못 읽을수 있기 때문.
+				},
+				datatype : "text", //데이터를 텍스트 타입으로 보내는데,
+				data : JSON.stringify({ 	//제이슨타입으로 문자화 한다. 
+					bbidx : bbidx,		//각각을 받아
+					cwriter : cwriter,
+					ccontent : ccontent
+				}),
+				cache : false,
+				error : function(){				
+					alert("error");
+				},
+				success : function(data){
+					if (data == null){
+						alert("데이타없음");
+					}
+					 
+					alert(data);
+					
+					//등록하면 헤더값 가져옴
+					$.boardCommentList();
+					
+					//성공시 input값 초기화
+					//여기 $("#bbidx").val(""); 입력해주면 bbidx값이 초기화 되서 넣으면 안됨
+					$("#cwriter").val("");
+					$("#ccontent").val("")
+					}
+				
+			});	
+	});
+	
+	
+	});
+	
+	$.del = function(ridx){
+		alert("삭제버튼")
+		var pronum= $("#pronum").val();
+		var ridx = ridx;
+		alert(ridx);
+		
+		 $.ajax({
+			type : "GET",
+			url  : "/reviews/del/"+ridx+"/"+pronum,
+			datatype : "text",				
+			cache : false,
+			error : function(){				
+				alert("error");
+			},
+			success : function(data){
+					var str = '';
+					var index = 0
+					var modinput="";
+					var delinput="";
+					
+					/* if (midx == data.midx) {
+						modinput ="<li class='sub4'><button  onclick='$.mod("+this.ridx+")'>수정</button></li>";         
+						delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
+					
+					} */
+					$(data).each(function(index){
+						str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
+						+  "<li class='sub2'>"+this.mname + "</li>"
+						+  "<li class='sub3'>"+this.rcontent  + "</li>"
+						+  "<li class='sub3'>"+this.rday  + "</li>"
+						+  modinput
+						+  "<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>"
+						+  "</ul>";					
+					});
+					
+					$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
+
+			}
+						
+		});
+	 }
 </script>
 
 
@@ -83,6 +205,7 @@
 		<c:forEach var="prov" items="${alistCate}">
 			<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
 			</a>
+			
 		</c:forEach>
 	</div>
 	
@@ -97,7 +220,7 @@
 					<li><input type="text" name="proname" style="border:none;" readonly value="${prov.proname}"></li>
 					<li><input type="text" name="proprice" style="border:none;" readonly value="${prov.proprice}"></li>
 					<li>배송비</li>
-					<li>
+					<li><input type="hidden" id="pronum" name="pronum" value="${prov.pronum}">
 							<select name="proidx">
 							<c:forEach var="provs" items="${alistProI}">
 								<option value="${provs.proidx}">${provs.prosize}</option>
@@ -110,7 +233,7 @@
 							<input type="button" value=" + " onclick="add();">
 							<input type="button" value=" - " onclick="del();">					
 					</li>
-				</ul>
+				</ul> 
 				<ul style="list-style:none;">
 					<li>금액 <input type="text" name="sum" size="11" readonly style="border:none;">원</li>
 					<li>
@@ -122,8 +245,28 @@
 			</c:if>
 		</div>
 	</c:forEach>
+	<input type="hidden" name="midx" id="midx" value="${sMidx}">
+	<div>
+	
+	<li>
+	<textarea name="ccontent" id="ccontent" class="text"></textarea>
+	</li>
+	
+	<li>사진추가${prov.pronum}</li>
+	<li><select name="rstar">
+						<option value="5">★★★★★ 완전좋아요</option>
+						<option value="4">★★★★ 좋아요</option>
+						<option value="3">★★★ 보통이에요</option>
+						<option value="2">★★ 그저 그래요</option>
+						<option value="1">★ 별로에요</option>
+				</select>
+	</li>
+	<li><input type="button" name="save" id="save" value="저장"/></li>
+	</div>
 	</form>
-
+	
+<div id=tbl>
+</div>
 
 </body>
 </html>

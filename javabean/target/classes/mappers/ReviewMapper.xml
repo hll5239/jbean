@@ -2,5 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jb.jbean.persistence.ReviewMapper">
+<select id="reviewList" parameterType="Integer" resultType="prorvo">
+select * from Review3 r, Product3 pro, Member3 m where pro.Proidx=r.Proidx and m.Midx=r.Midx and Rdel_yn='N' and pro.pronum=#{pronum}
+</select>
+
+<update id="reviewDelete" parameterType="prorvo">
+update Review3 set Rdel_yn='Y', Rmday=sysdate , Rip=#{rip} where Ridx=#{ridx} and Midx=#{midx}
+</update>
+
+<insert id="reviewWrite" parameterType="prorvo">
+insert into Review3 values
+(seq_Ridx.NEXTVAL,#{Rcontent},default,null,default,#{Rip},#{Rstar},#{Rfilename},#{Pidx},#{Proidx},#{Midx})
+</insert>
 
 </mapper>
