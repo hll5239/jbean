@@ -26,7 +26,6 @@
 	<tr>
 		<td>번호</td>
 		<td>게시물</td>
-		<td>상품</td>
 		<td>작성일</td>
 	</tr>
 	<c:forEach var="prorvo" items="${alist}">
