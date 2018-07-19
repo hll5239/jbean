@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jb.jbean.domain.BuyVo;
 import com.jb.jbean.domain.MemberVo;
@@ -242,6 +243,22 @@ public class AdminServiceImpl implements AdminService  {
 		 ArrayList<BuyVo> omList = msm.orderModifyButton(buyvo);
 		
 		return omList;
+	}
+
+	@Transactional
+	@Override
+	public int orderModifyAll(BuyVo buyvo) {
+		AdminMapper msm = sqlSession.getMapper(com.jb.jbean.persistence.AdminMapper.class);
+		int res=0;
+
+		System.out.println(buyvo.getP_nxy());
+		
+		msm.orderPayModify(buyvo);
+		res= msm.orderDeliveryModify(buyvo);
+		
+		System.out.println(res);
+		
+		return res;
 	}
 
 

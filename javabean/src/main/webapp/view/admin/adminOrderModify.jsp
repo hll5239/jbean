@@ -15,7 +15,7 @@ function check() {
   
   	if (res == true) {
 	   	formname.method ="post";
-	   	formname.action ="${pageContext.request.contextPath}/OrdermActionC";
+	   	formname.action ="${pageContext.request.contextPath}/AOrdermActionC";
 	   	formname.submit();  
   	}
   	return ;
@@ -31,7 +31,7 @@ function check() {
 <table border=1>
 <tr>
 <td>주문일</td>
-<td>${om.proname}</td>
+<td>${om.oday}</td>
 </tr>
 <tr>
 <td>주문번호</td>
@@ -47,7 +47,7 @@ function check() {
 </tr>
 <tr>
 <td>운송장 번호</td>
-<td><input type="text" name="Dcode"></td>
+<td><input type="text" name="dcode" value="${om.dcode }"></td>
 </tr>
 
 <tr>
@@ -65,17 +65,18 @@ function check() {
 <tr>
 <td>배송상태</td>
 <td>
-<select name="d_nxczy">
-				<option value="N" <c:if test="${om.p_nxy eq 'N'}">selected </c:if>>입금대기</option>
-				<option value="X" <c:if test="${om.p_nxy eq 'N'}">selected </c:if>>배송취소</option>
-				<option value="C" <c:if test="${om.p_nxy eq 'N'}">selected </c:if>>상품준비중</option>
-				<option value="Z" <c:if test="${om.p_nxy eq 'N'}">selected </c:if>>배송중</option>
-				<option value="Y" <c:if test="${om.p_nxy eq 'N'}">selected </c:if>>배송완료</option>		
+<select name="d_nxczy"> 
+				<option value="N" <c:if test="${om.d_nxczy eq 'N'}">selected </c:if>>입금대기</option>
+				<option value="X" <c:if test="${om.d_nxczy eq 'X'}">selected </c:if>>배송취소</option>
+				<option value="C" <c:if test="${om.d_nxczy eq 'C'}">selected </c:if>>상품준비중</option>
+				<option value="Z" <c:if test="${om.d_nxczy eq 'Z'}">selected </c:if>>배송중</option>
+				<option value="Y" <c:if test="${om.d_nxczy eq 'Y'}">selected </c:if>>배송완료</option>		
 				</select>
 </td>
 </tr>
 
 </table>
+
 </c:forEach>
 <input type="button" onclick="check()" value="변경하기" />
 

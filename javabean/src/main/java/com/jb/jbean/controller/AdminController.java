@@ -81,7 +81,7 @@ public class AdminController {
 	
 	
 	
-	@RequestMapping(value="/MemberC")
+	@RequestMapping(value="/AMemberC")
 	public String Member(Model model){
 	
 		ArrayList<MemberVo> mlist = as.memberAll();
@@ -92,7 +92,7 @@ public class AdminController {
 		return "/view/admin/adminMember";
 	}
 	/*회원검색*/
-	@RequestMapping(value="/MemberCareC")
+	@RequestMapping(value="/AMemberCareC")
 	public String MemberCare(SearchCriteria scri,  Model model){
 	
 		ArrayList<MemberVo> mlist = as.memberCare(scri);
@@ -103,7 +103,7 @@ public class AdminController {
 		
 	}
 	
-	@RequestMapping(value="/MemberModifyC")
+	@RequestMapping(value="/AMemberModifyC")
 	public String MemberModify(@RequestParam("midx") int midx, Model model){
 	
 		System.out.println(midx);
@@ -114,7 +114,7 @@ public class AdminController {
 		return "/view/admin/adminMemberModify";
 	}
 	
-	@RequestMapping(value="/MemberModifyActionC")
+	@RequestMapping(value="/AMemberModifyActionC")
 	public String MemberModifyAction(@ModelAttribute("mv") MemberVo mv, @RequestParam("mmail1") String mmail1
 			, @RequestParam("mmail2") String mmail2, @RequestParam("midx") int midx){
 	
@@ -141,16 +141,16 @@ public class AdminController {
 		bv = as.adminMemberModify(mv);
 		
 		if(bv==1) {
-			url="redirect:/MemberC";
+			url="redirect:/AMemberC";
 		}else {
 			
-			url="redirect:/MemberModifyC";
+			url="redirect:/AMemberModifyC";
 		}
 		
 		return url;
 	}
 	
-	@RequestMapping(value="/MemberDeleteC")
+	@RequestMapping(value="/AMemberDeleteC")
 	public String MemberDelete(@RequestParam("midx") int midx, Model model){
 	
 		
@@ -158,12 +158,12 @@ public class AdminController {
 		
 		String url="";
 
-		url="redirect:/MemberC";
+		url="redirect:/AMemberC";
 		
 		return url;
 	}
 	
-	@RequestMapping(value="/ProductC")
+	@RequestMapping(value="/AProductC")
 	public String Product(Model model){
 	
 		ArrayList<ProductVo> alist = as.productAll();
@@ -174,13 +174,13 @@ public class AdminController {
 		return "/view/admin/adminPro";
 	}
 	
-	@RequestMapping(value="/ProductInsertC")
+	@RequestMapping(value="/AProductInsertC")
 	public String ProductInsert(){
 	
 		
 		return "/view/admin/adminProWrite";
 	}
-	@RequestMapping(value="/ProductInsertActionC")
+	@RequestMapping(value="/AProductInsertActionC")
 	public String ProductInsertAction(@ModelAttribute("pv") ProductVo pv){
 		
 		int bv=0;
@@ -202,7 +202,7 @@ public class AdminController {
 		return url;
 	}
 	
-	@RequestMapping(value="/ProductModifyC")
+	@RequestMapping(value="/AProductModifyC")
 	public String ProductModify(@RequestParam("proidx") int proidx, Model model){
 	
 		ProductVo Modify = as.productModify(proidx);
@@ -212,7 +212,7 @@ public class AdminController {
 		return "/view/admin/adminProModify";
 	}
 	
-	@RequestMapping(value="/ProductModifyActionC")
+	@RequestMapping(value="/AProductModifyActionC")
 	public String ProductModifyAction(@ModelAttribute("pv") ProductVo pv){
 		
 		int bv=0;
@@ -231,7 +231,7 @@ public class AdminController {
 		return url;
 	}
 	
-	@RequestMapping(value="/ProductDeleteC")
+	@RequestMapping(value="/AProductDeleteC")
 	public String ProductDelete(@RequestParam("proidx") int proidx){
 	
 		int res = as.productDelete(proidx);
@@ -246,7 +246,7 @@ public class AdminController {
 	}
 	
 	/*상품검색*/
-	@RequestMapping(value="/ProductSelectC")
+	@RequestMapping(value="/AProductSelectC")
 	public String ProductSelect(@ModelAttribute("pv") ProductVo pv, Model model){
 	
 		
@@ -329,7 +329,7 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(value="/OrderaC")
+	@RequestMapping(value="/AOrderaC")
 	public String Order(Model model){
 	
 		ArrayList<BuyVo> oaList = as.orderAdmin();
@@ -341,7 +341,7 @@ public class AdminController {
 		return "/view/admin/adminOrder";
 	}
 	
-	@RequestMapping(value="/OrderSelectC")
+	@RequestMapping(value="/AOrderSelectC")
 	public String OrderModify(Model model,@RequestParam("ooidx") int ooidx,SearchCriteria scri ){
 	
 
@@ -354,7 +354,7 @@ public class AdminController {
 		return "/view/admin/adminOrder";
 	}
 	
-	@RequestMapping(value="/OrdermC")
+	@RequestMapping(value="/AOrdermC")
 	public String Orderm(Model model, @ModelAttribute("buyvo") BuyVo buyvo ){
 	
 
@@ -366,16 +366,21 @@ public class AdminController {
 		return "/view/admin/adminOrderModify";
 	}
 	
-	@RequestMapping(value="/OrdermActionC")
-	public String OrdermAction(Model model ){
-	
+	@RequestMapping(value="/AOrdermActionC")
+	public String OrdermAction(Model model,@ModelAttribute("buyvo") BuyVo buyvo){
 		
+		int res=0;
+		String url="";
 		
+		res=as.orderModifyAll(buyvo);
 		
+		if(res==1) {
+			url="redirect:/AOrderaC";
+		}else {
+			url="redirect:/AOrdermC";
+		}
 		
-		
-		
-		return "/view/admin/adminOrderModify";
+		return url;
 	}
 	
 	

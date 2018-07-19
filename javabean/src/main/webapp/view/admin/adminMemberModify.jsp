@@ -35,7 +35,7 @@ function check() {
 	  
 	  	if (res == true) {
 		   	formname.method ="post";
-		   	formname.action ="<%=request.getContextPath() %>/MemberModifyActionC?midx=${mModify.midx}";
+		   	formname.action ="<%=request.getContextPath() %>/AMemberModifyActionC?midx=${mModify.midx}";
 		   	formname.submit();  
 	  	}
 	  	return ;

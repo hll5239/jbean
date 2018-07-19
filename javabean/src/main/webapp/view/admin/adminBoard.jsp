@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<table border=1 style="margin: auto; text-align: center;">
+		<tr>
+			<td><a href="${pageContext.request.contextPath}/AcntC">메인</a></td>
+			<td><a href="${pageContext.request.contextPath}/AMemberC">회원관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AProductC">상품관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AOrderaC">주문관리</a></td>
+			<td><a href="#">통계</a></td>
+			<td><a href="#">게시판관리</a></td>
+		</tr>
+	</table>
+<br>
+<br>
 </body>
 </html>

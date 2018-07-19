@@ -5,16 +5,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	$("#name").click(function () {
+		var i = 0;
+		alert(i);
+	});
+	 
+	
+	  
+	});
+</script>
+
+
 
 <title>Insert title here</title>
 </head>
 <body>
+	<input type="button" id="name" value="버튼">
+	<c:set var="i" value="0"/>
+	<c:choose>
+	<c:when test ="${i eq 0 }">
+	안녕
+	</c:when>
+	
+	<c:otherwise>
+	바이
+	</c:otherwise>
+	
+	</c:choose>
 	<table border=1 style="margin: auto; text-align: center;">
 		<tr>
 			<td><a href="${pageContext.request.contextPath}/AcntC">메인</a></td>
-			<td><a href="${pageContext.request.contextPath}/MemberC">회원관리</a></td>
-			<td><a href="${pageContext.request.contextPath}/ProductC">상품관리</a></td>
-			<td><a href="#">주문관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AMemberC">회원관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AProductC">상품관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AOrderaC">주문관리</a></td>
 			<td><a href="#">통계</a></td>
 			<td><a href="#">게시판관리</a></td>
 		</tr>
@@ -23,7 +50,7 @@
 	<br>
 
 	<form name="frm"
-		action="${pageContext.request.contextPath}/OrderSelectC">
+		action="${pageContext.request.contextPath}/AOrderSelectC">
 		<table border="1">
 			<tr>
 				<td>주문상태</td>
@@ -75,7 +102,7 @@
 				<td>${ord.pprice}</td>
 				<td>${ord.p_nxy}</td>
 				<td>${ord.d_nxczy}</td>
-				<td><a href="${pageContext.request.contextPath}/OrdermC?mid=${ord.mid}&oid=${ord.oid}">수정</a></td>
+				<td><a href="${pageContext.request.contextPath}/AOrdermC?mid=${ord.mid}&oid=${ord.oid}">수정</a></td>
 
 			</tr>
 		</c:forEach>

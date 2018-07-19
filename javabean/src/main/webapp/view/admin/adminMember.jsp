@@ -8,18 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border=1 style="margin:auto; text-align:center;">
-<tr>
-<td><a href="${pageContext.request.contextPath}/AcntC">메인</a></td>
-<td><a href="${pageContext.request.contextPath}/MemberC">회원관리</a></td>
-<td><a href="${pageContext.request.contextPath}/ProductC">상품관리</a></td>
-<td><a href="#">주문관리</a></td>
-<td><a href="#">통계</a></td>
-<td><a href="#">게시판관리</a></td>
-</tr>
-</table>
-<br><br>
-<form name="searchform" action="${pageContext.request.contextPath}/MemberCareC">
+<table border=1 style="margin: auto; text-align: center;">
+		<tr>
+			<td><a href="${pageContext.request.contextPath}/AcntC">메인</a></td>
+			<td><a href="${pageContext.request.contextPath}/AMemberC">회원관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AProductC">상품관리</a></td>
+			<td><a href="${pageContext.request.contextPath}/AOrderaC">주문관리</a></td>
+			<td><a href="#">통계</a></td>
+			<td><a href="#">게시판관리</a></td>
+		</tr>
+	</table>
+<br>
+<br>
+<form name="searchform" action="${pageContext.request.contextPath}/AMemberCareC">
 <table border=1>
 <tr>
 <td>검색조건</td>
@@ -65,8 +66,8 @@
 <td>${ml.mday}</td>
 <td>${ml.mip}</td>
 <td>${ml.mdel_yn}</td>
-<td><a href="${pageContext.request.contextPath}/MemberModifyC?midx=${ml.midx}">수정</a></td>
-<td><a href="${pageContext.request.contextPath}/MemberDeleteC?midx=${ml.midx}">삭제</a></td>
+<td><a href="${pageContext.request.contextPath}/AMemberModifyC?midx=${ml.midx}">수정</a></td>
+<td><a href="${pageContext.request.contextPath}/AMemberDeleteC?midx=${ml.midx}">삭제</a></td>
 
 </tr>
 </c:forEach>

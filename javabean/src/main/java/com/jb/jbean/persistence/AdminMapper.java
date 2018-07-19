@@ -62,4 +62,8 @@ public interface AdminMapper {
 	
 	public ArrayList<BuyVo> orderModifyButton(BuyVo buyvo);
 	
+	public int orderPayModify(BuyVo buyvo);
+	public int orderDeliveryModify(BuyVo buyvo);
+	
+	
 }

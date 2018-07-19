@@ -53,5 +53,5 @@ public interface AdminService {
 	
 	public ArrayList<BuyVo> orderModifyButton(BuyVo buyvo);
 	
-
+	public int orderModifyAll(BuyVo buyvo);
 }

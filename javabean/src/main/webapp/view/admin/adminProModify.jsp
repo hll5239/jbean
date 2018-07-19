@@ -48,7 +48,7 @@ function check() {
   
   	if (res == true) {
 	   	formname.method ="post";
-	   	formname.action ="${pageContext.request.contextPath}/ProductInsertActionC";
+	   	formname.action ="${pageContext.request.contextPath}/AProductInsertActionC";
 	   	formname.submit();  
   	}
   	return ;
