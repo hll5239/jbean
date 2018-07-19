@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jb.jbean.domain.*;
@@ -29,8 +30,10 @@ public class MypageController {
 		
 System.out.println("----MypageC----------------------");
 		int midx = (Integer) session.getAttribute("sMidx");
+		String mid = (String) session.getAttribute("sMid");
 System.out.println("技记midx"+midx);
-				
+System.out.println("技记mid"+mid);
+
 		int a1 = mys.orderAllCnt(midx);
 		int a2 = mys.paymentBeforeCnt(midx);
 		int a3 = mys.productReadyCnt(midx);
@@ -73,8 +76,21 @@ System.out.println("技记midx"+midx);
 
 	}
 	
+	@RequestMapping(value="/MyOrderInfoC")
+	protected String myOrderinfo(Model model, HttpSession session,
+									@RequestParam("oid") long oid) {
+		
+		
+		
+		ArrayList<BuyVo> alist = mys.myOrderInfo(oid);
+		model.addAttribute("alist", alist);
+		
+		return "view/mypage/myOrderInfo";
+
+	}
+	
 	@RequestMapping(value="/MyBoardC")
-	protected String MyBoardC(Model model, HttpSession session) {
+	protected String myBoard(Model model, HttpSession session) {
 	
 System.out.println("----MyBoardC----------------------");
 		int midx = (Integer) session.getAttribute("sMidx");
@@ -83,20 +99,21 @@ System.out.println("技记midx"+midx);
 		ArrayList<ProReviewVo> alist = mys.myReview(midx);
 		model.addAttribute("alist", alist);
 		
-		/*String view;
+		String view;
 		
 		if (session.getAttribute("sMidx") != null){
 			view = "view/mypage/myBoard";
 		}else {
 			view = "redirect:/MemberLoginController";
-		}*/	
-		return "view/mypage/myBoard";
+		}	
+		return view;
 
 	}
 	
+	//Ajax侩
 	@ResponseBody
   	@RequestMapping(value="/MyReviewC", produces ="text/plain;charset=UTF-8")
-  	public ArrayList<ProReviewVo> MyReview(Model model, HttpSession session) throws Exception {
+  	public ArrayList<ProReviewVo> myReview(Model model, HttpSession session) throws Exception {
   		
 		int midx = (Integer) session.getAttribute("sMidx");
 		
@@ -105,10 +122,10 @@ System.out.println("技记midx"+midx);
 		
   		return alist;
   	}
-	
+	//Ajax侩
 	@ResponseBody
   	@RequestMapping(value="/MyQnaC", produces ="text/plain;charset=UTF-8")
-  	public ArrayList<ProQnaVo> MyQna(Model model, HttpSession session) throws Exception {
+  	public ArrayList<ProQnaVo> myQna(Model model, HttpSession session) throws Exception {
   		
 		int midx = (Integer) session.getAttribute("sMidx");
 		
@@ -117,7 +134,6 @@ System.out.println("技记midx"+midx);
 		
   		return alist;
   	}
-	
 	
 	
 }

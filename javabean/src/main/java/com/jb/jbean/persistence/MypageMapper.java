@@ -12,6 +12,7 @@ public interface MypageMapper {
 	public int deliveringCnt(int midx);
 	public int deliveredCnt(int midx);
 	public ArrayList<BuyVo> myOrder(int midx);
+	public ArrayList<BuyVo> myOrderInfo(long oid);
 	public ArrayList<ProReviewVo> myReview(int midx);
 	public ArrayList<ProQnaVo> myQna(int midx);
 	

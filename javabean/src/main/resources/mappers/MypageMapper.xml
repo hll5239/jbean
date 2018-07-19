@@ -31,6 +31,12 @@
 		order by o.Oday desc
 	</select>
 	
+	<select id="myOrderInfo" parameterType="ArrayList" resultType="buyvo">
+		select * from Product3 pro, Order3 o, Pay3 p, Delivery3 d 
+		where pro.Proidx=o.Proidx and o.Oid=p.Oid and o.Oid=d.Oid 
+		and o.Oid=#{Oid}
+	</select>
+	
 	<select id="myReview" parameterType="ArrayList" resultType="prorvo">
 		select * from Review3 r, Product3 pro where r.proidx=pro.proidx and r.Midx=#{midx} and r.Rdel_yn='N' order by r.Rday desc
 	</select>

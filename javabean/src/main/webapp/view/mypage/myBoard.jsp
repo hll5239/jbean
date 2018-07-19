@@ -17,9 +17,9 @@
 <body>
 
 내 게시물 조회
-<%-- 
-<input type="button" value="Review" onclick="location.href='${request.getContextPath}/MyReviewC'">
-<input type="button" value="QnA" onclick="location.href='${request.getContextPath}/MyQnaC'">
+
+<%-- <input type="button" id="review" value="Review" onclick="location.href='${request.getContextPath}/MyReviewC'">
+<input type="button" id="qna" value="QnA" onclick="location.href='${request.getContextPath}/MyQnaC'">
  --%>
  
 <table border="1">
@@ -35,7 +35,6 @@
 		<td>${prorvo.rday}</td>
 	</tr>
 	</c:forEach>
-
 </table>
 
 

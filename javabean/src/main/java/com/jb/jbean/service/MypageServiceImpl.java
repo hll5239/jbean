@@ -70,7 +70,16 @@ public class MypageServiceImpl implements MypageService  {
 		
 		return alist;
 	}
-
+	
+	@Override
+	public ArrayList<BuyVo> myOrderInfo(long oid) {
+		
+		MypageMapper mm = sqlSession.getMapper(com.jb.jbean.persistence.MypageMapper.class);
+		ArrayList<BuyVo> alist = mm.myOrderInfo(oid);
+		
+		return alist;
+	}
+	
 	@Override
 	public ArrayList<ProReviewVo> myReview(int midx) {
 		
@@ -88,6 +97,8 @@ public class MypageServiceImpl implements MypageService  {
 		
 		return alist;
 	}
+
+	
 
 
 
