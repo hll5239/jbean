@@ -18,19 +18,19 @@
 
 <body>
 <table border="1">
-	<tr><td colspan=4>총 주문  회</td></tr>
+	<tr><td colspan=4>총 주문 ${a1} 회</td></tr>
 	<tr><td colspan=4>나의 주문 처리 현황</td></tr>
 	<tr>
-		<td>입금전<br></td>
-		<td>상품준비중<br></td>
-		<td>배송중<br></td>
-		<td>배송완료<br></td>
+		<td>입금전<br>${a2}</td>
+		<td>상품준비중<br>${a3}</td>
+		<td>배송중<br>${a4}</td>
+		<td>배송완료<br>${a5}</td>
 	</tr>
 	<tr>
 		<td colspan=4>
-			<input type="button" id="order" value="주문내역조회">
-			<input type="button" id="member" value="내정보">
-			<input type="button" id="board" value="내 게시물 조회">
+			<input type="button" value="주문내역조회" onclick="location.href='${request.getContextPath}/MyOrderC'">
+			<input type="button" value="내정보" onclick="location.href='${request.getContextPath}/MemberModifyController'">
+			<input type="button" value="내 게시물 조회" onclick="location.href='${request.getContextPath}/MyBoardC'">
 		</td>
 	</tr>
 </table>

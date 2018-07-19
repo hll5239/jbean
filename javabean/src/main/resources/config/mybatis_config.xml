@@ -18,7 +18,6 @@
   		<typeAlias alias="proqvo" type="com.jb.jbean.domain.ProQnaVo"/>
   		<typeAlias alias="scri" type="com.jb.jbean.domain.SearchCriteria"/>
   		<typeAlias alias="cri" type="com.jb.jbean.domain.Criteria"/>  	
-	
 	</typeAliases> 
 
  </configuration>

@@ -1,5 +1,9 @@
 package com.jb.jbean.service;
 
+import java.util.ArrayList;
+
+import com.jb.jbean.domain.*;
+
 public interface MypageService {
 	
 	public int orderAllCnt(int midx);
@@ -7,5 +11,8 @@ public interface MypageService {
 	public int productReadyCnt(int midx);
 	public int deliveringCnt(int midx);
 	public int deliveredCnt(int midx);
+	public ArrayList<BuyVo> myOrder(int midx);
+	public ArrayList<ProReviewVo> myReview(int midx);
+	public ArrayList<ProQnaVo> myQna(int midx);
 	
 }
