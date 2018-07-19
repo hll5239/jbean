@@ -15,5 +15,6 @@ public interface MypageService {
 	public ArrayList<BuyVo> myOrderInfo(long oid);
 	public ArrayList<ProReviewVo> myReview(int midx);
 	public ArrayList<ProQnaVo> myQna(int midx);
+	public int OrderCancel(int midx, long oid);
 	
 }

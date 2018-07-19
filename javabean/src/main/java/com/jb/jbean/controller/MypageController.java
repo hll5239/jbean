@@ -79,8 +79,7 @@ System.out.println("技记mid"+mid);
 	@RequestMapping(value="/MyOrderInfoC")
 	protected String myOrderinfo(Model model, HttpSession session,
 									@RequestParam("oid") long oid) {
-		
-		
+		System.out.println("oid蔼?  "+oid);
 		
 		ArrayList<BuyVo> alist = mys.myOrderInfo(oid);
 		model.addAttribute("alist", alist);
@@ -88,6 +87,18 @@ System.out.println("技记mid"+mid);
 		return "view/mypage/myOrderInfo";
 
 	}
+	@RequestMapping(value="/OrderCancelC")
+	protected String orderCancel(Model model, HttpSession session,
+									@RequestParam("oid") long oid) {
+		System.out.println("oid蔼?  "+oid);
+		int midx = (Integer) session.getAttribute("sMidx");
+		
+		mys.OrderCancel(midx, oid);
+		
+		return "redirect:/MyOrderC";
+
+	}
+	
 	
 	@RequestMapping(value="/MyBoardC")
 	protected String myBoard(Model model, HttpSession session) {

@@ -29,7 +29,7 @@
 <body>
 내 주문조회
 
-
+<!-- 
 	<form name="turm">
 	<table>
 		<tr>
@@ -46,7 +46,8 @@
 		</tr>
 	</table>
 	</form>
-	
+-->
+	 
 <form name="orderDetail">
 	<table border="1">
 		<tr>
@@ -60,8 +61,8 @@
 		<tr>
 			<td>${buyvo.oday}<br>
 				<input type="text" name="oid" value="${buyvo.oid}" readonly style="border:none;"><br>
+				<a href="${request.contextPath}/MyOrderInfoC?oid=${buyvo.oid}">상세보기</a>
 				<input type="button" value="상세보기" name="detail"></td>
-				
 			<td>${buyvo.proname}<br>[옵션: ${buyvo.prosize}]</td>
 			<td>${buyvo.ocnt}</td>
 			<td>${buyvo.pprice} 원</td>
@@ -69,7 +70,7 @@
 			<td><c:choose>
 					<c:when test="${ing == 'YNN'}">
 						<c:out value="입금대기"></c:out><br>
-						<input type="button" value="주문취소">
+						<input type="button" value="주문취소" onclick="location.href='${request.getContextPath}/OrderCancelC?oid=${buyvo.oid}'">
 					</c:when>
 					<c:when test="${ing == 'YYC'}">
 						<c:out value="상품준비중"></c:out>

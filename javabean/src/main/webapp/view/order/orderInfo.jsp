@@ -151,7 +151,7 @@
 		<tr>
 			<td>결제수단</td>
 			<td><input type="radio" name="ptype" value="B" checked>무통장입금
-				<input type="radio" name="ptype" value="C" disabled>신용/체크카드
+				<input type="radio" name="ptype" value="C" disabled>카드결제
 				<input type="radio" name="ptype" value="P" disabled>핸드폰결제</td>
 		</tr>
 		<c:if test="${ptype == B}">	

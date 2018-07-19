@@ -1,6 +1,7 @@
 package com.jb.jbean.persistence;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.jb.jbean.domain.*;
 
@@ -15,5 +16,8 @@ public interface MypageMapper {
 	public ArrayList<BuyVo> myOrderInfo(long oid);
 	public ArrayList<ProReviewVo> myReview(int midx);
 	public ArrayList<ProQnaVo> myQna(int midx);
+	public int orderX(HashMap<String, Object> map);
+	public int payX(HashMap<String, Object> map);
+	public int deliveryX(HashMap<String, Object> map);
 	
 }
