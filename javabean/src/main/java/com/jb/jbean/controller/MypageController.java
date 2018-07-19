@@ -27,9 +27,9 @@ public class MypageController {
 	@RequestMapping(value="/MypageC")
 	protected String mypage(Model model, HttpSession session) {
 		
-		System.out.println("----MypageC----------------------");
+System.out.println("----MypageC----------------------");
 		int midx = (Integer) session.getAttribute("sMidx");
-		System.out.println(midx);
+System.out.println("技记midx"+midx);
 				
 		int a1 = mys.orderAllCnt(midx);
 		int a2 = mys.paymentBeforeCnt(midx);
@@ -76,10 +76,10 @@ public class MypageController {
 	@RequestMapping(value="/MyBoardC")
 	protected String MyBoardC(Model model, HttpSession session) {
 	
-	System.out.println("----MyBoardC----------------------");
+System.out.println("----MyBoardC----------------------");
 		int midx = (Integer) session.getAttribute("sMidx");
-				//(Integer) session.getAttribute("sMidx");
-	System.out.println(midx);
+System.out.println("技记midx"+midx);
+
 		ArrayList<ProReviewVo> alist = mys.myReview(midx);
 		model.addAttribute("alist", alist);
 		
