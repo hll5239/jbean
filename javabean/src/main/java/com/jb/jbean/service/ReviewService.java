@@ -9,4 +9,6 @@ public interface ReviewService {
 	public ArrayList<ProReviewVo> reviewList(int pronum);
 	
 	public int reviewDelete(ProReviewVo prorvo);
+	
+	public int reviewWrite(ProReviewVo prorvo);
 }

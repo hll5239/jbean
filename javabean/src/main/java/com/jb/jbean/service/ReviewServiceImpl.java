@@ -36,4 +36,16 @@ public class ReviewServiceImpl implements ReviewService{
 		return res;
 	}
 
+
+
+	@Override
+	public int reviewWrite(ProReviewVo prorvo) {
+
+		ReviewMapper rm = sqlSession.getMapper(com.jb.jbean.persistence.ReviewMapper.class);
+		
+		int res= rm.reviewWrite(prorvo);
+		
+		return res;
+	}
+
 }

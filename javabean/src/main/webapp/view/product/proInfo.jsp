@@ -9,7 +9,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+.fileDrop {
+width: 200px;
+height:100px;
+border:1px dotted blue;
+}
+small {
+margin-left:3px;
+font-weight:bold;
+color:gray;
+}
 
+</style>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script language="JavaScript">
@@ -50,6 +62,45 @@
 		sum.value = parseInt(hm.value) * sell_price;
 	}
 	
+	function addFilePath(msg){
+		alert(msg);	
+	}
+
+	function checkImageType(fileName){
+		
+		var pattern = /jpg$|gif$|png$|jpeg$/i;
+		alert(fileName.match(pattern));
+		
+		return fileName.match(pattern);
+	}
+
+	function getOriginalName(fileName){
+//		alert(fileName);
+		//이미지파일이면 원본이름 안쓴다
+		if (checkImageType(fileName)) {
+			return;
+		}
+		
+		var idx = fileName.lastIndexOf("_")+1;
+		
+		alert(idx);
+		return fileName.substr(idx);
+	}
+
+	//파일이 이미지일경우
+	function getImageLink(fileName){
+		if (!checkImageType(fileName)) {
+			return;
+		}
+		//위치 폴더뽑기
+		var front = fileName.substr(0,12);
+		//파일이름뽑기
+		//_는 빼고
+		var end = fileName.substr(14);
+		
+		return front+end;	
+	}
+	
 	
 	$(function(){
 		
@@ -72,6 +123,65 @@
 		document.form.submit();
 	});
 	
+	$(".fileDrop").on("dragenter dragover",function(event){
+		
+		event.preventDefault();		
+	});
+	
+	$(".fileDrop").on("drop",function(event){
+		
+		event.preventDefault();
+		
+		var files = event.originalEvent.dataTransfer.files;
+		var file = files[0];
+		
+		var formData = new FormData();
+		
+		formData.append("file",file);
+		
+		$.ajax({
+			url:'/uploadc',
+			data: formData,
+			dataType:'text',
+			error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       },
+			processData:false,
+			contentType:false,
+			type:'POST',
+			success : function(data){
+				
+				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
+				alert(data);
+			
+				// input--> sdsdsd-ssd22q.jpg
+				$("#rfilename").val(data.replace("s-",""));		
+				
+				var str ="";
+				
+				if(checkImageType(data)){
+					str ="<div>"
+					+ "<a href='displayFile?fileName="+getImageLink(data)+"'>"
+					+ "<img src='displayFile?fileName="+data+"' />"
+					+ getImageLink(data) 
+					+ "</a>"
+					+ "</div>";
+				}else{
+					str = "<div>"
+						+ "<a href='displayFile?fileName="+data+"'>"
+						+ getOriginalName(data) 
+						+ "</a>"
+						+ "</div>";
+				}
+				
+				$(".uploadedList").append(str);
+			}		
+			
+		});	
+		
+	});	
+	
+	
 	var pronum= $("#pronum").val();
 	var midx=$("#midx").val();
 	$.ajax({
@@ -83,28 +193,29 @@
 			alert("error");
 		},
 		success : function(data){
-			 console.dir(data);
 				var str = '';
 				var index = 0
 				var modinput="";
 				var delinput="";
+			
 				
-				/* if (midx == data.midx) {
-					modinput ="<li class='sub4'><button  onclick='$.mod("+this.ridx+")'>수정</button></li>";         
+				$(data).each(function(index){
+					
+					if (midx == this.midx) {       
 					delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
 				
-				} */
-				$(data).each(function(index){
-					str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
+				} 
+					
+					str += "<ul><li><img src='/displayc?fileName="+this.rfilename+"'></li>" 
+					+ "<ul><li class='sub1'>"+this.rstar  + "</li>"
 					+  "<li class='sub2'>"+this.mname + "</li>"
 					+  "<li class='sub3'>"+this.rcontent  + "</li>"
 					+  "<li class='sub3'>"+this.rday  + "</li>"
-					+  modinput
-					+  "<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>"
+					+  delinput
 					+  "</ul>";					
 				});
 				
-				$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
+				$('#tbl').html("<ul><li>사진</li><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
 
 		}			
 	});
@@ -112,45 +223,64 @@
 	//댓글 입력
 	 $('#save').click(function(){
 		 //속성이기 때문에, 제이쿼리 밖으로 빼면 안됌. 아래 List나 del은 새로운 스크립트
-		 var bbidx = $("#bbidx").val();
-		 var cwriter = $("#cwriter").val();
-		 var ccontent = $("#ccontent").val();			 
+		 var pronum= $("#pronum").val();
+		 var midx=$("#midx").val();
+		 var proidx = $("#proidx").val();
+		 var rstar = $("#rstar").val();
+		 var rcontent = $("#rcontent").val();	
+		 var rfilename =$("#rfilename").val()
+		 
 		 
 		 $.ajax({
 				type : "POST",
-				url  : "/comments", //컨트롤러와 같은경로
+				url  : "/reviews", //컨트롤러와 같은경로
 				headers : {
 					"Content-Type" : "application/json", //json으로
 					"X-HTTP-Method-Override" : "POST"	//포스트 타입으로 넘기겠다. 안되는 브라워져를 위해, 브라우져특성상 못 읽을수 있기 때문.
 				},
 				datatype : "text", //데이터를 텍스트 타입으로 보내는데,
 				data : JSON.stringify({ 	//제이슨타입으로 문자화 한다. 
-					bbidx : bbidx,		//각각을 받아
-					cwriter : cwriter,
-					ccontent : ccontent
+					pronum : pronum,
+					proidx : proidx,
+					rstar : rstar,
+					rfilename : rfilename,
+					rcontent : rcontent
 				}),
 				cache : false,
 				error : function(){				
 					alert("error");
 				},
 				success : function(data){
-					if (data == null){
-						alert("데이타없음");
-					}
-					 
-					alert(data);
+					var str = '';
+					var index = 0
+					var modinput="";
+					var delinput="";
+				
 					
-					//등록하면 헤더값 가져옴
-					$.boardCommentList();
+					$(data).each(function(index){
+						
+						if (midx == this.midx) {       
+						delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
 					
-					//성공시 input값 초기화
-					//여기 $("#bbidx").val(""); 입력해주면 bbidx값이 초기화 되서 넣으면 안됨
-					$("#cwriter").val("");
-					$("#ccontent").val("")
-					}
+					} 
+						
+						str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
+						+  "<li class='sub2'>"+this.mname + "</li>"
+						+  "<li class='sub3'>"+this.rcontent  + "</li>"
+						+  "<li class='sub3'>"+this.rday  + "</li>"
+						+  delinput
+						+  "</ul>";					
+					});
+					
+					$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
+
+			}	
 				
 			});	
 	});
+
+	
+	
 	
 	
 	});
@@ -170,29 +300,30 @@
 				alert("error");
 			},
 			success : function(data){
-					var str = '';
-					var index = 0
-					var modinput="";
-					var delinput="";
+				var str = '';
+				var index = 0
+				var modinput="";
+				var delinput="";
+			
+				
+				$(data).each(function(index){
 					
-					/* if (midx == data.midx) {
-						modinput ="<li class='sub4'><button  onclick='$.mod("+this.ridx+")'>수정</button></li>";         
-						delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
+					if (midx == this.midx) {       
+					delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
+				
+				} 
 					
-					} */
-					$(data).each(function(index){
-						str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
-						+  "<li class='sub2'>"+this.mname + "</li>"
-						+  "<li class='sub3'>"+this.rcontent  + "</li>"
-						+  "<li class='sub3'>"+this.rday  + "</li>"
-						+  modinput
-						+  "<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>"
-						+  "</ul>";					
-					});
-					
-					$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
+					str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
+					+  "<li class='sub2'>"+this.mname + "</li>"
+					+  "<li class='sub3'>"+this.rcontent  + "</li>"
+					+  "<li class='sub3'>"+this.rday  + "</li>"
+					+  delinput
+					+  "</ul>";					
+				});
+				
+				$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
 
-			}
+		}
 						
 		});
 	 }
@@ -221,7 +352,7 @@
 					<li><input type="text" name="proprice" style="border:none;" readonly value="${prov.proprice}"></li>
 					<li>배송비</li>
 					<li><input type="hidden" id="pronum" name="pronum" value="${prov.pronum}">
-							<select name="proidx">
+							<select id="proidx" name="proidx">
 							<c:forEach var="provs" items="${alistProI}">
 								<option value="${provs.proidx}">${provs.prosize}</option>
 							</c:forEach>
@@ -248,12 +379,18 @@
 	<input type="hidden" name="midx" id="midx" value="${sMidx}">
 	<div>
 	
+	<h1>Review</h1>
 	<li>
-	<textarea name="ccontent" id="ccontent" class="text"></textarea>
+	<textarea name="rcontent" id="rcontent" class="text" cols="50" rows="6"></textarea>
 	</li>
 	
-	<li>사진추가${prov.pronum}</li>
-	<li><select name="rstar">
+	<li>
+	<input type="hidden" id="rfilename" name="rfilename">
+	<li>이미지 첨부</li>
+	<div class='fileDrop'></div>
+	<div class='uploadedList'></div>
+	</li>
+	<li><select name="rstar" id="rstar">
 						<option value="5">★★★★★ 완전좋아요</option>
 						<option value="4">★★★★ 좋아요</option>
 						<option value="3">★★★ 보통이에요</option>
@@ -261,12 +398,33 @@
 						<option value="1">★ 별로에요</option>
 				</select>
 	</li>
-	<li><input type="button" name="save" id="save" value="저장"/></li>
+	<li><input type="button" name="save" id="save" value="입력"/></li>
 	</div>
 	</form>
 	
+
 <div id=tbl>
 </div>
 
+<h1>QnA</h1>
+<table border=1>
+<tr>
+<td>번호</td>
+<td>답변유무</td>
+<td align= "left" width="200px">제목</td>
+<td>작성자</td>
+<td>작성일</td>
+</tr>
+<c:forEach var="ql" varStatus="status" items="${qlist}">
+<tr>
+<td>${status.index+1}</td>
+<td>${ql.qreply_yn}</td>
+<td>${ql.qsubject}</td>
+<td>${ql}</td>
+<td>${ql.qday}</td>
+</tr>
+</c:forEach>
+</table>
+<input type="button" value="Q&A등록" onClick="check()">
 </body>
 </html>
