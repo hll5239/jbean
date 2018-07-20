@@ -104,6 +104,8 @@ color:gray;
 	
 	$(function(){
 		
+
+		
 	$('#buy').click(function(){
 		alert("바로구매");
 		document.form.method ="POST"; //메소드 타입을 결정
@@ -207,7 +209,7 @@ color:gray;
 				} 
 					
 					if(this.rfilename != null){
-						filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"'></li>"
+						filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"' width=300px, height=200px></li>"
 					}else{
 						filename="<ul><li></li>";
 					}
@@ -265,10 +267,11 @@ color:gray;
 					
 					$(data).each(function(index){
 						
-						if (midx == this.midx) {       
-						delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
-					
-					} 
+						if(this.rfilename != null){
+							filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"' width=300px, height=200px></li>"
+						}else{
+							filename="<ul><li></li>";
+						}
 						
 						str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
 						+  "<li class='sub2'>"+this.mname + "</li>"
@@ -314,10 +317,11 @@ color:gray;
 				
 				$(data).each(function(index){
 					
-					if (midx == this.midx) {       
-					delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
-				
-				} 
+					if(this.rfilename != null){
+						filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"' width=300px, height=200px></li>"
+					}else{
+						filename="<ul><li></li>";
+					}
 					
 					str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
 					+  "<li class='sub2'>"+this.mname + "</li>"
@@ -333,11 +337,25 @@ color:gray;
 						
 		});
 	 }
+	
+	 function check() {
+		 
+		 var res;
+	     res= confirm("글을 등록하겠습니까?");
+		 
+		 if(res==true){
+			 document.frm.method="post";
+			 document.frm.action="${pageContext.request.contextPath}/QnaWriteC?proidx="+$("#proidx").val();;
+			 document.frm.submit();
+			
+		       	}
+	 }
+	
 </script>
 
 
 <body onload="init();">
-
+<form name=frm>
 	<div>
 		<c:forEach var="prov" items="${alistCate}">
 			<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
@@ -412,6 +430,7 @@ color:gray;
 <div id=tbl>
 </div>
 
+
 <h1>QnA</h1>
 <table border=1>
 <tr>
@@ -426,11 +445,29 @@ color:gray;
 <td>${status.index+1}</td>
 <td>${ql.qreply_yn}</td>
 <td>${ql.qsubject}</td>
-<td>${ql}</td>
+<td>${ql.mname}</td>
 <td>${ql.qday}</td>
 </tr>
+
+
+<tr>
+<td></td>
+<td align= "right">L</td>
+<td>${ql.qcontent}</td>
+<td colspan=2><c:if test="${ql.qreply_yn eq 'N' }"><a href="#">답변</a></c:if></td>
+
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>${ql.qreply}</td>
+<td colspan=2></td>
+</tr>
+
 </c:forEach>
 </table>
 <input type="button" value="Q&A등록" onClick="check()">
+</form>
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jb.jbean.domain.BuyVo;
+import com.jb.jbean.domain.ProQnaVo;
 import com.jb.jbean.domain.ProductVo;
 import com.jb.jbean.persistence.ProductMapper;
 
@@ -86,6 +87,23 @@ public class ProductServiceImpl implements ProductService{
 		ArrayList<ProductVo> alist = prom.productInfo(pronum);
 
 		return alist;
+	}
+
+	@Override
+	public ArrayList<ProQnaVo> qnaList(int pronum) {
+		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
+		ArrayList<ProQnaVo> qlist = prom.qnaList(pronum);
+		
+		return qlist;
+	}
+
+	@Override
+	public int qnaWrite(ProQnaVo proqvo) {
+		System.out.println("4");
+		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
+		int res = prom.qnaWrite(proqvo);
+		System.out.println("3");
+		return res;
 	}
 
 

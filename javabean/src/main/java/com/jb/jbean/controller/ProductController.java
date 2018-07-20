@@ -1,14 +1,20 @@
 package com.jb.jbean.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jb.jbean.domain.ProQnaVo;
 import com.jb.jbean.domain.ProductVo;
 import com.jb.jbean.service.ProductService;
 
@@ -52,13 +58,57 @@ public class ProductController {
 		
 		ArrayList<ProductVo> alistCate = pros.category();
 		ArrayList<ProductVo> alistProI = pros.productInfo(pronum);
-
+		ArrayList<ProQnaVo> qlist = pros.qnaList(pronum);
+		
 		model.addAttribute("alistCate", alistCate);
 		model.addAttribute("alistProI", alistProI);
+		model.addAttribute("qlist", qlist);
 		
-		//model.addAttribute("prov", prov);
 				
 		return "/view/product/proInfo";
 	}
 	
+	@RequestMapping(value="/QnaWriteC")
+	protected String QnaWrite(Model model,@RequestParam("proidx") int proidx) {
+		
+		System.out.println(proidx);
+		model.addAttribute("proidx",proidx);
+		return "/view/board/qnaWrite";
+	}
+	
+	@RequestMapping(value="/QnaWriteActionC")
+	protected String QnaWriteAction(ProQnaVo proqvo,HttpSession session) {
+		
+		int midx = (Integer) session.getAttribute("sMidx");
+		int bv=0;
+		String url="";
+		String ip =null;
+		InetAddress local;
+		try {
+			local = InetAddress.getLocalHost();
+			ip= local.getHostAddress();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("midx="+midx);
+		System.out.println("ip="+ip);
+		System.out.println("subject="+proqvo.getQsubject());
+		System.out.println("content="+proqvo.getQcontent());
+		System.out.println("proidx="+proqvo.getProidx());
+		
+		proqvo.setQip(ip);
+		proqvo.setMidx(midx);
+		
+		pros.qnaWrite(proqvo);
+		System.out.println("5");
+		if(bv==1) {
+			url="redirect:/ProInfoC?pronum="+proqvo.getPronum();
+		}else {
+			url="redirect:/QnaWriteC";
+		}
+		
+		return url;
+	}
 }

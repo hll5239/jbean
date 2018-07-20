@@ -3,6 +3,7 @@ package com.jb.jbean.persistence;
 import java.util.ArrayList;
 
 import com.jb.jbean.domain.BuyVo;
+import com.jb.jbean.domain.ProQnaVo;
 import com.jb.jbean.domain.ProductVo;
 
 public interface ProductMapper {
@@ -15,5 +16,7 @@ public interface ProductMapper {
 	public ArrayList<ProductVo> productNew();
 	public ArrayList<ProductVo> productList(int cidx);
 	public ArrayList<ProductVo> productInfo(int pronum);
-
+	
+	public ArrayList<ProQnaVo> qnaList(int pronum);
+	public int qnaWrite(ProQnaVo proqvo);
 }

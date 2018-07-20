@@ -28,6 +28,9 @@ Piece & Style
 </c:otherwise>
 </c:choose>
 
+<c:if test="${sMidx eq 1 }">
+<a href="${pageContext.request.contextPath}/AcntC">관리자페이지</a>
+</c:if>
 <div>
 	<c:forEach var="prov" items="${alistCate}">
 		<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}">

@@ -36,8 +36,14 @@
 		select * from Product3 where Pronum=#{pronum}
 	</select>
 	
+	<select id="qnaList" parameterType="Integer" resultType="proqvo">
+	select * from Qna3 q, Product3 pro, Member3 m where pro.Proidx=q.Proidx and m.Midx=q.Midx and qdel_yn='N' and pro.pronum=#{pronum}
+	</select>
 	
-	
+	<insert id="qnaWrite" parameterType="proqvo">
+	insert into Qna3
+	values(seq_Qidx.NEXTVAL,#{qsubject},#{qcontent},default,null,null,default,null,#{qpwd},default,default,#{qip},#{midx},#{proidx})
+	</insert>
 
 
 </mapper>
