@@ -50,16 +50,17 @@
 			<td>수량</td>
 			<td>합계</td>
 		</tr>
-	</table>
-	<table border="1">
 		<tr>
-			<td>${hm.promain}</td>
-			<td>${param.proname}<br>${param.prosize}</td>
-			<td>${param.proprice}</td>
-			<td>${param.cnt}</td>
-			<td>${param.sum}</td>
+			<c:forEach var="alist" items="${alist}">
+			<td>${alist.promain}</td>
+			<td>${alist.proname}<br>${alist.prosize}</td>
+			<td>${alist.proprice}</td>
+			<td>${alist.ocnt}</td>
+			<td>${alist.proprice * alist.ocnt}</td>
+			</c:forEach>
 		</tr>
 	</table>
+
 		<%-- <c:choose>
 		    <c:when test="${param.baidx != null}">
 		    	<c:forEach var="probav" items="${alist}">

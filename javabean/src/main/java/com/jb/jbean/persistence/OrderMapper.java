@@ -11,5 +11,6 @@ public interface OrderMapper {
 	public int deliveryInsert(BuyVo buyv);
 	public int payInsert(BuyVo buyv);
 	public ArrayList<BuyVo> orderFinish(int midx, long oid);
+	public ArrayList<BuyVo> orderSelect(long oid);
 
 }

@@ -10,4 +10,5 @@ public interface OrderService {
 	public MemberVo defaultAddr();
 	public int order(BuyVo buyvo);
 	public ArrayList<BuyVo> orderFinish(int midx, long oid);
+	public ArrayList<BuyVo> orderSelect(long oid);
 }

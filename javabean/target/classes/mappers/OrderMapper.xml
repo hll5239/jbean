@@ -14,17 +14,20 @@
 	
 	<insert id="deliveryInsert" parameterType="buyvo">
 		insert into Delivery3 
-		values(seq_Didx.NEXTVAL,#{Oid},#{Dname},#{Dpost},#{Daddr1},#{Daddr2},#{Dmsg},#{Dcode},default,default)
+		values(seq_Didx.NEXTVAL,#{oid},#{dname},#{dpost},#{daddr1},#{daddr2},#{dmsg},#{dcode},default,default)
 	</insert>
 		
 	<insert id="payInsert" parameterType="buyvo">
 		insert into Pay3 
-		values(seq_Pidx.NEXTVAL,#{Oid},#{Pprice},#{Ptype},null,default,default)
+		values(seq_Pidx.NEXTVAL,#{oid},#{pprice},#{ptype},null,default,default)
 	</insert>
 	
 	<select id="orderFinish" parameterType="ArrayList" resultType="buyvo">
-		select * from  Product3 pro, Order3 o, Pay3 p, Delivery3 d where pro.Proidx=o.Proidx and o.Oid=p.Oid and o.Oid=d.Oid and o.Midx=#{Midx} and o.Oid=#{Oid}
+		select * from Product3 pro, Order3 o, Pay3 p, Delivery3 d where pro.Proidx=o.Proidx and o.Oid=p.Oid and o.Oid=d.Oid and o.Midx=#{midx} and o.Oid=#{oid}
 	</select>
-
+	
+	<select id="orderSelect" parameterType="ArrayList" resultType="Long">
+	select * from Order3 o, Product3 pro where pro.Proidx=o.Proidx and o.Oid=#{oid}
+	</select>
 	
 </mapper>

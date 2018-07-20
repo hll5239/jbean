@@ -47,6 +47,15 @@ public class OrderServiceImpl implements OrderService{
 		return null;
 	}
 
+	@Override
+	public ArrayList<BuyVo> orderSelect(long oid) {
+
+		OrderMapper om = sqlSession.getMapper(com.jb.jbean.persistence.OrderMapper.class);
+		ArrayList<BuyVo> alist = om.orderSelect(oid);
+		
+		return alist;
+	}
+
 	
 	
 }

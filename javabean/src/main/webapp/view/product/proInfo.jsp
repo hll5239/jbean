@@ -109,7 +109,7 @@ color:gray;
 	$('#buy').click(function(){
 		alert("바로구매");
 		document.form.method ="POST"; //메소드 타입을 결정
-		document.form.action ="${request.contextPath}/OrderC";
+		document.form.action ="${request.contextPath}/OrderInsertC";
 							//이것은 보이지 않는 주소값을 반환해주는 것으로
 							// 서버-톰켓-모듈-패스를 지워줘야 정상작동
 		document.form.submit();
@@ -119,7 +119,7 @@ color:gray;
 	$('#basket').click(function(){
 		alert("장바구니");
 		document.form.method ="POST"; //메소드 타입을 결정
-		document.form.action ="${request.contextPath}/BasketC";
+		document.form.action ="${request.contextPath}/BasketInsertC";
 							//이것은 보이지 않는 주소값을 반환해주는 것으로
 							// 서버-톰켓-모듈-패스를 지워줘야 정상작동
 		document.form.submit();
