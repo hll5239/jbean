@@ -99,10 +99,18 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public int qnaWrite(ProQnaVo proqvo) {
-		System.out.println("4");
+		
 		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
 		int res = prom.qnaWrite(proqvo);
-		System.out.println("3");
+		
+		return res;
+	}
+
+	@Override
+	public int qnaMemberDelete(int qidx) {
+		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
+		int res = prom.qnaMemberDelete(qidx);
+		
 		return res;
 	}
 

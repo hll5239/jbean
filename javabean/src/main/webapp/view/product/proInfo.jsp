@@ -447,6 +447,7 @@ color:gray;
 <td>${ql.qsubject}</td>
 <td>${ql.mname}</td>
 <td>${ql.qday}</td>
+<td><a href="#"><c:if test="${ql.midx eq sMidx}">삭제</c:if></a></td>
 </tr>
 
 

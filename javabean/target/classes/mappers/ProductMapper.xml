@@ -45,5 +45,8 @@
 	values(seq_Qidx.NEXTVAL,#{qsubject},#{qcontent},default,null,null,default,null,#{qpwd},default,default,#{qip},#{midx},#{proidx})
 	</insert>
 
+	<update id="qnaMemberDelete" parameterType="Integer">
+	update Qna3 set Qmdel_yn='Y', Qmday=sysdate where Qidx=#{qidx}
+	</update>
 
 </mapper>

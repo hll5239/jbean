@@ -19,4 +19,5 @@ public interface ProductService {
 	
 	public ArrayList<ProQnaVo> qnaList(int pronum);
 	public int qnaWrite(ProQnaVo proqvo);
+	public int qnaMemberDelete(int qidx);
 }
