@@ -1,10 +1,12 @@
 package com.jb.jbean.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jb.jbean.domain.BuyVo;
 import com.jb.jbean.domain.MemberVo;
@@ -27,24 +29,26 @@ public class OrderServiceImpl implements OrderService{
 	}
 	
 	@Override
-	public MemberVo defaultAddr() {
+	public MemberVo defaultAddr(int midx) {
 		
 		OrderMapper om = sqlSession.getMapper(com.jb.jbean.persistence.OrderMapper.class);
-		MemberVo mv = om.defaultAddr();
+		MemberVo mv = om.defaultAddr(midx);
 		
 		return mv;
 	}
 
-	@Override
-	public int order(BuyVo buyvo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
-	public ArrayList<BuyVo> orderFinish(int midx, long oid) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<BuyVo> orderCheck(int midx, long oid) {
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("midx", midx);
+		map.put("oid", oid);
+		
+		OrderMapper om = sqlSession.getMapper(com.jb.jbean.persistence.OrderMapper.class);
+		ArrayList<BuyVo> alist = om.orderCheck(map);
+		
+		return alist;
 	}
 
 	@Override
@@ -55,6 +59,20 @@ public class OrderServiceImpl implements OrderService{
 		
 		return alist;
 	}
+	
+	@Transactional
+	@Override
+	public int orderFinish(BuyVo buyvo) {
+		
+		OrderMapper om = sqlSession.getMapper(com.jb.jbean.persistence.OrderMapper.class);
+		 
+		 int res = om.deliveryInsert(buyvo);
+		 om.payInsert(buyvo);
+		 
+		return res;
+	}
+
+
 
 	
 	

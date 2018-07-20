@@ -16,28 +16,68 @@
 
 <script type="text/javascript">
 	$(function(){
+		
+		var midx = ${sMidx};	
+
 		$('#box').click(function(){
-			alert("기본배송지 클릭함");
-				
-					$.ajax({
-						type : "POST",
-										//이곳에 들어감.
-						url : "Order/DefaultAddr/${1}",
-						datatype : "text",
-						cache : false,
-						error : function(){				
-							alert("error");
-						},
-						success : function(data){
+			
+			if($('#box').is(":checked")){
+				$.ajax({
+					type : "POST",
+					url : "Order/DefaultAddr/"+midx,
+					headers : {
+	                    "Content-Type" : "application/json", //이것과 컨트롤러  produces ="application/json;charset=UTF-8"과 일치해야함
+	                    "X-HTTP-Method-Override" : "POST" //포스트 타입으로 넘기겠다. 안되는 브라워져를 위해, 브라우져특성상 못 읽을수 있기 때문.
+	                 },
+					datatype : "text",
+					cache : false,
+					error:function(request,status,error){
+				        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				       },
+					success : function(data){
+						
+						$(data).each(function(){
+							
+						$("#dname").val(data.mname);
+						$("#dphone").val(data.mphone);
+						$("#dpost").val(data.mpost);
+						$("#daddr1").val(data.maddr1);
+						$("#daddr2").val(data.maddr2);
+						
+						});
+					}
+				       
+				});
+			
+			}else{
 
+				$("#dname").val("");
+				$("#dphone").val("");
+				$("#dpost").val("");
+				$("#daddr1").val("");
+				$("#daddr2").val("");
+			}
 
-						}
-					});
+		
+		});
+		
+		$('#orderCheck').click(function(){
 					
+					if($('#check').is(":checked")){
+						document.form.method ="POST"; //메소드 타입을 결정
+						document.form.action ="${request.contextPath}/OrderFinishC";
+											//이것은 보이지 않는 주소값을 반환해주는 것으로
+											// 서버-톰켓-모듈-패스를 지워줘야 정상작동
+						document.form.submit();
+					}else{
+						alert("결제동의를 클릭해 주십시오.");
+						
+					}
+				
 		});
 		
 		
-	});
+	});	
 </script>
 
 <body>
@@ -51,43 +91,22 @@
 			<td>합계</td>
 		</tr>
 		<tr>
-			<c:forEach var="alist" items="${alist}">
-			<td>${alist.promain}</td>
-			<td>${alist.proname}<br>${alist.prosize}</td>
-			<td>${alist.proprice}</td>
-			<td>${alist.ocnt}</td>
-			<td>${alist.proprice * alist.ocnt}</td>
+		<c:set var="sum" value="${0}"/>
+			<c:forEach var="buyvo" items="${alist}">
+			<c:set var="oid" value="${buyvo.oid}"/>
+			<td>${buyvo.promain}</td>
+			<td>${buyvo.proname}<br>${buyvo.prosize}</td>
+			<td>${buyvo.proprice}</td>
+			<td>${buyvo.ocnt}</td>
+			<td><c:set var="prosum" value="${buyvo.proprice * buyvo.ocnt}"/>
+				<c:out value="${prosum}원" />
+				<!-- sum은 값을 저장하는 역할 -->
+				<c:set var="sum" value="${sum+prosum}"/></td>
 			</c:forEach>
+			
 		</tr>
 	</table>
 
-		<%-- <c:choose>
-		    <c:when test="${param.baidx != null}">
-		    	<c:forEach var="probav" items="${alist}">
-		        <table border="1">
-					<tr>
-						<td>${param.promain}</td>
-						<td>${param.proname}<br>${param.prosize}</td>
-						<td>${param.proprice}</td>
-						<td>${param.cnt}</td>
-						<td>${param.sum}</td>
-					</tr>
-				</table>
-				</c:forEach>
-		    </c:when>
-		    <c:otherwise>
-       			<table border="1">
-					<tr>
-						<td>${param.promain}</td>
-						<td>${param.proname}<br>${param.prosize}</td>
-						<td>${param.proprice}</td>
-						<td>${param.cnt}</td>
-						<td>${param.sum}</td>
-					</tr>
-				</table>
-			</c:otherwise>
-		</c:choose> --%>
-	
 	<table>
 		<tr>
 			<td>총 상품 금액</td>
@@ -95,10 +114,10 @@
 			<td>결제 예정 금액</td>
 		</tr>
 		<tr>
-			<td>${param.sum}원</td>
+			<td>${sum}원</td>
 			<td>
 				<c:choose>
-				    <c:when test="${param.sum < 30000}">
+				    <c:when test="${sum < 30000}">
 				        2500원
 				    </c:when>
 				    <c:otherwise>
@@ -108,11 +127,13 @@
 			</td>
 			<td>
 				<c:choose>
-				    <c:when test="${param.sum < 30000}">
-				        ${param.sum + 2500}원
+				    <c:when test="${sum < 30000}">
+				        <c:set var="pprice" value="${sum + 2500}" />
+				        <c:out value="${pprice}원"/>
 				    </c:when>
 				    <c:otherwise>
-	        			${param.sum}원
+	        			<c:set var="pprice" value="${sum}" />
+				        <c:out value="${pprice}원"/>
 					</c:otherwise>
 				</c:choose>
 			</td>
@@ -121,6 +142,11 @@
 	
 	<br>
 	<br>
+	
+	<div id="tbl"></div>
+	
+	<form name="form">
+	<input type="hidden" name="oid" value="${oid}">
 	<label>배송지 정보</label>
 	<table>
 		<tr>
@@ -138,8 +164,8 @@
 		<tr>
 			<td>주소</td>
 			<td><input type="text" name="dpost" id="dpost" placeholder="우편번호"><br>
-				<input type="text" name="addr1" id="addr1" placeholder="도로명주소"><br>
-				<input type="text" name="addr2" id="addr2" placeholder="상세주소"></td>
+				<input type="text" name="daddr1" id="daddr1" placeholder="도로명주소"><br>
+				<input type="text" name="daddr2" id="daddr2" placeholder="상세주소"></td>
 		</tr>
 		<tr>
 			<td>배송메시지</td>
@@ -169,19 +195,13 @@
 	<br>
 	<br>
 	<label>최종결제금액</label>
-		<c:choose>
-		    <c:when test="${param.sum < 30000}">
-		        ${param.sum + 2500}원
-		    </c:when>
-		    <c:otherwise>
-	      			${param.sum}원
-			</c:otherwise>
-		</c:choose>
 		<br>
-		<input type="checkbox" id="check">상기 결제 내용을 확인 하였습니다.
+		<input type="text" name="pprice" value="${pprice}" style="border: none;" readonly>원
 		<br>
-		<input type="button" id="order" value="결제하기">
-
+		<input type="checkbox" id="check" name="check">상기 결제 내용을 확인 하였습니다.
+		<br>
+		<input type="button" id="orderCheck" value="결제하기">
+	</form>
 
 </body>
 </html>
