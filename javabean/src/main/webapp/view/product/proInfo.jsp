@@ -104,11 +104,11 @@ color:gray;
 	
 	$(function(){
 		
+		var mid = ${sMid};
 
-		
 		$('#buy').click(function(){
 			
-			if(${sMid eq null}){
+			if(mid == null){
 				location.href = "${request.contextPath}/MemberLoginController";
 			}else{
 				document.form.method ="POST"; //메소드 타입을 결정
@@ -125,7 +125,7 @@ color:gray;
 		
 		$('#basket').click(function(){
 			
-			if(${sMid eq null}){
+			if(mid == null){
 				location.href = "${request.contextPath}/MemberLoginController";
 			}else{
 				document.form.method ="POST"; //메소드 타입을 결정
@@ -356,9 +356,9 @@ color:gray;
 	     res= confirm("글을 등록하겠습니까?");
 		 
 		 if(res==true){
-			 document.frm.method="post";
-			 document.frm.action="${pageContext.request.contextPath}/QnaWriteC?proidx="+$("#proidx").val()+"&pronum="+$("#pronum").val();
-			 document.frm.submit();
+			 document.form.method="post";
+			 document.form.action="${pageContext.request.contextPath}/QnaWriteC?proidx="+$("#proidx").val()+"&pronum="+$("#pronum").val();
+			 document.form.submit();
 			
 		       	}
 	 }
@@ -367,7 +367,7 @@ color:gray;
 
 
 <body onload="init();">
-<form name=frm>
+<form name="form">
 	<div>
 		<c:forEach var="prov" items="${alistCate}">
 			<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
@@ -376,7 +376,7 @@ color:gray;
 		</c:forEach>
 	</div>
 	
-	<form name="form">
+	
 	<c:forEach var="prov" begin="0" varStatus="status" items="${alistProI}">
 		<div>
 		 <c:if test="${status.index eq 0}">
@@ -481,6 +481,6 @@ color:gray;
 </c:forEach>
 </table>
 <input type="button" value="Q&A등록" onClick="check()">
-</form>
+
 </body>
 </html>
