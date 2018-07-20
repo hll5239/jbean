@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="com.jb.jbean.domain.*"%>
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -11,19 +12,25 @@
 </head>
 <style>
 .fileDrop {
-width: 200px;
-height:100px;
-border:1px dotted blue;
-}
-small {
-margin-left:3px;
-font-weight:bold;
-color:gray;
+	width: 200px;
+	height: 100px;
+	border: 1px dotted blue;
 }
 
+small {
+	margin-left: 3px;
+	font-weight: bold;
+	color: gray;
+}
 </style>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script language="JavaScript">
 
 	var sell_price;
@@ -104,38 +111,26 @@ color:gray;
 	
 	$(function(){
 		
-		var mid = ${sMid};
 
-		$('#buy').click(function(){
-			
-			if(mid == null){
-				location.href = "${request.contextPath}/MemberLoginController";
-			}else{
-				document.form.method ="POST"; //메소드 타입을 결정
-				document.form.action ="${request.contextPath}/OrderInsertC";
-									//이것은 보이지 않는 주소값을 반환해주는 것으로
-									// 서버-톰켓-모듈-패스를 지워줘야 정상작동
-				document.form.submit();
-				
-			}
-			
-			
-			
-		});
 		
-		$('#basket').click(function(){
-			
-			if(mid == null){
-				location.href = "${request.contextPath}/MemberLoginController";
-			}else{
-				document.form.method ="POST"; //메소드 타입을 결정
-				document.form.action ="${request.contextPath}/BasketInsertC";
-									//이것은 보이지 않는 주소값을 반환해주는 것으로
-									// 서버-톰켓-모듈-패스를 지워줘야 정상작동
-				document.form.submit();
-				
-			}
-		});
+	$('#buy').click(function(){
+		alert("바로구매");
+		document.form.method ="POST"; //메소드 타입을 결정
+		document.form.action ="${request.contextPath}/OrderInsertC";
+							//이것은 보이지 않는 주소값을 반환해주는 것으로
+							// 서버-톰켓-모듈-패스를 지워줘야 정상작동
+		document.form.submit();
+		
+	});
+	
+	$('#basket').click(function(){
+		alert("장바구니");
+		document.form.method ="POST"; //메소드 타입을 결정
+		document.form.action ="${request.contextPath}/BasketInsertC";
+							//이것은 보이지 않는 주소값을 반환해주는 것으로
+							// 서버-톰켓-모듈-패스를 지워줘야 정상작동
+		document.form.submit();
+	});
 	
 	$(".fileDrop").on("dragenter dragover",function(event){
 		
@@ -200,287 +195,388 @@ color:gray;
 	var midx=$("#midx").val();
 	$.ajax({
 		type : "GET",
-		url  : "<%=request.getContextPath()%>/reviews/all/"+pronum,
-		datatype : "text",
-		cache : false,
-		error : function(){				
-			alert("error");
-		},
-		success : function(data){
-				var str = '';
-				var index = 0
-				var modinput="";
-				var delinput="";
-			
-				
-				$(data).each(function(index){
-					
-					if (midx == this.midx) {       
-					delinput ="<li class='sub5'><button  onclick='$.del("+this.ridx+")'>삭제</button></li>";
-				
-				} 
-					
-					if(this.rfilename != null){
-						filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"' width=300px, height=200px></li>"
-					}else{
-						filename="<ul><li></li>";
+		url  : "<%=request.getContextPath()%> /reviews/all/" + pronum,
+					datatype : "text",
+					cache : false,
+					error : function() {
+						alert("error");
+					},
+					success : function(data) {
+						var str = '';
+						var index = 0
+						var modinput = "";
+						var delinput = "";
+
+						$(data)
+								.each(
+										function(index) {
+
+											if (midx == this.midx) {
+												delinput = "<li class='sub5'><button  onclick='$.del("
+														+ this.ridx
+														+ ")'>삭제</button></li>";
+
+											}
+
+											if (this.rfilename != null) {
+												filename = "<ul><li><img src='/displayc?fileName="
+														+ this.rfilename
+														+ "' width=300px, height=200px></li>"
+											} else {
+												filename = "<ul><li></li>";
+											}
+
+											str += filename
+													+ "<ul><li class='sub1'>"
+													+ this.rstar + "</li>"
+													+ "<li class='sub2'>"
+													+ this.mname + "</li>"
+													+ "<li class='sub3'>"
+													+ this.rcontent + "</li>"
+													+ "<li class='sub3'>"
+													+ this.rday + "</li>"
+													+ delinput + "</ul>";
+										});
+
+						$('#tbl')
+								.html(
+										"<ul><li>사진</li><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"
+												+ str);
+
 					}
-					
-					str += filename
-					+ "<ul><li class='sub1'>"+this.rstar  + "</li>"
-					+  "<li class='sub2'>"+this.mname + "</li>"
-					+  "<li class='sub3'>"+this.rcontent  + "</li>"
-					+  "<li class='sub3'>"+this.rday  + "</li>"
-					+  delinput
-					+  "</ul>";					
 				});
-				
-				$('#tbl').html("<ul><li>사진</li><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
 
-		}			
-	});
-	
-	//댓글 입력
-	 $('#save').click(function(){
-		 //속성이기 때문에, 제이쿼리 밖으로 빼면 안됌. 아래 List나 del은 새로운 스크립트
-		 var pronum= $("#pronum").val();
-		 var midx=$("#midx").val();
-		 var proidx = $("#proidx").val();
-		 var rstar = $("#rstar").val();
-		 var rcontent = $("#rcontent").val();	
-		 var rfilename =$("#rfilename").val()
-		 
-		 
-		 $.ajax({
-				type : "POST",
-				url  : "/reviews", //컨트롤러와 같은경로
-				headers : {
-					"Content-Type" : "application/json", //json으로
-					"X-HTTP-Method-Override" : "POST"	//포스트 타입으로 넘기겠다. 안되는 브라워져를 위해, 브라우져특성상 못 읽을수 있기 때문.
-				},
-				datatype : "text", //데이터를 텍스트 타입으로 보내는데,
-				data : JSON.stringify({ 	//제이슨타입으로 문자화 한다. 
-					pronum : pronum,
-					proidx : proidx,
-					rstar : rstar,
-					rfilename : rfilename,
-					rcontent : rcontent
-				}),
-				cache : false,
-				error : function(){				
-					alert("error");
-				},
-				success : function(data){
-					var str = '';
-					var index = 0
-					var modinput="";
-					var delinput="";
-				
-					
-					$(data).each(function(index){
-						
-						if(this.rfilename != null){
-							filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"' width=300px, height=200px></li>"
-						}else{
-							filename="<ul><li></li>";
-						}
-						
-						str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
-						+  "<li class='sub2'>"+this.mname + "</li>"
-						+  "<li class='sub3'>"+this.rcontent  + "</li>"
-						+  "<li class='sub3'>"+this.rday  + "</li>"
-						+  delinput
-						+  "</ul>";					
-					});
-					
-					$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
+		//댓글 입력
+		$('#save')
+				.click(
+						function() {
+							//속성이기 때문에, 제이쿼리 밖으로 빼면 안됌. 아래 List나 del은 새로운 스크립트
+							var pronum = $("#pronum").val();
+							var midx = $("#midx").val();
+							var proidx = $("#proidx").val();
+							var rstar = $("#rstar").val();
+							var rcontent = $("#rcontent").val();
+							var rfilename = $("#rfilename").val()
 
-			}	
-				
-			});	
+							$
+									.ajax({
+										type : "POST",
+										url : "/reviews", //컨트롤러와 같은경로
+										headers : {
+											"Content-Type" : "application/json", //json으로
+											"X-HTTP-Method-Override" : "POST" //포스트 타입으로 넘기겠다. 안되는 브라워져를 위해, 브라우져특성상 못 읽을수 있기 때문.
+										},
+										datatype : "text", //데이터를 텍스트 타입으로 보내는데,
+										data : JSON.stringify({ //제이슨타입으로 문자화 한다. 
+											pronum : pronum,
+											proidx : proidx,
+											rstar : rstar,
+											rfilename : rfilename,
+											rcontent : rcontent
+										}),
+										cache : false,
+										error : function() {
+											alert("error");
+										},
+										success : function(data) {
+											var str = '';
+											var index = 0
+											var modinput = "";
+											var delinput = "";
+
+											$(data)
+													.each(
+															function(index) {
+
+																if (this.rfilename != null) {
+																	filename = "<ul><li><img src='/displayc?fileName="
+																			+ this.rfilename
+																			+ "' width=300px, height=200px></li>"
+																} else {
+																	filename = "<ul><li></li>";
+																}
+
+																str += "<ul><li class='sub1'>"
+																		+ this.rstar
+																		+ "</li>"
+																		+ "<li class='sub2'>"
+																		+ this.mname
+																		+ "</li>"
+																		+ "<li class='sub3'>"
+																		+ this.rcontent
+																		+ "</li>"
+																		+ "<li class='sub3'>"
+																		+ this.rday
+																		+ "</li>"
+																		+ delinput
+																		+ "</ul>";
+															});
+
+											$('#tbl')
+													.html(
+															"<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"
+																	+ str);
+
+										}
+
+									});
+						});
+
 	});
 
-	
-	
-	
-	
-	});
-	
-	$.del = function(ridx){
+	$.del = function(ridx) {
 		alert("삭제버튼")
-		var pronum= $("#pronum").val();
+		var pronum = $("#pronum").val();
 		var ridx = ridx;
 		alert(ridx);
-		
-		 $.ajax({
-			type : "GET",
-			url  : "/reviews/del/"+ridx+"/"+pronum,
-			datatype : "text",				
-			cache : false,
-			error : function(){				
-				alert("error");
-			},
-			success : function(data){
-				var str = '';
-				var index = 0
-				var modinput="";
-				var delinput="";
-			
-				
-				$(data).each(function(index){
-					
-					if(this.rfilename != null){
-						filename= "<ul><li><img src='/displayc?fileName="+this.rfilename+"' width=300px, height=200px></li>"
-					}else{
-						filename="<ul><li></li>";
+
+		$
+				.ajax({
+					type : "GET",
+					url : "/reviews/del/" + ridx + "/" + pronum,
+					datatype : "text",
+					cache : false,
+					error : function() {
+						alert("error");
+					},
+					success : function(data) {
+						var str = '';
+						var index = 0
+						var modinput = "";
+						var delinput = "";
+
+						$(data)
+								.each(
+										function(index) {
+
+											if (this.rfilename != null) {
+												filename = "<ul><li><img src='/displayc?fileName="
+														+ this.rfilename
+														+ "' width=300px, height=200px></li>"
+											} else {
+												filename = "<ul><li></li>";
+											}
+
+											str += "<ul><li class='sub1'>"
+													+ this.rstar + "</li>"
+													+ "<li class='sub2'>"
+													+ this.mname + "</li>"
+													+ "<li class='sub3'>"
+													+ this.rcontent + "</li>"
+													+ "<li class='sub3'>"
+													+ this.rday + "</li>"
+													+ delinput + "</ul>";
+										});
+
+						$('#tbl')
+								.html(
+										"<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"
+												+ str);
+
 					}
-					
-					str += "<ul><li class='sub1'>"+this.rstar  + "</li>" 
-					+  "<li class='sub2'>"+this.mname + "</li>"
-					+  "<li class='sub3'>"+this.rcontent  + "</li>"
-					+  "<li class='sub3'>"+this.rday  + "</li>"
-					+  delinput
-					+  "</ul>";					
+
 				});
-				
-				$('#tbl').html("<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"+str);	
+	}
+
+	function check() {
+
+		var res;
+		res = confirm("글을 등록하겠습니까?");
+
+		if (res == true) {
+			document.form.method = "post";
+			document.form.action = "${pageContext.request.contextPath}/QnaWriteC?proidx="
+					+ $("#proidx").val() + "&pronum=" + $("#pronum").val();
+			document.form.submit();
 
 		}
-						
-		});
-	 }
+	}
+	function rply(){
+		var res;
+		res = confirm("답변을 다시겠습니까?");
+
+		if (res == true) {
+			document.form.method = "post";
+			document.form.action = "${pageContext.request.contextPath}/QAdminReplyC"
+			document.form.submit();
+
+		}
+	}
 	
-	 function check() {
-		 
-		 var res;
-	     res= confirm("글을 등록하겠습니까?");
-		 
-		 if(res==true){
-			 document.form.method="post";
-			 document.form.action="${pageContext.request.contextPath}/QnaWriteC?proidx="+$("#proidx").val()+"&pronum="+$("#pronum").val();
-			 document.form.submit();
-			
-		       	}
-	 }
 	
 </script>
 
 
 <body onload="init();">
-<form name="form">
-	<div>
-		<c:forEach var="prov" items="${alistCate}">
-			<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
-			</a>
-			
-		</c:forEach>
-	</div>
-	
-	
-	<c:forEach var="prov" begin="0" varStatus="status" items="${alistProI}">
+	<form name="form">
 		<div>
-		 <c:if test="${status.index eq 0}">
-			<div style="float: left; width: 50%; text-align: center;">
-				<input type="text" name="promain" style="border:none;" readonly value="${prov.promain}"></div>
-			<div style="float: left; width: 50%; text-align: center;">
-				<ul style="list-style:none;">
-					<li><input type="text" name="proname" style="border:none;" readonly value="${prov.proname}"></li>
-					<li><input type="text" name="proprice" style="border:none;" readonly value="${prov.proprice}"></li>
-					<li>배송비</li>
-					<li><input type="hidden" id="pronum" name="pronum" value="${prov.pronum}">
-							<select id="proidx" name="proidx">
-							<c:forEach var="provs" items="${alistProI}">
-								<option value="${provs.proidx}">${provs.prosize}</option>
-							</c:forEach>
-							</select>
+			<c:forEach var="prov" items="${alistCate}">
+				<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
+				</a>
 
-							</li>
-					<li>수량<input type="hidden" name="proprice" id="price" value="${prov.proprice}">
-							<input type="text" name="cnt" value="1" size="3" onchange="change();">
-							<input type="button" value=" + " onclick="add();">
-							<input type="button" value=" - " onclick="del();">					
-					</li>
-				</ul> 
-				<ul style="list-style:none;">
-					<li>금액 <input type="text" name="sum" size="11" readonly style="border:none;">원</li>
-					<li>
-						<span><input type="button" id="buy" value="바로구매" />
-								<input type="button" id="basket" value="장바구니" /></span>
-					</li>
-				</ul>
-			</div>
-			</c:if>
+			</c:forEach>
 		</div>
-	</c:forEach>
-	<input type="hidden" name="midx" id="midx" value="${sMidx}">
-	<div>
-	
-	<h1>Review</h1>
-	<li>
-	<textarea name="rcontent" id="rcontent" class="text" cols="50" rows="6"></textarea>
-	</li>
-	
-	<li>
-	<input type="hidden" id="rfilename" name="rfilename">
-	<li>이미지 첨부</li>
-	<div class='fileDrop'></div>
-	<div class='uploadedList'></div>
-	</li>
-	<li><select name="rstar" id="rstar">
+
+		
+			<c:forEach var="prov" begin="0" varStatus="status"
+				items="${alistProI}">
+				<div>
+					<c:if test="${status.index eq 0}">
+						<div style="float: left; width: 50%; text-align: center;">
+							<input type="text" name="promain" style="border: none;" readonly
+								value="${prov.promain}">
+						</div>
+						<div style="float: left; width: 50%; text-align: center;">
+							<ul style="list-style: none;">
+								<li><input type="text" name="proname" style="border: none;"
+									readonly value="${prov.proname}"></li>
+								<li><input type="text" name="proprice"
+									style="border: none;" readonly value="${prov.proprice}"></li>
+								<li>배송비</li>
+								<li><input type="hidden" id="pronum" name="pronum"
+									value="${prov.pronum}"> <select id="proidx"
+									name="proidx">
+										<c:forEach var="provs" items="${alistProI}">
+											<option value="${provs.proidx}">${provs.prosize}</option>
+										</c:forEach>
+								</select></li>
+								<li>수량<input type="hidden" name="proprice" id="price"
+									value="${prov.proprice}"> <input type="text" name="cnt"
+									value="1" size="3" onchange="change();"> <input
+									type="button" value=" + " onclick="add();"> <input
+									type="button" value=" - " onclick="del();">
+								</li>
+							</ul>
+							<ul style="list-style: none;">
+								<li>금액 <input type="text" name="sum" size="11" readonly
+									style="border: none;">원
+								</li>
+								<li><span><input type="button" id="buy" value="바로구매" />
+										<input type="button" id="basket" value="장바구니" /></span></li>
+							</ul>
+						</div>
+					</c:if>
+				</div>
+			</c:forEach>
+			<input type="hidden" name="midx" id="midx" value="${sMidx}">
+			<div>
+
+				<h1>Review</h1>
+				<li><textarea name="rcontent" id="rcontent" class="text"cols="50" rows="6"></textarea></li>
+
+				<li><input type="hidden" id="rfilename" name="rfilename">
+				<li>이미지 첨부</li>
+				<div class='fileDrop'></div>
+				<div class='uploadedList'></div>
+				</li>
+				<li><select name="rstar" id="rstar">
 						<option value="5">★★★★★ 완전좋아요</option>
 						<option value="4">★★★★ 좋아요</option>
 						<option value="3">★★★ 보통이에요</option>
 						<option value="2">★★ 그저 그래요</option>
 						<option value="1">★ 별로에요</option>
-				</select>
-	</li>
-	<li><input type="button" name="save" id="save" value="입력"/></li>
-	</div>
+				</select></li>
+				<li><input type="button" name="save" id="save" value="입력" /></li>
+			</div>
+		
+
+
+		<div id=tbl></div>
+
+
+		<div class="container">
+			<h1>QnA</h1>
+			<table class="table table-striped">
+			<tr>
+				<td width="5%">번호</td>
+				<td width="5%">답변유무</td>
+				<td align="left" width="20%">제목</td>
+				<td width="10%">작성자</td>
+				<td width="15%">작성일</td>
+				<td width="5%"></td>
+			</tr>
+			<c:forEach var="ql" varStatus="status" items="${qlist}">
+				<tr>
+					<td>${status.index+1}</td>
+					<td>
+					<c:choose>
+						<c:when test="${ql.qreply_yn eq 'Y' }">
+						답변완료
+						</c:when>
+						<c:otherwise>
+						답변대기
+						</c:otherwise>
+						</c:choose>
+				
+					
+					</td>
+					<td>
+						<a data-toggle="collapse" data-target="#demo-${status.index}" style="cursor: pointer;">
+						<c:choose>
+						<c:when test="${ql.qmdel_yn eq 'Y' }">
+						삭제된 제목 입니다.
+						</c:when>
+						<c:otherwise>
+						${ql.qsubject}
+						</c:otherwise>
+						</c:choose>
+
+						</a>
+						<div id="demo-${status.index}" class="collapse" style="margin-left:10px;">
+							
+							<c:choose>
+							<c:when test="${ql.qmdel_yn eq 'Y' }">
+							삭제된 내용 입니다.
+							</c:when>
+							<c:otherwise>
+							${ql.qcontent}
+							</c:otherwise>
+							</c:choose>
+							
+							<div style="background: lightgrey;padding: 10px;">
+								<c:choose>
+							<c:when test="${ql.qreply ne null }">
+							관리자 답변 : ${ql.qreply}
+							</c:when>
+							<c:when test="${sMidx eq '1'}">
+							
+							<input type="text" name="qreply" id="qreply">
+							<input type="hidden" name="qidx" id="qidx" value="${ql.qidx}">
+							<input type="hidden" name="pronum" id="pronum" value="${ql.pronum}">
+							<input type="button" value="답변" onclick="rply()">
+							
+							</c:when>
+							<c:otherwise>
+							관리자 답변:
+							</c:otherwise>
+							</c:choose>
+								
+							</div>
+						</div>
+					</td>
+					<td>${ql.mname}</td>
+					<td>${ql.qday}</td>
+					<td>
+					<c:choose>
+					<c:when test="${ql.midx eq sMidx and sMidx != '1'}">
+					<a href="${pageContext.request.contextPath}/QdelteC?qidx=${ql.qidx}&pronum=${ql.pronum}">삭제</a>
+					</c:when>
+					
+					<c:when test="${sMidx eq '1'}">
+					<a href="${pageContext.request.contextPath}/QdelteAdminC?qidx=${ql.qidx}&pronum=${ql.pronum}">관리자삭제</a>
+					</c:when>
+
+					</c:choose>
+					</td>
+				</tr>
+				
+
+			</c:forEach>
+		</table>
+		<input type="button" value="Q&A등록" onClick="check()">
+		</div>
+		
+		
 	</form>
-	
-
-<div id=tbl>
-</div>
-
-
-<h1>QnA</h1>
-<table border=1>
-<tr>
-<td>번호</td>
-<td>답변유무</td>
-<td align= "left" width="200px">제목</td>
-<td>작성자</td>
-<td>작성일</td>
-</tr>
-<c:forEach var="ql" varStatus="status" items="${qlist}">
-<tr>
-<td>${status.index+1}</td>
-<td>${ql.qreply_yn}</td>
-<td>${ql.qsubject}</td>
-<td>${ql.mname}</td>
-<td>${ql.qday}</td>
-<td><a href="#"><c:if test="${ql.midx eq sMidx}">삭제</c:if></a></td>
-</tr>
-
-
-<tr>
-<td></td>
-<td align= "right">L</td>
-<td>${ql.qcontent}</td>
-<td colspan=2><c:if test="${ql.qreply_yn eq 'N' }"><a href="#">답변</a></c:if></td>
-
-</tr>
-
-<tr>
-<td></td>
-<td></td>
-<td>${ql.qreply}</td>
-<td colspan=2></td>
-</tr>
-
-</c:forEach>
-</table>
-<input type="button" value="Q&A등록" onClick="check()">
-
 </body>
 </html>

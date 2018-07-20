@@ -48,5 +48,12 @@
 	<update id="qnaMemberDelete" parameterType="Integer">
 	update Qna3 set Qmdel_yn='Y', Qmday=sysdate where Qidx=#{qidx}
 	</update>
-
+	
+	<update id="qnaAdminDelete" parameterType="Integer">
+	update Qna3 set Qdel_yn='Y', Qmday=sysdate where Qidx=#{qidx}
+	</update>
+	
+	<update id="qnaReplyWrite" parameterType="hashmap">
+	update Qna3 set Qreply=#{qreply}, Qreplyday=sysdate ,Qreply_yn='Y' where Qidx=#{qidx}
+	</update>
 </mapper>

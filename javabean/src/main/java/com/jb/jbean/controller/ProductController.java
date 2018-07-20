@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jb.jbean.domain.ProQnaVo;
 import com.jb.jbean.domain.ProductVo;
+import com.jb.jbean.domain.QnaVo;
 import com.jb.jbean.service.ProductService;
 
 
@@ -112,5 +113,38 @@ public class ProductController {
 		}
 		
 		return url;
+	}
+	
+	@RequestMapping(value="/QdelteC")
+	protected String Qdelte(Model model,@RequestParam("qidx") int qidx,@RequestParam("pronum") int pronum) {
+		
+		System.out.println(qidx);
+		System.out.println(pronum);
+		
+		pros.qnaMemberDelete(qidx);
+		
+		
+		return "redirect:/ProInfoC?pronum="+pronum;
+	}
+	
+	@RequestMapping(value="/QdelteAdminC")
+	protected String QdelteAdmin(Model model,@RequestParam("qidx") int qidx,@RequestParam("pronum") int pronum) {
+		
+		System.out.println(qidx);
+		System.out.println(pronum);
+		
+		pros.qnaAdminDelete(qidx);
+		
+		
+		return "redirect:/ProInfoC?pronum="+pronum;
+	}
+	
+	@RequestMapping(value="/QAdminReplyC")
+	protected String QAdminReply(Model model,@RequestParam("qidx") int qidx,@RequestParam("pronum") int pronum,@RequestParam("qreply") String qreply) {
+		
+
+		pros.qnaReplyWrite(qidx,qreply);
+		
+		return "redirect:/ProInfoC?pronum="+pronum;
 	}
 }

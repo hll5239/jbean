@@ -1,6 +1,7 @@
 package com.jb.jbean.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.jb.jbean.domain.BuyVo;
 import com.jb.jbean.domain.ProQnaVo;
 import com.jb.jbean.domain.ProductVo;
+import com.jb.jbean.domain.QnaVo;
 import com.jb.jbean.persistence.ProductMapper;
 
 @Service("ProductServiceImpl")
@@ -111,6 +113,29 @@ public class ProductServiceImpl implements ProductService{
 		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
 		int res = prom.qnaMemberDelete(qidx);
 		
+		return res;
+	}
+
+	@Override
+	public int qnaAdminDelete(int qidx) {
+		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
+		int res = prom.qnaAdminDelete(qidx);
+		
+		return res;
+	}
+
+	@Override
+	public int qnaReplyWrite(int qidx, String qreply) {
+		HashMap <String, Object> map = new HashMap <String, Object>();
+		
+		map.put("qidx", qidx );
+		map.put("qreply", qreply );
+
+		
+		ProductMapper prom = sqlSession.getMapper(com.jb.jbean.persistence.ProductMapper.class);
+
+		int res = prom.qnaReplyWrite(map);
+
 		return res;
 	}
 
