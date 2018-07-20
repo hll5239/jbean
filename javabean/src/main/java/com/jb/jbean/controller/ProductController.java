@@ -69,10 +69,11 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/QnaWriteC")
-	protected String QnaWrite(Model model,@RequestParam("proidx") int proidx) {
+	protected String QnaWrite(Model model,@RequestParam("proidx") int proidx,@RequestParam("pronum") int pronum) {
 		
 		System.out.println(proidx);
 		model.addAttribute("proidx",proidx);
+		model.addAttribute("pronum",pronum);
 		return "/view/board/qnaWrite";
 	}
 	
@@ -97,11 +98,12 @@ public class ProductController {
 		System.out.println("subject="+proqvo.getQsubject());
 		System.out.println("content="+proqvo.getQcontent());
 		System.out.println("proidx="+proqvo.getProidx());
-		
+		System.out.println("pronum"+proqvo.getPronum());
 		proqvo.setQip(ip);
 		proqvo.setMidx(midx);
 		
-		pros.qnaWrite(proqvo);
+		 bv=pros.qnaWrite(proqvo);
+		
 		System.out.println("5");
 		if(bv==1) {
 			url="redirect:/ProInfoC?pronum="+proqvo.getPronum();

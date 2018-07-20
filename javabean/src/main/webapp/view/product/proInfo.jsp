@@ -345,7 +345,7 @@ color:gray;
 		 
 		 if(res==true){
 			 document.frm.method="post";
-			 document.frm.action="${pageContext.request.contextPath}/QnaWriteC?proidx="+$("#proidx").val();;
+			 document.frm.action="${pageContext.request.contextPath}/QnaWriteC?proidx="+$("#proidx").val()+"&pronum="+$("#pronum").val();
 			 document.frm.submit();
 			
 		       	}

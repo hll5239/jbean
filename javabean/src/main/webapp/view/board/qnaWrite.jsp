@@ -25,6 +25,7 @@ function check() {
 <body>
 <form name="frm">
 <input type="hidden" name="proidx" value="${proidx}">
+<input type="hidden" name="pronum" value="${pronum}">
 <h1>Q & A</h1>
 <table border=1>
 <tr>
