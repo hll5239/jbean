@@ -22,12 +22,15 @@ public class OrderController {
 	@Autowired
 	OrderService os;
 	
+	//주문정보 DB입력
 	@RequestMapping(value="/OrderInsertC")
-	protected String orderInfo(@ModelAttribute("ov") OrderVo ov, Model model,
+	protected String orderInsert(@ModelAttribute("ov") OrderVo ov, Model model,
 								@RequestParam("cnt") int cnt,
 								@RequestParam("proidx") int proidx, HttpSession session
 								) {
-		//주문정보 DB입력
+		
+		System.out.println("----OrderInsertC---------------------------------");
+		
 		int midx = (Integer) session.getAttribute("sMidx");
 		Random rd = new Random();
 		long oid = rd.nextInt(100000000);
@@ -36,24 +39,17 @@ public class OrderController {
 		ov.setProidx(proidx);
 		ov.setOid(oid);
 		ov.setMidx(midx);
-		
-		
+		System.out.println("midx"+midx);
 		int res = os.orderInsert(ov);
 		System.out.println("주문입력: "+res);
-				
-		ArrayList<BuyVo> alist = os.orderSelect(oid);
-		model.addAttribute("alist", alist);
 		
-		String view;
-		
-		if (session.getAttribute("sMidx") != null){
-			view = "view/order/orderInfo";
-		}else {
-			view = "redirect:/MemberLoginController";
-		}	
-		return view;
+		return "redirect:/OrderSelectC";
 	}
 	
-
+	@RequestMapping(value="/OrderSelectC")
+	protected String orderInfo() {
+	
+		return "view/order/orderInfo";
+	}
 	
 }
