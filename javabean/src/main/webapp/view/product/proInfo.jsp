@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ page import="com.jb.jbean.domain.*"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,7 +21,6 @@ small {
 }
 </style>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script language="JavaScript">
@@ -420,6 +417,15 @@ small {
 
 
 <body onload="init();">
+
+  	<div class="mb-60"></div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sub-title">
+            </div>
+          </div>
+          
 	<form id="frm" name="frm">
 		<input type="hidden" name="qidx" id="qidx">
 		<input type="hidden" name="qreply" id="qreply">
@@ -427,59 +433,55 @@ small {
 	
 	</form>
 	<form name="form">
+	<!-- Page Wrapper Start -->
+
+	
 	<input type="hidden" name="pronum" value="${pronum}" >
-		<div>
-			<c:forEach var="prov" items="${alistCate}">
-				<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
-				</a>
-
-			</c:forEach>
-		</div>
-
-		
-			<c:forEach var="prov" begin="0" varStatus="status"
-				items="${alistProI}">
+				
+			<c:forEach var="prov" begin="0" varStatus="status" items="${alistProI}">
 				<div>
 					<c:if test="${status.index eq 0}">
-						<div style="float: left; width: 50%; text-align: center;">
-							<input type="text" name="promain" style="border: none;" readonly
-								value="${prov.promain}">
+						<div style="float: left; width: 50%; text-align: right; padding-right:2%;">
+							<img src="/resources/helium-ui-kit/img/team/team-04.jpg" style="height:223px; width:185px">
 						</div>
-						<div style="float: left; width: 50%; text-align: center;">
+						<div style="float: right; width: 50%; text-align:left; padding-left: 2%;">
 							<ul style="list-style: none;">
-								<li><input type="text" name="proname" style="border: none;"
-									readonly value="${prov.proname}"></li>
-								<li><input type="text" name="proprice"
-									style="border: none;" readonly value="${prov.proprice}"></li>
+								
+								<li><span style="width:15%; display:inline-block;"><strong>상품명</strong></span>
+									<input type="text" name="proname" style="border: none;"	readonly value="${prov.proname}"></li>
+								<li><span style="width:15%; display:inline-block;"><strong>가격</strong></span>
+									<input type="text" name="proprice" style="border: none;" readonly value="${prov.proprice}"></li>
 								<li>배송비</li>
-								<li><input type="hidden" id="pronum" name="pronum"
-									value="${prov.pronum}"> <select id="proidx"
-									name="proidx">
+								<li><span style="width:15%; display:inline-block;"><strong>옵션</strong></span>
+									<input type="hidden" id="pronum" name="pronum" value="${prov.pronum}"> <select id="proidx" name="proidx">
 										<c:forEach var="provs" items="${alistProI}">
 											<option value="${provs.proidx}">${provs.prosize}</option>
 										</c:forEach>
 								</select></li>
-								<li>수량<input type="hidden" name="proprice" id="price"
-									value="${prov.proprice}"> <input type="text" name="cnt"
-									value="1" size="3" onchange="change();"> <input
-									type="button" value=" + " onclick="add();"> <input
-									type="button" value=" - " onclick="del();">
+								<li><span style="width:15%; display:inline-block;"><strong>수량</strong></span>
+									<input type="hidden" name="proprice" id="price" value="${prov.proprice}">
+									<input type="text" name="cnt" value="1" size="3" maxlength="2" onchange="change();">
+									<input type="button" value=" + " onclick="add();">
+									<input type="button" value=" - " onclick="del();">
 								</li>
 							</ul>
 							<ul style="list-style: none;">
-								<li>금액 <input type="text" name="sum" size="11" readonly
-									style="border: none;">원
+								<li><span style="width:15%; display:inline-block;"><strong>금액</strong></span>
+									<input type="text" name="sum" size="8" readonly style="border:none;">원
 								</li>
-								<li><span><input type="button" id="buy" value="바로구매" />
-										<input type="button" id="basket" value="장바구니" /></span></li>
+								<br>
+								<li><span><input type="button" class="btn btn-common" id="buy" value="바로구매" />
+										<input type="button" class="btn btn-common" id="basket" value="장바구니" /></span></li>
 							</ul>
 						</div>
 					</c:if>
 				</div>
 			</c:forEach>
 			<input type="hidden" name="midx" id="midx" value="${sMidx}">
+			
+			<div class="mb-60"></div>
+			
 			<div>
-
 				<h1>Review</h1>
 				<li><textarea name="rcontent" id="rcontent" class="text"cols="50" rows="6"></textarea></li>
 
@@ -594,8 +596,11 @@ small {
 		</table>
 		<input type="button" value="Q&A등록" onClick="check()">
 		</div>
-		
-		
+	
 	</form>
+		</div>
+	
 </body>
 </html>
+
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	

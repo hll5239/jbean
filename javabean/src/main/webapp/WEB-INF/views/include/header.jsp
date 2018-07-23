@@ -7,21 +7,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="/resources/material-kit/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="/resources/material-kit/assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Material Kit by Creative Tim
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="/resources/material-kit/assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="/resources/material-kit/assets/demo/demo.css" rel="stylesheet" />
+ 
     </head>
    
    <!-- meta tags -->
@@ -33,7 +19,7 @@
   
   <!-- CSS Files -->
   <link rel="stylesheet" href="/resources/helium-ui-kit/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="/resources/helium-ui-kit/css/main.css">
   <link rel="stylesheet" href="/resources/helium-ui-kit/css/animate.css">
   <link rel="stylesheet" href="/resources/helium-ui-kit/css/owl.carousel.css">
   <link rel="stylesheet" href="/resources/helium-ui-kit/css/owl.theme.css">
@@ -42,7 +28,8 @@
   <!-- Fonts icons -->
   <link rel="stylesheet" href="css/font-awesome.min.css">
   
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+ <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="/resources/helium-ui-kit/js/jquery.min.js"></script>
   <script src="/resources/helium-ui-kit/js/tether.min.js"></script>
   <script src="/resources/helium-ui-kit/js/bootstrap.min.js"></script>
   <script src="/resources/helium-ui-kit/js/owl.carousel.min.js"></script>
@@ -50,7 +37,6 @@
   <script src="/resources/helium-ui-kit/js/form-validator.min.js"></script>
   <script src="/resources/helium-ui-kit/js/contact-form-script.js"></script>
   <script src="/resources/helium-ui-kit/js/main.js"></script>
-  
   
   <!-- jQuery 최신버전-->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -92,6 +78,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+      
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -103,21 +90,17 @@
           </li>
         </ul>
       </div>
+ 
+      
     </div>
   </nav>
-      </header>
-      
-      
-       <!--   Core JS Files   -->
-  <script src="/resources/material-kit/assets/js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="/resources/material-kit/assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="/resources/material-kit/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-  <script src="/resources/material-kit/assets/js/plugins/moment.min.js"></script>
-  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-  <script src="/resources/material-kit/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="/resources/material-kit/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--	Plugin for Sharrre btn -->
-  <script src="/resources/material-kit/assets/js/plugins/jquery.sharrre.js" type="text/javascript"></script>
-  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-  <script src="/resources/material-kit/assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
+ </header>
+ </div>
+  <!-- Page Wrapper Start -->
+  	<div class="wrapper">
+    <!-- Content Area Start -->
+    <div id="content">
+      <div class="container">
+        <!-- row start -->
+        <div class="row">
+          <div class="col-md-12">

@@ -2,9 +2,8 @@
 <%@ include file = "WEB-INF/views/include/header.jsp"%>
 
 
-<div class="wrapper">
-    <!-- Content Area Start -->
-    <div id="content">
+  
+
       <!-- sliders -->
       <div id="sliders">
         <div class="full-width">
@@ -46,21 +45,42 @@
         </div>
       </div>
       <!-- End sliders -->
+      
 
-	<div style="padding-top:2%;">
-		<c:forEach var="prov" items="${alistProA}">
-			<div  style="float:left; width:30%; text-align:center;">
-				<div><a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}">
-				${prov.promain}</a></div>
-				<div>${prov.proname}, ${prov.proprice}</div>
-			</div>
-		</c:forEach>
-	</div>
-    </div>
-    <!-- Content Area End -->
-  </div>
+          
+          
+      <!-- ProList -->
+            <div class="team-members mtb-50">
+              <div class="row">
+              
+              <c:forEach var="prov" items="${alistProA}">
+                <div class="col-sm-6 col-md-3">
+                  <!-- Team Item Starts -->
+                  <div class="team-item">
+                    <figure class="team-profile">
+                      <a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}"><img src="displayFile?fileName=${prov.promain}"></a>
+                    </figure>
+                    <div class="info">
+                      <h2>
+                        ${prov.proname}
+                      </h2>
+                      <p>
+                        ${prov.proprice}
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Team Item Ends -->
+                </div>
+                </c:forEach>
+                
+              </div>
+            </div>
+            <!-- End ProList -->
+
+	
+	
+
   <!-- Page Wrapper End -->
-
 <%@ include file = "WEB-INF/views/include/footer.jsp"%>	
 
 

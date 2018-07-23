@@ -32,10 +32,13 @@ public class ProductController {
 	protected String main(Model model) {
 		
 		System.out.println("----main---------------------------------------");
-		ArrayList<ProductVo> alistCate = pros.category();
+		
 		ArrayList<ProductVo> alistProA = pros.productAll();
-		model.addAttribute("alistCate", alistCate);
 		model.addAttribute("alistProA", alistProA);
+		
+		ArrayList<ProductVo> alistCate = pros.category();
+		model.addAttribute("alistCate", alistCate);
+
 		
 		
 		return "main";
