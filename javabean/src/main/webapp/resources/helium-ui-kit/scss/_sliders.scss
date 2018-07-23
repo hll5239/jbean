@@ -1,0 +1,262 @@
+/* Sliders */
+
+/* Dark Slider */
+#dark-slider{
+   h3 {
+    color: $grey;
+  }
+  .slide-text {
+    color: $grey;
+    line-height: 1.5;
+  }
+  p.caption {
+    color: $white;
+    padding: 6px;
+  }
+  .item {
+    min-height: 555px;
+    height: auto;
+  }
+  .slide1 {
+    background-image: url("../img/dark-bg-image.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: contain;
+  }
+  .slide2 {
+    background-image: url("../img/dark-bg-image.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+  .carousel-control {
+    color: $grey;
+    opacity: 0.8;
+  } 
+}
+ .text-primary{
+    color: $preset!important;
+  }
+
+/* Carousels */
+.owl-theme .owl-controls .owl-page span {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 5px !important;
+    background: $primary !important;
+}
+#cards-carousel{
+  .card-block {
+    margin: 0 10px;
+    background: $bg-color;
+  }
+  .card {
+    background: transparent;
+    margin-bottom: 0;
+  }
+}
+
+#image-carousel .item{
+    margin: 10px;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+  }
+}
+
+/* Testimonials Slider */
+
+#testimonials-slider {
+    background-color: $grey;
+    .testimonial {
+      padding: 150px 0;
+      text-align: center;
+      img {
+          width: 100px;
+          height: 100px;
+          border-radius: 100%;
+          margin-top: -40px;
+          margin-bottom: 40px;
+      }
+      h3 {
+          color: $white;
+          font-size: 30px;
+          margin-top: 0;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 40px;
+          max-width: 900px;
+      }
+      i {
+          color: $white;
+          font-size: 38px;
+          margin-bottom: 40px;
+      }
+  }
+}
+.customer-name {
+    color: $white;
+    font-size: 16px;
+    font-weight: $regular;
+}
+#testimonials-slider .carousel-indicators {
+    margin-bottom: 10px;
+}
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    background-color: $white;
+    margin: 3px;
+    opacity: 1;
+}
+.carousel-indicators li {
+    width: 12px;
+    height: 12px;
+    margin: 3px;
+    background-color: $white;
+    border: 0;
+    opacity: 0.5;
+}
+
+/* / Sliders */
+
+#carousel-area {
+  background: #2c3e50;
+  .btn-lg{
+    margin: 10px;
+  }
+  .carousel-item img{width: auto;}
+}
+
+#carousel-area .carousel-inner .active {
+  opacity: 1;
+}
+#carousel-area .carousel-inner .active.left,
+#carousel-area .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+#carousel-area .carousel-inner .next.left,
+#carousel-area .carousel-inner .prev.right {
+  opacity: 1;
+}
+#carousel-area .carousel-control {
+  z-index: 2;
+}
+#carousel-area .carousel-item .carousel-caption {  
+  top: 28%;
+  right: 10%;
+  left: 10%;
+  text-shadow: none;
+}
+#carousel-area .carousel-item .carousel-caption h5 {
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-family: $primary-font;
+}
+#carousel-area .carousel-item .carousel-caption h3 {
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: 700;
+}
+#carousel-area .carousel-indicators {
+  bottom: 5px;
+}
+#carousel-area .carousel-indicators li {
+  border-radius: 0px;
+  width: 32px;
+  height: 5px;
+  margin: 0 5px;
+  background: rgba(253, 254, 255, 0.80);
+  border: none;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+.carousel-post{
+  margin-right: 15px;
+  h5{
+    margin-top: 20px;
+  }
+}
+
+#single-testimonial-item .item {
+  margin: 10px;
+}
+
+#single-testimonial-item .property-main {
+  margin-bottom: 0;
+}
+
+#single-testimonial-item .owl-controls .owl-buttons {
+  position: relative;
+  top: -160px;
+  left: 0;
+}
+
+#single-testimonial-item .owl-controls .owl-buttons div.owl-prev {
+  float: left;
+  margin-left: -45px;
+}
+
+#single-testimonial-item .owl-controls .owl-buttons div.owl-next {
+  float: right !important;
+  margin-right: -45px;
+}
+
+#image-slider .owl-controls .owl-buttons {
+  position: relative;
+  top: -280px;
+  left: 0;
+}
+
+#image-slider .owl-controls .owl-buttons div.owl-prev {
+  float: left;
+  margin-left: 45px;
+}
+
+#image-slider .owl-controls .owl-buttons div.owl-next {
+  float: right !important;
+  margin-right: 45px;
+}
+
+#posts-carousel-3col .owl-controls .owl-buttons {
+  position: relative;
+  top: -235px;
+  left: 0;
+}
+
+#posts-carousel-3col .owl-controls .owl-buttons div.owl-prev {
+  float: left;
+  margin-left: -60px;
+}
+
+#posts-carousel-3col .owl-controls .owl-buttons div.owl-next {
+  float: right !important;
+  margin-right: -45px;
+}
+
+#posts-carousel .owl-controls .owl-buttons {
+  position: relative;
+  top: -235px;
+  left: 0;
+}
+
+#posts-carousel .owl-controls .owl-buttons div.owl-prev {
+  float: left;
+  margin-left: -60px;
+}
+
+#posts-carousel .owl-controls .owl-buttons div.owl-next {
+  float: right !important;
+  margin-right: -45px;
+}

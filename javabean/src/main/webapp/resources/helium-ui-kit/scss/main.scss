@@ -1,0 +1,55 @@
+/*
+Product: Helium Bootstrap UI Kit
+Author: UIdeck
+Website: https://uideck.com
+More Info: https://uideck.com/products/helium-ui-kit
+*/
+
+
+@import "variables";
+@import "mixins";
+@import "typography";
+@import "sections";
+@import "buttons";
+@import "navigations";
+@import "components";
+@import "features.scss";
+@import "pricing.scss";
+@import "cards.scss";
+@import "blog.scss";
+@import "progress-bars.scss";
+@import "sliders.scss";
+@import "forms.scss";
+@import "labels-badges-alerts.scss";
+@import "portfolio.scss";
+@import "table.scss";
+@import "accordions.scss";
+@import "responsive.scss";
+
+/* Custom CSS */
+body {
+    color: $text-color;
+    background: $body-bg;
+    font-family: $primary-font;
+    font-weight: $regular;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: $letter-spacing;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+img{
+  width: 100%;
+}
+.page-header{
+	font-size: 30px;
+	font-weight: $bold;
+	border: none;
+	padding-top: 50px;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+}

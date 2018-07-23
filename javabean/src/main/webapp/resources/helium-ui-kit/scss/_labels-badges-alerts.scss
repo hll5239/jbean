@@ -1,0 +1,301 @@
+/* Labels Badges & Alerts */
+
+/* Labels */
+.space-25{
+  margin-bottom: 25px;
+}
+.label {
+    font-weight: 400;
+    padding: 5px 18px;
+    display: inline-block;
+    margin: 0px 15px 0px 0px;
+}
+
+.label-pill {
+    border-radius: 5em;
+}
+
+.label-default {
+    color: $preset;
+    background-color: transparent;
+    border: 2px solid $preset;
+}
+
+.label-default-filled {
+    color: $white;
+    background-color: $preset;
+    border: 2px solid $preset;
+}
+
+.label-primary {
+    color: $preset;
+    background-color: transparent;
+    border: 2px solid $preset;
+}
+
+.label-primary-filled {
+    color: $white;
+    background-color: $preset;
+    border: 2px solid $preset;
+}
+
+.label-success {
+    color: $success;
+    background-color: transparent;
+    border: 2px solid $success;
+}
+
+.label-success-filled {
+    color: $white;
+    background-color: $success;
+    border: 2px solid $success;
+}
+
+.label-info {
+    color: $info;
+    background-color: transparent;
+    border: 2px solid $info;
+}
+
+.label-info-filled {
+    color: $white;
+    background-color: $info;
+    border: 2px solid $info;
+}
+
+.label-warning {
+    color: $warning;
+    background-color: transparent;
+    border: 2px solid $warning;
+}
+
+.label-warning-filled {
+    color: $white;
+    background-color: $warning;
+    border: 2px solid $warning;
+}
+
+.label-danger {
+    color: $danger;
+    background-color: transparent;
+    border: 2px solid $danger;
+}
+
+.label-danger-filled {
+    color: $white;
+    background-color: $danger;
+    border: 2px solid $danger;
+}
+
+/* / End Labels */
+
+/* Badges */
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: $white;
+    background-color: $preset;
+}
+
+.nav-pills>li>a:hover {
+    color: $white;
+    background-color: $preset;
+}
+
+.nav-pills>li>a {
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.badge {
+    color: $white;
+    background-color: $preset;
+    font-size: 10px;
+    font-weight: $regular;
+    border-radius: 5px;
+    padding: 6px 7px;
+}
+
+.active .badge {
+    color: $white !important;
+}
+
+/* / End Badges */
+
+/* Alerts */
+.massage-box{
+    position: relative;
+    padding: 23px 20px 13px 55px;
+    border-radius: 4px;
+    margin: 0 0 30px;
+    strong{
+      font-size: 24px;
+      display: block;
+      margin: 0 0 10px;
+  }
+   p{
+    color: #fff;
+  }
+   i {
+      position: absolute;
+      left: 15px;
+      top: 22px;
+      width: 25px;
+      font-size: 24px;
+      text-align: center;
+  }
+}
+.small-box strong, .small-box i{
+    font-size: 14px;
+}
+.alert {
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+.alert-success {
+    color: $white;
+    background-color: $success;
+    border-color: $success-hover;
+}
+.alert-success .close {
+    color: $success-hover;
+}
+.alert-info {
+    color: $white;
+    background-color: $info;
+    border-color: $info-hover;
+}
+.alert-info .close {
+    color: $info-hover;
+}
+.alert-warning {
+    color: $white;
+    background-color: $warning;
+    border-color: $warning-hover;
+}
+.alert-warning .close {
+    color: $warning-hover;
+}
+.alert-danger {
+    color: $white;
+    background-color: $danger;
+    border-color: $danger-hover;
+}
+.alert-danger .close {
+    color: $danger-hover;
+}
+.alert-dismissible .close {
+    font-size: 16px;
+    top: -14px;
+    right: -31px;
+    text-shadow: none;
+    opacity: 1;
+}
+.alert-dismissible .close:hover {
+    opacity: 0.8;
+}
+.alert-sm {
+    font-size: 14px;
+    padding: 5px;
+}
+.alert i {
+    margin: 0 10px 0 5px;
+}
+.alert-sm.alert-dismissible .close {
+    top: -5px;
+    right: -2px;
+}
+.tgl {
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  cursor: pointer;
+}
+.tgl > input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
+}
+.tgl .tgl_body {
+  width: 60px;
+  height: 30px;
+  background: white;
+  border: 1px solid #dadde1;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+}
+.tgl .tgl_switch {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: white;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  border-radius: 50%;
+  border: 1px solid #ccd0d6;
+  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.13);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.13);
+  -moz-transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), -moz-transform 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  -o-transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), -o-transform 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  -webkit-transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), -webkit-transform 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), transform 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  z-index: 1;
+}
+.tgl .tgl_track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  border-radius: 50px;
+}
+.tgl .tgl_bgd {
+  font-size: 11px;
+  color: #fff;
+  padding: 4px 18px;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 55px;
+  -moz-transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), right 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  -o-transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), right 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  -webkit-transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), right 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  transition: left 250ms cubic-bezier(0.34, 1.61, 0.7, 1), right 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  background: #EB586F;
+}
+.tgl .tgl_bgd-negative {
+  right: auto;
+  left: -45px;
+  background: #ddd;
+}
+.tgl:hover .tgl_switch {
+  border-color: #b5bbc3;
+  -moz-transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  -webkit-transform: scale(1.06);
+  transform: scale(1.06);
+}
+.tgl:active .tgl_switch {
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.tgl > :not(:checked) ~ .tgl_body > .tgl_switch {
+  left: 30px;
+}
+.tgl > :not(:checked) ~ .tgl_body .tgl_bgd {
+  right: -45px;
+}
+.tgl > :not(:checked) ~ .tgl_body .tgl_bgd.tgl_bgd-negative {
+  right: auto;
+  left: -10px;
+}
+
+/* / End Alerts */

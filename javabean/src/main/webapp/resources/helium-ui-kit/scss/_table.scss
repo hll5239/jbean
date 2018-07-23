@@ -1,0 +1,32 @@
+.table-1{
+	color: #fff;
+}
+.table-bordered.table-2 > thead > tr > th{
+	background: #232833;
+	font-weight: 700;
+	color: $preset;
+}
+.table-bordered.table-3 > thead > tr > th{
+	background: $preset;
+	font-weight: 700;
+	color: #fff;
+}
+.table-bordered > thead > tr > th{
+	text-align: center;
+	background: #373d4a;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 26px 10px;
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+	border: 1px solid #f1f1f1;
+}
+.table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+	padding: 18px 20px;
+	color: $text-color;	
+	text-align: center;
+	font-size: 14px;
+}
+.table-striped > tbody > tr:nth-of-type(2n+1){
+	background-color: #e3e3e3;
+}

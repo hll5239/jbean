@@ -1,0 +1,89 @@
+/* Cards */
+
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+    background-color: $bg-color;
+    border-radius: 0;
+    border: 0;
+    width: 100%;
+}
+.card-img-top {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.card-img-inside {
+    margin-bottom: 15px;
+}
+.card img {
+    width: 100%;
+}
+.card-block {
+    padding: 15px;
+}
+.card-title {
+    color: #444;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.card-text {
+    font-size: 14px;
+    color: #444;
+}
+.card-btn {
+    margin-top: 5px;
+}
+.card-2 {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+    background-color: $white;
+    border: 1px solid $light-grey;
+    border-radius: 0;
+    .card-block{
+        .card-title{
+            margin-bottom: 7px;
+        }
+        .meta{
+            font-size: 13px;
+            a{
+                color: #999;
+            }
+            a:hover{
+                color: $preset;                
+                cursor: pointer;
+            }
+        }
+        .description{
+            margin-top: 5px;
+        }
+    }
+    .extra{
+        max-width: 100%; 
+        border-top: 1px solid rgba(0,0,0,.05);
+        width: auto;
+        margin: 0;
+        padding: 10px 15px;
+        top: 0;
+        left: 0;
+        color: rgba(0,0,0,.4);
+        .right{
+            float: right;
+            i{
+                margin-right: 5px;
+            }
+        }
+    }
+    .card-text {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .card-btn {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+}
+
+/* / End Cards */

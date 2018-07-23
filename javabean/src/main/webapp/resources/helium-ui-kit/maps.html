@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Bootstrap UI Kit">
+  <meta name="keywords" content="ui kit">
+  <meta name="author" content="UIdeck">
+
+  <title>Maps - Helium Bootstrap 4 UI Kit</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Fonts icons -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!-- Google Maps -->
+  <style>
+    #google-map,
+    body,
+    html {
+      padding: 0;
+      height: 400px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Page Wrapper Start -->
+  <div class="wrapper">
+    <!-- Content Area Start -->
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header-title">
+              <h2 class="heading-title text-center">Maps</h2>
+            </div>
+            <h3 class="sub-title">
+              Google Map #1
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div id="google-map">
+      </div>
+
+      <div class="mb-60"></div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="sub-title">
+              Google Map #2
+            </h3>
+          </div>
+        </div>
+      </div>
+      <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7507.262763733184!2d151.20434578518316!3d-33.887955431212774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x16e224b2bd8fa957!2sUniversity+of+Technology+Sydney!5e0!3m2!1sen!2sus!4v1497155258520">
+        </iframe>
+
+    </div>
+    <!-- Content Area End -->
+    <div class="text-center">Love this UI Kit? Get more Free and Premium <a href="https://rebrand.ly/uideck-uikits">Bootstrap UI Kits</a> and <a href="https://rebrand.ly/uideck-themes">Bootstrap Templates</a></div>
+  </div>
+  <!-- Page Wrapper End -->
+
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/tether.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+
+  <script src="js/form-validator.min.js"></script>
+  <script src="js/contact-form-script.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo_WtZ2nIYCgCLf7sINZaqcrpqSDio9o"></script>
+  <!-- Google Maps JS Only for Contact Pages -->
+  <script type="text/javascript">
+    var map;
+    var defult = new google.maps.LatLng(50.8452321, 4.3577968, 17.29);
+    var mapCoordinates = new google.maps.LatLng(50.8452321, 4.3577968, 17.29);
+
+
+    var markers = [];
+    var image = new google.maps.MarkerImage(
+      'assets/img/map-marker.png',
+      new google.maps.Size(84, 70),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(60, 60)
+    );
+
+    function addMarker() {
+      markers.push(new google.maps.Marker({
+        position: defult,
+        raiseOnDrag: false,
+        icon: image,
+        map: map,
+        draggable: false
+      }));
+
+    }
+
+    function initialize() {
+      var mapOptions = {
+        backgroundColor: "#ffffff",
+        zoom: 15,
+        disableDefaultUI: true,
+        center: mapCoordinates,
+        zoomControl: false,
+        scaleControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [{
+            "featureType": "landscape.natural",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "color": "#ffffff"
+            }]
+          }, {
+            "featureType": "landscape.man_made",
+            "stylers": [{
+              "color": "#ffffff"
+            }, {
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "water",
+            "stylers": [{
+              "color": "#80C8E5"
+            }, {
+              "saturation": 0
+            }]
+          }, {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [{
+              "color": "#999999"
+            }]
+          }, {
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          }, {
+            "elementType": "labels.text",
+            "stylers": [{
+              "color": "#333333"
+            }]
+          }
+
+          , {
+            "featureType": "road.local",
+            "stylers": [{
+              "color": "#dedede"
+            }]
+          }, {
+            "featureType": "road.local",
+            "elementType": "labels.text",
+            "stylers": [{
+              "color": "#666666"
+            }]
+          }, {
+            "featureType": "transit.station.bus",
+            "stylers": [{
+              "saturation": -57
+            }]
+          }, {
+            "featureType": "road.highway",
+            "elementType": "labels.icon",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "poi",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          }
+
+        ]
+
+      };
+      map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+      addMarker();
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+
+</body>
+
+</html>

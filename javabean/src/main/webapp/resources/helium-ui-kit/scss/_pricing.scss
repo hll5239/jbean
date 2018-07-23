@@ -1,0 +1,126 @@
+/* Pricing Table */
+#pricing{
+  padding: 30px 0;
+}
+.pricing-table{
+  background: #353b48;
+  padding: 30px;
+  text-align: center;
+  .table-header{
+    h3{
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+  }
+  .plan{
+    .price{
+      font-size: 24px;
+      color: #fff;
+    }
+  }
+  .plan-info{    
+    margin-top: 30px;
+    p{
+      color: #fff;
+    }
+  }
+  .button-area{
+    margin-top: 30px;
+  }
+}
+
+ /* Pricing Table */
+  .pricing-tables{
+    padding: 25px 0;
+    text-align: center;
+    .pricing-table-block{
+      background: #f6f6f6;
+      text-align: center;
+      position: relative;
+      background-color: #fff;
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+      border: 1px solid #f1f1f1;
+    }
+    .highlight-plan {
+      margin: -15px 0;
+      margin-right: -1px;
+      z-index: 1;
+      background: #f6f6f6;
+    }
+    .pricing-table-block .highlight-plan{
+      .plan-name {
+        padding: 25px 0;
+        h3 {
+          color: #fff;
+        }
+      }
+      .plan-signup {
+        padding: 30px 0;
+        background: $primary;
+        .btn-system.border-btn {
+          border-color: #fff;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .pricing-table-block{
+    background: #f6f6f6;
+    text-align: center;
+    position: relative;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    .plan-name {
+        padding: 25px;
+        background: $primary;
+        margin-bottom: 20px;
+      h3 {
+        font-size: 22px;
+        line-height: 24px;
+        margin: 0;
+        color: #fff;
+      }
+    }
+    .plan-price {
+      margin-bottom: 30px;
+      .price-value {
+        font-size: 50px;
+        line-height: 76px;
+        font-weight: 700;
+        color: #333333;
+        span {
+          font-size: 22px;
+          font-weight: 400;
+          line-height: 18px;
+        }
+      }
+      .interval {
+          line-height: 16px;
+          font-size: 14px;
+          font-weight: $bold;
+      }
+    }
+    .plan-list {
+      li {
+        padding: 10px;
+        font-size: 15px;   
+        letter-spacing: 1px;
+        border-bottom: 1px solid #ddd;
+        i{
+          margin-right: 10px;
+        }   
+      }
+    }
+    .plan-signup {
+      padding: 15px 0px 30px;
+      a {
+        text-transform: uppercase;
+      }
+    }
+  }

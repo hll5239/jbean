@@ -1,0 +1,172 @@
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+    color: $title-color;
+    font-family: $bold-font;
+    font-weight: $bold;
+    letter-spacing: $letter-spacing;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+a {
+    color: $preset;
+    @include transition(.2s);
+    &:hover, &:active, &:focus {
+        color: $preset-hover;
+        text-decoration: none;      
+    }
+    letter-spacing: $letter-spacing;
+    outline: 0 !important;
+}
+
+p {
+    font-family: $primary-font;
+    font-weight: $regular;
+    font-size: 14px;
+    line-height: 25px;
+    color: $text-color;
+    letter-spacing: $letter-spacing;
+    margin-bottom: 10px;
+}
+
+ul, li{
+    list-style: none;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+.orderlist li {
+    list-style: block;
+    margin-left: 15px;
+}
+.unorderedlist li {
+    list-style: inside;
+}
+.list-featured {
+    list-style: none;
+    padding: 0;
+}
+.list-featured li {
+    position: relative;
+    font-size: 14px;
+    padding-left: 14px;
+    margin-bottom: 7px;
+}
+
+.list-featured li:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    left: 0;
+    top: 7px;
+    background-color: $preset;
+}
+.line-height-36{
+    line-height: 36px;
+}
+
+ol li {
+    margin-bottom: 7px;
+}
+
+li {
+    color: $text-color;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: $letter-spacing;
+}
+
+blockquote {
+    border-left: 0px solid $light-grey;
+}
+blockquote p {
+    font-size: 16px;
+    font-weight: $regular;
+}
+.blockquote-reverse{
+    border-right: none;
+}
+strong {
+    font-weight: $bold;
+}
+.lead {
+    font-size: 16px;
+}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-default {
+    color: $preset;
+}
+.bg-default {
+    color: $text-color;
+    background: $preset;
+    padding: 3px 4px;
+}
+.bg-primary {
+    color: $white;
+    background: $preset;
+    padding: 3px 4px;
+}
+
+.bg-success {
+    color: $white;
+    background: $success;
+    padding: 3px 4px;
+}
+
+.bg-info{
+    color: $white;
+    background: $info;
+    padding: 3px 4px;
+}
+
+.bg-warning {
+    color: $white;
+    background: $warning;
+    padding: 3px 4px;
+}
+
+.bg-danger {
+    color: $white;
+    background: $danger;
+    padding: 3px 4px;
+}
+
+/* / End Typography */

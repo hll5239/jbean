@@ -1,0 +1,316 @@
+/* Buttons */
+.space-bottom{
+    margin-bottom: 15px;
+}
+.btn {
+    font-weight: $regular;
+    font-size: 14px;
+    letter-spacing: $letter-spacing;
+    -moz-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    -webkit-transition: 0.2s ease-in;
+    -ms-transition:  0.2s ease-in;
+    transition: 0.2s ease-in;
+    border-radius: 0;
+    padding: 9px 10px;
+}
+
+.btn span {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background: transparent;
+    cursor: pointer;
+}
+.btn-xl {
+    font-size: 20px;
+    padding: 9px 10px;
+}
+.btn-lg {
+    font-size: 15px;
+    padding: 10px 32px;
+}
+.btn-sm {
+    font-size: 12px;
+    padding: 7px 6px;
+}
+.btn-xs {
+    font-size: 10px;
+    padding: 5px 8px;
+}
+.btn-rounded {
+    border-radius: 4px !important;
+}
+.btn-pill {
+    border-radius: 50px !important;
+}
+.btn-link {
+    color: $preset;
+}
+.btn-link:hover {
+    color: $preset-hover;
+    text-decoration: none;
+}
+.btn-link:focus {
+    color: $preset-hover;
+    text-decoration: none;
+}
+
+/* Default Button */
+.btn-common, .btn-common:active, .btn-common:focus {
+    color: $preset;
+    border: 2px solid $preset;
+    background: transparent;
+}
+.btn-common:hover {
+    color: $white;
+    background: $preset;
+    border: 2px solid $preset;
+}
+.btn-filled{
+    background: $preset;
+    border: 2px solid $preset;
+    color: $white;
+}
+.btn-filled:hover{
+    background: $preset-hover;
+}
+.btn-default-filled, .btn-default-filled:active, .btn-default-filled:focus  {
+    color: $white;
+    background: $preset;
+    border: 2px solid $preset;
+}
+
+.btn-default-filled:hover {
+    color: $white;
+    background: $preset-hover;
+    border: 2px solid $preset-hover;
+}
+
+/* / End Default Button */
+
+
+/* Success Button */
+.btn-success, .btn-success:active, .btn-success:focus {
+    color: $success;
+    border: 2px solid $success;
+    background: transparent;
+}
+.btn-success:hover {
+    color: $white;
+    background: $success;
+    border: 2px solid $success;
+}
+.btn-success-filled, .btn-success-filled:active, .btn-success-filled:focus {
+    color: $white;
+    background: $success;
+    border: 2px solid $success;
+}
+.btn-success-filled:hover {
+    color: $white;
+    background: $success-hover;
+    border: 2px solid $success-hover;
+}
+/* End Success Button */
+
+
+/* Info Button */
+.btn-info, .btn-info:active, .btn-info:focus {
+    color: $info;
+    border: 2px solid $info;
+    background: transparent;
+}
+.btn-info:hover {
+    color: $white;
+    background: $info;
+    border: 2px solid $info;
+}
+.btn-info-filled, .btn-info-filled:active, .btn-info-filled:focus {
+    color: $white;
+    background: $info;
+    border: 2px solid $info;
+}
+.btn-info-filled:hover {
+    color: $white;
+    background: $info-hover;
+    border: 2px solid $info-hover;
+}
+
+/* End Info Button */
+
+
+/* Warning Button */
+.btn-warning, .btn-warning:active, .btn-warning:focus  {
+    color: $warning;
+    border: 2px solid $warning;
+    background: transparent;
+}
+.btn-warning:hover {
+    color: $white;
+    background: $warning;
+    border: 2px solid $warning;
+}
+.btn-warning-filled, .btn-warning-filled:active, .btn-warning-filled:focus  {
+    color: $white;
+    background: $warning;
+    border: 2px solid $warning;
+}
+.btn-warning-filled:hover {
+    color: $white;
+    background: $warning-hover;
+    border: 2px solid $warning-hover;
+}
+
+/* End Warning Button */
+
+
+/* Danger Button */
+
+.btn-danger, .btn-danger:active, .btn-danger:focus {
+    color: $danger;
+    border: 2px solid $danger;
+    background: transparent;
+}
+.btn-danger:hover {
+    color: $white;
+    background: $danger;
+    border: 2px solid $danger
+}
+.btn-danger-filled, .btn-danger-filled:active, .btn-danger-filled:focus {
+    color: $white;
+    background: $danger;
+    border: 2px solid $danger;
+}
+.btn-danger-filled:hover {
+    color: $white;
+    background: $danger-hover;
+    border: 2px solid $danger-hover;
+}
+
+/* End Danger Button */
+
+
+/* Paginations */
+.pagination{
+    .btn {
+        font-size: 14px;
+        padding: 4px 10px;
+        margin: 0 5px;
+    }
+    .btn-direction {
+        font-size: 12px;
+        padding: 5.5px 8px;
+    }
+    .btn-default {
+        color: $preset;
+        border: 1px solid $light-grey;
+        background: transparent;
+    }
+    .btn-default:hover {
+        color: $white;
+        background: $preset;
+        border: 1px solid $preset;
+    }
+    .btn-active {
+        color: $white !important;
+        background: $preset !important;
+        border: 1px solid $preset !important;
+    }
+    .btn-default-filled {
+        color: $preset;
+        background: $light-grey;
+        border: 1px solid $light-grey;
+    }
+    .btn-default-filled:hover {
+        color: $white;
+        background: $preset-hover;
+        border: 1px solid $preset-hover;
+    }
+}
+
+/* End Paginations */
+
+/*  Standard Buttons */
+.button-title {
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    opacity: 0.2;
+    text-align: left;
+}
+.button-title span {
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.btn {
+    font-size: 14px;
+    padding: 11px 27px;
+}
+.btn:focus {
+    outline: none;
+}
+.std-btn{
+    margin-bottom: 20px;
+}
+.icon-cloud-download {
+    margin-right: 13px;
+    font-size: 16px;
+    vertical-align: -2px;
+}
+.btn-primary {
+    margin-right: 20px;
+    border: none;
+}
+.learn-more .btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.33px;
+}
+.read-more .btn {
+    font-weight: 600;
+    min-width: 125px;
+}
+/* Small Buttons */
+.btn-sm {
+    font-size: 12px;
+    min-width: 122px;
+    padding: 5px 11px;
+}
+.learn-more .btn.btn-sm {
+    font-size: 11px;
+}
+.read-more .btn.btn-sm {
+    min-width: 94px;
+}
+
+/* large Buttons */
+.btn-lg {
+    font-size: 18px;
+    min-width: 198px;
+    padding: 15px 11px;
+}
+.learn-more .btn-lg {
+    font-size: 17px;
+}
+.learn-more2 .btn-lg {
+    min-width: 170px;
+}
+/*Extra large Buttons */
+.btn-xlg {
+    font-size: 22px;
+    min-width: 233px;
+    padding: 22px 27px;
+    font-weight: 600;
+}
+.learn-more .btn-xlg {
+    font-size: 19px;
+}
+.read-more .btn-xlg {
+    min-width: 186px;
+    font-size: 21px;
+}
+

@@ -1,0 +1,128 @@
+/* Tabs */
+#default-tab ul.nav-tabs {
+  border-bottom: none;
+  padding-bottom: 5px;
+  a{
+        border: 0;
+  }
+}
+ul.nav-tabs li {
+    float: left;
+    margin-top: 0;
+    a {
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 18px;
+      padding: 10px 15px;
+      text-transform: uppercase;
+  }
+}
+#default-tab .nav-tabs > li > a.active , #default-tab .nav-tabs > li a.active:focus, #default-tab .nav-tabs > li a.active:hover {
+    border: 0 none;
+    position: relative;
+    color: $preset;
+}
+
+.nav-bg > li > a{
+  color: $text-color;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  margin-right: 10px;
+}
+.nav-bg > li > a.active , .nav-bg > li a.active:focus, .nav-bg > li a:hover{
+  color: $preset!important;
+  border: 1px solid $preset!important;
+  border-radius: 0;
+
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+  color: $preset;
+}
+.nav-tabs{
+  border-bottom: none;
+  .nav-link{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+}
+.tab-content {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+/* End TAbs */
+
+/* Accordions */
+.panel-group .panel {
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 0;
+}
+.panel-group{
+  .panel-heading {
+    padding: 15px;
+    background: $preset;
+  }
+  .panel-title {
+    font-size: 16px;
+    color: #fff;
+    font-weight: $bold;
+  }
+}
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: none;
+}
+.panel-group .panel-heading>a:after {
+    float: right;
+}
+.panel-group .panel-heading .panel-title.collapsed:after {
+    float: right;
+}
+.panel-group .panel-heading>a:after {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "FontAwesome";
+    font-size: 16px;
+    content: "\f0d8";
+    margin-top: -2px;
+    margin-left: 10px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.panel-group .panel-heading .panel-title.collapsed:after {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.panel-group .panel-body {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+.panel-group.tabbed .panel-heading{
+    background: transparent;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+.panel-group.tabbed a {
+    color: $text-color;
+}
+.panel-group.tabbed .panel-heading>a:after {
+    float: right;
+}
+.panel-group.tabbed .panel-heading .panel-title.collapsed:after {
+    float: right;
+}
+
+/* End Tabs & Accordions */

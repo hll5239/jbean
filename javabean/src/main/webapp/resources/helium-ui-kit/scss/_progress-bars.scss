@@ -1,0 +1,76 @@
+/* Progress Bars */
+
+.progress {
+    height: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: $light-grey;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    .progress-bar {
+        font-size: 11px;
+        line-height: 15px;
+        color: $white;
+        background-color: $primary;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+.progress-bar-default {
+    background-color: $preset;
+}
+.progress-bar-primary {
+    background-color: $preset;
+}
+.progress-bar-success {
+    background-color: $success;
+}
+.progress-bar-info {
+    background-color: $info;
+}
+.progress-bar-warning {
+    background-color: $warning;
+}
+.progress-bar-danger {
+    background-color: $danger;
+}
+.progress-label .sr-only {
+    position: relative;
+}
+
+/*  End Progress Bars */
+
+/* Caounter Style */
+#counter{
+  background-image: url(../img/about/testimonial-bg.jpg);
+  background-size: cover;
+  padding: 60px 0;
+}
+.count-one{
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    .icon{
+        margin-bottom: 20px;
+        display: block;
+        i{
+            color: $primary;
+            font-size: 48px;
+        }
+    }
+    .count-value{
+        color: #fff;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    .count-title{
+        color: #fff;
+        font-size: 14px;
+    }
+}
+.width25-divider{
+    margin: 20px auto;
+    width: 25px;
+    border-color: #fff;
+}

@@ -1,0 +1,444 @@
+/* Navigations */
+.bg-faded{
+    background-color: transparent;
+}
+.bg-default{
+    background: #F8F8F8;
+    border: none;
+    .navbar-nav .nav-link{
+        color: $text-color;
+    }
+}
+.bg-black{
+    background-color: #333;
+    .navbar-nav .nav-link{
+        color: $white;
+    }
+}
+.navbar-fixed-top {
+    border-radius: 0;
+}
+.navbar-brand {
+    color: $grey !important;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: $bold;
+    padding: 20px 15px;
+    img{
+        max-width: 200px;
+    }
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-toggler{
+    color: $preset!important;
+}
+
+.navbar-toggle .icon-bar {
+    background: $primary;
+    width: 20px;
+    height: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.navbar-collapse {
+    text-align: center;
+}
+.navbar{
+    padding: 0;
+}
+.dropdown-menu{
+   padding: 10px 0px;
+   border: 0;
+   border-radius: 0;
+}
+.dropdown-item{
+    padding: 10px 22px;
+    font-size: 14px;
+    width: 170px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+    background: $preset;
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
+    color: $preset;
+}
+
+/* Default Navbar */
+.navbar-nav .nav-link{
+    color: $white;
+    font-size: 14px;
+    margin-right: 18px;
+    font-weight: $regular;
+    padding: 18px 0px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: $primary;
+}
+
+.navbar-light .navbar-nav .nav-link:hover:focus {
+    color: $primary;
+}
+
+.navbar-light .navbar-nav>.active>a, .navbar-light .navbar-nav>.active>a:focus, .navbar-light .navbar-nav>.active>a:hover {
+    color: $primary;
+    background-color: transparent;
+}
+
+.navbar-light .navbar-nav>.open>a, .navbar-light .navbar-nav>.open>a:focus, .navbar-light .navbar-nav>.open>a:hover {
+    color: $primary;
+    background-color: transparent;
+}
+
+.navbar-light .navbar-toggle .icon-bar {
+    background-color: $primary;
+}
+
+.navbar-light .navbar-toggle {
+    border-color: transparent;
+}
+
+.navbar-light .navbar-toggle:hover, .navbar-light .navbar-toggle:focus {
+    background-color: transparent;
+}
+/* / End Default Navbar */
+
+
+.form-inline .form-control {
+  margin: 0;
+  color: #fff;
+  border-radius: 50px;
+  min-height: 42px;
+  padding: 7px 20px;
+  background: transparent;
+}
+.top_search_icon{
+  position: absolute;
+  top: 31px;
+  right: 44px;
+  color: #fff;
+}
+
+/* Navbar-1 */
+
+.navbar-1 {
+    border-radius: 0;
+}
+.navbar-1.navbar-light {
+    background-color: $bg-color;
+    border-color:  transparent;
+}
+.navbar-inverse {
+    background-color: $dark-bg-color;
+    border-color: transparent;
+}
+/* Transparent Navigations */
+
+.nav-bg-default {
+    background: url("../images/nav-bg-default.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-bg-inverse {
+    background: url("../images/nav-bg-inverse.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-bg-default .navbar {
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.nav-bg-inverse .navbar {
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.navbar-light-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-inverse-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-light-transparent.navbar-light .navbar-nav > li > a {
+    color: $white;
+}
+
+.navbar-light-transparent.navbar-light .navbar-nav>li>a:hover {
+    color: $primary;
+}
+
+.navbar-light-transparent.navbar-light .navbar-nav > li > a:focus {
+    color: $white !important;
+}
+
+.navbar-light-transparent.navbar-light .navbar-nav>.active>a, .navbar-light-transparent.navbar-light .navbar-nav>.active>a:focus, .navbar-light-transparent.navbar-light .navbar-nav>.active>a:hover {
+    color: $primary;
+    background-color: transparent;
+}
+
+.navbar-light-transparent.navbar-light .navbar-nav>.open>a, .navbar-light-transparent.navbar-light .navbar-nav>.open>a:focus, .navbar-light-transparent.navbar-light .navbar-nav>.open>a:hover {
+    color: $primary;
+    background-color: transparent;
+}
+
+.navbar-light-transparent.navbar-light .navbar-toggle .icon-bar {
+    background-color: $primary;
+}
+
+.navbar-light-transparent.navbar-light .navbar-toggle {
+    border-color: transparent;
+}
+
+.navbar-light-transparent.navbar-light .navbar-toggle:hover, .navbar-light-transparent.navbar-light .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-nav > li > a {
+    color: $black;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-nav>li>a:hover {
+    color: $primary;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-nav > li > a:focus {
+    color: $black !important;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-nav>.active>a, .navbar-inverse-transparent.navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse-transparent.navbar-inverse .navbar-nav>.active>a:hover {
+    color: $primary;
+    background-color: transparent;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-nav>.open>a, .navbar-inverse-transparent.navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse-transparent.navbar-inverse .navbar-nav>.open>a:hover {
+    color: $primary;
+    background-color: transparent;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: $primary;
+}
+
+.navbar-inverse-transparent .navbar-inverse .navbar-toggle {
+    border-color: transparent;
+}
+
+.navbar-inverse-transparent.navbar-inverse .navbar-toggle:hover, .navbar-inverse-transparent.navbar-inverse .navbar-toggle:focus {
+    background-color: transparent;
+}
+.form-inline .form-control{
+    margin: 0;
+    border-radius: 50px;
+    min-height: 42px;
+    padding: 7px 20px;
+    background: transparent;
+}
+
+/* Top Menus */
+.top-menu {
+    background-color: #333;
+}
+.top-menu-inverse {
+    background-color: $bg-color;
+}
+.top-menu p {
+    margin-bottom: 0;
+    padding: 9px 15px;
+}
+.top-menu-bg p {
+    padding: 9px 0;
+}
+.top-menu-bg-inverse p {
+    padding: 9px 0;    
+}
+.top-menu a {
+    color: #fff!important;
+    font-size: 12px!important;
+    margin-right: 10px;
+    font-weight: 400;
+}
+.top-menu-inverse a {
+    color: $text-color!important;
+}
+.top-menu a:hover {
+    color: $primary !important;
+}
+.top-menu .left i {
+    margin-right: 5px;
+}
+.top-menu .right {
+    float: right;
+}
+.top-menu .right a {
+    margin: 0 0 0 15px;
+    i{
+        margin-right: 5px;
+    }
+}
+.account-setting{
+    a{
+      margin: 0!important;
+      padding: 6px;
+      i{
+        margin-right: 5px;
+      }
+    }
+}
+.top-menu .container {
+    padding: 0 30px;
+}
+.top-menu-bg a {
+    color: $white !important;
+}
+.top-menu-bg-inverse a {
+    color: $black !important;
+}
+.btn-top-menu {
+    background: transparent;
+    font-size: 10px !important;
+    font-weight: 700;
+    border: 2px solid $text-color;
+    margin: -3px 0 0 10px;
+    padding: 5px 0;
+}
+.btn-top-menu:hover {
+    border: 2px solid $primary;
+}
+.btn-top-menu a {
+    font-size: 10px !important;
+    margin: 0 !important;
+    padding: 8px;
+}
+.btn-top-menu-inverse {
+    background: transparent;
+    font-size: 10px !important;
+    font-weight: 700;
+    border: 2px solid $grey;
+    margin: -3px 0 0 10px;
+    padding: 5px 0;
+}
+
+.btn-top-menu-inverse:hover {
+    border: 2px solid $primary;
+    background: $primary;   
+}
+.btn-top-menu-inverse a:hover{
+    color: #fff!important;
+}
+
+.btn-top-menu-inverse a {
+    font-size: 10px !important;
+    margin: 0 !important;
+    padding: 8px;
+}
+
+.top-menu-bg .btn-top-menu {
+    border: 2px solid $white;
+}
+
+.top-menu-bg .btn-top-menu:hover {
+    border: 2px solid $primary;
+}
+
+.top-menu-bg-inverse .btn-top-menu-inverse {
+    border: 2px solid $black;
+}
+
+.top-menu-bg-inverse .btn-top-menu-inverse:hover {
+    border: 2px solid $primary;
+}
+
+/* / End Top Menus */
+
+.tbtn{
+    font-size: 30px;
+    height: 42px;
+    width: 120px;
+    padding: 8px;
+    cursor: pointer;
+    position: fixed;
+    background: $preset;
+    z-index: 999;
+    top: 124px;
+    left: 0px;
+    p{
+        font-size: 11px;
+        color: #fff;
+        i{
+            margin-right: 4px;
+            font-size: 12px;
+        }
+    }
+}
+.title-menu{
+    font-size: 12px;
+    padding: 28px 15px;
+    text-transform: uppercase;
+}
+.navmenu, .navbar-offcanvas {
+    width: 200px;
+    z-index: 99999;
+}
+.navmenu-default, .navbar-default .navbar-offcanvas{
+    background-color: #fff;
+    border-left: 1px solid #eee;
+}
+.navmenu-default .navmenu-nav>li>a:hover, 
+.navbar-default .navbar-offcanvas .navmenu-nav>li>a:hover, 
+.navmenu-default .navmenu-nav>li>a:focus, 
+.navbar-default .navbar-offcanvas .navmenu-nav>li>a:focus {
+color: $preset;
+background-color: transparent;
+}
+.navmenu-default .navmenu-nav > li{
+    border-bottom: 1px solid #eee;
+    line-height: 24px;
+}
+.navmenu-default .navmenu-nav > li > a, 
+.navbar-default .navbar-offcanvas .navmenu-nav > li > a {
+    color: $text-color;
+    padding: 0px 15px;
+    font-size: 14px;
+    font-weight: 300;    
+}
+nav#menu span.fa.fa-bars:hover {
+color: $preset;
+}
+.navmenu-default .navmenu-nav>.active>a, 
+.navbar-default .navbar-offcanvas .navmenu-nav>.active>a, 
+.navmenu-default .navmenu-nav>.active>a:hover, 
+.navbar-default .navbar-offcanvas .navmenu-nav>.active>a:hover, 
+.navmenu-default .navmenu-nav>.active>a:focus, 
+.navbar-default .navbar-offcanvas .navmenu-nav>.active>a:focus {
+color: $preset;
+}
+
+.close{
+    background: transparent;
+    padding: 4px 12px;
+    opacity: 1;
+    position: absolute;
+    top: 14px;
+    right: 0px;
+    i{
+        background: $preset;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        line-height: 30px;
+    }
+}
