@@ -6,6 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 function check() {	
 	 	  
@@ -22,51 +28,120 @@ function check() {
 	  	
 	  	return ;
 }
+function check1() {
+	
+	location.href = "BoardModifyC"
+}
+function check2() {
+	
+  var formname = document.frm;
+	  
+	  var res;
+	  	res = confirm("삭제 하시겠습니까?");
+	  
+	  	if (res == true) {
+		   	formname.method ="post";
+		   	formname.action ="<%=request.getContextPath() %>/BoardDeleteC";
+		   	formname.submit();  
+	  	}
+	
+		return ;
+}
+
+
 	  </script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").slideToggle();
+    });
+});
+</script>
+
+
 </head>
 
 <body>
-<form name="frm">
+	<form name="frm">
 
- <h1 align="center"> F A Q </h1> 
- 
-  
- <div style="margin-top:30px;"></div>
- 
- <table border="1" align="center" width="80%" style="text-align:center;">
- 
- <td>번호</td>
- <td width="60%">제목/내용</td> 
- <td>작성자</td>
- <td>작성일</td>
- <td>조회수</td> 
- </tr> 
+		<div class="container">
+			<h1 align="center"> F A Q </h1> 
+			<table class="table table-striped">
+			<tr>
 
-<c:forEach varStatus="status"  step="1"  var="al" items="${alist}">
+				<td width="5%">번호</td>
+				<td align="left" width="20%">제목/내용</td>
+				<td width="5%">작성자</td>
+				<td width="10%">작성일</td>
+				<td width="15%">조회수</td>
+				<td width="5%"></td>
+				<td width="5%"></td>
+			</tr>
 
-<td> ${status.index+1}</td>
- <td width="60%">${al.bsubject}</td> 
- <td>관리자</td>
- <td>${al.bday}</td>
- <td>${al.bhits}</td>
- </tr> 
- </c:forEach>
- </table>
-  <tr>
-<td>
-<c:choose>
-<c:when test="${sMidx eq '1'}">
- <p align="center">
-<input type="button" name="button" value="등록하기" onclick="javascript:check();"/>
-</p>
-</c:when>
-<c:otherwise>
+			<c:forEach varStatus="status"  step="1"  var="al" items="${alist}">
+				<tr>
+					<td>${status.index+1}</td>
+					<td>
+						<a data-toggle="collapse" data-target="#demo-${status.index}" style="cursor: pointer;">${al.bsubject}</a>
+						<div id="demo-${status.index}" class="collapse" style="margin-left:10px;">
+							${al.bcontent}
+						</div>
+					</td>
+					 <td>관리자</td>
+					 <td>${al.bday}</td>
+					 <td>${al.bhits}</td>
+					 
+					 <td>
+				<c:choose>
+				<c:when test="${sMidx eq '1'}">
+					<p align="center">
+					<a href="<%=request.getContextPath() %>/BoardModifyC?bidx=${al.bidx}">수정</a>
+													
+					</p>
+				</c:when>
+				<c:otherwise>
 
-</c:otherwise>
-</c:choose>
- </form>
+				</c:otherwise>
+			</c:choose>
+				</td>
+					 
+					<td>
+					<c:choose>
+			<c:when test="${sMidx eq '1'}">
+				
+					<a href="<%=request.getContextPath() %>/BoardDeleteC?bidx=${al.bidx}">삭제</a>
+				</p>
+			</c:when>
+			<c:otherwise>
+
+			</c:otherwise>
+		</c:choose>
+					</td>
+				</tr>
+				<tr>				
+					
+				</tr>
+			</c:forEach>
+		</table>
+
+
+		<c:choose>
+			<c:when test="${sMidx eq '1'}">
+				<p align="center">
+					<input type="button" name="button" value="등록하기"
+						onclick="javascript:check();" />
+				</p>
+			</c:when>
+			<c:otherwise>
+
+			</c:otherwise>
+		</c:choose>
+	</form>
 </body>
 </html>
-
 
 <%@ include file = "/WEB-INF/views/include/footer.jsp"%>

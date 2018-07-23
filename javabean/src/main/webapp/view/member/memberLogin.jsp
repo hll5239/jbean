@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ include file = "/WEB-INF/views/include/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,7 +34,7 @@ function check() {
 	function check1() {
 		location.href = "MemberJoinController"
 	}
-	
+
 	function check2() {
 		location.href = "MemberFindController"
 	}
@@ -41,28 +42,32 @@ function check() {
 </head>
 <body>
 	<form name="frm">
-	<h2 align="center">회원 로그인</h2>
-		<table border=1 align="center" width="30%" height="300px">
-			<tr>
-				<td>ID</td>
-				<td colspan=3><input type="text" name="mid" id="mid" size="20"
-					maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td colspan=3><input type="password" name="mpwd" id="mpwd"
-					size="20" maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td colspan=4 align="center">
-				<input type="button" name="button" value="로그인" onclick="javascript:check();" />
-				<input type="button" name="button" value="회원가입" onclick="javascript:check1();" />
-				<input type="button" name="button" value="아이디/비밀번호 찾기" onclick="javascript:check2();" />
-				</td>
-			</tr>
-		</table>
+		<h2 align="center">회원 로그인</h2>
+		<br>
+		<center>
+			<div>
+
+
+				<input class="form-control" id="mid" name="mid" maxlength="20"
+					style="width: 230px; height: 40px;" required="" type="text"
+					placeholder="ID" data-error="" />
+				<tr>
+					<input class="form-control" required="" placeholder="비밀번호"
+						data-error="" type="password" name="mpwd" id="mpwd"
+						style="width: 230px; height: 40px;" maxlength="20" />
+				</tr>
+
+
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();">로그인</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();">회원가입</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check2();">아이디/비밀번호 찾기</button>
+
+
+
+			</div>
+		</center>
 	</form>
 </body>
 </html>
 
-<%@ include file = "/WEB-INF/views/include/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

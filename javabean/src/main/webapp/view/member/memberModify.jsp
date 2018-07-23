@@ -47,80 +47,41 @@ function check2(){
 
 <body>
 <form name="frm">
-<table border=1 align="center" width="50%" height="600px">
-<tr>
-<td>ID</td>
-<td colspan=3>
-<input type="text" name="mid" id="mid" disabled="disabled" size="20" maxlength="20" value = "${Mone.mid } "/>
-<!-- readonly="readonly" -->
-</td>
-</tr>
-<tr>
-<td>비밀번호</td>
-<td colspan=3>
-<input type="password" name="mpwd" id="mpwd" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>비밀번호 확인</td>
-<td colspan=3>
-<input type="password" name="mpwd2" id="mpwd2" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>이름</td>
-<td colspan=3>
-<input type="text" name="mname" id="mname" disabled="disabled" size="20" maxlength="20" value= "${Mone.mname}" />
-</td>
-</tr>
-<tr>
-<td>Email</td>
-<td colspan=3>
-<input type="text" name ="mmail1"  id="mmail1" size="20" disabled="disabled" value = "${Mone.mmail}" />
+<h2 align="center">회원정보수정</h2>
 <br>
-<br>
-<input type="text" name ="mmail1"  id="mmail1" size="20" maxlength="20" />
-@
-<select name="mmail2">
-<option value="naver.com" selected>naver.com</option>
-<option value="daum.net">daum.net</option>
-<option value="nate.com" >nate.com</option>
-<option value="google.com" >gmail.com</option>
+
+<center>
+<div>
+<input class="form-control" id="mid" name="mid" maxlength="20" style="width: 250px; height: 30px;" required="" type="text" placeholder="ID" data-error="" value = "${Mone.mid }" />
+
+<input class="form-control" required="" placeholder="비밀번호" data-error="" type="password" name="mpwd" id="mpwd"style="width: 250px; height: 30px;" maxlength="20" />
+
+<input class="form-control" required="" placeholder="비밀번호 확인" data-error="" type="password" name="mpwd2" id="mpwd2"style="width: 250px; height: 30px;" maxlength="20" />
+
+<input class="form-control" name="mname" id="mname" required="" type="text" placeholder="이름" data-error="" style="width: 250px; height: 30px;" maxlength="20" value = "${Mone.mname}"/>
+
+<input class="form-control" required="" placeholder="E-MAIL" data-error="" type="text" name ="mmail1"  style="width: 250px; height: 30px;" value = "${Mone.mmail}"/><select class="form-control" name="mmail2" style="width: 250px; height: 30px;"  />
+<option value="naver.com" selected>@naver.com</option>
+<option value="daum.net">@daum.net</option>
+<option value="nate.com" >@nate.com</option>
+<option value="google.com" >@gmail.com</option>
 </select>
 
-</tr>
-<tr>
-<td>휴대폰</td>
-<td colspan=3>
-<input type="text" name="mphone" id="mphone" size="20" maxlength="20"  value = "${Mone.mphone}" />
-</td>
-</tr>
-<tr>
-<td>우편번호</td>
-<td colspan=3>
-<input type="text" name="mpost" id="mpost" size="10" maxlength="6" value = "${Mone.mpost}" />
-</td>
-</tr>
-<tr>
-<td>주소1</td>
-<td>
-<input type="text" name="maddr1" id="maddr1" size="20" maxlength="20" value = "${Mone.maddr1}" />
-</td>
-</tr>
-<tr>
-<td>주소2</td>
-<td>
-<input type="text" name="maddr2" id="maddr2" size="20" maxlength="20" value = "${Mone.maddr2}" />
-</td>
-</tr>
-<tr>
-<td colspan=4 align="center">
-<input type="button" name="button" value="수정완료" onclick="javascript:check();"/>
-<input type="button" name="button" value="취소" onclick="javascript:check1();"/>
-<input type="button" name="button" value="회원탈퇴" onclick="javascript:check2();"/>
-</td>
-</tr>
-</table>
+<input class="form-control" required="" type="text" placeholder="휴대폰" data-error="" name="mphone" id="mphone" style="width: 250px; height: 30px;" maxlength="20" value = "${Mone.mphone}"/>
+
+<input class="form-control" required="" type="text" placeholder="우편번호" data-error="" name="mpost" id="mpost" style="width: 250px; height: 30px;" maxlength="6" value = "${Mone.mpost}"/>
+
+<input class="form-control" required="" type="text" placeholder="주소1" data-error="" name="maddr1" id="maddr1" style="width: 250px; height: 30px;" maxlength="20" value = "${Mone.maddr1}"/>
+
+<input class="form-control" required="" type="text" placeholder="주소2" data-error="" name="maddr2" id="maddr2" style="width: 250px; height: 30px;" maxlength="20" value = "${Mone.maddr2}"/>
+
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();">회원가입</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();">로그인</button>
+
+</div>
+</center>
+
+
 
 </form>
 </body>

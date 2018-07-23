@@ -26,42 +26,28 @@ function check() {
 <body>
 <form name="frm">
 
- <h1 align="center"> 게시물 등록 / 수정 </h1> 
-   
- <div style="margin-top:30px;"></div>
+ <h1 align=center> 게시물 등록 / 수정 </h1>
+ <br>
+ <center>  
+ <div>
  
- <tr>
 
-<td >
+ <input class="form-control" type="text" name="bsubject" id="bsubject"  size="60" maxlength="40" style="width: 500px; height: 30px;" required="" 
+ placeholder="제목을 입력 하세요." data-error="" />
 
-<select name="bgroup" >
+<select class='sort' name="bgroup" align="center" > 
 <option value="N" selected>공지사항</option>
 <option value="F">FAQ</option>
-
 </select>
-</td>
-</tr>
+
+<textarea class="form-control" name="bcontent" id="bcontent" required="" placeholder="내용을 입력 하세요." cols="100" rows="20"  maxlength="4000" style="width: 600px; height: 500px;" data-error=""></textarea>
+
  
- <table border="1" align="center" width="40%" style="text-align:center;">
- <tr>
- <td>제목</td>
- <td colspan='4' align="left">
- <input type="text" name="bsubject" id="bsubject"  size="60" maxlength="40" /></td>
- </tr>
- <tr>
- <td colspan=2>내용</td>
- </tr>
- <tr>
- <td colspan=2>
- <textarea name="bcontent" id="bcontent" cols="100" rows="20" maxlength="4000"></textarea>
- </td>
- </tr>
- <tr>
-<td colspan=4 align="center">
 <input type="button" name="button" value="등록" onclick="javascript:check();"/>
-</td>
-</tr>
-</table>
+
+
+</div>
+</center>
 </form>
 </body>
 </html>
