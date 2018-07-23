@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ include file = "/WEB-INF/views/include/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,8 +10,8 @@
 </head>
 <style>
 .fileDrop {
-	width: 200px;
-	height: 100px;
+	width: 100px;
+	height: 55px;
 	border: 1px dotted blue;
 }
 
@@ -21,8 +22,10 @@ small {
 }
 </style>
 
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script language="JavaScript">
 
 	var sell_price;
@@ -210,42 +213,58 @@ small {
 						var index = 0
 						var modinput = "";
 						var delinput = "";
-
-						$(data)
-								.each(
-										function(index) {
+						
+						$(data).each(function(index) {
 
 											if (midx == this.midx) {
-												delinput = "<li class='sub5'><button  onclick='$.del("
+												delinput = "<li class='sub5'><button class='btn std-btn btn-sm btn-filled' onclick='$.del("
 														+ this.ridx
 														+ ")'>삭제</button></li>";
 
 											}
 
 											if (this.rfilename != null) {
-												filename = "<ul><li><img src='/displayc?fileName="
+												filename = "<img src='/displayc?fileName="
 														+ this.rfilename
-														+ "' width=300px, height=200px></li>"
+														+ "' style='width:100%; height:auto'>"
 											} else {
 												filename = "<ul><li></li>";
 											}
+											
+											
+											
+											if(this.rstar== 5){
+												star="<span style='color:red'>★★★★★</span> 완전좋아요";
+											}else if(this.rstar==4){
+												star="<span style='color:red'>★★★★</span> 좋아요";
+											}else if(this.rstar==3){
+												star="<span style='color:red'>★★★</span> 보통이에요";
+											}else if(this.rstar==2){
+												star="<span style='color:red'>★★</span> 그저 그래요";
+											}else {
+												star="<span style='color:red'>★</span> 별로에요";
+											}
 
-											str += filename
-													+ "<ul><li class='sub1'>"
-													+ this.rstar + "</li>"
-													+ "<li class='sub2'>"
-													+ this.mname + "</li>"
-													+ "<li class='sub3'>"
-													+ this.rcontent + "</li>"
-													+ "<li class='sub3'>"
-													+ this.rday + "</li>"
-													+ delinput + "</ul>";
+											str += "<div class='table-style3'>"
+									              +"<div class='sub-title'>"
+								              +"</div>"
+								              +"<div class='table-responsive mtb'>"
+								               +" <table class='table table-hover'>"
+								                 +" <tbody>"
+								                 +" <tr>"					                 
+								                 +" <td style='width:30%'>"+filename+"</td>"
+								                 +" <td style='width:30%'>"+star+"<br>"+ this.rcontent+"</td>"
+								                 +" <td>작성자:" +this.mname+ "<br> 작성일:"+this.rday+"</td>"
+								                 +" <td>"+delinput+"</td>"
+								                 +" </tr>"
+								                 +" </tbody>"
+								                 +" </table>"
+
+								                 +" </div>"
+								                 +" </div>"  ;
 										});
 
-						$('#tbl')
-								.html(
-										"<ul><li>사진</li><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"
-												+ str);
+						$('#tbl').html(str);
 
 					}
 				});
@@ -288,38 +307,58 @@ small {
 											var modinput = "";
 											var delinput = "";
 
-											$(data)
-													.each(
-															function(index) {
+											$(data).each(function(index) {
 
-																if (this.rfilename != null) {
-																	filename = "<ul><li><img src='/displayc?fileName="
-																			+ this.rfilename
-																			+ "' width=300px, height=200px></li>"
-																} else {
-																	filename = "<ul><li></li>";
-																}
+												if (midx == this.midx) {
+													delinput = "<li class='sub5'><button class='btn std-btn btn-sm btn-filled' onclick='$.del("
+															+ this.ridx
+															+ ")'>삭제</button></li>";
 
-																str += "<ul><li class='sub1'>"
-																		+ this.rstar
-																		+ "</li>"
-																		+ "<li class='sub2'>"
-																		+ this.mname
-																		+ "</li>"
-																		+ "<li class='sub3'>"
-																		+ this.rcontent
-																		+ "</li>"
-																		+ "<li class='sub3'>"
-																		+ this.rday
-																		+ "</li>"
-																		+ delinput
-																		+ "</ul>";
-															});
+												}
+
+												if (this.rfilename != null) {
+													filename = "<img src='/displayc?fileName="
+															+ this.rfilename
+															+ "' style='width:100%; height:auto'>"
+												} else {
+													filename = "<ul><li></li>";
+												}
+												
+												
+												
+												if(this.rstar== 5){
+													star="<span style='color:red'>★★★★★</span> 완전좋아요";
+												}else if(this.rstar==4){
+													star="<span style='color:red'>★★★★</span> 좋아요";
+												}else if(this.rstar==3){
+													star="<span style='color:red'>★★★</span> 보통이에요";
+												}else if(this.rstar==2){
+													star="<span style='color:red'>★★</span> 그저 그래요";
+												}else {
+													star="<span style='color:red'>★</span> 별로에요";
+												}
+
+												str += "<div class='table-style3'>"
+										              +"<div class='sub-title'>"
+									              +"</div>"
+									              +"<div class='table-responsive mtb'>"
+									               +" <table class='table table-hover'>"
+									                 +" <tbody>"
+									                 +" <tr>"					                 
+									                 +" <td style='width:30%'>"+filename+"</td>"
+									                 +" <td style='width:30%'>"+star+"<br>"+ this.rcontent+"</td>"
+									                 +" <td>작성자:" +this.mname+ "<br> 작성일:"+this.rday+"</td>"
+									                 +" <td>"+delinput+"</td>"
+									                 +" </tr>"
+									                 +" </tbody>"
+									                 +" </table>"
+
+									                 +" </div>"
+									                 +" </div>"  ;
+											});
 
 											$('#tbl')
-													.html(
-															"<ul><li class='title1'>평점</li><li class='title2'>내용</li><li>작성자</li><li>작성일</li></ul>"
-																	+ str);
+													.html(str);
 
 										}
 
@@ -349,28 +388,55 @@ small {
 						var modinput = "";
 						var delinput = "";
 
-						$(data)
-								.each(
-										function(index) {
+						$(data).each(function(index) {
 
-											if (this.rfilename != null) {
-												filename = "<ul><li><img src='/displayc?fileName="
-														+ this.rfilename
-														+ "' width=300px, height=200px></li>"
-											} else {
-												filename = "<ul><li></li>";
-											}
+							if (midx == this.midx) {
+								delinput = "<li class='sub5'><button class='btn std-btn btn-sm btn-filled' onclick='$.del("
+										+ this.ridx
+										+ ")'>삭제</button></li>";
 
-											str += "<ul><li class='sub1'>"
-													+ this.rstar + "</li>"
-													+ "<li class='sub2'>"
-													+ this.mname + "</li>"
-													+ "<li class='sub3'>"
-													+ this.rcontent + "</li>"
-													+ "<li class='sub3'>"
-													+ this.rday + "</li>"
-													+ delinput + "</ul>";
-										});
+							}
+
+							if (this.rfilename != null) {
+								filename = "<img src='/displayc?fileName="
+										+ this.rfilename
+										+ "' style='width:100%; height:auto'>"
+							} else {
+								filename = "<ul><li></li>";
+							}
+							
+							
+							
+							if(this.rstar== 5){
+								star="<span style='color:red'>★★★★★</span> 완전좋아요";
+							}else if(this.rstar==4){
+								star="<span style='color:red'>★★★★</span> 좋아요";
+							}else if(this.rstar==3){
+								star="<span style='color:red'>★★★</span> 보통이에요";
+							}else if(this.rstar==2){
+								star="<span style='color:red'>★★</span> 그저 그래요";
+							}else {
+								star="<span style='color:red'>★</span> 별로에요";
+							}
+
+							str += "<div class='table-style3'>"
+					              +"<div class='sub-title'>"
+				              +"</div>"
+				              +"<div class='table-responsive mtb'>"
+				               +" <table class='table table-hover'>"
+				                 +" <tbody>"
+				                 +" <tr>"					                 
+				                 +" <td style='width:30%'>"+filename+"</td>"
+				                 +" <td style='width:30%'>"+star+"<br>"+ this.rcontent+"</td>"
+				                 +" <td>작성자:" +this.mname+ "<br> 작성일:"+this.rday+"</td>"
+				                 +" <td>"+delinput+"</td>"
+				                 +" </tr>"
+				                 +" </tbody>"
+				                 +" </table>"
+
+				                 +" </div>"
+				                 +" </div>"  ;
+						});
 
 						$('#tbl')
 								.html(
@@ -418,189 +484,207 @@ small {
 
 <body onload="init();">
 
-  	<div class="mb-60"></div>
+	<div class="mb-60"></div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="sub-title">
-            </div>
-          </div>
-          
-	<form id="frm" name="frm">
-		<input type="hidden" name="qidx" id="qidx">
-		<input type="hidden" name="qreply" id="qreply">
-		<input type="hidden" name="pronum" value="${pronum}" >
-	
-	</form>
-	<form name="form">
-	<!-- Page Wrapper Start -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="sub-title"></div>
+		</div>
 
-	
-	<input type="hidden" name="pronum" value="${pronum}" >
-				
-			<c:forEach var="prov" begin="0" varStatus="status" items="${alistProI}">
+		<form id="frm" name="frm">
+			<input type="hidden" name="qidx" id="qidx"> <input
+				type="hidden" name="qreply" id="qreply"> <input
+				type="hidden" name="pronum" value="${pronum}">
+
+		</form>
+		<form name="form">
+			<!-- Page Wrapper Start -->
+
+
+			<input type="hidden" name="pronum" value="${pronum}">
+
+			<c:forEach var="prov" begin="0" varStatus="status"
+				items="${alistProI}">
 				<div>
 					<c:if test="${status.index eq 0}">
-						<div style="float: left; width: 50%; text-align: right; padding-right:2%;">
-							<img src="/resources/helium-ui-kit/img/team/team-04.jpg" style="height:223px; width:185px">
+						<div
+							style="float: left; width: 50%; text-align: right; padding-right: 2%;">
+							<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
+								style="height: 223px; width: 185px">
 						</div>
-						<div style="float: right; width: 50%; text-align:left; padding-left: 2%;">
+						<div
+							style="float: right; width: 50%; text-align: left; padding-left: 2%;">
 							<ul style="list-style: none;">
-								
-								<li><span style="width:15%; display:inline-block;"><strong>상품명</strong></span>
-									<input type="text" name="proname" style="border: none;"	readonly value="${prov.proname}"></li>
-								<li><span style="width:15%; display:inline-block;"><strong>가격</strong></span>
-									<input type="text" name="proprice" style="border: none;" readonly value="${prov.proprice}"></li>
+
+								<li><span style="width: 15%; display: inline-block;"><strong>상품명</strong></span>
+									<input type="text" name="proname" style="border: none;"
+									readonly value="${prov.proname}"></li>
+								<li><span style="width: 15%; display: inline-block;"><strong>가격</strong></span>
+									<input type="text" name="proprice" style="border: none;"
+									readonly value="${prov.proprice}"></li>
 								<li>배송비</li>
-								<li><span style="width:15%; display:inline-block;"><strong>옵션</strong></span>
-									<input type="hidden" id="pronum" name="pronum" value="${prov.pronum}"> <select id="proidx" name="proidx">
+								<li><span style="width: 15%; display: inline-block;"><strong>옵션</strong></span>
+									<input type="hidden" id="pronum" name="pronum"
+									value="${prov.pronum}"> <select id="proidx"
+									name="proidx">
 										<c:forEach var="provs" items="${alistProI}">
 											<option value="${provs.proidx}">${provs.prosize}</option>
 										</c:forEach>
 								</select></li>
-								<li><span style="width:15%; display:inline-block;"><strong>수량</strong></span>
-									<input type="hidden" name="proprice" id="price" value="${prov.proprice}">
-									<input type="text" name="cnt" value="1" size="3" maxlength="2" onchange="change();">
-									<input type="button" value=" + " onclick="add();">
-									<input type="button" value=" - " onclick="del();">
-								</li>
+								<li><span style="width: 15%; display: inline-block;"><strong>수량</strong></span>
+									<input type="hidden" name="proprice" id="price"
+									value="${prov.proprice}"> <input type="text" name="cnt"
+									value="1" size="3" maxlength="2" onchange="change();">
+									<input type="button" value=" + " onclick="add();"> <input
+									type="button" value=" - " onclick="del();"></li>
 							</ul>
 							<ul style="list-style: none;">
-								<li><span style="width:15%; display:inline-block;"><strong>금액</strong></span>
-									<input type="text" name="sum" size="8" readonly style="border:none;">원
-								</li>
+								<li><span style="width: 15%; display: inline-block;"><strong>금액</strong></span>
+									<input type="text" name="sum" size="8" readonly
+									style="border: none;">원</li>
 								<br>
-								<li><span><input type="button" class="btn btn-common" id="buy" value="바로구매" />
-										<input type="button" class="btn btn-common" id="basket" value="장바구니" /></span></li>
+								<li><span><input type="button"
+										class="btn btn-common" id="buy" value="바로구매" /> <input
+										type="button" class="btn btn-common" id="basket" value="장바구니" /></span></li>
 							</ul>
 						</div>
 					</c:if>
 				</div>
 			</c:forEach>
 			<input type="hidden" name="midx" id="midx" value="${sMidx}">
-			
-			<div class="mb-60"></div>
-			
+
+
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<h3>상품상세 상품정보 Review Q&A</h3>
+			<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
+				style="height: 1000px; width: 1000px"> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br>
 			<div>
 				<h1>Review</h1>
-				<li><textarea name="rcontent" id="rcontent" class="text"cols="50" rows="6"></textarea></li>
-
-				<li><input type="hidden" id="rfilename" name="rfilename">
-				<li>이미지 첨부</li>
-				<div class='fileDrop'></div>
+				
+				<textarea name="rcontent" id="rcontent" class="text"
+						cols="120" rows="6"></textarea>
+			<input type="hidden" id="rfilename" name="rfilename">
+				
+				<div style="float: left; width:40%;" class='fileDrop'>사진첨부</div>
 				<div class='uploadedList'></div>
-				</li>
-				<li><select name="rstar" id="rstar">
+				<select class="custom-select" style="width:19% height:40%" name="rstar" id="rstar">
 						<option value="5">★★★★★ 완전좋아요</option>
 						<option value="4">★★★★ 좋아요</option>
 						<option value="3">★★★ 보통이에요</option>
 						<option value="2">★★ 그저 그래요</option>
 						<option value="1">★ 별로에요</option>
-				</select></li>
-				<li><input type="button" name="save" id="save" value="입력" /></li>
+				</select>
+				<button class='btn std-btn btn-lg btn-filled' style="width:10% height:20%" name="save" id="save">입력</button>
+
+				
 			</div>
-		
 
+		<br><br><br><br>
+			<h3>상품평</h3>
+			<div id=tbl></div>
 
-		<div id=tbl></div>
-
-
-		<div class="container">
-			<h1>QnA</h1>
-			<table class="table table-striped">
-			<tr>
-				<td width="5%">번호</td>
-				<td width="5%">답변유무</td>
-				<td align="left" width="20%">제목</td>
-				<td width="10%">작성자</td>
-				<td width="15%">작성일</td>
-				<td width="5%"></td>
-			</tr>
-			<c:forEach var="ql" varStatus="status" items="${qlist}">
-				<tr>
-					<td>${status.index+1}</td>
-					<td>
-					<c:choose>
-						<c:when test="${ql.qreply_yn eq 'Y' }">
+			<div class="table-style1">
+				<div class="sub-title">
+					<span>Q&A</span>
+				</div>
+				<div class="table-responsive mtb">
+					<table class="table table-bordered table-1 ">
+						<thead>
+							<tr>
+								<td>번호</td>
+								<td>답변유무</td>
+								<td width="50%">제목</td>
+								<td>작성자</td>
+								<td>작성일</td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="ql" varStatus="status" items="${qlist}">
+								<tr>
+									<td>${status.index+1}</td>
+									<td><c:choose>
+											<c:when test="${ql.qreply_yn eq 'Y' }">
 						답변완료
 						</c:when>
-						<c:otherwise>
+											<c:otherwise>
 						답변대기
 						</c:otherwise>
-						</c:choose>
-				
-					
-					</td>
-					<td>
-						<a data-toggle="collapse" data-target="#demo-${status.index}" style="cursor: pointer;">
-						<c:choose>
-						<c:when test="${ql.qmdel_yn eq 'Y' }">
+										</c:choose></td>
+									<td><a data-toggle="collapse"
+										data-target="#demo-${status.index}" style="cursor: pointer;">
+											<c:choose>
+												<c:when test="${ql.qmdel_yn eq 'Y' }">
 						삭제된 제목 입니다.
 						</c:when>
-						<c:otherwise>
+												<c:otherwise>
 						${ql.qsubject}
 						</c:otherwise>
-						</c:choose>
+											</c:choose>
 
-						</a>
-						<div id="demo-${status.index}" class="collapse" style="margin-left:10px;">
-							
-							<c:choose>
-							<c:when test="${ql.qmdel_yn eq 'Y' }">
+									</a>
+										<div id="demo-${status.index}" class="collapse"
+											style="margin-left: 10px;">
+
+											<c:choose>
+												<c:when test="${ql.qmdel_yn eq 'Y' }">
 							삭제된 내용 입니다.
 							</c:when>
-							<c:otherwise>
+												<c:otherwise>
 							${ql.qcontent}
 							</c:otherwise>
-							</c:choose>
-							
-							<div style="background: lightgrey;padding: 10px;">
-								<c:choose>
-							<c:when test="${ql.qreply ne null }">
+											</c:choose>
+
+											<div style="background: lightgrey; padding: 10px;">
+												<c:choose>
+													<c:when test="${ql.qreply ne null }">
 							관리자 답변 : ${ql.qreply}
 							</c:when>
-							<c:when test="${sMidx eq '1'}">
-							
-							<input type="text" name="qreply" id="qreplyy${status.index}">
-							<input type="hidden" name="qidx" id="qidxx${status.index}" value="${ql.qidx}">
-							
-							<input type="button" value="답변" onclick="rply(${status.index})">
-							
-							</c:when>
-							<c:otherwise>
+													<c:when test="${sMidx eq '1'}">
+
+														<input type="text" name="qreply"
+															id="qreplyy${status.index}">
+														<input type="hidden" name="qidx" id="qidxx${status.index}"
+															value="${ql.qidx}">
+
+														<input type="button" value="답변"
+															onclick="rply(${status.index})">
+
+													</c:when>
+													<c:otherwise>
 							관리자 답변:
 							</c:otherwise>
-							</c:choose>
-								
-							</div>
-						</div>
-					</td>
-					<td>${ql.mname}</td>
-					<td>${ql.qday}</td>
-					<td>
-					<c:choose>
-					<c:when test="${ql.midx eq sMidx and sMidx != '1'}">
-					<a href="${pageContext.request.contextPath}/QdelteC?qidx=${ql.qidx}&pronum=${ql.pronum}">삭제</a>
-					</c:when>
-					
-					<c:when test="${sMidx eq '1'}">
-					<a href="${pageContext.request.contextPath}/QdelteAdminC?qidx=${ql.qidx}&pronum=${ql.pronum}">관리자삭제</a>
-					</c:when>
+												</c:choose>
 
-					</c:choose>
-					</td>
-				</tr>
-				
+											</div>
+										</div></td>
+									<td>${ql.mname}</td>
+									<td>${ql.qday}</td>
+									<td><c:choose>
+											<c:when test="${ql.midx eq sMidx and sMidx != '1'}">
+												<a
+													href="${pageContext.request.contextPath}/QdelteC?qidx=${ql.qidx}&pronum=${ql.pronum}">삭제</a>
+											</c:when>
 
-			</c:forEach>
-		</table>
-		<input type="button" value="Q&A등록" onClick="check()">
-		</div>
-	
-	</form>
-		</div>
-	
+											<c:when test="${sMidx eq '1'}">
+												<a
+													href="${pageContext.request.contextPath}/QdelteAdminC?qidx=${ql.qidx}&pronum=${ql.pronum}">관리자삭제</a>
+											</c:when>
+
+										</c:choose></td>
+								</tr>
+
+
+							</c:forEach>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
 </body>
 </html>
 
-<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
