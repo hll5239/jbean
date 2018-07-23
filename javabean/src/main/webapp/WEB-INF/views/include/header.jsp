@@ -23,13 +23,40 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/resources/material-kit/assets/demo/demo.css" rel="stylesheet" />
     </head>
-    
-      <!-- jQuery 2.1.4  이 부분이 있기 때문에 페이지에 include하면 jquery를 사용할 수 있음-->
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+   
+   <!-- meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Bootstrap UI Kit">
+  <meta name="keywords" content="ui kit">
+  <meta name="author" content="UIdeck">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/resources/helium-ui-kit/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/resources/helium-ui-kit/css/animate.css">
+  <link rel="stylesheet" href="/resources/helium-ui-kit/css/owl.carousel.css">
+  <link rel="stylesheet" href="/resources/helium-ui-kit/css/owl.theme.css">
+  <link rel="stylesheet" href="/resources/helium-ui-kit/css/responsive.css">
+
+  <!-- Fonts icons -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="/resources/helium-ui-kit/js/tether.min.js"></script>
+  <script src="/resources/helium-ui-kit/js/bootstrap.min.js"></script>
+  <script src="/resources/helium-ui-kit/js/owl.carousel.min.js"></script>
+
+  <script src="/resources/helium-ui-kit/js/form-validator.min.js"></script>
+  <script src="/resources/helium-ui-kit/js/contact-form-script.js"></script>
+  <script src="/resources/helium-ui-kit/js/main.js"></script>
+  
+  
+  <!-- jQuery 최신버전-->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     
   <body class="skin-blue sidebar-mini">
-   <div class="wrapper">
-      
+  <div class="wrapper">   
   <header class="main-header">
    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container" style="margin-right: auto; margin-left: auto; display:block;">
