@@ -462,7 +462,7 @@ main,
 nav,
 section {
   display: block;
-  padding-bottom: 6%;
+  padding-bottom: 10%;
 }
 
 body {
@@ -14186,7 +14186,7 @@ textarea {
 }
 
 .navbar.navbar-transparent {
-  background-color: transparent !important;
+  background-color: black !important;
   box-shadow: none;
   padding-top: 25px;
   color: #fff;
