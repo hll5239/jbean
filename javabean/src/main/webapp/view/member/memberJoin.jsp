@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +8,9 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
+
+
+
 function check() {	
 	 	  
 	  var formname = document.frm;
@@ -49,74 +52,82 @@ function check1() {
 
 <body>
 <form name="frm">
-<table border=1 align="center" width="50%" height="600px">
-<tr>
-<td>ID</td>
-<td colspan=3>
-<input type="text" name="mid" id="mid" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>비밀번호</td>
-<td colspan=3>
-<input type="password" name="mpwd" id="mpwd" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>비밀번호 확인</td>
-<td colspan=3>
-<input type="password" name="mpwd2" id="mpwd2" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>이름</td>
-<td colspan=3>
-<input type="text" name="mname" id="mname" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>Email</td>
-<td colspan=3>
-<input type="text" name ="mmail1"  size="20" />
-@
-<select name="mmail2">
-<option value="naver.com" selected>naver.com</option>
-<option value="daum.net">daum.net</option>
-<option value="nate.com" >nate.com</option>
-<option value="google.com" >gmail.com</option>
-</select>
-</td></tr>
-<tr>
-<td>휴대폰</td>
-<td colspan=3>
-<input type="text" name="mphone" id="mphone" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>우편번호</td>
-<td colspan=3>
-<input type="text" name="mpost" id="mpost" size="10" maxlength="6" />
-</td>
-</tr>
-<tr>
-<td>주소1</td>
-<td>
-<input type="text" name="maddr1" id="maddr1" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td>주소2</td>
-<td>
-<input type="text" name="maddr2" id="maddr2" size="20" maxlength="20" />
-</td>
-</tr>
-<tr>
-<td colspan=4 align="center">
-<input type="button" name="button" value="회원가입" onclick="javascript:check();"/>
-<input type="button" name="button" value="로그인" onclick="javascript:check1();"/>
-</td>
-</tr>
-</table>
+<h2 align="center">회원가입</h2>
+
+<center>
+<div>
+<input class="form-control" id="mid" name="mid" maxlength="20" style="width: 230px; height: 40px;" required="" type="text" placeholder="ID" data-error="" />
+
+
+
+
+<input class="form-control" required="" placeholder="비밀번호" data-error="" type="password" name="mpwd" id="mpwd"style="width: 230px; height: 40px;" maxlength="20" />
+
+
+
+<input class="form-control" required="" placeholder="비밀번호 확인" data-error="" type="password" name="mpwd2" id="mpwd2"style="width: 230px; height: 40px;" maxlength="20" />
+
+
+
+<input class="form-control" name="mname" id="mname" required="" type="text" placeholder="이름" data-error="" style="width: 230px; height: 40px;" maxlength="20" />
+
+
+
+<div class="col-md-3">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                   <input class="form-control" required="" placeholder="E-MAIL" data-error="" type="text" name ="mmail1"  style="width: 130px; height: 40px; vertical-align: bottom;" />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <select class="form-control" name="mmail2" style="width: 130px; height: 40px; vertical-align: bottom;" >
+					<option value="naver.com" selected>@naver.com</option>
+					<option value="daum.net">@daum.net</option>
+					<option value="nate.com" >@nate.com</option>
+					<option value="google.com" >@gmail.com</option>
+					</select>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+
+
+
+
+<input class="form-control" required="" type="text" placeholder="휴대폰" data-error="" name="mphone" id="mphone" style="width: 230px; height: 40px;" maxlength="20" />
+
+
+
+<input class="form-control" required="" type="text" placeholder="우편번호" data-error="" name="mpost" id="mpost" style="width: 230px; height: 40px;" maxlength="6" />
+
+
+
+<input class="form-control" required="" type="text" placeholder="주소1" data-error="" name="maddr1" id="maddr1" style="width: 230px; height: 40px;" maxlength="20" />
+
+
+<input class="form-control" required="" type="text" placeholder="주소2" data-error="" name="maddr2" id="maddr2" style="width: 230px; height: 40px;" maxlength="20" />
+
+
+
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();">회원가입</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();">로그인</button>
+
+</div>
+</center>
+
 </form>
+
+
+
+
 </body>
 </html>
+
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>
+
+
