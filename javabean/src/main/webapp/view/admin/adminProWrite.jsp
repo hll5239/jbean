@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,36 +8,38 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style>
-.fileDrop {
-width: 100%;
-height:200px;
-border:1px dotted blue;
-}
-
-.fileDrop1 {
-width: 100%;
-height:200px;
-border:1px dotted blue;
-}
-.fileDrop2 {
-width: 100%;
-height:200px;
-border:1px dotted blue;
-}
-.fileDrop3 {
-width: 100%;
-height:200px;
-border:1px dotted blue;
-}
-
-small {
-margin-left:3px;
-font-weight:bold;
-color:gray;
-}
+			.fileDrop {
+			width: 300px;
+			height:100px;
+			border:1px dotted blue;
+			}
+			
+			.fileDrop1 {
+			width: 300px;
+			height:100px;
+			border:1px dotted blue;
+			}
+			.fileDrop2 {
+			width: 300px;
+			height:100px;
+			border:1px dotted blue;
+			}
+			.fileDrop3 {
+			width: 300px;
+			height:100px;
+			border:1px dotted blue;
+			}
+			
+			small {
+			width: 300px;
+			height:100px;
+			color:gray;
+			}
 
 
 </style>
+
+
 <script type="text/javascript">
 function check() {	
   
@@ -341,22 +343,29 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 </head>
 <body>
 <form name="frm" id="frm" enctype="multipart/form-data">
-<table border="1">
-	<tr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="\resources\helium-ui-kit\img\InfoNotice.png" width="900px" height="800px" >
+<div class="table1-style1" style="float:right; margin-left: auto; margin-right: auto;">
+              <div class="sub-title" >
+                <span><h3>주문검색</h3></span>
+              </div>
+              <div class="table1-responsive mtb">
+                <table class="table1 table-bordered table1-1 ">
+                  <thead>
+                   <tr>
 		<td>상품명</td>
-		<td><input type="text" name="proname" id="proname" /></td>
+		<td><input class="form-control" name="proname" id="proname" required="" type="text" ></td>
 	</tr>
 	<tr>
 		<td>상품가격</td>
-		<td><input type="text" name="proprice" id="proprice" /></td>
+		<td><input class="form-control" name="proprice" id="proprice" required="" type="text" ></td>
 	</tr>
 	<tr>
 		<td>상품 수량</td>
-		<td><input type="text" name="procnt" id="procnt" /></td>
+		<td><input class="form-control" name="procnt" id="procnt" required="" type="text" ></td>
 	</tr>
 	<tr>
 		<td>상품 코드</td>
-		<td><input type="text" name="pronum" id="pronum" /></td>
+		<td><input class="form-control" name="pronum" id="pronum" required="" type="text" ></td>
 	</tr>
 	<tr>
 		<td>분류선택</td>
@@ -376,29 +385,42 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 						<option value="L">라지</option>
 				</select></td>
 	</tr>
-	
-
-</table>
-<input type="button"  value="상품등록" onclick="check()"  />
-<input type="button"  value="취소하기" onclick="history.back();"  />
-
-
-<input type="hidden" id="promain" name="promain">
-<div class='fileDrop'></div>
-<div class='uploadedList'></div>
-
-<input type="hidden" id="prosub1" name="prosub1" >  
-<div class='fileDrop1'></div>
-<div class='uploadedList1'></div>
-
-<input type="hidden" id="prosub2" name="prosub2">  
-<div class='fileDrop2'></div>
-<div class='uploadedList2'></div>
-
-<input type="hidden" id="proinfo" name="proinfo">  
-<div class='fileDrop3'></div>
-<div class='uploadedList3'></div>
+                  </tbody>
+                </table>
+                <button class="btn std-btn btn-lg btn-info" type="button" onclick="check()" style="float:auto">
+			               	   상품등록	
+			</button>
+			<button class="btn std-btn btn-lg btn-common" type="button" onclick="history.back();" style="float:auto">
+			               	  취소하기
+			</button>
+              
+              
+              </div>
+              	
+             	<input type="hidden" id="promain" name="promain">
+				<div class='fileDrop'>메인상품</div>
+				<div class='uploadedList'></div>
+				<input type="hidden" id="prosub1" name="prosub1" >  
+				<div class='fileDrop1' >상세상품1</div>
+				<div class='uploadedList1'></div>
+				
+				
+				<input type="hidden" id="prosub2" name="prosub2">  
+				<div class='fileDrop2' >상세상품2</div>
+				<div class='uploadedList2'></div>
+				
+				
+				<input type="hidden" id="proinfo" name="proinfo">  
+				<div class='fileDrop3' >상품정보</div>
+				<div class='uploadedList3'></div>
+ 				
+</div>
 
 </form>
+           
+
+
+
 </body>
 </html>
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	

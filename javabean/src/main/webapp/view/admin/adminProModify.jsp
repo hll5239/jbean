@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,23 +9,23 @@
 
 <style>
 .fileDrop {
-width: 100%;
+width: 200px;
 height:200px;
 border:1px dotted blue;
 }
 
 .fileDrop1 {
-width: 100%;
+width: 200px;
 height:200px;
 border:1px dotted blue;
 }
 .fileDrop2 {
-width: 100%;
+width: 200px;
 height:200px;
 border:1px dotted blue;
 }
 .fileDrop3 {
-width: 100%;
+width: 200px;
 height:200px;
 border:1px dotted blue;
 }
@@ -336,22 +336,29 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 </head>
 <body>
 <form name="frm" id="frm" enctype="multipart/form-data">
-<table border="1">
-	<tr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="\resources\helium-ui-kit\img\InfoNotice.png" width="900px" height="1000px" >
+<div class="table1-style1" style="float:right; margin-left: auto; margin-right: auto;">
+              <div class="sub-title" >
+                <span><h3>주문검색</h3></span>
+              </div>
+              <div class="table1-responsive mtb">
+                <table class="table1 table-bordered table1-1 ">
+                  <thead>
+                   <tr>
 		<td>상품명</td>
-		<td><input type="text" name="proname" id="proname" value="${Modify.proname}"/></td>
+		<td><input class="form-control" name="proname" id="proname" required="" type="text" value="${Modify.proname}"></td>
 	</tr>
 	<tr>
 		<td>상품가격</td>
-		<td><input type="text" name="proprice" id="proprice" value="${Modify.proprice}"/></td>
+		<td><input class="form-control" name="proprice" id="proprice" required="" type="text" value="${Modify.proprice}"></td>
 	</tr>
 	<tr>
 		<td>상품 수량</td>
-		<td><input type="text" name="procnt" id="procnt" value="${Modify.procnt}"/></td>
+		<td><input class="form-control" name="procnt" id="procnt" required="" type="text" value="${Modify.procnt}"></td>
 	</tr>
 	<tr>
 		<td>상품 코드</td>
-		<td><input type="text" name="pronum" id="pronum" value="${Modify.pronum}"/></td>
+		<td><input class="form-control" name="pronum" id="pronum" required="" type="text" value="${Modify.pronum}"></td>
 	</tr>
 	<tr>
 		<td>분류선택</td>
@@ -371,29 +378,42 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 						<option value="L" <c:if test="${Modify.prosize eq 'L' }">selected </c:if>>라지</option>
 				</select></td>
 	</tr>
-	
+                  </tbody>
+                </table>
+                <button class="btn std-btn btn-lg btn-info" type="button" onclick="check()" style="float:auto">
+			               	   상품등록	
+			</button>
+			<button class="btn std-btn btn-lg btn-common" type="button" onclick="history.back();" style="float:auto">
+			               	  취소하기
+			</button>
+              
+              
+              </div>
+              <input type="hidden" id="promain" name="promain" value="${Modify.promain}">
+<div class='fileDrop' style="margin-left: auto; margin-right: auto;">메인상품</div>
+<div class='uploadedList' style="margin-left: auto; margin-right: auto;"></div>
 
-</table>
-<input type="button"  value="상품등록" onclick="check()"  />
-<input type="button"  value="취소하기" onclick="history.back();"  />
-
-
-<input type="hidden" id="promain" name="promain" value="${Modify.promain} ">
-<div class='fileDrop'></div>
-<div class='uploadedList'></div>
 
 <input type="hidden" id="prosub1" name="prosub1" value="${Modify.prosub1}">  
-<div class='fileDrop1'></div>
-<div class='uploadedList1'></div>
+<div class='fileDrop1' style="margin-left: auto; margin-right: auto;">상세상품1</div>
+<div class='uploadedList1' style="margin-left: auto; margin-right: auto;"></div>
+
 
 <input type="hidden" id="prosub2" name="prosub2" value="${Modify.prosub2}">  
-<div class='fileDrop2'></div>
-<div class='uploadedList2'></div>
+<div class='fileDrop2' style="margin-left: auto; margin-right: auto;">상세상품2</div>
+<div class='uploadedList2' style="margin-left: auto; margin-right: auto;"></div>
+
 
 <input type="hidden" id="proinfo" name="proinfo" value="${Modify.proinfo}">  
-<div class='fileDrop3'></div>
-<div class='uploadedList3'></div>
+<div class='fileDrop3' style="margin-left: auto; margin-right: auto;">상품정보</div>
+<div class='uploadedList3' style="margin-left: auto; margin-right: auto;"></div>
+ </div>
+
 
 </form>
+
+
+
 </body>
 </html>
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	

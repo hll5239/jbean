@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
+ 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -6,49 +9,108 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border=1 style="margin: auto; text-align: center;">
-		<tr>
-			<td><a href="${pageContext.request.contextPath}/AcntC">메인</a></td>
-			<td><a href="${pageContext.request.contextPath}/AMemberC">회원관리</a></td>
-			<td><a href="${pageContext.request.contextPath}/AProductC">상품관리</a></td>
-			<td><a href="${pageContext.request.contextPath}/AOrderaC">주문관리</a></td>
-			<td><a href="#">통계</a></td>
-			<td><a href="#">게시판관리</a></td>
-		</tr>
-	</table>
-<br>
-<br>
-<table border=1 style="margin:auto; text-align:center;">
-<tr>
-<td colspan="4">총회원수:${mcnt} (명)</td>
-</tr>
-<tr>
-<td colspan="4">회원 탈퇴수:${mdcnt} (명)</td>
-</tr>
-<tr>
-<td>답변안한글</td>
-<td>입금대기</td>
-<td>상품 준비중</td>
-<td>취소</td>
-</tr>
-<tr>
-<td>${nrcnt}(개)</td>
-<td>${pbcnt}(명)</td>
-<td>${prcnt}(개)</td>
-<td>${pccnt}(개)</td>
-</tr>
-</table>
-<table border=1; style="margin:auto; text-align:center;">
-<tr>
-<td>오늘 총 주문금액</td>
-<td>오늘 실 결제금액</td>
-</tr>
 
-<tr>
-<td>${noamount}(원)</td>
-<td>${npamount}(원)</td> 
-</tr>
+<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
+                <a href="${pageContext.request.contextPath}/AcntC" class="filter btn btn-common" data-filter="all">
+                  	메인 
+                </a>
+                <a href="${pageContext.request.contextPath}/AMemberC" class="filter btn btn-common active" data-filter=".branding">
+                 	 회원관리 
+                </a>
+                <a href="${pageContext.request.contextPath}/AProductC" class="filter btn btn-common" data-filter=".marketing">
+               	   상품관리
+                </a>
+                <a href="${pageContext.request.contextPath}/AOrderaC" class="filter btn btn-common" data-filter=".planning">
+               	        주문관리 
+                </a>
+                <a href="#" class="filter btn btn-common" data-filter=".research">
+                 	 통계 
+                </a>
+                <a href="#" class="filter btn btn-common" data-filter=".research">
+                 	 게시판관리 
+                </a>
+              </div>
+   
+<br><br>
+<div id="counter" >
+        <div class="container" >
+          <h4 class="sub-title">회원</h4>
+          <div class="row count-to-sec">
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">총회원 수 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${mcnt}">${mcnt}(명)</h3>
+              <hr class="width25-divider">
+            </div>
 
-</table>
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">회원탈퇴 수 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${mdcnt}">${mdcnt}(명)</h3>
+              <hr class="width25-divider">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+<div id="counter" >
+        <div class="container" >
+          <h4 class="sub-title">답변</h4>
+          <div class="row count-to-sec">
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">답변안한 글 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${nrcnt}">${nrcnt}(개)</h3>
+              <hr class="width25-divider">
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div id="counter" >
+        <div class="container" >
+          <h4 class="sub-title">상품</h4>
+          <div class="row count-to-sec">
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">입금대기 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${pbcnt}">${pbcnt}(명)</h3>
+              <hr class="width25-divider">
+            </div>
+            
+             <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">상품준비중 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${prcnt}">${prcnt}(개)</h3>
+              <hr class="width25-divider">
+            </div>
+            
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">상품취소 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${pccnt}">${pccnt}(개)</h3>
+              <hr class="width25-divider">
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div id="counter" >
+       <div class="container" style="float:right">
+          <h4 class="sub-title">금액</h4>
+          <div class="row count-to-sec">
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">오늘 총 주문금액 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${noamount}">${noamount}(원)</h3>
+              <hr class="width25-divider">
+            </div>
+
+            <div class="col-md-3 col-sm-6 count-one">
+              <span class="icon">오늘 실 결제금액 </i></span>
+              <h3 class="timer count-value" data-speed="1000" data-to="${npamount}">${npamount}(원)</h3>
+              <hr class="width25-divider">
+            </div>
+
+           
+          </div>
+        </div>
+      </div>
+      
 </body>
 </html>
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	
