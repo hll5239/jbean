@@ -18,7 +18,7 @@
 
 <insert id="productInsert" parameterType="provo">
 	insert into Product3 values
-	(seq_Proidx.NEXTVAL,#{proname},#{proprice},#{procnt},#{prosize},#{promain},#{prosub1},#{prosub2},#{proinfo},default,null,default,#{cidx},#{pronum})
+	(seq_Proidx.NEXTVAL,#{proname},#{proprice},#{procnt},#{prosize},#{promain},#{prosub1},#{prosub2},#{proinfo},default,null,default,#{pronum},#{cidx})
 </insert>
 
 <select id="productSelect" parameterType="provo" resultType="provo">

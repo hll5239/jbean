@@ -56,20 +56,18 @@ function check() {
   	return ;
 }	
 
-function addFilePath(msg){
-	alert(msg);	
-}
+
 
 function checkImageType(fileName){
 	
 	var pattern = /jpg$|gif$|png$|jpeg$/i;
-	alert(fileName.match(pattern));
+
 	
 	return fileName.match(pattern);
 }
 
 function getOriginalName(fileName){
-//	alert(fileName);
+
 	//이미지파일이면 원본이름 안쓴다
 	if (checkImageType(fileName)) {
 		return;
@@ -77,7 +75,7 @@ function getOriginalName(fileName){
 	
 	var idx = fileName.lastIndexOf("_")+1;
 	
-	alert(idx);
+
 	return fileName.substr(idx);
 }
 
@@ -126,7 +124,6 @@ $(function(){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#promain").val(data.replace("s-",""));		
@@ -184,7 +181,7 @@ $(function(){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
+		
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#prosub1").val(data.replace("s-",""));		
@@ -242,7 +239,7 @@ $(function(){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
+		
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#prosub2").val(data.replace("s-",""));		
@@ -300,7 +297,6 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#proinfo").val(data.replace("s-",""));		
@@ -343,8 +339,8 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 </head>
 <body>
 <form name="frm" id="frm" enctype="multipart/form-data">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="\resources\helium-ui-kit\img\InfoNotice.png" width="900px" height="800px" >
-<div class="table1-style1" style="float:right; margin-left: auto; margin-right: auto;">
+
+<div class="table1-style1" >
               <div class="sub-title" >
                 <span><h3>주문검색</h3></span>
               </div>

@@ -1674,12 +1674,12 @@ footer .menu li a:hover {
 }
 
 #facts {
-	padding: 60px 0
+	padding: 24px 0
 }
 
 #facts .fact-icon {
 	color: #EB586F;
-	font-size: 46px;
+	font-size: 40px;
 	display: block;
 	margin-top: 0;
 	margin-bottom: 20px
@@ -4046,3 +4046,295 @@ img {
 	text-transform: uppercase;
 	margin: 0 0 20px 0
 }
+
+/*새로운테이블  */
+
+.table1 {
+  width: 500px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.table1 th,
+.table1 td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.table1 thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.table1 tbody+tbody {
+  border-top: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.table1 .table1 {
+  background-color: #fafafa;
+}
+
+.table1-sm th,
+.table1-sm td {
+  padding: 0.3rem;
+}
+
+.table1-bordered {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.table1-bordered th,
+.table1-bordered td {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.table1-bordered thead th,
+.table1-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+.table1-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table1-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table1-primary,
+.table1-primary>th,
+.table1-primary>td {
+  background-color: #c1e2fc;
+}
+
+.table1-hover .table1-primary:hover {
+  background-color: #a9d7fb;
+}
+
+.table1-hover .table1-primary:hover>td,
+.table1-hover .table1-primary:hover>th {
+  background-color: #a9d7fb;
+}
+
+.table1-secondary,
+.table1-secondary>th,
+.table1-secondary>td {
+  background-color: #d6d8db;
+}
+
+.table1-hover .table1-secondary:hover {
+  background-color: #c8cbcf;
+}
+
+.table1-hover .table1-secondary:hover>td,
+.table1-hover .table1-secondary:hover>th {
+  background-color: #c8cbcf;
+}
+
+.table1-success,
+.table1-success>th,
+.table1-success>td {
+  background-color: #cde9ce;
+}
+
+.table1-hover .table1-success:hover {
+  background-color: #bbe1bd;
+}
+
+.table1-hover .table1-success:hover>td,
+.table1-hover .table1-success:hover>th {
+  background-color: #bbe1bd;
+}
+
+.table1-info,
+.table1-info>th,
+.table1-info>td {
+  background-color: #b8ecf3;
+}
+
+.table1-hover .table1-info:hover {
+  background-color: #a2e6ef;
+}
+
+.table1-hover .table1-info:hover>td,
+.table1-hover .table1-info:hover>th {
+  background-color: #a2e6ef;
+}
+
+.table1-warning,
+.table1-warning>th,
+.table1-warning>td {
+  background-color: #fff9c8;
+}
+
+.table1-hover .table1-warning:hover {
+  background-color: #fff6af;
+}
+
+.table1-hover .table1-warning:hover>td,
+.table1-hover .table1-warning:hover>th {
+  background-color: #fff6af;
+}
+
+.table1-danger,
+.table1-danger>th,
+.table1-danger>td {
+  background-color: #fccac7;
+}
+
+.table1-hover .table1-danger:hover {
+  background-color: #fbb3af;
+}
+
+.table1-hover .table1-danger:hover>td,
+.table1-hover .table1-danger:hover>th {
+  background-color: #fbb3af;
+}
+
+.table1-light,
+.table1-light>th,
+.table1-light>td {
+  background-color: #fdfdfe;
+}
+
+.table1-hover .table1-light:hover {
+  background-color: #ececf6;
+}
+
+.table1-hover .table1-light:hover>td,
+.table1-hover .table1-light:hover>th {
+  background-color: #ececf6;
+}
+
+.table1-dark,
+.table1-dark>th,
+.table1-dark>td {
+  background-color: #c6c8ca;
+}
+
+.table1-hover .table1-dark:hover {
+  background-color: #b9bbbe;
+}
+
+.table1-hover .table1-dark:hover>td,
+.table1-hover .table1-dark:hover>th {
+  background-color: #b9bbbe;
+}
+
+.table1-active,
+.table1-active>th,
+.table1-active>td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table1-hover .table1-active:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table1-hover .table1-active:hover>td,
+.table1-hover .table1-active:hover>th {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table1 .thead-dark th {
+  color: #fafafa;
+  background-color: #212529;
+  border-color: #32383e;
+}
+
+.table1 .thead-light th {
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.table1-dark {
+  color: #fafafa;
+  background-color: #212529;
+}
+
+.table1-dark th,
+.table1-dark td,
+.table1-dark thead th {
+  border-color: #32383e;
+}
+
+.table1-dark.table1-bordered {
+  border: 0;
+}
+
+.table1-dark.table1-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table1-dark.table1-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+@media (max-width: 575.98px) {
+  .table1-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table1-responsive-sm>.table1-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .table1-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table1-responsive-md>.table1-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .table1-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table1-responsive-lg>.table1-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .table1-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .table1-responsive-xl>.table1-bordered {
+    border: 0;
+  }
+}
+
+.table1-responsive {
+  display: block;
+  width: 500px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table1-responsive>.table1-bordered {
+  border: 0;
+}
+
+/*새로운테이블*/

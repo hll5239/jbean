@@ -6,18 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
-<script type="text/javascript">
-$(document).ready(function () {
-	
-	$("#name").click(function () {
-		var i = 0;
-		alert(i);
-	});
-	 
-	
-	  
-	});
-</script>
+
 
 
 
@@ -29,13 +18,13 @@ $(document).ready(function () {
                 <a href="${pageContext.request.contextPath}/AcntC" class="filter btn btn-common" data-filter="all">
                   	메인 
                 </a>
-                <a href="${pageContext.request.contextPath}/AMemberC" class="filter btn btn-common active" data-filter=".branding">
+                <a href="${pageContext.request.contextPath}/AMemberC" class="filter btn btn-common" data-filter=".branding">
                  	 회원관리 
                 </a>
                 <a href="${pageContext.request.contextPath}/AProductC" class="filter btn btn-common" data-filter=".marketing">
                	   상품관리
                 </a>
-                <a href="${pageContext.request.contextPath}/AOrderaC" class="filter btn btn-common" data-filter=".planning">
+                <a href="${pageContext.request.contextPath}/AOrderaC" class="filter btn btn-common active" data-filter=".planning">
                	        주문관리 
                 </a>
                 <a href="#" class="filter btn btn-common" data-filter=".research">
@@ -83,7 +72,7 @@ $(document).ready(function () {
 				</tr>
 				<tr>
 				<td colspan=2>
-					<button class="btn std-btn btn-lg btn-info" type="button" onclick="submit()" style="float:auto">
+					<button class="btn std-btn btn-lg btn-info" type="button" onclick="submit()" style="float:right">
 			               	   검색
 					</button>
 				</td>
@@ -94,7 +83,7 @@ $(document).ready(function () {
             </div>
 </form>
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="table-style3">
               <div class="sub-title">
                 <span><h3>주문관리</h3></span>

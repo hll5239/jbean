@@ -186,6 +186,7 @@ public class AdminController {
 		int bv=0;
 		String url="";
 		
+		System.out.println(pv.getPronum());
 		System.out.println(pv.getCidx());
 		System.out.println(pv.getProname());
 		System.out.println("µé¾î¿È?"+pv.getPromain());
@@ -193,10 +194,10 @@ public class AdminController {
 		bv=as.productInsert(pv);
 		
 		if(bv==1) {
-			url="redirect:/ProductC";
+			url="redirect:/AProductC";
 		}else {
 			
-			url="redirect:/ProductInsertC";
+			url="redirect:/AProductInsertC";
 		}
 		
 		return url;
@@ -217,15 +218,15 @@ public class AdminController {
 		
 		int bv=0;
 		String url="";
-		
-		
+		System.out.println(pv.getPronum());
+		System.out.println(pv.getCidx());
 		bv=as.productUpdate(pv);
 		
 		if(bv==1) {
-			url="redirect:/ProductC";
+			url="redirect:/AProductC";
 		}else {
 			
-			url="redirect:/ProductModifyC";
+			url="redirect:/AProductModifyC";
 		}
 		
 		return url;
@@ -239,7 +240,7 @@ public class AdminController {
 		String url="";
 		
 
-		url="redirect:/ProductC";
+		url="redirect:/AProductC";
 		
 		
 		return url;

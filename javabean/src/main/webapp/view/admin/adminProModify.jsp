@@ -9,24 +9,24 @@
 
 <style>
 .fileDrop {
-width: 200px;
-height:200px;
+width: 300px;
+height:100px;
 border:1px dotted blue;
 }
 
 .fileDrop1 {
-width: 200px;
-height:200px;
+width: 300px;
+height:100px;
 border:1px dotted blue;
 }
 .fileDrop2 {
-width: 200px;
-height:200px;
+width: 300px;
+height:100px;
 border:1px dotted blue;
 }
 .fileDrop3 {
-width: 200px;
-height:200px;
+width: 300px;
+height:100px;
 border:1px dotted blue;
 }
 
@@ -54,20 +54,18 @@ function check() {
   	return ;
 }	
 
-function addFilePath(msg){
-	alert(msg);	
-}
+
 
 function checkImageType(fileName){
 	
 	var pattern = /jpg$|gif$|png$|jpeg$/i;
-	alert(fileName.match(pattern));
+
 	
 	return fileName.match(pattern);
 }
 
 function getOriginalName(fileName){
-//	alert(fileName);
+
 	//이미지파일이면 원본이름 안쓴다
 	if (checkImageType(fileName)) {
 		return;
@@ -75,7 +73,7 @@ function getOriginalName(fileName){
 	
 	var idx = fileName.lastIndexOf("_")+1;
 	
-	alert(idx);
+
 	return fileName.substr(idx);
 }
 
@@ -124,7 +122,6 @@ $(function(){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#promain").val(data.replace("s-",""));		
@@ -182,7 +179,6 @@ $(function(){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#prosub1").val(data.replace("s-",""));		
@@ -240,7 +236,7 @@ $(function(){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
+
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#prosub2").val(data.replace("s-",""));		
@@ -298,7 +294,7 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
+
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#proinfo").val(data.replace("s-",""));		
@@ -336,8 +332,7 @@ $(".fileDrop3").on("dragenter dragover",function(event){
 </head>
 <body>
 <form name="frm" id="frm" enctype="multipart/form-data">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="\resources\helium-ui-kit\img\InfoNotice.png" width="900px" height="1000px" >
-<div class="table1-style1" style="float:right; margin-left: auto; margin-right: auto;">
+<div class="table1-style1" >
               <div class="sub-title" >
                 <span><h3>주문검색</h3></span>
               </div>
@@ -390,23 +385,23 @@ $(".fileDrop3").on("dragenter dragover",function(event){
               
               </div>
               <input type="hidden" id="promain" name="promain" value="${Modify.promain}">
-<div class='fileDrop' style="margin-left: auto; margin-right: auto;">메인상품</div>
-<div class='uploadedList' style="margin-left: auto; margin-right: auto;"></div>
+<div class='fileDrop'>메인상품</div>
+<div class='uploadedList' ></div>
 
 
 <input type="hidden" id="prosub1" name="prosub1" value="${Modify.prosub1}">  
-<div class='fileDrop1' style="margin-left: auto; margin-right: auto;">상세상품1</div>
-<div class='uploadedList1' style="margin-left: auto; margin-right: auto;"></div>
+<div class='fileDrop1' >상세상품1</div>
+<div class='uploadedList1' ></div>
 
 
 <input type="hidden" id="prosub2" name="prosub2" value="${Modify.prosub2}">  
-<div class='fileDrop2' style="margin-left: auto; margin-right: auto;">상세상품2</div>
-<div class='uploadedList2' style="margin-left: auto; margin-right: auto;"></div>
+<div class='fileDrop2' >상세상품2</div>
+<div class='uploadedList2' ></div>
 
 
 <input type="hidden" id="proinfo" name="proinfo" value="${Modify.proinfo}">  
-<div class='fileDrop3' style="margin-left: auto; margin-right: auto;">상품정보</div>
-<div class='uploadedList3' style="margin-left: auto; margin-right: auto;"></div>
+<div class='fileDrop3' >상품정보</div>
+<div class='uploadedList3' ></div>
  </div>
 
 

@@ -30,7 +30,7 @@
               </div>
  
  <form name="searchform" action="${pageContext.request.contextPath}/AMemberCareC">
-<div class="table1-style1" style="float:right;">
+<div class="table1-style1" style="float:right">
               <div class="sub-title">
                 <span><h3>회원검색</h3></span>
               </div>
@@ -65,11 +65,7 @@
             </div>
 
 	</form>
- 
- 
- 
-           <br><br><br><br><br><br><br><br><br>
-           
+  	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="table-style3">
               <div class="sub-title">
                 <span><h3>회원관리</h3></span>

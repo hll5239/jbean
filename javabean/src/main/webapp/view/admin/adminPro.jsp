@@ -30,10 +30,10 @@
                 <a href="${pageContext.request.contextPath}/AcntC" class="filter btn btn-common" data-filter="all">
                   	메인 
                 </a>
-                <a href="${pageContext.request.contextPath}/AMemberC" class="filter btn btn-common active" data-filter=".branding">
+                <a href="${pageContext.request.contextPath}/AMemberC" class="filter btn btn-common" data-filter=".branding">
                  	 회원관리 
                 </a>
-                <a href="${pageContext.request.contextPath}/AProductC" class="filter btn btn-common" data-filter=".marketing">
+                <a href="${pageContext.request.contextPath}/AProductC" class="filter btn btn-common active" data-filter=".marketing">
                	   상품관리
                 </a>
                 <a href="${pageContext.request.contextPath}/AOrderaC" class="filter btn btn-common" data-filter=".planning">
@@ -99,7 +99,7 @@
             </div>
 </form>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<button class="btn std-btn btn-lg btn-info" type="button" onclick="writer()" style="float:right">
 		                  등록하기
 		</button>
