@@ -82,11 +82,21 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <c:forEach var="prov" items="${alistCate}">
-				<a style="color:inherit; padding:0.9375rem; font-weight:400; font-size:12px;"  href="${request.contextPath}/ProListC?cidx=${prov.cidx}" >
-					<span>${prov.cname}</span>
+				<a style="color:inherit; padding:0.9375rem; font-weight:400; font-size:12px;"  href="${request.contextPath}/ProListC?cidx=1" >
+					<span>티셔츠</span>
 				</a>
-			</c:forEach>
+				<a style="color:inherit; padding:0.9375rem; font-weight:400; font-size:12px;"  href="${request.contextPath}/ProListC?cidx=2" >
+					<span>니트</span>
+				</a>
+				<a style="color:inherit; padding:0.9375rem; font-weight:400; font-size:12px;"  href="${request.contextPath}/ProListC?cidx=3" >
+					<span>블라우스</span>
+				</a>
+				<a style="color:inherit; padding:0.9375rem; font-weight:400; font-size:12px;"  href="${request.contextPath}/ProListC?cidx=4" >
+					<span>치마</span>
+				</a>
+				<a style="color:inherit; padding:0.9375rem; font-weight:400; font-size:12px;"  href="${request.contextPath}/ProListC?cidx=5" >
+					<span>청바지</span>
+				</a>
           </li>
         </ul>
       </div>
@@ -97,10 +107,5 @@
  </header>
  </div>
   <!-- Page Wrapper Start -->
-  	<div class="wrapper">
-    <!-- Content Area Start -->
-    <div id="content">
-      <div class="container">
-        <!-- row start -->
-        <div class="row">
-          <div class="col-md-12">
+  	<div class="wrapper"></div>
+

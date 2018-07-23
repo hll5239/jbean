@@ -32,6 +32,7 @@ public class OrderController {
 		
 		System.out.println("----OrderInsertC---------------------------------");
 		
+		
 		int midx = (Integer) session.getAttribute("sMidx");
 		Random rd = new Random();
 		long oid = rd.nextInt(100000000);
