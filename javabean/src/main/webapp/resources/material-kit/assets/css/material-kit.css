@@ -462,6 +462,7 @@ main,
 nav,
 section {
   display: block;
+  padding-bottom: 6%;
 }
 
 body {
