@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file = "WEB-INF/views/include/header.jsp"%>
+		
+		
 
 
-  
-
-      <!-- sliders -->
-      <div id="sliders">
-        <div class="full-width">
-          <div class="page-header-title">
-          </div>
           <!-- light slider -->
           <div id="light-slider" class="carousel slide">
             <div id="carousel-area">
@@ -42,8 +37,7 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+
       <!-- End sliders -->
       
 

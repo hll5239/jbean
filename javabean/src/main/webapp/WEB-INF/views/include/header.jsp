@@ -106,6 +106,12 @@
   </nav>
  </header>
  </div>
+ 
+<div class="wrapper"></div>
   <!-- Page Wrapper Start -->
-  	<div class="wrapper"></div>
-
+  <div class="wrapper">      <!-- Content Area Start -->
+    <div id="content">
+      <div class="container">       <!-- row start -->
+        <div class="row">
+          <div class="col-md-12">
+        

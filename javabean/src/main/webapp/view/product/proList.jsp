@@ -34,7 +34,6 @@
             <!-- End ProList -->
 
 
-
   <!-- Page Wrapper End -->
 <%@ include file = "/WEB-INF/views/include/footer.jsp"%>	
 

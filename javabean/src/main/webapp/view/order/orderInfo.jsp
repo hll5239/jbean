@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.jb.jbean.domain.*"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
+
 
 <c:set var="mv" value="mv" />
 
@@ -81,40 +80,57 @@
 </script>
 
 <body>
-
-	<table>
-		<tr>
-			<td></td>
-			<td>상품정보</td>
-			<td>판매가</td>
-			<td>수량</td>
-			<td>합계</td>
-		</tr>
-		<tr>
-		<c:set var="sum" value="${0}"/>
+	<div class="table-style3">
+	<div class="table-responsive mtb">
+	<h3 class="list-title">상품</h3>
+	<table class="table" style="border: 1">
+       <thead class="thead-default">
+         <tr>
+           <th></th>
+           <th>상품정보</th>
+           <th>판매가</th>
+           <th>수량</th>
+           <th>합계</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <c:set var="sum" value="${0}"/>
 			<c:forEach var="buyvo" items="${alist}">
 			<c:set var="oid" value="${buyvo.oid}"/>
-			<td>${buyvo.promain}</td>
-			<td>${buyvo.proname}<br>${buyvo.prosize}</td>
-			<td>${buyvo.proprice}</td>
+			<td><img src="/resources/helium-ui-kit/img/team/team-04.jpg" style="height:70px; width:auto;"></td>
+			<td style="text-align: left;">${buyvo.proname}
+				<br><c:out value="옵션 : [ ${buyvo.prosize} ]"/></td>
+			<td><c:out value="${buyvo.proprice} 원" /></td>
 			<td>${buyvo.ocnt}</td>
 			<td><c:set var="prosum" value="${buyvo.proprice * buyvo.ocnt}"/>
-				<c:out value="${prosum}원" />
+				<c:out value="${prosum} 원" />
 				<!-- sum은 값을 저장하는 역할 -->
 				<c:set var="sum" value="${sum+prosum}"/></td>
 			</c:forEach>
-			
-		</tr>
-	</table>
-
-	<table>
-		<tr>
-			<td>총 상품 금액</td>
-			<td>배송비</td>
-			<td>결제 예정 금액</td>
-		</tr>
-		<tr>
-			<td>${sum}원</td>
+         </tr>
+       </tbody>
+     </table>
+	</div>
+	</div>
+	
+	
+	<div class="table-style3" >
+	<div class="table-responsive mtb">
+	<table class="table" style="width: 50%; margin-left: auto; margin-right: auto;">
+       <thead class="thead-default">
+         <tr>
+           <th>총 상품 금액</th>
+           <th>+</th>
+           <th>배송비</th>
+           <th>=</th>
+           <th>결제 예정 금액</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>${sum}원</td>
+           <td></td>
 			<td>
 				<c:choose>
 				    <c:when test="${sum < 30000}">
@@ -125,6 +141,7 @@
 					</c:otherwise>
 				</c:choose>
 			</td>
+			<td></td>
 			<td>
 				<c:choose>
 				    <c:when test="${sum < 30000}">
@@ -137,12 +154,46 @@
 					</c:otherwise>
 				</c:choose>
 			</td>
+         </tr>
+       </tbody>
+     </table>
+	</div>
+	</div>
+
+
+	
+	<br>
+	<br>
+	<div class="table-style3">
+	<div class="table-responsive mtb">
+	<h3 class="list-title">배송지 정보</h3>
+	<table class="table11">
+       <thead class="thead-default">
+         <tr>
+			<th>배송지</th>
+			<td><input type="checkbox" id="box">기본배송지</td>
 		</tr>
-	</table>
-	
-	<br>
-	<br>
-	
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="dname" id="dname" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>연락처</th>
+			<td><input type="text" name="dphone" id="dphone"></td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td><input type="text" name="dpost" id="dpost" placeholder="우편번호"><br>
+				<input type="text" name="daddr1" id="daddr1" placeholder="도로명주소"><br>
+				<input type="text" name="daddr2" id="daddr2" placeholder="상세주소"></td>
+		</tr>
+		<tr>
+			<th>배송메시지</th>
+			<td><input type="text" name="dmsg"></td>
+		</tr>
+     </table>
+	</div>
+	</div>
 	<div id="tbl"></div>
 	
 	<form name="form">
@@ -205,3 +256,5 @@
 
 </body>
 </html>
+
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	

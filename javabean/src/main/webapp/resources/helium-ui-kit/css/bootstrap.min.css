@@ -9197,3 +9197,156 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 		display: none !important
 	}
 } /*# sourceMappingURL=bootstrap.min.css.map */
+
+/* 새로운 테이블 Y */
+.table11 {
+	width: 55%;
+	max-width: 100%;
+	margin-bottom: 1rem
+}
+
+.table11 td, .table11 th {
+	padding: .75rem;
+	vertical-align: middle;
+	border-top: 1px solid #eceeef
+}
+
+
+.table11 thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #eceeef;
+	text-align: center;
+}
+
+.table11 tbody+tbody {
+	border-top: 2px solid #eceeef
+}
+
+.table11 .table11 {
+	background-color: #fff
+}
+
+.table11-sm td, .table11-sm th {
+	padding: .3rem
+}
+
+.table11-bordered {
+	border: 1px solid #eceeef
+}
+
+.table11-bordered td, .table11-bordered th {
+	border: 1px solid #eceeef
+}
+
+.table11-bordered thead td, .table11-bordered thead th {
+	border-bottom-width: 2px
+}
+
+.table11-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, .05)
+}
+
+.table11-hover tbody tr:hover {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table11-active, .table11-active>td, .table11-active>th {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table11-hover .table11-active:hover {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table11-hover .table11-active:hover>td, .table11-hover .table11-active:hover>th
+	{
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table11-success, .table11-success>td, .table11-success>th {
+	background-color: #dff0d8
+}
+
+.table11-hover .table11-success:hover {
+	background-color: #d0e9c6
+}
+
+.table11-hover .table11-success:hover>td, .table11-hover .table11-success:hover>th
+	{
+	background-color: #d0e9c6
+}
+
+.table11-info, .table11-info>td, .table11-info>th {
+	background-color: #d9edf7
+}
+
+.table11-hover .table11-info:hover {
+	background-color: #c4e3f3
+}
+
+.table11-hover .table11-info:hover>td, .table11-hover .table11-info:hover>th {
+	background-color: #c4e3f3
+}
+
+.table11-warning, .table11-warning>td, .table11-warning>th {
+	background-color: #fcf8e3
+}
+
+.table11-hover .table11-warning:hover {
+	background-color: #faf2cc
+}
+
+.table11-hover .table11-warning:hover>td, .table11-hover .table11-warning:hover>th
+	{
+	background-color: #faf2cc
+}
+
+.table11-danger, .table11-danger>td, .table11-danger>th {
+	background-color: #f2dede
+}
+
+.table11-hover .table11-danger:hover {
+	background-color: #ebcccc
+}
+
+.table11-hover .table11-danger:hover>td, .table11-hover .table11-danger:hover>th
+	{
+	background-color: #ebcccc
+}
+
+.thead-inverse th {
+	color: #fff;
+	background-color: #292b2c
+}
+
+.thead-default th {
+	color: #464a4c;
+	background-color: #eceeef
+}
+
+.table11-inverse {
+	color: #fff;
+	background-color: #292b2c
+}
+
+.table11-inverse td, .table11-inverse th, .table11-inverse thead th {
+	border-color: #fff
+}
+
+.table11-inverse.table11-bordered {
+	border: 0
+}
+
+.table11-responsive {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+.table11-responsive.table11-bordered {
+	border: 0
+}
+
+/* 새로운 테이블 Y 끝 */
+
