@@ -64,7 +64,7 @@ public class ProductController {
 		model.addAttribute("alistCate", alistCate);
 		model.addAttribute("alistProI", alistProI);
 		model.addAttribute("qlist", qlist);
-		
+		model.addAttribute("pronum", pronum);
 				
 		return "/view/product/proInfo";
 	}
@@ -142,7 +142,7 @@ public class ProductController {
 	@RequestMapping(value="/QAdminReplyC")
 	protected String QAdminReply(Model model,@RequestParam("qidx") int qidx,@RequestParam("pronum") int pronum,@RequestParam("qreply") String qreply) {
 		
-
+		
 		pros.qnaReplyWrite(qidx,qreply);
 		
 		return "redirect:/ProInfoC?pronum="+pronum;

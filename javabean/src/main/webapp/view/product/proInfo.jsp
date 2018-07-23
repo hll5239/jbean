@@ -391,16 +391,21 @@ small {
 
 		}
 	}
-	function rply(){
+	function rply(idx){
 		var res;
 		res = confirm("답변을 다시겠습니까?");
+		$('#qidx').val($('#qidxx'+idx).val());		
+		$('#qreply').val($('#qreplyy'+idx).val());
+	
+		
 
 		if (res == true) {
-			document.form.method = "post";
-			document.form.action = "${pageContext.request.contextPath}/QAdminReplyC"
-			document.form.submit();
-
+			document.frm.method = "post";
+			document.frm.action = "${pageContext.request.contextPath}/QAdminReplyC"
+			document.frm.submit();
 		}
+		
+		
 	}
 	
 	
@@ -408,7 +413,14 @@ small {
 
 
 <body onload="init();">
+	<form id="frm" name="frm">
+		<input type="hidden" name="qidx" id="qidx">
+		<input type="hidden" name="qreply" id="qreply">
+		<input type="hidden" name="pronum" value="${pronum}" >
+	
+	</form>
 	<form name="form">
+	<input type="hidden" name="pronum" value="${pronum}" >
 		<div>
 			<c:forEach var="prov" items="${alistCate}">
 				<a href="${request.contextPath}/ProListC?cidx=${prov.cidx}"> <span>${prov.cname}</span>
@@ -540,10 +552,10 @@ small {
 							</c:when>
 							<c:when test="${sMidx eq '1'}">
 							
-							<input type="text" name="qreply" id="qreply">
-							<input type="hidden" name="qidx" id="qidx" value="${ql.qidx}">
-							<input type="hidden" name="pronum" id="pronum" value="${ql.pronum}">
-							<input type="button" value="답변" onclick="rply()">
+							<input type="text" name="qreply" id="qreplyy${status.index}">
+							<input type="hidden" name="qidx" id="qidxx${status.index}" value="${ql.qidx}">
+							
+							<input type="button" value="답변" onclick="rply(${status.index})">
 							
 							</c:when>
 							<c:otherwise>
