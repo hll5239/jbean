@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.jb.jbean.domain.*" %>
+<%@ page import = "java.util.*" %>>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
-<% String smemberId = ""; %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +25,7 @@
     </head>
     
       <!-- jQuery 2.1.4  이 부분이 있기 때문에 페이지에 include하면 jquery를 사용할 수 있음-->
-    <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     
   <body class="skin-blue sidebar-mini">
    <div class="wrapper">
