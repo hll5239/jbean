@@ -61,7 +61,8 @@
 		});
 		
 		$('#orderCheck').click(function(){
-					
+		
+			
 					if($('#check').is(":checked")){
 						document.form.method ="POST"; //메소드 타입을 결정
 						document.form.action ="${request.contextPath}/OrderFinishC";
@@ -159,100 +160,86 @@
      </table>
 	</div>
 	</div>
-
-
 	
 	<br>
 	<br>
+	
 	<div class="table-style3">
 	<div class="table-responsive mtb">
+	<form name="form">
+	<input type="hidden" name="oid" value="${oid}">
+	<div style="float: left; width: 50%; padding-right:2%;">
 	<h3 class="list-title">배송지 정보</h3>
-	<table class="table11">
+     <table class="table11">
        <thead class="thead-default">
          <tr>
 			<th>배송지</th>
-			<td><input type="checkbox" id="box">기본배송지</td>
+			<td><input type="checkbox" id="box" class="form-control11" style="width:30px">기본배송지</td>
 		</tr>
 		<tr>
 			<th>이름</th>
-			<td><input type="text" name="dname" id="dname" class="form-control"></td>
+			<td><input type="text" name="dname" id="dname" class="form-control11"></td>
 		</tr>
 		<tr>
 			<th>연락처</th>
-			<td><input type="text" name="dphone" id="dphone"></td>
+			<td><input type="text" name="dphone" id="dphone" class="form-control11"></td>
 		</tr>
 		<tr>
 			<th>주소</th>
-			<td><input type="text" name="dpost" id="dpost" placeholder="우편번호"><br>
-				<input type="text" name="daddr1" id="daddr1" placeholder="도로명주소"><br>
-				<input type="text" name="daddr2" id="daddr2" placeholder="상세주소"></td>
+			<td><input type="text" name="dpost" id="dpost" placeholder="우편번호" class="form-control11" style="width: 100px">
+				<input type="text" name="daddr1" id="daddr1" placeholder="도로명주소" class="form-control11" style="width: 200px"><br>
+				<input type="text" name="daddr2" id="daddr2" placeholder="상세주소" class="form-control11" style="width: 303px;"></td>
 		</tr>
 		<tr>
 			<th>배송메시지</th>
-			<td><input type="text" name="dmsg"></td>
+			<td><input type="text" name="dmsg" maxlength="50" placeholder="50자내로 입력하세요" class="form-control11" style="width: 303px;"></td>
 		</tr>
      </table>
-	</div>
-	</div>
-	<div id="tbl"></div>
-	
-	<form name="form">
-	<input type="hidden" name="oid" value="${oid}">
-	<label>배송지 정보</label>
-	<table>
-		<tr>
-			<td>배송지</td>
-			<td><input type="checkbox" id="box">기본배송지</td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><input type="text" name="dname" id="dname"></td>
-		</tr>
-		<tr>
-			<td>연락처</td>
-			<td><input type="text" name="dphone" id="dphone"></td>
-		</tr>
-		<tr>
-			<td>주소</td>
-			<td><input type="text" name="dpost" id="dpost" placeholder="우편번호"><br>
-				<input type="text" name="daddr1" id="daddr1" placeholder="도로명주소"><br>
-				<input type="text" name="daddr2" id="daddr2" placeholder="상세주소"></td>
-		</tr>
-		<tr>
-			<td>배송메시지</td>
-			<td><input type="text" name="dmsg"></td>
-		</tr>
-	</table>
-	
-	<label>결제정보</label>
-	<table>
-		<tr>
-			<td>결제수단</td>
-			<td><input type="radio" name="ptype" value="B" checked>무통장입금
-				<input type="radio" name="ptype" value="C" disabled>카드결제
-				<input type="radio" name="ptype" value="P" disabled>핸드폰결제</td>
+     
+    <br>
+	<br>
+     
+     <h3 class="list-title">결제정보</h3>
+     <table class="table11">
+       <thead class="thead-default">
+         <tr>
+			<th>결제수단</th>
+			<td><input type="radio" name="ptype" value="B" checked >무통장입금 &nbsp;
+				<input type="radio" name="ptype" value="C" disabled >카드결제 &nbsp;
+				<input type="radio" name="ptype" value="P" disabled >핸드폰결제</td>
 		</tr>
 		<c:if test="${ptype == B}">	
 		<tr>
-			<td>입금은행</td>
+			<th>입금은행</th>
 			<td>국민은행  7000-110-00003(스앤피)</td>
 		</tr>
 		<tr>
-			<td>입금자명</td>
-			<td><input type="text" name="pname"></td>
+			<th>입금자명</th>
+			<td><input type="text" name="pname" class="form-control11"></td>
 		</tr>
 		</c:if>
-	</table>
-	<br>
-	<br>
-	<label>최종결제금액</label>
+	  </thead>
+	  </table>
+     </div>
+     
+	<div style="float: right; width: 50%; ">
+	<div style="margin-left:auto; margin-right:auto; margin-top:15%; padding:10%; width: 80%; text-align:center; border: 5px solid #EB586F;">
+	<h3 class="list-title">최종결제금액</h3>
 		<br>
-		<input type="text" name="pprice" value="${pprice}" style="border: none;" readonly>원
+		<input type="hidden" name="pprice" value="${pprice}">
+		<h1 style="font-size:50px;"><span class="text-primary">${pprice} 원</span></h1>
 		<br>
-		<input type="checkbox" id="check" name="check">상기 결제 내용을 확인 하였습니다.
 		<br>
-		<input type="button" id="orderCheck" value="결제하기">
+		<input type="checkbox" id="check" name="check" class="form-control11" style="width:30px">상기 결제 내용을 확인 하였습니다.
+		<br>
+		<br>
+		<br>
+		<input type="button" id="orderCheck" class="btn std-btn btn-lg btn-filled" value="결제하기">
+		</div>
+		</div>
 	</form>
+	</div>
+	</div>
 
 </body>
 </html>
