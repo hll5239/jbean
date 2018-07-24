@@ -33,44 +33,34 @@ function check() {
 <body>
 <form name="frm">
 
- <h1 align="center"> 게시물 등록 / 수정 </h1>
-   
- <div style="margin-top:30px;"></div>
- 
-<!--  <tr>
-
-<td >
-
-<select name="bgroup" >
+ <h1 align="center"> 게시물 수정 </h1>
+   <br>
+<div style="position: absolute; left: 270px; top: 50px;" >
+<select class="form-control input-lg" name="bgroup" align="center" style= "width: 140px; height: 50px;"> 
 <option value="N" selected>공지사항</option>
 <option value="F">FAQ</option>
-
 </select>
-</td>
-</tr>
- --> 
- <table border="1" align="center" width="40%" style="text-align:center;">
- <tr>
- <td>제목</td>
- <td colspan='4' align="left">
- <input type="text" name="bsubject" id="bsubject"  size="60" maxlength="40" value = "${bv.bsubject} "/></td>
- </tr>
- <tr>
- <td colspan=2>내용</td>
- </tr>
- <tr>
- <td colspan=2>
- <textarea name="bcontent" id="bcontent" cols="100" rows="20" maxlength="4000">${bv.bcontent}</textarea>
- </td> 
- </tr>
- <tr>
-<td colspan=4 align="center">
-<input type="button" name="button" value="수정" onclick="javascript:check();"/>
-</td>
-</tr>
-</table>
-</form>
+</div>
+ 
+ 
+ 
+ <div style="position: absolute; right: 270px; top: 50px;" >
+ <input class="form-control" type="text" name="bsubject" id="bsubject"  size="60" maxlength="40" style="width: 450px; height: 30px;" required="" 
+ placeholder="제목을 입력 하세요." data-error="" value = "${bv.bsubject}" />
+</div>
+ 
+ 
+<br>
+<br>
+<div>
+<center>
+<textarea class="form-control" name="bcontent" id="bcontent" required="" placeholder="내용을 입력 하세요." cols="100" rows="20"  maxlength="4000" style="width: 600px; height: 400px;" data-error="">${bv.bcontent}</textarea>
 
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();" >수정하기</button> 
+
+</center>
+</div>
+</form>
 </body>
 </html>
 

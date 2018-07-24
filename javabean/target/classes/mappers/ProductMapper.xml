@@ -42,7 +42,7 @@
 	
 	<insert id="qnaWrite" parameterType="proqvo">
 	insert into Qna3
-	values(seq_Qidx.NEXTVAL,#{qsubject},#{qcontent},default,null,null,default,null,#{qpwd},default,default,#{qip},#{midx},#{proidx})
+	values(seq_Qidx.NEXTVAL,#{qsubject},#{qcontent},default,null,null,default,null,null,default,default,#{qip},#{midx},#{proidx})
 	</insert>
 
 	<update id="qnaMemberDelete" parameterType="Integer">

@@ -49,12 +49,12 @@ function check() {
 
 
 				<input class="form-control" id="mid" name="mid" maxlength="20"
-					style="width: 230px; height: 40px;" required="" type="text"
+					style="width: 420px; height: 40px;" required="" type="text"
 					placeholder="ID" data-error="" />
 				<tr>
 					<input class="form-control" required="" placeholder="비밀번호"
 						data-error="" type="password" name="mpwd" id="mpwd"
-						style="width: 230px; height: 40px;" maxlength="20" />
+						style="width: 420px; height: 40px;" maxlength="20" />
 				</tr>
 
 

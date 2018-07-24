@@ -27,7 +27,7 @@ function check() {
 <input type="hidden" name="proidx" value="${proidx}">
 <input type="hidden" name="pronum" value="${pronum}">
 <div style="text-align:center;"><h1>Q & A</h1></div>
-
+<br><br>
 <div class="form-group">
                     <i class="contact-icon fa fa-user"></i>
                     <select class="form-control" name="qsubject">
@@ -41,7 +41,7 @@ function check() {
 
 <div class="col-sm-12">
                   <div class="form-group">
-                    <textarea name="qcontent" id="qcontent" class="text" cols="50" rows="6"></textarea>
+                    <textarea class="form-control" name="qcontent" id="qcontent" class="text" cols="100" rows="14"></textarea>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="h3 text-center hidden" id="msgSubmit"></div>
@@ -50,29 +50,7 @@ function check() {
 
 
 
-<table border=1>
-<tr>
-<td><select name="qsubject">
-					<option value="상품문의">상품문의</option>
-					<option value="배송문의">배송문의</option>
-					<option value="사이즈문의">사이즈문의</option>
-					<option value="재입고문의">재입고문의</option>
-					<option value="기타">기타</option>
-				</select></td>
-</tr>
-
-<tr>
-<td><textarea name="qcontent" id="qcontent" class="text" cols="50" rows="6"></textarea></td>
-</tr>
-
-<tr>
-<td>
-
-</td>
-</tr>
-
-</table>
-<div sytle>
+<div>
 <button class='btn std-btn btn-filled' onclick="check();" >등록</button>
 <button class='btn std-btn btn-filled' onclick="history.back();" >이전페이지</button>
 </div>

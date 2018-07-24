@@ -52,25 +52,27 @@ function check2() {
 
 	  </script>
 </head>
+
 <body>
 <form name="frm">
 
-<div class="container">
-			<h1 align="center"> 공지사항 </h1> 
-			<table class="table table-striped">
-			<tr>
 
-				<td width="5%">번호</td>
-				<td align="left" width="20%">제목/내용</td>
-				<td width="5%">작성자</td>
-				<td width="10%">작성일</td>
-				<td width="15%">조회수</td>
-				<td width="5%"></td>
-				<td width="5%"></td>
+			<h1 align="center"> 공지사항 </h1>
+			<br>
+			<div class="table-responsive mtb">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>번호</th>
+                      <th>제목/내용</th>
+                      <th>작성자</th>
+                      <th>작성일</th>
+                      <th>수정 / 삭제</th>
+                    </tr>
+                  
+					
 				
-							
-				
-			</tr>
+			
 			<c:forEach varStatus="status"  step="1"  var="al" items="${alist}">
 				<tr>
 					<td>${status.index+1}</td>
@@ -82,14 +84,15 @@ function check2() {
 					</td>
 					 <td>관리자</td>
 					 <td>${al.bday}</td>
-					 <td>${al.bhits}</td>
+					 
 					 
 					 
 					 <td>
 				<c:choose>
 				<c:when test="${sMidx eq '1'}">
 					<p align="center">
-					<a href="<%=request.getContextPath() %>/BoardModifyC?bidx=${al.bidx}">수정</a>
+					<a href="<%=request.getContextPath() %>/BoardModifyC?bidx=${al.bidx}">수정</a> / 
+					<a href="<%=request.getContextPath() %>/BoardDeleteC?bidx=${al.bidx}">삭제</a>
 													
 					</p>
 				</c:when>
@@ -99,30 +102,19 @@ function check2() {
 			</c:choose>
 				</td>
 				
-				<td>
-				<c:choose>
-				<c:when test="${sMidx eq '1'}">
-					<p align="center">
-						<a href="<%=request.getContextPath() %>/BoardDeleteC?bidx=${al.bidx}">삭제</a>
-					</p>
-				</c:when>
-				<c:otherwise>
-
-				</c:otherwise>
-			</c:choose>
-				</td>
+				
 				
 				</tr>
 				
 
 			</c:forEach>
+			</thead>
 		</table>
 		</div>
 			<c:choose>
 				<c:when test="${sMidx eq '1'}">
 					<p align="center">
-						<input type="button" name="button" value="등록하기"
-							onclick="javascript:check();" />
+						<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();" >등록하기</button>
 					</p>
 				</c:when>
 				<c:otherwise>

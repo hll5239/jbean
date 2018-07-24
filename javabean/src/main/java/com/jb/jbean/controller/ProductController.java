@@ -97,6 +97,7 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		
+		
 		System.out.println("midx="+midx);
 		System.out.println("ip="+ip);
 		System.out.println("subject="+proqvo.getQsubject());

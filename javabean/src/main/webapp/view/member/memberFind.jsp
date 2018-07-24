@@ -86,11 +86,11 @@ function check() {
 <center>
 <div>
 					
-<input class="form-control" id="mname1" name="mname1" maxlength="20" style="width: 230px; height: 30px;" required="" type="text" placeholder="이름을 입력하세요." data-error="" />
+<input class="form-control" id="mname1" name="mname1" maxlength="20" style="width: 350px; height: 30px;" required="" type="text" placeholder="이름을 입력하세요." data-error="" />
 
-<input class="form-control" required="" placeholder="E-Mail 주소를 입력하세요." data-error="" type="text" name="mmail1" id="mmail1" style="width: 230px; height: 40px;" maxlength="20" />
+<input class="form-control" required="" placeholder="E-Mail 주소를 입력하세요." data-error="" type="text" name="mmail1" id="mmail1" style="width: 350px; height: 40px;" maxlength="20" />
 
-<input class="form-control" required="" placeholder="아이디가 나타납니다." data-error="" type="text" style="width: 230px; height: 40px;" maxlength="20" value="${mf.mid}" />
+<input class="form-control" required="" placeholder="아이디가 나타납니다." data-error="" type="text" style="width: 350px; height: 40px;" maxlength="20" value="${mf.mid}" />
 
 
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();" >아이디찾기</button>
@@ -103,11 +103,11 @@ function check() {
 				 
 <h2 align="center">비밀번호 찾기</h2>
 <br>
-<input class="form-control" type="text" name="mid" id="mid" style="width: 230px; height: 30px;" required="" size="20" maxlength="20" placeholder="아이디를 입력하세요." data-error=""/>
-<input class="form-control" type="text" name="mname" id="mname" style="width: 230px; height: 30px;" required="" size="20" maxlength="20" placeholder="이름을 입력하세요." data-error="" />
-<input class="form-control" type="text" name="mmail" id="mmail" style="width: 230px; height: 30px;" required="" size="20" maxlength="20" placeholder="E-Mail을 입력하세요." data-error="" />
+<input class="form-control" type="text" name="mid" id="mid" style="width: 365px; height: 30px;" required="" size="20" maxlength="20" placeholder="아이디를 입력하세요." data-error=""/>
+<input class="form-control" type="text" name="mname" id="mname" style="width: 365px; height: 30px;" required="" size="20" maxlength="20" placeholder="이름을 입력하세요." data-error="" />
+<input class="form-control" type="text" name="mmail" id="mmail" style="width: 365px; height: 30px;" required="" size="20" maxlength="20" placeholder="E-Mail을 입력하세요." data-error="" />
 
-<input class="form-control" required="" placeholder="비밀번호가 나타납니다." data-error="" type="text" style="width: 230px; height: 40px;" maxlength="20" value="${pf.mpwd}" />		
+<input class="form-control" required="" placeholder="비밀번호가 나타납니다." data-error="" type="text" style="width: 365px; height: 40px;" maxlength="20" value="${pf.mpwd}" />		
 											
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check3();" >비밀번호찾기</button>
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();" >로그인</button>

@@ -12,6 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
 <script type="text/javascript">
 function check() {	
 	 	  
@@ -32,56 +33,47 @@ function check1() {
 	
 	location.href = "BoardModifyC"
 }
+
 function check2() {
 	
-  var formname = document.frm;
-	  
-	  var res;
-	  	res = confirm("삭제 하시겠습니까?");
-	  
-	  	if (res == true) {
-		   	formname.method ="post";
-		   	formname.action ="<%=request.getContextPath() %>/BoardDeleteC";
-		   	formname.submit();  
-	  	}
-	
-		return ;
+	  var formname = document.frm;
+		  
+		  var res;
+		  	res = confirm("삭제 하시겠습니까?");
+		  
+		  	if (res == true) {
+			   	formname.method ="post";
+			   	formname.action ="<%=request.getContextPath() %>/BoardDeleteC";
+			   	formname.submit();  
+		  	}
+		
+			return ;
 }
 
 
-	  </script>
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $("p").slideToggle();
-    });
-});
-</script>
-
-
+  </script>
 </head>
 
 <body>
 	<form name="frm">
 
-		<div class="container">
-			<h1 align="center"> F A Q </h1> 
-			<table class="table table-striped">
-			<tr>
 
-				<td width="5%">번호</td>
-				<td align="left" width="20%">제목/내용</td>
-				<td width="5%">작성자</td>
-				<td width="10%">작성일</td>
-				<td width="15%">조회수</td>
-				<td width="5%"></td>
-				<td width="5%"></td>
-			</tr>
-
+			<h1 align="center"> FAQ </h1>
+			<br>
+			<div class="table-responsive mtb">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>번호</th>
+                      <th>제목/내용</th>
+                      <th>작성자</th>
+                      <th>작성일</th>
+                      <th>수정 / 삭제</th>
+                    </tr>
+                  
+					
+				
+			
 			<c:forEach varStatus="status"  step="1"  var="al" items="${alist}">
 				<tr>
 					<td>${status.index+1}</td>
@@ -93,14 +85,15 @@ $(document).ready(function(){
 					</td>
 					 <td>관리자</td>
 					 <td>${al.bday}</td>
-					 <td>${al.bhits}</td>
+					 
+					 
 					 
 					 <td>
 				<c:choose>
 				<c:when test="${sMidx eq '1'}">
 					<p align="center">
-					<a href="<%=request.getContextPath() %>/BoardModifyC?bidx=${al.bidx}">수정</a>
-													
+					<a href="<%=request.getContextPath() %>/BoardModifyC?bidx=${al.bidx}">수정</a> / 
+					<a href="<%=request.getContextPath() %>/BoardDeleteC?bidx=${al.bidx}">삭제</a>								
 					</p>
 				</c:when>
 				<c:otherwise>
@@ -108,40 +101,31 @@ $(document).ready(function(){
 				</c:otherwise>
 			</c:choose>
 				</td>
-					 
-					<td>
-					<c:choose>
-			<c:when test="${sMidx eq '1'}">
 				
-					<a href="<%=request.getContextPath() %>/BoardDeleteC?bidx=${al.bidx}">삭제</a>
-				</p>
-			</c:when>
-			<c:otherwise>
+				
+				
+				</tr>
+				
 
-			</c:otherwise>
-		</c:choose>
-					</td>
-				</tr>
-				<tr>				
-					
-				</tr>
 			</c:forEach>
+			</thead>
 		</table>
+		</div>
+			<c:choose>
+				<c:when test="${sMidx eq '1'}">
+					<p align="center">
+						<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();" >등록하기</button>
+						
+						</p>
+				</c:when>
+				<c:otherwise>
 
+				</c:otherwise>
+			</c:choose>
+		
 
-		<c:choose>
-			<c:when test="${sMidx eq '1'}">
-				<p align="center">
-					<input type="button" name="button" value="등록하기"
-						onclick="javascript:check();" />
-				</p>
-			</c:when>
-			<c:otherwise>
-
-			</c:otherwise>
-		</c:choose>
-	</form>
-</body>
+ </form>
+ </body>
 </html>
 
 <%@ include file = "/WEB-INF/views/include/footer.jsp"%>

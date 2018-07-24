@@ -57,28 +57,39 @@ function check1() {
 
 <center>
 <div>
-<input class="form-control" id="mid" name="mid" maxlength="20" style="width: 250px; height: 30px;" required="" type="text" placeholder="ID" data-error="" />
+<input class="form-control" id="mid" name="mid" maxlength="20" style="width: 450px; height: 30px;" required="" type="text" placeholder="ID" data-error="" />
 
-<input class="form-control" required="" placeholder="비밀번호" data-error="" type="password" name="mpwd" id="mpwd"style="width: 250px; height: 30px;" maxlength="20" />
+<input class="form-control" required="" placeholder="비밀번호" data-error="" type="password" name="mpwd" id="mpwd"style="width: 450px; height: 30px;" maxlength="20" />
 
-<input class="form-control" required="" placeholder="비밀번호 확인" data-error="" type="password" name="mpwd2" id="mpwd2"style="width: 250px; height: 30px;" maxlength="20" />
+<input class="form-control" required="" placeholder="비밀번호 확인" data-error="" type="password" name="mpwd2" id="mpwd2"style="width: 450px; height: 30px;" maxlength="20" />
 
-<input class="form-control" name="mname" id="mname" required="" type="text" placeholder="이름" data-error="" style="width: 250px; height: 30px;" maxlength="20" />
+<input class="form-control" name="mname" id="mname" required="" type="text" placeholder="이름" data-error="" style="width: 450px; height: 30px;" maxlength="20" />
+</div>
+<br>
+<br>
+<br>
 
-<input class="form-control" required="" placeholder="E-MAIL" data-error="" type="text" name ="mmail1"  style="width: 250px; height: 30px;" /><select class="form-control" name="mmail2" style="width: 250px; height: 30px;" >
+<div style="position: absolute; left: 346px; top: 370px;" >
+<input class="form-control" required="" placeholder="E-MAIL" data-error="" type="text" name ="mmail1"
+  style="width: 270px; height: 30px;" />
+</div>
+<div style="position: absolute; right: 344px; top: 370px;" >
+<select class="form-control" name="mmail2" style="width: 170px; height: 30px;" >
 <option value="naver.com" selected>@naver.com</option>
 <option value="daum.net">@daum.net</option>
 <option value="nate.com" >@nate.com</option>
 <option value="google.com" >@gmail.com</option>
 </select>
+</div>
 
-<input class="form-control" required="" type="text" placeholder="휴대폰" data-error="" name="mphone" id="mphone" style="width: 250px; height: 30px;" maxlength="20" />
+<div>
+<input class="form-control" required="" type="text" placeholder="휴대폰" data-error="" name="mphone" id="mphone" style="width: 450px; height: 30px;" maxlength="20" />
 
-<input class="form-control" required="" type="text" placeholder="우편번호" data-error="" name="mpost" id="mpost" style="width: 250px; height: 30px;" maxlength="6" />
+<input class="form-control" required="" type="text" placeholder="우편번호" data-error="" name="mpost" id="mpost" style="width: 450px; height: 30px;" maxlength="6" />
 
-<input class="form-control" required="" type="text" placeholder="주소1" data-error="" name="maddr1" id="maddr1" style="width: 250px; height: 30px;" maxlength="20" />
+<input class="form-control" required="" type="text" placeholder="주소1" data-error="" name="maddr1" id="maddr1" style="width: 450px; height: 30px;" maxlength="20" />
 
-<input class="form-control" required="" type="text" placeholder="주소2" data-error="" name="maddr2" id="maddr2" style="width: 250px; height: 30px;" maxlength="20" />
+<input class="form-control" required="" type="text" placeholder="주소2" data-error="" name="maddr2" id="maddr2" style="width: 450px; height: 30px;" maxlength="20" />
 
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();">회원가입</button>
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();">로그인</button>
