@@ -45,10 +45,10 @@
           
       <!-- ProList -->
             <div class="team-members mtb-50">
-              <div class="row">
+              <div class="row" >
               
               <c:forEach var="prov" items="${alistProA}">
-                <div class="col-sm-6 col-md-3">
+                <div class="col-sm-6 col-md-3" style="padding-bottom:30px;">
                   <!-- Team Item Starts -->
                   <div class="team-item">
                     <figure class="team-profile">

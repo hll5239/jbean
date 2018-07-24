@@ -508,8 +508,7 @@ small {
 					<c:if test="${status.index eq 0}">
 						<div
 							style="float: left; width: 50%; text-align: right; padding-right: 2%;">
-							<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
-								style="height: 223px; width: 185px">
+							<img src="displayFile?fileName=${prov.promain}" class="img-responsive" style="width:auto; height: 233px;">
 						</div>
 						<div
 							style="float: right; width: 50%; text-align: left; padding-left: 2%;">
@@ -521,7 +520,15 @@ small {
 								<li><span style="width: 15%; display: inline-block;"><strong>가격</strong></span>
 									<input type="text" name="proprice" style="border: none;"
 									readonly value="${prov.proprice}"></li>
-								<li>배송비</li>
+								<li><span style="width: 15%; display: inline-block;"><strong>배송비</strong></span>
+									<c:choose>
+										<c:when test="${prov.proprice > 30000 }">
+											<c:out value="무료"></c:out>
+										</c:when>
+										<c:otherwise>
+											<input type="text" value="2500" size="4" readonly style="border: none;">원
+										</c:otherwise>
+									</c:choose></li>
 								<li><span style="width: 15%; display: inline-block;"><strong>옵션</strong></span>
 									<input type="hidden" id="pronum" name="pronum"
 									value="${prov.pronum}"> <select id="proidx"
@@ -539,8 +546,7 @@ small {
 							</ul>
 							<ul style="list-style: none;">
 								<li><span style="width: 15%; display: inline-block;"><strong>금액</strong></span>
-									<input type="text" name="sum" size="8" readonly
-									style="border: none;">원</li>
+									<input type="text" name="sum" size="8" readonly	style="border: none;">원</li>
 								<br>
 								<li><span><input type="button"
 										class="btn btn-common" id="buy" value="바로구매" /> <input
@@ -572,12 +578,12 @@ small {
                 </a>
                 
               </div>
-			
-			<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
-				style="height: 1000px; width: 1000px"> <br> <br> <br>
+			<div style="padding-top: 2%; padding-bottom: 2%;">
+			<img src="displayFile?fileName=${prov.prosub1}" class="img-responsive" style="width:100%; height: auto;"> <br>
+			<img src="displayFile?fileName=${prov.prosub2}" class="img-responsive" style="width:100%; height: auto;"> <br> <br>
 			<br> <br> <br> <br> <br> <br> <br>
 			<br>
-			
+			</div>
 			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
                 <a href="#info1" class="filter btn btn-common "   data-filter="all">
                   	상품상세 
@@ -594,9 +600,11 @@ small {
                 
               </div>
 			
-				<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
-				style="height: 1000px; width: 1000px"> <br> <br> <br>
+			<div style="padding-top: 2%; padding-bottom: 2%;">
+			<img src="displayFile?fileName=${prov.proinfo}" class="img-responsive" style="width:100%; height: auto;"> <br>
 			<br> <br> <br> <br> <br> <br> <br>
+			<br>
+			</div>
 			
 			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
                 <a href="#info1" class="filter btn btn-common "   data-filter="all">
@@ -620,9 +628,9 @@ small {
 						cols="120" rows="6"></textarea>
 			<input type="hidden" id="rfilename" name="rfilename">
 				
-				<div style="float: left; width:30%;" class='fileDrop'>사진첨부</div>
+				<div style="float: left; width:30%;" class="fileDrop">사진첨부</div>
 				<div class='uploadedList'></div>
-				<select class="form1-control input-lg" style="width:23%; height:56px" name="rstar" id="rstar">
+				<select class="form1-control input-lg" style="width:23%; height:56px;" name="rstar" id="rstar">
 						<option value="5">★★★★★ 완전좋아요</option>
 						<option value="4">★★★★ 좋아요</option>
 						<option value="3">★★★ 보통이에요</option>
