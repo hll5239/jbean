@@ -10,7 +10,7 @@
 </head>
 <style>
 .fileDrop {
-	width: 100px;
+	width: 80px;
 	height: 55px;
 	border: 1px dotted blue;
 }
@@ -106,7 +106,6 @@ small {
 	
 	$(function(){
 		
-
 		
 	$('#buy').click(function(){
 		alert("바로구매");
@@ -197,7 +196,7 @@ small {
 		
 	});	
 	
-	
+	/*리뷰 에이작스  */
 	var pronum= $("#pronum").val();
 	var midx=$("#midx").val();
 	$.ajax({
@@ -556,11 +555,64 @@ small {
 
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br> <br> <br> <br> <br>
-			<h3>상품상세 상품정보 Review Q&A</h3>
+		
+			
+			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
+                <a href="#info1" class="filter btn btn-common active"  name="info1" data-filter="all">
+                  	상품상세 
+                </a>
+                <a href="#info2" class="filter btn btn-common"  data-filter=".branding">
+                 	 상품정보 
+                </a>
+                <a href="#info3" class="filter btn btn-common"  data-filter=".marketing">
+                  Review
+                </a>
+                <a href="#info4" class="filter btn btn-common"  data-filter=".planning">
+                  Q&A 
+                </a>
+                
+              </div>
+			
 			<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
 				style="height: 1000px; width: 1000px"> <br> <br> <br>
 			<br> <br> <br> <br> <br> <br> <br>
 			<br>
+			
+			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
+                <a href="#info1" class="filter btn btn-common "   data-filter="all">
+                  	상품상세 
+                </a>
+                <a href="#info2" class="filter btn btn-common active" name="info2"  data-filter=".branding">
+                 	 상품정보 
+                </a>
+                <a href="#info3" class="filter btn btn-common "   data-filter=".marketing">
+                  Review
+                </a>
+                <a href="#info4" class="filter btn btn-common"   data-filter=".planning">
+                  Q&A 
+                </a>
+                
+              </div>
+			
+				<img src="/resources/helium-ui-kit/img/team/team-04.jpg"
+				style="height: 1000px; width: 1000px"> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			
+			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
+                <a href="#info1" class="filter btn btn-common "   data-filter="all">
+                  	상품상세 
+                </a>
+                <a href="#info2" class="filter btn btn-common "   data-filter=".branding">
+                 	 상품정보 
+                </a>
+                <a href="#info3" class="filter btn btn-common active" name="info3"  data-filter=".marketing">
+                  Review
+                </a>
+                <a href="#info4" class="filter btn btn-common"   data-filter=".planning">
+                  Q&A 
+                </a>
+                
+              </div>
 			<div>
 				<h1>Review</h1>
 				
@@ -568,28 +620,51 @@ small {
 						cols="120" rows="6"></textarea>
 			<input type="hidden" id="rfilename" name="rfilename">
 				
-				<div style="float: left; width:40%;" class='fileDrop'>사진첨부</div>
+				<div style="float: left; width:30%;" class='fileDrop'>사진첨부</div>
 				<div class='uploadedList'></div>
-				<select class="custom-select" style="width:19% height:40%" name="rstar" id="rstar">
+				<select class="form1-control input-lg" style="width:23%; height:56px" name="rstar" id="rstar">
 						<option value="5">★★★★★ 완전좋아요</option>
 						<option value="4">★★★★ 좋아요</option>
 						<option value="3">★★★ 보통이에요</option>
 						<option value="2">★★ 그저 그래요</option>
 						<option value="1">★ 별로에요</option>
 				</select>
-				<button class='btn std-btn btn-lg btn-filled' style="width:10% height:20%" name="save" id="save">입력</button>
-
+				</div>
+				<div style="position: absolute; width:10%; right: 422px; top: 3176px;">
+				<button class='btn std-btn btn-lg btn-filled'  name="save" id="save">입력</button>
+				</div>
 				
-			</div>
+				
+				
+			
 
 		<br><br><br><br>
 			<h3>상품평</h3>
 			<div id=tbl></div>
 
+
+			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
+                <a href="#info1" class="filter btn btn-common "   data-filter="all">
+                  	상품상세 
+                </a>
+                <a href="#info2" class="filter btn btn-common "   data-filter=".branding">
+                 	 상품정보 
+                </a>
+                <a href="#info3" class="filter btn btn-common "   data-filter=".marketing">
+                  Review
+                </a>
+                <a href="#info4" class="filter btn btn-common active"  name="info4"  data-filter=".planning">
+                  Q&A 
+                </a>
+                
+              </div>
+                
+                <br>  <br>  <br>  <br>
 			<div class="table-style1">
-				<div class="sub-title">
-					<span>Q&A</span>
+				<div style="text-align:center;" class="sub-title">
+					<h1>Q&A</h1>
 				</div>
+				<div><button class='btn std-btn btn-filled' onclick="check();" >Q&A등록</button> </div>
 				<div class="table-responsive mtb">
 					<table class="table table-bordered table-1 ">
 						<thead>
@@ -599,7 +674,18 @@ small {
 								<td width="50%">제목</td>
 								<td>작성자</td>
 								<td>작성일</td>
-								<td></td>
+								<c:choose>
+									<c:when test="${ql.midx eq sMidx and sMidx != '1'}">
+										<td></td>
+									</c:when>
+
+									<c:when test="${sMidx eq '1'}">
+										<td></td>
+									</c:when>
+
+								 </c:choose>
+								
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -663,18 +749,18 @@ small {
 										</div></td>
 									<td>${ql.mname}</td>
 									<td>${ql.qday}</td>
-									<td><c:choose>
+									<c:choose>
 											<c:when test="${ql.midx eq sMidx and sMidx != '1'}">
-												<a
-													href="${pageContext.request.contextPath}/QdelteC?qidx=${ql.qidx}&pronum=${ql.pronum}">삭제</a>
+												<td><a
+													href="${pageContext.request.contextPath}/QdelteC?qidx=${ql.qidx}&pronum=${ql.pronum}">삭제</a></td>
 											</c:when>
 
 											<c:when test="${sMidx eq '1'}">
-												<a
-													href="${pageContext.request.contextPath}/QdelteAdminC?qidx=${ql.qidx}&pronum=${ql.pronum}">관리자삭제</a>
+												<td><a
+													href="${pageContext.request.contextPath}/QdelteAdminC?qidx=${ql.qidx}&pronum=${ql.pronum}">관리자삭제</a></td>
 											</c:when>
 
-										</c:choose></td>
+										</c:choose>
 								</tr>
 
 

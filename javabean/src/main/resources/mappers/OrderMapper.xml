@@ -8,8 +8,8 @@
 	</select>
 	
 	<insert id="orderInsert" parameterType="ovo">
-		insert into Order3 (Oidx, Oid, Ocnt, Oprice, Midx, Proidx)
-		values(seq_Oidx.NEXTVAL,#{oid},#{ocnt},#{oprice},#{midx},#{proidx})
+		insert into Order3
+		values(seq_Oidx.NEXTVAL,#{oid},default,#{ocnt},#{oprice},default,#{midx},#{proidx})
 	</insert>
 	
 	<insert id="deliveryInsert" parameterType="buyvo">

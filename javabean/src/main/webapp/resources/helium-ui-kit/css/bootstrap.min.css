@@ -9349,4 +9349,69 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 }
 
 /* 새로운 테이블 Y 끝 */
+/* 새로운폼 시작*/
+.form1-control {
+	display: block;
+	width: 20%;
+	padding: .5rem .75rem;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: #464a4c;
+	background-color: #fff;
+	background-image: none;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, .15);
+	border-radius: .25rem;
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s,
+		-webkit-box-shadow ease-in-out .15s
+}
 
+.form1-control::-ms-expand {
+	background-color: transparent;
+	border: 0
+}
+
+.form1-control:focus {
+	color: #464a4c;
+	background-color: #fff;
+	border-color: #5cb3fd;
+	outline: 0
+}
+
+.form1-control::-webkit-input-placeholder {
+	color: #636c72;
+	opacity: 1
+}
+
+.form1-control::-moz-placeholder {
+	color: #636c72;
+	opacity: 1
+}
+
+.form1-control:-ms-input-placeholder {
+	color: #636c72;
+	opacity: 1
+}
+
+.form1-control::placeholder {
+	color: #636c72;
+	opacity: 1
+}
+
+.form1-control:disabled, .form1-control[readonly] {
+	background-color: #eceeef;
+	opacity: 1
+}
+
+.form1-control:disabled {
+	cursor: not-allowed
+}
+/* 새로운 폼 끝 */
