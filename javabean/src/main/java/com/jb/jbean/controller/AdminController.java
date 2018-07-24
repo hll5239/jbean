@@ -133,8 +133,8 @@ public class AdminController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+		System.out.println("pwd="+mv.getMpwd());
+		System.out.println("mname="+mv.getMname());
 		mv.setMmail(mmail);
 		mv.setMip(ip);
 		mv.setMidx(midx);
