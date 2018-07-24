@@ -11,7 +11,7 @@
                   <!-- Team Item Starts -->
                   <div class="team-item">
                     <figure class="team-profile">
-                    <a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}"><img src="/resources/helium-ui-kit/img/team/team-04.jpg">
+                    <a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}"><img src="/resources/helium-ui-kit/img/slider/bg-1.jpg" class="img-responsive" style="width:auto; height: 300px;">
                        <figcaption class="our-team">
                     	</figcaption>
                    	</a>

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.jb.jbean.domain.*"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,8 +25,10 @@
 </script>
 
 <body>
-내 주문조회
-
+<span class=""></span>
+<h1>내 주문조회</h1>
+<br>
+<br>
 <!-- 
 	<form name="turm">
 	<table>
@@ -49,28 +49,30 @@
 -->
 	 
 <form name="orderDetail">
-	<table border="1">
+	<table class="table22">
+		<thead class="thead-default">
 		<tr>
-			<td>주문일<br>(주문번호)</td>
-			<td>상품정보</td>
-			<td>수량</td>
-			<td>결제금액</td>
-			<td>주문상태</td>
+			<th style="width:23%">주문일<br>(주문번호)</th>
+			<th style="width:43%">상품정보</th>
+			<th>수량</th>
+			<th>결제금액</th>
+			<th>주문상태</th>
 		</tr>
+		</thead>
 		<c:forEach var="buyvo" items="${alist}">
 		<tr>
 			<td>${buyvo.oday}<br>
-				<input type="text" name="oid" value="${buyvo.oid}" readonly style="border:none;"><br>
-				<a href="${request.contextPath}/MyOrderInfoC?oid=${buyvo.oid}">상세보기</a>
-				<input type="button" value="상세보기" name="detail"></td>
+				<input type="hidden" name="oid" value="${buyvo.oid}" >
+				<c:out value="( ${buyvo.oid} )"/><br>
+				<a href="${request.contextPath}/MyOrderInfoC?oid=${buyvo.oid}">상세보기</a></td>
 			<td>${buyvo.proname}<br>[옵션: ${buyvo.prosize}]</td>
 			<td>${buyvo.ocnt}</td>
 			<td>${buyvo.pprice} 원</td>
 			<c:set var="ing" value="${buyvo.o_yx}${buyvo.p_nxy}${buyvo.d_nxczy}" />
 			<td><c:choose>
 					<c:when test="${ing == 'YNN'}">
-						<c:out value="입금대기"></c:out><br>
-						<input type="button" value="주문취소" onclick="location.href='${request.getContextPath}/OrderCancelC?oid=${buyvo.oid}'">
+						<c:out value="입금대기"></c:out><br><br>
+						<input type="button" value="주문취소" class="btn std-btn btn-sm11 btn-common" onclick="location.href='${request.getContextPath}/OrderCancelC?oid=${buyvo.oid}'">
 					</c:when>
 					<c:when test="${ing == 'YYC'}">
 						<c:out value="상품준비중"></c:out>
@@ -97,3 +99,5 @@
 
 </body>
 </html>
+
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	

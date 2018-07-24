@@ -52,7 +52,7 @@
                   <!-- Team Item Starts -->
                   <div class="team-item">
                     <figure class="team-profile">
-                      <a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}"><img src="displayFile?fileName=${prov.promain}"></a>
+                      <a href="${request.contextPath}/ProInfoC?pronum=${prov.pronum}"><img src="displayFile?fileName=${prov.promain}" class="img-responsive" style="width:auto; height: 300px;"></a>
                     </figure>
                     <div class="info">
                       <h2>

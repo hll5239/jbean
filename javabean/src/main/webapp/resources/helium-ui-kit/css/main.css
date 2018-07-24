@@ -1019,6 +1019,12 @@ footer .menu li a:hover {
 	padding: 5px 11px
 }
 
+.btn-sm11 {
+	font-size: 12px;
+	min-width: 84px;
+	padding: 5px 11px
+}
+
 .learn-more .btn.btn-sm {
 	font-size: 11px
 }

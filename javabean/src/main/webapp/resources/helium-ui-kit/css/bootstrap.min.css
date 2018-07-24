@@ -9349,6 +9349,159 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 }
 
 /* 새로운 테이블 Y 끝 */
+
+/* 새로운 테이블 Y */
+
+.table22 {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.table22 td, .table22 th {
+	padding: .55rem;
+	vertical-align: middle;
+	border-top: 1px solid #eceeef
+}
+
+.table22 thead th {
+	vertical-align: middle;
+	border-bottom: 2px solid #eceeef
+}
+
+.table22 tbody+tbody {
+	border-top: 2px solid #eceeef
+}
+
+.table22 .table22 {
+	background-color: #fff
+}
+
+.table22-sm td, .table22-sm th {
+	padding: .3rem
+}
+
+.table22-bordered {
+	border: 1px solid #eceeef
+}
+
+.table22-bordered td, .table22-bordered th {
+	border: 1px solid #eceeef
+}
+
+.table22-bordered thead td, .table22-bordered thead th {
+	border-bottom-width: 2px
+}
+
+.table22-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, .05)
+}
+
+.table22-hover tbody tr:hover {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table22-active, .table22-active>td, .table22-active>th {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table22-hover .table22-active:hover {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table22-hover .table22-active:hover>td, .table22-hover .table22-active:hover>th
+	{
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.table22-success, .table22-success>td, .table22-success>th {
+	background-color: #dff0d8
+}
+
+.table22-hover .table22-success:hover {
+	background-color: #d0e9c6
+}
+
+.table22-hover .table22-success:hover>td, .table22-hover .table22-success:hover>th
+	{
+	background-color: #d0e9c6
+}
+
+.table22-info, .table22-info>td, .table22-info>th {
+	background-color: #d9edf7
+}
+
+.table22-hover .table22-info:hover {
+	background-color: #c4e3f3
+}
+
+.table22-hover .table22-info:hover>td, .table22-hover .table22-info:hover>th {
+	background-color: #c4e3f3
+}
+
+.table22-warning, .table22-warning>td, .table22-warning>th {
+	background-color: #fcf8e3
+}
+
+.table22-hover .table22-warning:hover {
+	background-color: #faf2cc
+}
+
+.table22-hover .table22-warning:hover>td, .table22-hover .table22-warning:hover>th
+	{
+	background-color: #faf2cc
+}
+
+.table22-danger, .table22-danger>td, .table22-danger>th {
+	background-color: #f2dede
+}
+
+.table22-hover .table22-danger:hover {
+	background-color: #ebcccc
+}
+
+.table22-hover .table22-danger:hover>td, .table22-hover .table22-danger:hover>th
+	{
+	background-color: #ebcccc
+}
+
+.thead-inverse th {
+	color: #fff;
+	background-color: #292b2c
+}
+
+.thead-default th {
+	color: #464a4c;
+	background-color: #eceeef
+}
+
+.table22-inverse {
+	color: #fff;
+	background-color: #292b2c
+}
+
+.table22-inverse td, .table22-inverse th, .table22-inverse thead th {
+	border-color: #fff
+}
+
+.table22-inverse.table22-bordered {
+	border: 0
+}
+
+.table22-responsive {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+.table22-responsive.table22-bordered {
+	border: 0
+}
+
+
+/* 새로운 테이블 Y 끝 */
 /* 새로운폼 시작*/
 .form1-control {
 	display: block;

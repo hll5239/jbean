@@ -99,16 +99,20 @@ System.out.println("技记mid"+mid);
 
 	}
 	
-	
-	@RequestMapping(value="/MyBoardC")
-	protected String myBoard(Model model, HttpSession session) {
-	
-System.out.println("----MyBoardC----------------------");
-		int midx = (Integer) session.getAttribute("sMidx");
-System.out.println("技记midx"+midx);
 
-		ArrayList<ProReviewVo> alist = mys.myReview(midx);
-		model.addAttribute("alist", alist);
+  	@RequestMapping(value="/MyBoardC")
+  	protected String myReview(Model model, HttpSession session) {
+  		
+  		System.out.println("----MyBoardC----------------------");
+  		
+		int midx = (Integer) session.getAttribute("sMidx");
+		
+		ArrayList<ProReviewVo> alistr = mys.myReview(midx);
+		model.addAttribute("alistr", alistr);
+		
+		ArrayList<ProQnaVo> alistq = mys.myQna(midx);
+		model.addAttribute("alistq", alistq);
+		
 		
 		String view;
 		
@@ -118,33 +122,9 @@ System.out.println("技记midx"+midx);
 			view = "redirect:/MemberLoginController";
 		}	
 		return view;
+  	}
 
-	}
-	
-	//Ajax侩
-	@ResponseBody
-  	@RequestMapping(value="/MyReviewC", produces ="text/plain;charset=UTF-8")
-  	public ArrayList<ProReviewVo> myReview(Model model, HttpSession session) throws Exception {
-  		
-		int midx = (Integer) session.getAttribute("sMidx");
-		
-		ArrayList<ProReviewVo> alist = mys.myReview(midx);
-		model.addAttribute("alist", alist);
-		
-  		return alist;
-  	}
-	//Ajax侩
-	@ResponseBody
-  	@RequestMapping(value="/MyQnaC", produces ="text/plain;charset=UTF-8")
-  	public ArrayList<ProQnaVo> myQna(Model model, HttpSession session) throws Exception {
-  		
-		int midx = (Integer) session.getAttribute("sMidx");
-		
-		ArrayList<ProQnaVo> alist = mys.myQna(midx);
-		model.addAttribute("alist", alist);
-		
-  		return alist;
-  	}
+
 	
 	
 }

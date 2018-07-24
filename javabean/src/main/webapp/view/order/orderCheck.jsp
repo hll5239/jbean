@@ -21,7 +21,7 @@
 	<h4 class="list-title">주문내역</h4>
 	<c:forEach var="buyvo" begin="0" varStatus="status" items="${alist}">
 	<c:if test="${status.index eq 0}">
-	<table class="table" style="border: 1">
+	<table class="table">
        <thead class="thead-default">
          <tr>
            <th></th>

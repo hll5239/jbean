@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.jb.jbean.domain.*"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "/WEB-INF/views/include/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,32 +13,37 @@
 </script>
 
 <body>
-주문내역 상세
+<h1>주문내역상세</h1>
+<br>
+<br>
+<br>
+<div class="table-style3">
+	<div class="table-responsive mtb">
 
 <c:forEach var="buyvo" begin="0" varStatus="status" items="${alist}">
  <c:if test="${status.index eq 0}">
-<table>
+<h4 style="color: gray;">주문내역</h4>
+<table class="table22">
+	<thead class="thead-default">
 	<tr>
-		<td colspan="5">주문내역</td>
+		<th></th>
+		<th>상품정보</th>
+		<th>수량</th>
+		<th>상품금액</th>
+		<th>주문상태</th>
 	</tr>
-	<tr>
-		<td>이미지</td>
-		<td>상품정보</td>
-		<td>수량</td>
-		<td>상품금액</td>
-		<td>주문상태</td>
-	</tr>
+	</thead>
 	<c:forEach var="order" items="${alist}" >
 	<tr>
-		<td>${order.promain}</td>
+		<td><img src="/resources/helium-ui-kit/img/team/team-04.jpg" style="height:70px; width:auto;"></td>
 		<td>${order.proname}<br>${order.prosize}</td>
 		<td>${order.ocnt}</td>
 		<td>${order.ocnt * order.proprice}</td>
 		<c:set var="ing" value="${order.o_yx}${order.p_nxy}${order.d_nxczy}" />
 			<td><c:choose>
 					<c:when test="${ing == 'YNN'}">
-						<c:out value="입금대기"></c:out><br>
-						<input type="button" value="주문취소">
+						<c:out value="입금대기"></c:out><br><br>
+						<input type="button" class="btn std-btn btn-sm11 btn-common" value="주문취소">
 					</c:when>
 					<c:when test="${ing == 'YYC'}">
 						<c:out value="상품준비중"></c:out>
@@ -60,23 +63,33 @@
 			</td>
 	</tr>
 	</c:forEach>
+	</table>
+	<br>
+	<h4 style="color: gray;">배송정보</h4>
+	<table class="table22">
+	<thead class="thead-default">
+		<tr>
+			<th style="width:15%">받는사람</th>
+			<td style="text-align: left; padding-left: 20px;">${buyvo.dname}<br>
+				${buyvo.dphone}<br>
+				${buyvo.dpost}<br>
+				${buyvo.daddr1}<br>
+				${buyvo.daddr2}</td>
+		</tr>
+	</thead>
+	</table>
+	<br>
+	<h4 style="color: gray;">결제정보</h4>
+	<table class="table22">
+	<thead class="thead-default">
 	<tr>
-		<td colspan="5">배송정보</td>
+		<th>상품금액</th>
+		<th>배송비</th>
+		<th>결제금액</th>
+		<th>결제수단</th>
+		<th>결제일</th>
 	</tr>
-	<tr>
-		<td>받는사람</td>
-		<td colspan="4">${buyvo.dname}<br>${buyvo.dphone}<br>${buyvo.dpost}${buyvo.daddr1}<br>${buyvo.daddr2}</td>
-	</tr>
-	<tr>
-		<td colspan="5">결제정보</td>
-	</tr>
-	<tr>
-		<td>상품금액</td>
-		<td>배송비</td>
-		<td>결제금액</td>
-		<td>결제수단</td>
-		<td>결제일</td>
-	</tr>
+	</thead>
 	<tr>
 		<td>
 			<c:choose>
@@ -118,6 +131,9 @@
 </table>
 </c:if>
 </c:forEach>
-
+</div>
+</div>
 </body>
 </html>
+
+<%@ include file = "/WEB-INF/views/include/footer.jsp"%>	
