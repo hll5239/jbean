@@ -104,6 +104,7 @@ public class ProductController {
 		System.out.println("content="+proqvo.getQcontent());
 		System.out.println("proidx="+proqvo.getProidx());
 		System.out.println("pronum"+proqvo.getPronum());
+		System.out.println("pronum"+proqvo.getPronum());
 		proqvo.setQip(ip);
 		proqvo.setMidx(midx);
 		

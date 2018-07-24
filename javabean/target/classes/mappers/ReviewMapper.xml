@@ -12,7 +12,7 @@ update Review3 set Rdel_yn='Y', Rmday=sysdate , Rip=#{rip} where Ridx=#{ridx} an
 
 <insert id="reviewWrite" parameterType="prorvo">
 insert into Review3 values
-(seq_Ridx.NEXTVAL,#{rcontent},default,null,default,#{rip},#{rstar},#{rfilename},#{pidx},#{proidx},#{midx})
+(seq_Ridx.NEXTVAL,#{rcontent},default,null,default,#{rip},#{rstar},#{rfilename},#{proidx},#{midx})
 </insert>
 
 </mapper>

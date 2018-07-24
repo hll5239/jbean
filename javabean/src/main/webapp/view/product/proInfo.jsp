@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
+
 <style>
 .fileDrop {
 	width: 80px;
@@ -65,19 +65,19 @@ small {
 	}
 	
 	function addFilePath(msg){
-		alert(msg);	
+		
 	}
 
 	function checkImageType(fileName){
 		
 		var pattern = /jpg$|gif$|png$|jpeg$/i;
-		alert(fileName.match(pattern));
+	
 		
 		return fileName.match(pattern);
 	}
 
 	function getOriginalName(fileName){
-//		alert(fileName);
+
 		//이미지파일이면 원본이름 안쓴다
 		if (checkImageType(fileName)) {
 			return;
@@ -85,7 +85,7 @@ small {
 		
 		var idx = fileName.lastIndexOf("_")+1;
 		
-		alert(idx);
+	
 		return fileName.substr(idx);
 	}
 
@@ -108,7 +108,7 @@ small {
 		
 		
 	$('#buy').click(function(){
-		alert("바로구매");
+	
 		
 		if(${sMid eq null}){
 			location.href = "<%=request.getContextPath()%>/MemberLoginController"
@@ -129,7 +129,7 @@ small {
 		if(${sMid eq null}){
 			location.href = "<%=request.getContextPath()%>/MemberLoginController"
 		}else{
-		alert("장바구니");
+
 		document.form.method ="POST"; //메소드 타입을 결정
 		document.form.action ="${request.contextPath}/BasketInsertC";
 							//이것은 보이지 않는 주소값을 반환해주는 것으로
@@ -167,7 +167,7 @@ small {
 			success : function(data){
 				
 				//  /2018/05/30/s-sdsdsd-ssd22q.jpg
-				alert(data);
+		
 			
 				// input--> sdsdsd-ssd22q.jpg
 				$("#rfilename").val(data.replace("s-",""));		
@@ -279,7 +279,7 @@ small {
 							var rstar = $("#rstar").val();
 							var rcontent = $("#rcontent").val();
 							var rfilename = $("#rfilename").val()
-
+							var pidx=$()
 							$
 									.ajax({
 										type : "POST",
@@ -298,7 +298,7 @@ small {
 										}),
 										cache : false,
 										error : function() {
-											alert("error");
+											alert("구매한 사람만 쓰실수있습니다.");
 										},
 										success : function(data) {
 											var str = '';
@@ -367,10 +367,10 @@ small {
 	});
 
 	$.del = function(ridx) {
-		alert("삭제버튼")
+		
 		var pronum = $("#pronum").val();
 		var ridx = ridx;
-		alert(ridx);
+	
 
 		$
 				.ajax({
@@ -399,7 +399,7 @@ small {
 							if (this.rfilename != null) {
 								filename = "<img src='/displayc?fileName="
 										+ this.rfilename
-										+ "' style='width:100%; height:auto'>"
+										+ "'  style='width:100%; height:auto'>"
 							} else {
 								filename = "<ul><li></li>";
 							}
@@ -479,7 +479,7 @@ small {
 	
 	
 </script>
-
+</head>
 
 <body onload="init();">
 
@@ -502,8 +502,7 @@ small {
 
 			<input type="hidden" name="pronum" value="${pronum}">
 
-			<c:forEach var="prov" begin="0" varStatus="status"
-				items="${alistProI}">
+			<c:forEach var="prov" begin="0" varStatus="status" items="${alistProI}">
 				<div>
 					<c:if test="${status.index eq 0}">
 						<div
@@ -578,12 +577,14 @@ small {
                 </a>
                 
               </div>
+              <c:forEach var="prov" items="${alistProI}">
 			<div style="padding-top: 2%; padding-bottom: 2%;">
 			<img src="displayFile?fileName=${prov.prosub1}" class="img-responsive" style="width:100%; height: auto;"> <br>
 			<img src="displayFile?fileName=${prov.prosub2}" class="img-responsive" style="width:100%; height: auto;"> <br> <br>
 			<br> <br> <br> <br> <br> <br> <br>
 			<br>
 			</div>
+			
 			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
                 <a href="#info1" class="filter btn btn-common "   data-filter="all">
                   	상품상세 
@@ -605,7 +606,7 @@ small {
 			<br> <br> <br> <br> <br> <br> <br>
 			<br>
 			</div>
-			
+			</c:forEach>
 			<div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
                 <a href="#info1" class="filter btn btn-common "   data-filter="all">
                   	상품상세 
@@ -748,7 +749,7 @@ small {
 															onclick="rply(${status.index})">
 
 													</c:when>
-													<c:otherwise>
+												<c:otherwise>
 							관리자 답변:
 							</c:otherwise>
 												</c:choose>
