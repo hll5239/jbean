@@ -53,66 +53,32 @@ function check1() {
 <body>
 <form name="frm">
 <h2 align="center">회원가입</h2>
+<br>
 
 <center>
 <div>
-<input class="form-control" id="mid" name="mid" maxlength="20" style="width: 230px; height: 40px;" required="" type="text" placeholder="ID" data-error="" />
+<input class="form-control" id="mid" name="mid" maxlength="20" style="width: 250px; height: 30px;" required="" type="text" placeholder="ID" data-error="" />
 
+<input class="form-control" required="" placeholder="비밀번호" data-error="" type="password" name="mpwd" id="mpwd"style="width: 250px; height: 30px;" maxlength="20" />
 
+<input class="form-control" required="" placeholder="비밀번호 확인" data-error="" type="password" name="mpwd2" id="mpwd2"style="width: 250px; height: 30px;" maxlength="20" />
 
+<input class="form-control" name="mname" id="mname" required="" type="text" placeholder="이름" data-error="" style="width: 250px; height: 30px;" maxlength="20" />
 
-<input class="form-control" required="" placeholder="비밀번호" data-error="" type="password" name="mpwd" id="mpwd"style="width: 230px; height: 40px;" maxlength="20" />
+<input class="form-control" required="" placeholder="E-MAIL" data-error="" type="text" name ="mmail1"  style="width: 250px; height: 30px;" /><select class="form-control" name="mmail2" style="width: 250px; height: 30px;" >
+<option value="naver.com" selected>@naver.com</option>
+<option value="daum.net">@daum.net</option>
+<option value="nate.com" >@nate.com</option>
+<option value="google.com" >@gmail.com</option>
+</select>
 
+<input class="form-control" required="" type="text" placeholder="휴대폰" data-error="" name="mphone" id="mphone" style="width: 250px; height: 30px;" maxlength="20" />
 
+<input class="form-control" required="" type="text" placeholder="우편번호" data-error="" name="mpost" id="mpost" style="width: 250px; height: 30px;" maxlength="6" />
 
-<input class="form-control" required="" placeholder="비밀번호 확인" data-error="" type="password" name="mpwd2" id="mpwd2"style="width: 230px; height: 40px;" maxlength="20" />
+<input class="form-control" required="" type="text" placeholder="주소1" data-error="" name="maddr1" id="maddr1" style="width: 250px; height: 30px;" maxlength="20" />
 
-
-
-<input class="form-control" name="mname" id="mname" required="" type="text" placeholder="이름" data-error="" style="width: 230px; height: 40px;" maxlength="20" />
-
-
-
-<div class="col-md-3">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                   <input class="form-control" required="" placeholder="E-MAIL" data-error="" type="text" name ="mmail1"  style="width: 130px; height: 40px; vertical-align: bottom;" />
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <select class="form-control" name="mmail2" style="width: 130px; height: 40px; vertical-align: bottom;" >
-					<option value="naver.com" selected>@naver.com</option>
-					<option value="daum.net">@daum.net</option>
-					<option value="nate.com" >@nate.com</option>
-					<option value="google.com" >@gmail.com</option>
-					</select>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                </div>
-
-              </div>
-          </div>
-
-
-
-
-<input class="form-control" required="" type="text" placeholder="휴대폰" data-error="" name="mphone" id="mphone" style="width: 230px; height: 40px;" maxlength="20" />
-
-
-
-<input class="form-control" required="" type="text" placeholder="우편번호" data-error="" name="mpost" id="mpost" style="width: 230px; height: 40px;" maxlength="6" />
-
-
-
-<input class="form-control" required="" type="text" placeholder="주소1" data-error="" name="maddr1" id="maddr1" style="width: 230px; height: 40px;" maxlength="20" />
-
-
-<input class="form-control" required="" type="text" placeholder="주소2" data-error="" name="maddr2" id="maddr2" style="width: 230px; height: 40px;" maxlength="20" />
-
-
+<input class="form-control" required="" type="text" placeholder="주소2" data-error="" name="maddr2" id="maddr2" style="width: 250px; height: 30px;" maxlength="20" />
 
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();">회원가입</button>
 <button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();">로그인</button>

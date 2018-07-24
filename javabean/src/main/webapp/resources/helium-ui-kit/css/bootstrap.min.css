@@ -9200,7 +9200,6 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 /* 새로운 테이블 Y */
 .table11 {
-	width: 55%;
 	max-width: 100%;
 	margin-bottom: 1rem
 }
@@ -9213,9 +9212,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 
 .table11 thead th {
-	vertical-align: bottom;
+	vertical-align: middle;
 	border-bottom: 2px solid #eceeef;
 	text-align: center;
+	width: 20%;
 }
 
 .table11 tbody+tbody {

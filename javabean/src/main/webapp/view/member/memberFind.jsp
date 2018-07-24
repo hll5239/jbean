@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
- function check() {	
-	 	  
+function check() {	
+	  
 	  var formname = document.frm;
 	  
 	  if (formname.mname1.value =="") {
@@ -72,10 +72,6 @@
 			}
 			return;
 		}
-
-		
-	
-		
 	
 </script>
 
@@ -83,57 +79,41 @@
 
 <body>		
 	<form name="frm">
-		<c:set var="i" value="0" />
+		
 		
 <h2 align="center">아이디 찾기</h2>
-		<table border=1 align="center" width="30%" height="200px">
-			<tr>
-				<td>이름</td>
-				<td colspan=3><input type="text" name="mname1" id="mname1" size="20" maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td>E-Mail</td>
-				<td colspan=3><input type="text" name="mmail1" id="mmail1" size="20" maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td colspan=4 align="center">
-				<p>	
-				<input type="text" value="${mf.mid}">
-				</p>
-				<input type="button" name="button" value="아이디 찾기" onclick="javascript:check();" />
-				<input type="button" name="button" value="로그인" onclick="javascript:check1();" />
-				<input type="button" name="button" value="회원가입" onclick="javascript:check2();" />				
-				</td>										
-			</tr>		
-		</table>
+<br>
+<center>
+<div>
+					
+<input class="form-control" id="mname1" name="mname1" maxlength="20" style="width: 230px; height: 30px;" required="" type="text" placeholder="이름을 입력하세요." data-error="" />
+
+<input class="form-control" required="" placeholder="E-Mail 주소를 입력하세요." data-error="" type="text" name="mmail1" id="mmail1" style="width: 230px; height: 40px;" maxlength="20" />
+
+<input class="form-control" required="" placeholder="아이디가 나타납니다." data-error="" type="text" style="width: 230px; height: 40px;" maxlength="20" value="${mf.mid}" />
+
+
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check();" >아이디찾기</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();" >로그인</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check2();" >회원가입</button>
+								
 		
-				<div style="margin-top:50px;"></div>
+		<br>
+		<br>
 				 
-		<h2 align="center">비밀번호 찾기</h2>
-		 <table border=1 align="center" width="30%" height="300px">
-			<tr>
-				<td>아이디</td>
-				<td colspan=3><input type="text" name="mid" id="mid" size="20" maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td colspan=3><input type="text" name="mname" id="mname" size="20" maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td>E-Mail</td>
-				<td colspan=3><input type="text" name="mmail" id="mmail" size="20" maxlength="20" /></td>
-			</tr>
-			<tr>
-				<td colspan=4 align="center">
-				<p>
-				<input type="text" value="${pf.mpwd}">
-				</p>
-				<input type="button" name="button" value="비밀번호 찾기" onclick="javascript:check3();" />
-				<input type="button" name="button" value="로그인" onclick="javascript:check1();" />
-				<input type="button" name="button" value="회원가입" onclick="javascript:check2();" />
-				</td>				
-				</tr>			
-		</table>	
+<h2 align="center">비밀번호 찾기</h2>
+<br>
+<input class="form-control" type="text" name="mid" id="mid" style="width: 230px; height: 30px;" required="" size="20" maxlength="20" placeholder="아이디를 입력하세요." data-error=""/>
+<input class="form-control" type="text" name="mname" id="mname" style="width: 230px; height: 30px;" required="" size="20" maxlength="20" placeholder="이름을 입력하세요." data-error="" />
+<input class="form-control" type="text" name="mmail" id="mmail" style="width: 230px; height: 30px;" required="" size="20" maxlength="20" placeholder="E-Mail을 입력하세요." data-error="" />
+
+<input class="form-control" required="" placeholder="비밀번호가 나타납니다." data-error="" type="text" style="width: 230px; height: 40px;" maxlength="20" value="${pf.mpwd}" />		
+											
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check3();" >비밀번호찾기</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check1();" >로그인</button>
+<button class="btn std-btn btn-filled" type="button" name="button" onclick="javascript:check2();" >회원가입</button>
+		</div>
+		</center>	
 	</form>	
 </body>
 </html>
