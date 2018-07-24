@@ -628,25 +628,25 @@ small {
 						cols="120" rows="6"></textarea>
 			<input type="hidden" id="rfilename" name="rfilename">
 				
-				<div style="float: left; width:30%;" class="fileDrop">사진첨부</div>
+				<div style="float: left; width:37%;" class="fileDrop">사진첨부</div>
 				<div class='uploadedList'></div>
-				<select class="form1-control input-lg" style="width:23%; height:56px;" name="rstar" id="rstar">
+				<select class="form1-control input-lg" style="width:33%; height:56px;" name="rstar" id="rstar">
 						<option value="5">★★★★★ 완전좋아요</option>
 						<option value="4">★★★★ 좋아요</option>
 						<option value="3">★★★ 보통이에요</option>
 						<option value="2">★★ 그저 그래요</option>
 						<option value="1">★ 별로에요</option>
 				</select>
+				<button class='btn std-btn btn-lg btn-filled' style="float:left; width:70%;" name="save" id="save">입력</button>
 				</div>
-				<div style="position: absolute; width:10%; right: 422px; top: 3176px;">
-				<button class='btn std-btn btn-lg btn-filled'  name="save" id="save">입력</button>
-				</div>
+				
+				
 				
 				
 				
 			
 
-		<br><br><br><br>
+		<br><br><br><br><br>
 			<h3>상품평</h3>
 			<div id=tbl></div>
 
