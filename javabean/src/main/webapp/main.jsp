@@ -16,7 +16,7 @@
                 <!-- 슬라이더 이미지 -->
                 <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
-                    <img src="/resources/helium-ui-kit/img/slider/bg-1.jpg" alt="">
+                    <img src="/resources/aaa.jpg">
                   </div>
                   <div class="carousel-item">
                     <img src="/resources/helium-ui-kit/img/slider/bg-2.jpg" alt="">

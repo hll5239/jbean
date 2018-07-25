@@ -507,7 +507,7 @@ small {
 					<c:if test="${status.index eq 0}">
 						<div
 							style="float: left; width: 50%; text-align: right; padding-right: 2%;">
-							<img src="displayFile?fileName=${prov.promain}" class="img-responsive" style="width:auto; height: 233px;">
+							<img src="displayFile?fileName=${prov.promain}" class="img-responsive" style="max-width:80%; background-clip: div;">
 						</div>
 						<div
 							style="float: right; width: 50%; text-align: left; padding-left: 2%;">
